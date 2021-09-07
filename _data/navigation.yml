@@ -1,8 +1,13 @@
 main:
   - title: "Cirriculum"
     url: /posts/
+  - title: "Blog"
+    url: /blog/
+  - title: "Projects"
+    url: /projects/
   - title: "Publications"
-    url: /categories/
+    url: /publications/
+  
   # - title: "Tags"
   #  url: /tags/
   # - title: "About"
