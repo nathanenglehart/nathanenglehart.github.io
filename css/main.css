@@ -1,3 +1,9 @@
+@media screen and (min-width: 1370px) {
+    body.hero-image #main > .hero-container .img-wide {
+        display: inline;
+    }
+}
+
 a.hov:hover, a.hov:active 
 {
   color: #676767;
