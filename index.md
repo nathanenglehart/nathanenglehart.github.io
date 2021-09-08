@@ -4,7 +4,7 @@ title: Nathan Englehart
 description: "Nathan Englehart's website"
 tags: [Jekyll, theme, responsive, blog, template]
 image:
-  feature: trees.jpg
+  feature: meredith-petrick-ql-y7XozbEk-unsplash.jpg
 ---
 
 <img src="/images/stxinwei.png"/>
