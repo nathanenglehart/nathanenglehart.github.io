@@ -15,7 +15,7 @@ layout: default
 {% endif %}
 
 <div style="max-width: 1800px !important;" id="main" role="main">
-  {% include sidebar.html %}
+  
 
   <article style="width: calc(100% - 400px) !important; padding-right: 300px; float: right;" class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
