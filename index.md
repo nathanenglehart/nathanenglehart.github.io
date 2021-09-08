@@ -7,10 +7,10 @@ image:
   feature: trees.jpg
 ---
 
-<img src="/assets1/stxinwei.png"/>
+<img src="/images/stxinwei.png"/>
 <p></p>
 <figure>
-<img src="/assets1/profile-1-640x480.jpg"/>
+<img src="/images/profile-1-640x480.jpg">
 <figcaption>Nathan Englehart in July 2021</figcaption>
 </figure>
 <div class="bod">
