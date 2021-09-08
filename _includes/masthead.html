@@ -3,33 +3,37 @@
 <div class="masthead">
   <div style="max-width: 1800px !important;" class="masthead__inner-wrap">
     <div class="masthead__menu">
-      <a class="site-title" href="{{ '/' | relative_url }}">
-          {{ site.masthead_title | default: site.title }}
-          {% if site.subtitle %}<span class="site-subtitle">{{ site.subtitle }}</span>{% endif %}
-      </a>
-      <nav id="site-nav" class="greedy-nav">
-        {% unless logo_path == empty %}
-          <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}"></a>
-        {% endunless %}
-        <ul style="justify-content: flex-start;" class="visible-links">
-          {%- for link in site.data.navigation.main -%}
-            <li class="masthead__menu-item">
-              <a href="{{ link.url | relative_url }}"{% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
-            </li>
-          {%- endfor -%}
-        </ul>
-        {% if site.search == true %}
-        <button class="search__toggle" type="button">
-          <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
-          <i class="fas fa-search"></i>
-        </button>
-        {% endif %}
-        <button class="greedy-nav__toggle hidden" type="button">
-          <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
-          <div class="navicon"></div>
-        </button>
-        <ul class="hidden-links hidden"></ul>
-      </nav>
+      <div style="display: inline !important; float: left !important; width: 12.5% !important; margin-left: 16.666666666666668% !important; margin-right: 4.166666666666667% !important; font-size: 1rem !important; margin-bottom: 1em !important;">
+        <a class="site-title" href="{{ '/' | relative_url }}">
+            {{ site.masthead_title | default: site.title }}
+            {% if site.subtitle %}<span class="site-subtitle">{{ site.subtitle }}</span>{% endif %}
+        </a>
+      </div>
+      <div style="display: inline !important; float: left !important; width: 66.66666666666667% !important; margin-right: 0 !important; margin-left: 0 !important; margin-bottom: 1em !important;">
+        <nav id="site-nav" class="greedy-nav">
+          {% unless logo_path == empty %}
+            <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}"></a>
+          {% endunless %}
+          <ul style="justify-content: flex-start;" class="visible-links">
+            {%- for link in site.data.navigation.main -%}
+              <li class="masthead__menu-item">
+                <a href="{{ link.url | relative_url }}"{% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+          {% if site.search == true %}
+          <button class="search__toggle" type="button">
+            <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
+            <i class="fas fa-search"></i>
+          </button>
+          {% endif %}
+          <button class="greedy-nav__toggle hidden" type="button">
+            <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
+            <div class="navicon"></div>
+          </button>
+          <ul class="hidden-links hidden"></ul>
+        </nav>
+      </div>
     </div>
   </div>
 </div>
