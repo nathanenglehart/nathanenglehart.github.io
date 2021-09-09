@@ -29,8 +29,17 @@ disqus_shortname: nathanenglehart
 links:
   - title: Curriculum
     url: /cv/
+  - title: Blog
+    url: /
+  - title: Code
+    url: /
+  - title: Projects
+    url: /
+  - title: Readings
+    url: /
   - title: Publications
     url: /publications/
+  
   
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
