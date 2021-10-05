@@ -17,7 +17,7 @@ image:
 <h3 class="small_title">Introduction</h3>
 
 <p class="paragraph">My name is Nathan Englehart. I use he/him/his pronouns. I am from Toledo, Ohio and attend university at Oberlin College. In the summers of 2020 and 2021, I have also been a guest student at Bowling Green State University.
-My favorite areas of study include East Asian studies (particularly in Chinese language), history (with a focus in East Asia), computer science (especially systems programming and gnu/linux), and statistics (especially probabalistic modeling and machine learning).
+My favorite areas of study include East Asian studies (particularly in Chinese language), history (with a focus in East Asia), computer science (especially involving gnu/linux and free software), mathematics, and statistics.
 When I am not studying, I am playing and teaching tennis. My website is designed to give you an understanding of who I am, my accomplishments, and other helpful resources. </p>
 
 <h3 class="small_title">Contact Me</h3>
