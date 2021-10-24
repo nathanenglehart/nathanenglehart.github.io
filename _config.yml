@@ -6,37 +6,13 @@ url:              //nathanenglehart.github.io
 #https://nathanenglehart.github.io
 disqus_shortname: nathanenglehart
 
-# Owner/author information
-#owner:
-#  name:           Nathan Englehart
-#  avatar:         jordi.png
-#  bio:            I'm from a small town near Girona, Catalunya. Currently in Zürich, Switzerland. Passionate about computer vision, technology, running, and mountains.
-#  email:          jponttuset@gmail.com
-  # Social networking links are used in author-bio sidebar. Update and remove as you like.
-#  twitter: jponttuset
-#  linkedin: jponttuset
-#  google_scholar: VCBBx24AAAAJ
-#  google_plus: 113718226018314522413
-#  github: jponttuset
-# Analytics and webmaster tools stuff goes here
-#google_analytics: UA-52736040-1
-#google_verify:
-# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-#bing_verify:
-
 # Links to include in top navigation
 # For external links add external: true
 links:
   - title: Curriculum
     url: /cv/
-  - title: Blog
-    url: /
-  - title: Code
-    url: /
   - title: Projects
-    url: /
-  - title: Readings
-    url: /
+    url: /projects
   - title: Publications
     url: /publications/
   
