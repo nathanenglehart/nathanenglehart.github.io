@@ -10,4 +10,4 @@ comments: false
 ## 2020
 
 * [**K-nearest-neighbors with K-fold Cross-validation**](https://nathanenglehart.github.io/projects/knn)<br>
-Program to parse handwritten numbers using the K-nearest-neighbors algorithm.
+Method for parsing handwritten numbers using the K-nearest-neighbors algorithm (Adapted from Bayesian Reasoning and Machine Learning by David Barber 2011, Chapter 14). 
