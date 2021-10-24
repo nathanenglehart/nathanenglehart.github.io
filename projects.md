@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 permalink: /projects/
 title: Projects
 tags: [projects]
