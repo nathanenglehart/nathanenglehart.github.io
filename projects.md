@@ -19,4 +19,4 @@ Method for parsing handwritten numbers using the K-nearest-neighbors algorithm (
 Program to generate coherent text using Markov Models coded in Java.
 
 * [**Pathfind using Backtracking in Java**](https://nathanenglehart.github.io/projects/pathfinding)<br>
-Maze-solving backtracking algorithm written in Java for Oberlin College "Data Structures" lecture.
+Maze-solving backtracking algorithm written in Java for an Oberlin College "Data Structures" lecture.
