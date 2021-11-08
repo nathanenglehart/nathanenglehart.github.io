@@ -2,7 +2,10 @@
 layout: home2
 tags: [Jekyll, theme, responsive, blog, template]
 ---
-<p></p>
+
+<figure>
+<img src="/images/Englehart, Nathan (41).JPG">
+</figure>
 
 <figure>
 <img src="/images/Englehart, Nathan (11).JPG ">
@@ -35,5 +38,7 @@ tags: [Jekyll, theme, responsive, blog, template]
 <figure>
 <img src="/images/Englehart, Nathan (61).JPG">
 </figure>
+
+
 
 
