@@ -14,9 +14,3 @@ Implementation of a regression solver that uses cross-validation to find the bes
 
 * [**K-nearest-neighbors with K-fold Cross-validation**](https://nathanenglehart.github.io/projects/knn)<br>
 Method for parsing handwritten numbers using the K-nearest-neighbors algorithm (Adapted from Bayesian Reasoning and Machine Learning by David Barber 2011, Chapter 14).
-
-* [**Text Generation with Markov Models in Java**](https://nathanenglehart.github.io/projects/markovmodels)<br>
-Program to generate coherent text using Markov Models coded in Java.
-
-* [**Pathfind using Backtracking in Java**](https://nathanenglehart.github.io/projects/pathfinding)<br>
-Maze-solving backtracking algorithm written in Java for an Oberlin College "Data Structures" lecture.
