@@ -1,8 +1,10 @@
 ---
 layout: home2
-title: Nathan Englehart
-description: "Nathan Englehart's website"
 tags: [Jekyll, theme, responsive, blog, template]
 ---
-
+<br>
+<img src="/images/Englehart,\ Nathan\ (11).JPG ">
+<br>
+<img src="/images/Englehart,\ Nathan\ (11).JPG ">
+<br>
 
