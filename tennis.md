@@ -4,24 +4,24 @@ tags: [Jekyll, theme, responsive, blog, template]
 ---
 <p></p>
 
+<figure>
 <img src="/images/Englehart, Nathan (11).JPG ">
-<p></p>
+<figcaption>Nathan Englehart in July 2021</figcaption>
+</figure>
 
+<figure>
 <img src="/images/Englehart, Nathan (117).JPG ">
-<p></p>
+</figure>
 
+<figure>
 <img src="/images/Englehart, Nathan (119).JPG ">
-<br>
-<img src="/images/Englehart, Nathan (127).JPG ">
-<br>
-<img src="/images/Englehart, Nathan (140).JPG ">
-<br>
+</figure>
+
 <img src="/images/Englehart, Nathan (142).JPG ">
 <br>
 <img src="/images/Englehart, Nathan (32).JPG ">
 <br>
-<img src="/images/Englehart, Nathan (41).JPG ">
-<br>
+
 <img src="/images/Englehart, Nathan (48).JPG ">
 <br>
 <img src="/images/Englehart, Nathan (49).JPG">
