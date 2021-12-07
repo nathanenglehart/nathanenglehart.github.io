@@ -9,8 +9,8 @@ comments: false
 
 ### 2021
 
-[//]: # (* [**Regression Solver and Computing Best OLS Fit**](https://nathanenglehart.github.io/projects/regression)<br>)
-[//]: # (Implementation of a regression solver that uses cross-validation to find the best ordered least squares (OLS) fit.)
+* [**Naive Bayesian Classifier Algorithm**](https://github.com/nathanenglehart/naive-bayes-cpp-241)<br>
+Naive bayesian classification algorithm written in C++.
 
 * [**K-nearest-neighbors with K-fold Cross-validation**](https://github.com/nathanenglehart/knn-cpp-241)<br>
 Implementation of the K-nearest-neighbors algorithm in C++.
