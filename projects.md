@@ -13,4 +13,4 @@ comments: false
   Naive bayesian classification algorithm written in C++.<br>
   <img src="/images/profile-1-640x480.jpg" width="200">
 * [**K-nearest-neighbors with K-fold Cross-validation**](https://github.com/nathanenglehart/knn-cpp-241)<br>
-Implementation of the K-nearest-neighbors algorithm in C++.
+  Implementation of the K-nearest-neighbors algorithm in C++.
