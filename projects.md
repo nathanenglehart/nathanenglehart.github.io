@@ -9,8 +9,8 @@ comments: false
 
 ### 2021
 
-* [**Naive Bayesian Classifier Algorithm**](https://github.com/nathanenglehart/naive-bayes-cpp-241)<br>
-Naive bayesian classification algorithm written in C++.
+* [**Naive Bayesian Classifier Algorithm**](https://github.com/nathanenglehart/naive-bayes-cpp-241)
+  Naive bayesian classification algorithm written in C++.
   <img src="/images/profile-1-640x480.jpg" width="200">
 * [**K-nearest-neighbors with K-fold Cross-validation**](https://github.com/nathanenglehart/knn-cpp-241)<br>
 Implementation of the K-nearest-neighbors algorithm in C++.
