@@ -18,5 +18,5 @@ comments: false
   Naive bayesian classification algorithm (with both Gaussian and maximum likelihood estimation options) written in C++.
  
 * [**K-nearest-neighbors Classifier Algorithm**](https://github.com/nathanenglehart/knn-cpp-241)<br>
-  <!--<img src="/images/teaser.png" width="400"><br>-->
   Implementation of the k-nearest-neighbors classification algorithm (with k-fold cross-validation) written in C++.
+  <!--<img src="/images/teaser.png" width="400"><br>-->
