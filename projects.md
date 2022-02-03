@@ -9,8 +9,8 @@ comments: false
 
 ### 2022
 
-* [**Modeling Global CO2 Growth Rate with Land Loss Indicators**](https://github.com/nathanenglehart/eco-vit-ml)<br>
-  Climate modeling project using lasso and ridge polynomial regression as well as recurrent neural networks, written with Python3<br>
+* [**Hidden Markov Model Implementation**](https://github.com/nathanenglehart/hmm)<br>
+  Forward-backward, Baum-Welch, and Viterbi written in C++. <br>
 
 ### 2021
 
