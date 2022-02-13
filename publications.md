@@ -1,6 +1,6 @@
 ---
 layout: publications
-permalink: /publications/
+permalink: /research/
 title: 
 tags: [publications]
 modified: 8-7-2014
