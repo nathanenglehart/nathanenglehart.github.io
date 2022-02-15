@@ -7,11 +7,11 @@ image:
   feature: pasindu-uthpala-hc8VRgDj4Ik-unsplash2.jpg
 ---
 
-<img src="/images/stxinwei.png"/>
-<br />
+<!--<img src="/images/stxinwei.png"/>-->
+<!--<br />-->
 <figure>
 <img src="/images/profile-1-640x480.jpg">
-<figcaption>Nathan Englehart in July 2021</figcaption>
+<figcaption>July 2021</figcaption>
 </figure>
 <div class="bod">
 <h3 class="small_title">Introduction</h3>
