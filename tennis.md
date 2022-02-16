@@ -1,6 +1,6 @@
 ---
 layout: home2
-permalink:/tennis/
+permalink: /tennis/
 title: Tennis
 tags: [Jekyll, theme, responsive, blog, template]
 modified: 2-16-22
