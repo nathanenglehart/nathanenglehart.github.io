@@ -1,13 +1,11 @@
 ---
-layout: page
+layout: home2
 permalink:/tennis/
 title: Tennis
 tags: [Jekyll, theme, responsive, blog, template]
 modified: 2-16-22
 comments: false
 ---
-
-# Tennis
 
 <figure>
 <img src="/images/Englehart, Nathan (41).JPG">
