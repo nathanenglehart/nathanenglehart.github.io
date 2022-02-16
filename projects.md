@@ -11,6 +11,7 @@ comments: false
   
 * [**Hidden Markov Model Implementation**](https://github.com/nathanenglehart/hmm)<br>
   Forward-backward, Baum-Welch, and Viterbi written in C++. <br>
+  
 * [**Modeling Carbon Dioxide Growth with Land Loss Indicators**](https://github.com/nathanenglehart/eco-vit-ml)<br>
   Lasso, Ridge, and Neural Network regression models of global environmental data using Python. <br>
 
