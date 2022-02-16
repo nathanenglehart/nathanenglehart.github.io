@@ -1,6 +1,10 @@
 ---
-layout: home2
+layout: page
+permalink:/tennis/
+title: Tennis
 tags: [Jekyll, theme, responsive, blog, template]
+modified: 2-16-22
+comments: false
 ---
 
 <figure>
