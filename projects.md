@@ -9,7 +9,7 @@ comments: false
 
 ### 2022
   
-* [**Hidden Markov Model Implementation**](https://github.com/nathanenglehart/hmm)\<br>
+* [**Hidden Markov Model Implementation**](https://github.com/nathanenglehart/hmm)<br>
   Forward-backward, Baum-Welch, and Viterbi written in C++. <br>
   
 ### 2021
