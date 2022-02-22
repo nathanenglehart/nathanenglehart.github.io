@@ -6,7 +6,7 @@ tags: [projects]
 modified: 10-24-21
 comments: false
 ---
-
+<!--
 ### 2022
   
 * [**Hidden Markov Model Implementation**](https://github.com/nathanenglehart/hmm)<br>
@@ -14,7 +14,7 @@ comments: false
   
 * [**Modeling Carbon Dioxide Growth with Land Loss Indicators**](https://github.com/nathanenglehart/eco-vit-ml)<br>
   Lasso, Ridge, and Neural Network regression models for environmental data, written in Python. <br>
-
+-->
 ### 2021
 
 * [**Naive Bayesian Classifier Algorithm**](https://github.com/nathanenglehart/naive-bayes-cpp-241)<br>
