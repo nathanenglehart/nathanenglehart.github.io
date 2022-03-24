@@ -23,6 +23,7 @@ image:
 <h3 class="small_title">Contact Me</h3>
 
 <p class="paragraph">
-Please reach out to me with any questions via my personal <a style="color: #343434; text-decoration: none; border-bottom: 1px dotted #b3b3b3;" href="mailto:nathanenglehart21@gmail.com">email</a>.
+<!--Please reach out to me with any questions via my personal <a style="color: #343434; text-decoration: none; border-bottom: 1px dotted #b3b3b3;" href="mailto:nathanenglehart21@gmail.com">email</a>.-->
+Please reach out to me via my email: nengleha AT oberlin DOT edu. 
 </p>
 <br />
