@@ -15,6 +15,11 @@ comments: false
 * [**Modeling Carbon Dioxide Growth with Land Loss Indicators**](https://github.com/nathanenglehart/eco-vit-ml)<br>
   Lasso, Ridge, and Neural Network regression models for environmental data, written in Python. <br>
 -->
+### 2022
+
+* [**ASCII Art**](https://nathanenglehart.github.io/ascii-art)<br>
+  Fun renderings using ASCII characters.
+
 ### 2021
 
 * [**Naive Bayesian Classifier Algorithm**](https://github.com/nathanenglehart/naive-bayes-cpp-241)<br>
