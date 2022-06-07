@@ -1,6 +1,6 @@
 ---
 layout: home2
-permalink: /tennis/
+permalink: /t-test/
 title: Student's T-Test
 tags: [Jekyll, theme, responsive, blog, template]
 modified: 2-16-22
