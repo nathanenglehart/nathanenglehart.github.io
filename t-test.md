@@ -1,3 +1,12 @@
+---
+layout: home2
+permalink: /tennis/
+title: Student's T-Test
+tags: [Jekyll, theme, responsive, blog, template]
+modified: 2-16-22
+comments: false
+---
+
 ### One Sample T-Test
 
 The one sample T-Test equation is given by $$t = \frac{\overline{x} - \mu}{\frac{s}{\sqrt{n}}}$$
