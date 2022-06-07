@@ -17,8 +17,12 @@ comments: false
 -->
 ### 2022
 
-* [**ASCII Art**](https://nathanenglehart.github.io/ascii-art)<br>
+<!--* [**ASCII Art**](https://nathanenglehart.github.io/ascii-art)<br>
   Fun renderings using ASCII characters.
+-->
+
+* [**Student's T-Test**](https://nathanenglehart.github.io/t-test)<br>
+  Implementation of the Student's T-Test written in C. 
 
 ### 2021
 
@@ -26,6 +30,6 @@ comments: false
   Naive bayesian classification algorithm (with Gaussian and maximum likelihood estimation options) in C++.<br>
  
 * [**K-nearest-neighbors Classifier Algorithm**](https://github.com/nathanenglehart/knn-cpp-241)<br>
-  Implementation of the k-nearest-neighbors classification algorithm (with k-fold cross-validation) in C++.
+  K-nearest-neighbors classification algorithm (utilizing k-fold cross-validation) in C++.
   <!--<img src="/images/teaser.png" width="400"><br>-->
   
