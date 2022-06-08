@@ -7,4 +7,82 @@ modified: 2-16-22
 comments: false
 ---
 
-Under Construction.
+## Pearson's Chi-squared Test
+
+The equation for Pearson's Chi-squared Test, commonly known as the Chi-squared Test, is used by social scientists and staticians to determine whether there is a statistically significant relationship between two nominal variables or a nominal variable and a small category ordinal variable. 
+
+### Implementation
+
+The equation for Pearson's Chi-squared Test is given by \\[x^2 = \sum \frac{(O_i - E_i)^2}{E_i}\\]where $x^2$ is chi squared, $O_i$ is the observed value and $E_i$ is the expected value.\
+\
+Suppose we hypothesize that: "Women will be more likely than men to think that the government should do more to address climate change."\
+\
+To test this hypothesis, using data from the 2016 American National Election Study Pilot, we find that between the male and female sexes, respondents felt that
+
+\\[
+\begin{array} {|r|r|}\hline  & \text{Male} & \text{Female} & \text{Total} \\ \hline \text{Do Less} & 163 & 101 & 264 \\ \hline \text{Do More} & 309 & 395 & 704 \\ \hline \text{Total} & 472 & 496 & 968 \\ \hline  \end{array}\\]
+where "Do Less" indicates that the respondent feels the government should do less about climate change and "Do More" indicates that the respondent feels the government should do more about climate change. Then, we can write
+
+```c
+/* Nathan Englehart, (Summer, 2022) */
+
+#include <stdio.h>
+#include <math.h>
+
+const int length = 3;
+const int width = 3;
+
+double chi_squared_test(double cross_tabs[length][width]) {
+
+	/* Returns chi-squared value using given inputs. */
+
+	double chi_squared = 0;
+
+	for(int i = 0; i < length-1; i++)
+	{
+		for(int j = 0; j < width-1; j++)
+		{
+			double e = cross_tabs[i][width-1] * (cross_tabs[length-1][j] / cross_tabs[length-1][width-1]);
+			chi_squared += (pow(cross_tabs[i][j] - e, 2)) / e;
+		}
+	}
+
+	return chi_squared;
+}
+
+int main() {
+
+	double cross_tabs [3][3] = {
+		{163, 101, 264},
+		{309, 395, 704},
+		{472, 496, 968}
+	};
+
+	double chi_squared = chi_squared_test(cross_tabs);
+
+	printf("chi_squared = %f.\n",chi_squared);
+	printf("df = %d.\n",(length - 2)* (width - 2));	
+
+	return 0;
+}
+
+```
+In this case, the sample's chi squared value is 24.486299 with 1 degree of freedom.
+
+### Interpreting Results
+To interpret the results of a Chi-squared Test, one needs to know three details:
+
+- The chi squared value.
+- The degrees of freedom of the Chi-squared Test.
+- The level of significance of the Chi-squared Test.
+
+ Then, given a Chi-squared distribution table and these three details, one can determine the meaning of the Chi-squared Test results and whether to accept or reject the  hypothesis. \
+\
+If one's determined chi squared value is greater than its corresponding value on the Chi-squared distribution table, one should reject the hypothesis. Conversely, if one's determined chi squared value is less than its corresponding value on the Chi-squared distribution table, one should accept the hypothesis.\
+\
+Code available at: https://github.com/nathanenglehart/chi-squared-test
+
+### References 
+Miller, Melissa. (2021, June). Chi-squared Test [Lecture]. Bowling Green State University: POLS 2900, Bowling Green, OH, United States.\
+\
+American National Election Studies. (2000). <i>2016 American National Election Study Pilot</i> [Data File]. Retrieved from https://electionstudies.org/data-center/anes-2016-pilot-study/.
