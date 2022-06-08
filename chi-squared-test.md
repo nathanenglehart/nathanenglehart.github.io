@@ -77,7 +77,7 @@ To interpret the results of a Chi-squared Test, one needs to know three details:
 \
 If one's determined chi squared value is greater than its corresponding value on the Chi-squared distribution table, one should reject the hypothesis. Conversely, if one's determined chi squared value is less than its corresponding value on the Chi-squared distribution table, one should accept the hypothesis.\
 \
-Code available at: https://github.com/nathanenglehart/chi-squared-test
+Code available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/chi-squared-test">https://github.com/nathanenglehart/chi-squared-test</a>.
 
 ### References 
 Miller, Melissa. (2021, June). Chi-squared Test [Lecture]. Bowling Green State University: POLS 2900, Bowling Green, OH, United States.\
