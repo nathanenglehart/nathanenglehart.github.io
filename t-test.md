@@ -9,7 +9,7 @@ comments: false
 
 ### One Sample T-Test
 
-The one sample T-Test equation is given by $$t = \frac{\overline{x} - \mu}{\frac{s}{\sqrt{n}}}$$
+The one sample T-Test equation is given by \(t = \frac{\overline{x} - \mu}{\frac{s}{\sqrt{n}}}\)
 where $x$ is the observed mean of the sample, $\mu$ is the theoretical mean of the population, $s$ is the standard deviation of the sample, and $n$ is the sample size.
 
 Suppose the observed sample mean is 74, the theoretical population mean is 78, the standard deviation of the sample is 3.5, and the sample size is 10. Then, we can write:
