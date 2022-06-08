@@ -7,6 +7,8 @@ modified: 2-16-22
 comments: false
 ---
 
+The T-Test is commonly used by social scientists and staticians to determine whether to reject or accept a null hypothesis. 
+
 ### One Sample
 
 The one sample T-Test equation is given by \\[t = \frac{\overline{x} - \mu}{\frac{s}{\sqrt{n}}}\\]
@@ -89,7 +91,7 @@ In this case, the sample's absolute T-Test value is 14.445582 with 103 degrees o
 
 ### Interpreting Results
 
-To interpret the results of a one or two sample T-Test, one needs to know four values:
+To interpret the results of a one or two sample T-Test, one needs to know four details:
 
 - The T value.
 - The degrees of freedom of the T-Test.
@@ -97,7 +99,9 @@ To interpret the results of a one or two sample T-Test, one needs to know four v
 	- For a directional hypothesis, one should conduct a one-tailed T-Test. For a non-directional hypothesis, one should conduct a two tailed T-Test. 
 - The level of significance or alpha level of the T-Test, e.g. 0.01, 0.05, or 0.10.
 
-As such, given a T distribution table, one can determine the meaning of T-Test results. 
+As such, given a T distribution table and these four details, one can determine the meaning of T-Test results and whether to accept or reject the null hypothesis. If one's determined T value is greater than its corresponding value on the T distribution table, one should reject the null hypothesis. If one's determined T value is less than its correpsonding value on the T distribution table, one should accept the null hypothesis. 
+
+Code available at: https://github.com/nathanenglehart/t-test
 
 ### References
 
