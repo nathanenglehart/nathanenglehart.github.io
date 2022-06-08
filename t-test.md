@@ -14,8 +14,7 @@ where $x$ is the observed mean of the sample, $\mu$ is the theoretical mean of t
 \
 Suppose the observed sample mean is 74, the theoretical population mean is 78, the standard deviation of the sample is 3.5, and the sample size is 10. Then, we can write:
 
-```c
-
+```C
 /* Nathan Englehart (Summer, 2022) */
 
 #include <stdio.h>
@@ -44,8 +43,6 @@ int main() {
 	return 0;
 
 }
-
-
 ```
 In this case, the sample's absolute T-Test value is 3.61 with degree of freedom of 9. 
 
@@ -54,8 +51,7 @@ In this case, the sample's absolute T-Test value is 3.61 with degree of freedom 
 The two sample T-Test equation is given by \\[t = \frac{\overline{x}_1-\overline{x}_2}{\sqrt{\frac{s_1^2}{n_1-1} + \frac{s_2^2}{n_2-1}}}\\]
 where $\overline{x}_1$ is the observed mean of the 1st sample and $\overline{x}_2$ is the observed mean of the 2nd sample, $s_1$ is the standard deviation of the 1st sample and $s_2$ is the standard deviation of the 2nd sample, and $n_1$ is the size of the first sample whereas $n_2$ is the size of the second sample.  
 
-```c
-
+```C
 /* Nathan Englehart (Summer, 2022) */
 
 #include <stdio.h>
@@ -88,7 +84,6 @@ int main() {
 	return 0;
 
 }
-
 ```
 In this case, the sample's absolute T-Test value is 14.445582 with 103 degrees of freedom. 
 
