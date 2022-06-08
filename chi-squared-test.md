@@ -71,7 +71,6 @@ int main() {
 
 	return 0;
 }
-
 ```
 In this case, the sample's chi squared value is 24.486299 with 1 degree of freedom.
 
@@ -91,4 +90,4 @@ Code available at: <a style="color: #f56a6a; !important" href="https://github.co
 ### References 
 Miller, Melissa. (2021, June). Chi-squared Test [Lecture]. Bowling Green State University: POLS 2900, Bowling Green, OH, United States.\
 \
-American National Election Studies. (2016). <i>2016 American National Election Study Pilot</i> [Data File]. Retrieved from https://electionstudies.org/data-center/anes-2016-pilot-study/.
+American National Election Studies. (2016). <i>2016 American National Election Study Pilot</i> [Data File]. Retrieved from <a style="color: #f56a6a; !important" href="https://electionstudies.org/data-center/anes-2016-pilot-study/">https://electionstudies.org/data-center/anes-2016-pilot-study/</a>.
