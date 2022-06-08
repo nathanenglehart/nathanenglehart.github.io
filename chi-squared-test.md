@@ -17,7 +17,16 @@ The equation for Pearson's Chi-squared Test is given by \\[x^2 = \sum \frac{(O_i
 \
 Suppose we hypothesize that: "Women will be more likely than men to think that the government should do more to address climate change."\
 \
-To test this hypothesis, using data from the 2016 American National Election Study Pilot, we find that between the male and female sexes, respondents felt that\\[\begin{array} {|r|r|}\hline  & \text{Male} & \text{Female} & \text{Total} \\ \hline \text{Do Less} & 163 & 101 & 264 \\ \hline \text{Do More} & 309 & 395 & 704 \\ \hline \text{Total} & 472 & 496 & 968 \\ \hline  \end{array}\\]
+To test this hypothesis, using data from the 2016 American National Election Study Pilot, we find that between the male and female sexes, respondents felt that
+
+<!--\\[\begin{array} {|r|r|}\hline  & \text{Male} & \text{Female} & \text{Total} \\ \hline \text{Do Less} & 163 & 101 & 264 \\ \hline \text{Do More} & 309 & 395 & 704 \\ \hline \text{Total} & 472 & 496 & 968 \\ \hline  \end{array}\\] -->
+
+|       | Male | Female     | Total |
+| :---        |    :----:   |          :----: | :----: |
+| Do Less      | 163       | 101   | 264 |
+| Do More   | 309        | 395     | 704 |
+| Total | 472 | 496 | 968 |
+
 where "Do Less" indicates that the respondent feels the government should do less about climate change and "Do More" indicates that the respondent feels the government should do more about climate change. Then, we can write
 
 ```c
