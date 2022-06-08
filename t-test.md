@@ -97,8 +97,10 @@ To interpret the results of a one or two sample T-Test, one needs to know four d
 	- For a directional hypothesis, one should conduct a one-tailed T-Test. For a non-directional hypothesis, one should conduct a two tailed T-Test. 
 - The level of significance or alpha level of the T-Test, e.g. 0.01, 0.05, or 0.10.
 
-As such, given a T distribution table and these four details, one can determine the meaning of T-Test results and whether to accept or reject the null hypothesis. If one's determined T value is greater than its corresponding value on the T distribution table, one should reject the null hypothesis. If one's determined T value is less than its correpsonding value on the T distribution table, one should accept the null hypothesis. 
-
+As such, given a T distribution table and these four details, one can determine the meaning of T-Test results and whether to accept or reject the null hypothesis. \
+\
+If one's determined T value is greater than its corresponding value on the T distribution table, one should reject the null hypothesis. If one's determined T value is less than its correpsonding value on the T distribution table, one should accept the null hypothesis. \
+\
 Code available at: https://github.com/nathanenglehart/t-test
 
 ### References
