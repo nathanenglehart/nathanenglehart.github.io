@@ -24,8 +24,8 @@ comments: false
 * [**Difference of Two Population Proportions Test**](https://nathanenglehart.github.io/difference-of-two-population-proportions-test)<br>
   Difference of Two Population Proportions Test written in C.<br>
 
-* [**Chi-squared Test**](https://nathanenglehart.github.io/chi-squared-test)<br>
-  Implementation of the Chi-squared Test written utilizing C.<br>
+* [**Pearson's Chi-squared Test**](https://nathanenglehart.github.io/chi-squared-test)<br>
+  Pearson's Chi-squared Test written in C with 2016 ANES survey data example.<br>
 
 * [**Student's T-Test**](https://nathanenglehart.github.io/t-test)<br>
   Implementation of the Student's T-Test written utilizing C. 
