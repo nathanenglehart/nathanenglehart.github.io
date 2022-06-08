@@ -21,10 +21,10 @@ To test this hypothesis, using data from the 2016 American National Election Stu
 
 <!--\\[\begin{array} {|r|r|}\hline  & \text{Male} & \text{Female} & \text{Total} \\ \hline \text{Do Less} & 163 & 101 & 264 \\ \hline \text{Do More} & 309 & 395 & 704 \\ \hline \text{Total} & 472 & 496 & 968 \\ \hline  \end{array}\\] -->
 
-| Gov. should do more about rising temps. | Male | Female     | Total |
-| :---        |    :----:   |          :----: | :----: |
-| Do Less      | 163       | 101   | 264 |
-| Do More   | 309        | 395     | 704 |
+| Gov. should do more about rising temps. | Male | Female | Total |
+| :----: | :----: | :----: | :----: |
+| Do Less | 163 | 101 | 264 |
+| Do More | 309 | 395 | 704 |
 | Total | 472 | 496 | 968 |
 
 where "Do Less" indicates that the respondent feels the government should do less about climate change and "Do More" indicates that the respondent feels the government should do more about climate change. Then, we can write
