@@ -4,7 +4,7 @@ title: Home
 description: "Nathan Englehart's website"
 tags: [Jekyll, theme, responsive, blog, template]
 image:
-  feature: cle.jpg
+  feature: tol.jpg
 ---
 
 <!--<img src="/images/stxinwei.png"/>-->
