@@ -1,13 +1,13 @@
 ---
 layout: home2
 permalink: /t-test/
-title: 
+title: T-Test
 tags: [Jekyll, theme, responsive, blog, template]
 modified: 2-16-22
 comments: false
 ---
 
-### One Sample T-Test
+### One Sample
 
 The one sample T-Test equation is given by \\[t = \frac{\overline{x} - \mu}{\frac{s}{\sqrt{n}}}\\]
 where $x$ is the observed mean of the sample, $\mu$ is the theoretical mean of the population, $s$ is the standard deviation of the sample, and $n$ is the sample size. \
@@ -46,7 +46,7 @@ int main() {
 ```
 In this case, the sample's absolute T-Test value is 3.61 with degree of freedom of 9. 
 
-### Two Sample Tailed T-Test
+### Two Sample
 
 The two sample T-Test equation is given by \\[t = \frac{\overline{x}_1-\overline{x}_2}{\sqrt{\frac{s_1^2}{n_1-1} + \frac{s_2^2}{n_2-1}}}\\]
 where $\overline{x}_1$ is the observed mean of the 1st sample and $\overline{x}_2$ is the observed mean of the 2nd sample, $s_1$ is the standard deviation of the 1st sample and $s_2$ is the standard deviation of the 2nd sample, and $n_1$ is the size of the first sample whereas $n_2$ is the size of the second sample.  
@@ -89,7 +89,7 @@ In this case, the sample's absolute T-Test value is 14.445582 with 103 degrees o
 
 ### Interpreting Results
 
-To interpret the results of a T-Test, one needs to know four values:
+To interpret the results of a one or two sample T-Test, one needs to know four values:
 
 - The T value.
 - The degrees of freedom of the T-Test.
@@ -97,4 +97,8 @@ To interpret the results of a T-Test, one needs to know four values:
 	- For a directional hypothesis, one should conduct a one-tailed T-Test. For a non-directional hypothesis, one should conduct a two tailed T-Test. 
 - The level of significance or alpha level of the T-Test, e.g. 0.01, 0.05, or 0.10.
 
-As such, given a T distribution table, one can determine the meaning of T-Test results.
+As such, given a T distribution table, one can determine the meaning of T-Test results. 
+
+### References
+
+Miller, Melissa. (2021, June). T-Test [Lecture]. Bowling Green State University: POLS 2900, Bowling Green, OH, United States.
