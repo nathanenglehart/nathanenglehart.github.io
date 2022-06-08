@@ -1,13 +1,13 @@
 ---
 layout: home2
 permalink: /chi-squared-test/
-title: Chi-squared Test
+title: Pearson's Chi-squared Test
 tags: [Jekyll, theme, responsive, blog, template]
 modified: 2-16-22
 comments: false
 ---
 
-## Pearson's Chi-squared Test
+<!--## Pearson's Chi-squared Test-->
 
 The equation for Pearson's Chi-squared Test, commonly known as the Chi-squared Test, is used by social scientists and staticians to determine whether there is a statistically significant relationship between two nominal variables or a nominal variable and a small category ordinal variable. 
 
