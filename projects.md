@@ -21,8 +21,14 @@ comments: false
   Fun renderings using ASCII characters.
 -->
 
+* [**Difference of Two Population Proportions Test**](https://nathanenglehart.github.io/difference-of-two-population-proportions-test)<br>
+  Difference of Two Population Proportions Test written in C.<br>
+
+* [**Chi-squared Test**](https://nathanenglehart.github.io/chi-squared-test)<br>
+  Implementation of the Chi-squared Test written utilizing C.<br>
+
 * [**Student's T-Test**](https://nathanenglehart.github.io/t-test)<br>
-  Implementation of the Student's T-Test written in C. 
+  Implementation of the Student's T-Test written utilizing C. 
 
 ### 2021
 
