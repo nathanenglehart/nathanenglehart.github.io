@@ -51,7 +51,7 @@ In this case, the sample's absolute T-Test value is 3.61 with degree of freedom 
 
 ### Two Sample Tailed T-Test
 
-The two sample T-Test equation is given by $$t = \frac{\overline{x}_1-\overline{x}_2}{\sqrt{\frac{s_1^2}{n_1-1} + \frac{s_2^2}{n_2-1}}}$$
+The two sample T-Test equation is given by \(t = \frac{\overline{x}_1-\overline{x}_2}{\sqrt{\frac{s_1^2}{n_1-1} + \frac{s_2^2}{n_2-1}}}\)
 where $\overline{x}_1$ is the observed mean of the 1st sample and $\overline{x}_2$ is the observed mean of the 2nd sample, $s_1$ is the standard deviation of the 1st sample and $s_2$ is the standard deviation of the 2nd sample, and $n_1$ is the size of the first sample whereas $n_2$ is the size of the second sample.  
 
 ```C
