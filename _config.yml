@@ -31,6 +31,8 @@ kramdown:
 permalink:   /:categories/:title/
 
 kramdown:
+  input: GFM
+  syntax_highlighter: rouge
   math_engine: mathjax
   auto_ids: true
   footnote_nr: 1
