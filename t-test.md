@@ -101,7 +101,7 @@ As such, given a T distribution table and these four details, one can determine 
 \
 If one's determined T value is greater than its corresponding value on the T distribution table, one should reject the null hypothesis. If one's determined T value is less than its correpsonding value on the T distribution table, one should accept the null hypothesis. \
 \
-Code available at: https://github.com/nathanenglehart/t-test
+Code available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/t-test">https://github.com/nathanenglehart/t-test</a>.
 
 ### References
 
