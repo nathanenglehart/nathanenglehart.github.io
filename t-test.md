@@ -98,7 +98,7 @@ As such, given a T distribution table (shown below) and these four details, one 
 \
 <center>
 	![](https://www.tdistributiontable.com/wp-content/uploads/2020/08/t-table.png)
-<center>
+</center>
 <figcaption align = "center"><b>Fig.1 - T Table</b></figcaption> \
 \
 If one's determined T value is greater than its corresponding value on the T distribution table, one should reject the null hypothesis. If one's determined T value is less than its correpsonding value on the T distribution table, one should accept the null hypothesis, meaning that our test found no significant relationship between variables. \
