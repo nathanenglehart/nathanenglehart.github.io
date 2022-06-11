@@ -9,7 +9,7 @@ comments: false
 
 <!--## Pearson's Chi-squared Test-->
 
-The equation for Pearson's Chi-squared Test, commonly known as the Chi-squared Test, is used by social scientists and staticians to determine whether there is a statistically significant relationship between two nominal variables or a nominal variable and a small category ordinal variable. 
+The equation for Pearson's Chi-squared Test, commonly known as the Chi-squared Test, is used by social scientists and staticians to determine whether there is a statistically significant relationship between two nominal variables. 
 
 ### Implementation
 
@@ -81,9 +81,9 @@ To interpret the results of a Chi-squared Test, one needs to know three details:
 - The degrees of freedom of the Chi-squared Test.
 - The level of significance of the Chi-squared Test.
 
- Then, given a Chi-squared distribution table and these three details, one can determine the meaning of the Chi-squared Test results and whether to accept or reject the  hypothesis. \
+ Then, given a Chi-squared distribution table and these three details, one can determine the meaning of the Chi-squared Test results and whether to accept or reject the null hypothesis. \
 \
-If one's determined chi squared value is less than its corresponding value on the Chi-squared distribution table, one should reject the hypothesis. Conversely, if one's determined chi squared value is greater than its corresponding value on the Chi-squared distribution table, one should accept the hypothesis.\
+If one's determined chi squared value is less than its corresponding value on the Chi-squared distribution table, one should accept the null hypothesis, meaning that no relationship was found between variables. Conversely, if one's determined chi squared value is greater than its corresponding value on the Chi-squared distribution table, one should reject null the hypothesis.\
 \
 Code available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/chi-squared-test">https://github.com/nathanenglehart/chi-squared-test</a>.
 
