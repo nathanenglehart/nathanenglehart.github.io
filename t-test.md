@@ -96,7 +96,7 @@ To interpret the results of a one or two sample T-Test, one needs to know four d
 
 As such, given a T distribution table (shown below) and these four details, one can determine the meaning of T-Test results and whether to accept or reject the null hypothesis. 
 
-|           |<p align="left">P</p>      |       |        |        |        |         |         |
+|           |<th align="left">P</th>      |       |        |        |        |         |         |
 |-----------|-------|-------|--------|--------|--------|---------|---------|
 | one-tail  | 0.1   | 0.05  | 0.025  | 0.01   | 0.005  | 0.001   | 0.0005  |
 | two-tails | 0.2   | 0.1   | 0.05   | 0.02   | 0.01   | 0.002   | 0.001   |
