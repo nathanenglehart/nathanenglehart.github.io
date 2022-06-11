@@ -94,14 +94,19 @@ To interpret the results of a one or two sample T-Test, one needs to know four d
 	- For a directional hypothesis, one should conduct a one-tailed T-Test. For a non-directional hypothesis, one should conduct a two tailed T-Test. 
 - The level of significance or alpha level of the T-Test, e.g. 0.05, 0.01, or 0.10.
 
-As such, given a T distribution table (shown below) and these four details, one can determine the meaning of T-Test results and whether to accept or reject the null hypothesis. 
-
-![](https://www.tdistributiontable.com/wp-content/uploads/2020/08/t-table.png)
-
-If one's determined T value is greater than its corresponding value on the T distribution table, one should reject the null hypothesis. If one's determined T value is less than its correpsonding value on the T distribution table, one should accept the null hypothesis, meaning that our test found no significant relationship between variables. \
-\
+As such, given a T distribution table (shown below) and these four details, one can determine the meaning of T-Test results and whether to accept or reject the null hypothesis. /
+/
+<center>
+	![](https://www.tdistributiontable.com/wp-content/uploads/2020/08/t-table.png)
+<center>
+<figcaption align = "center"><b>Fig.1 - T Table</b></figcaption>/
+/
+If one's determined T value is greater than its corresponding value on the T distribution table, one should reject the null hypothesis. If one's determined T value is less than its correpsonding value on the T distribution table, one should accept the null hypothesis, meaning that our test found no significant relationship between variables. /
+/
 Code available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/t-test">https://github.com/nathanenglehart/t-test</a>.
 
 ### References
 
-Miller, Melissa. (2021, June). T-Test [Lecture]. Bowling Green State University: POLS 2900, Bowling Green, OH, United States.
+Miller, Melissa. (2021, June). T-Test [Lecture]. Bowling Green State University: POLS 2900, Bowling Green, OH, United States./
+	/
+T Table. (2022). <a style="color: #f56a6a; !important" href="https://www.ztable.net/">https://www.ztable.net</a>
