@@ -84,7 +84,7 @@ To interpret the results of a Chi-squared Test, one needs to know three details:
 - The degrees of freedom of the Chi-squared Test.
 - The level of significance of the Chi-squared Test.
 
- Then, given a Chi-squared distribution table and these three details, one can determine the meaning of the Chi-squared Test results and whether to accept or reject the null hypothesis. \
+ Then, given a Chi-squared distribution table (such as the one available at <a style="color: #f56a6a; !important" href="https://people.richland.edu/james/lecture/m170/tbl-chi.html">https://people.richland.edu/james/lecture/m170/tbl-chi.html</a>) and these three details, one can determine the meaning of the Chi-squared Test results and whether to accept or reject the null hypothesis. \
 \
 If one's determined chi squared value is less than its corresponding value on the Chi-squared distribution table, one should accept the null hypothesis, meaning that no relationship was found between variables. Conversely, if one's determined chi squared value is greater than its corresponding value on the Chi-squared distribution table, one should reject null the hypothesis.\
 \
