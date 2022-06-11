@@ -96,21 +96,7 @@ To interpret the results of a one or two sample T-Test, one needs to know four d
 
 As such, given a T distribution table (shown below) and these four details, one can determine the meaning of T-Test results and whether to accept or reject the null hypothesis. 
 
-|          P|       |       |        |        |        |         |         |
-|-----------|-------|-------|--------|--------|--------|---------|---------|
-| one-tail  | 0.1   | 0.05  | 0.025  | 0.01   | 0.005  | 0.001   | 0.0005  |
-| two-tails | 0.2   | 0.1   | 0.05   | 0.02   | 0.01   | 0.002   | 0.001   |
-| df        |       |       |        |        |        |         |         |
-| 1         | 3.078 | 6.314 | 12.706 | 31.821 | 63.656 | 318.289 | 636.578 |
-| 2         | 1.886 | 2.92  | 4.303  | 6.965  | 9.925  | 22.328  | 31.6    |
-| 3         | 1.638 | 2.353 | 3.182  | 4.541  | 5.841  | 10.214  | 12.924  |
-| 4         | 1.533 | 2.132 | 2.776  | 3.747  | 4.604  | 7.173   | 8.61    |
-| 5         | 1.476 | 2.015 | 2.571  | 3.365  | 4.032  | 5.894   | 6.869   |
-| 6         |       |       |        |        |        |         |         |
-| 7         |       |       |        |        |        |         |         |
-| 8         |       |       |        |        |        |         |         |
-| 9         |       |       |        |        |        |         |         |
-| 10        |       |       |        |        |        |         |         |
+![](https://www.tdistributiontable.com/wp-content/uploads/2020/08/t-table.png)
 
 If one's determined T value is greater than its corresponding value on the T distribution table, one should reject the null hypothesis. If one's determined T value is less than its correpsonding value on the T distribution table, one should accept the null hypothesis, meaning that our test found no significant relationship between variables. \
 \
