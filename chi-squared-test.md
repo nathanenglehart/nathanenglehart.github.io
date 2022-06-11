@@ -13,7 +13,10 @@ The equation for Pearson's Chi-squared Test, commonly known as the Chi-squared T
 
 ### Implementation
 
-The equation for Pearson's Chi-squared Test is given by \\[x^2 = \sum \frac{(O_i - E_i)^2}{E_i}\\]where $x^2$ is chi squared, $O_i$ is the observed value and $E_i$ is the expected value.\
+The equation for Pearson's Chi-squared Test is given by \\[x^2 = \sum \frac{(O_i - E_i)^2}{E_i}\\]where $x^2$ is chi squared, $O_i$ is the observed value and $E_i$ is the expected value. \
+\
+Similar to the Student's T-Test, degrees of freedom are needed to interpret the findings Chi-squared Tests. The equation for degrees of freedom for the Chi-squared Test is given by \\[ \text{df} = (r-1)(c-1) \\]
+where $r$ is the number of resonse categories and $c$ is the number of types of respondents. \
 \
 Suppose we hypothesize that: "Women will be more likely than men to think that the government should do more to address climate change."\
 \
