@@ -1,7 +1,7 @@
 ---
 layout: home2
-permalink: /t-test/
-title: Student's T-Test
+permalink: /z-score/
+title: Standard Score
 tags: [Jekyll, theme, responsive, blog, template]
 modified: 2-16-22
 comments: false
