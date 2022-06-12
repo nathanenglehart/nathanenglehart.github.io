@@ -15,7 +15,8 @@ where $\sigma$ is the standard deviation of the population and $\mu$ is the popu
 As such, before calculating a Z-score, one must compute the mean, given by \\[\mu = \frac{\sum x_i}{N}\\]
 where $x_i$ represents each value from the population and $N$ represents the number of terms in the population. \
 \
-One must also compute the the standard deviation, given by $$\sigma = \sqrt{\frac{\sum (x_i - \mu)^2}{N}}$$where, again, $x_i$ represents each value from the population and $N$ represents the number of terms in the population. \
+One must also compute the the standard deviation, given by \\[\sigma = \sqrt{\frac{\sum (x_i - \mu)^2}{N}} \\] 
+where, again, $x_i$ represents each value from the population and $N$ represents the number of terms in the population. \
 \
 Thus, to compute a Z-score, we can write
 
