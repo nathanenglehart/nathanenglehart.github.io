@@ -21,8 +21,11 @@ comments: false
   Fun renderings using ASCII characters.
 -->
 
-* [**Difference of Two Population Proportions Test**](https://nathanenglehart.github.io/difference-of-two-population-proportions-test)<br>
-  Difference of Two Population Proportions Test written in C.<br>
+<!--* [**Difference of Two Population Proportions Test**](https://nathanenglehart.github.io/difference-of-two-population-proportions-test)<br>
+  Difference of Two Population Proportions Test written in C.<br>-->
+  
+* [**Standard Score**](https://nathanenglehart.github.io/z-score)<br>
+  Computing the Standard Score, commonly known as the Z-score, using C.<br>  
 
 * [**Pearson's Chi-squared Test**](https://nathanenglehart.github.io/chi-squared-test)<br>
   Pearson's Chi-squared Test written in C with 2016 ANES survey data example.<br>
