@@ -9,7 +9,7 @@ comments: false
 
 In statistics, the Standard Score, commonly known as a Z-score, is used to calculate the number of standard deviations away from the mean for specific data points. This calculation is highly useful for various applications, including the difference in population proportions test. \
 \
-The equation for the Z score for a raw score $x$ is computed by\\[Z = \frac{x - \mu}{\sigma}\\]
+The equation for the Z score for a raw score $x$ is computed by \\[Z = \frac{x - \mu}{\sigma}\\]
 where $\sigma$ is the standard deviation of the population and $\mu$ is the population mean. \
 \
 As such, before calculating a Z-score, one must compute the mean, given by \\[\mu = \frac{\sum x_i}{N}\\]
@@ -68,7 +68,6 @@ int main() {
 
 	return 0;
 }
-
 ```
 
 Code available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/z-score">https://github.com/nathanenglehart/z-score</a>.
