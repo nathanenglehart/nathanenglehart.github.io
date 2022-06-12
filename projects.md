@@ -28,7 +28,7 @@ comments: false
   Pearson's Chi-squared Test written in C with 2016 ANES survey data example.<br>
 
 * [**Student's T-Test**](https://nathanenglehart.github.io/t-test)<br>
-  Implementation of the Student's T-Test written utilizing C. 
+  One Sample and Two Samples Student's T-Test implementations written utilizing C with examples. 
 
 ### 2021
 
