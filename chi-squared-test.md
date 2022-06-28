@@ -38,8 +38,14 @@ where "Do Less" indicates that the respondent feels the government should do les
 #include <stdio.h>
 #include <math.h>
 
-const int length = 3;
-const int width = 3;
+double cross_tabs [3][3] = {
+	{163, 101, 264},
+	{309, 395, 704},
+	{472, 496, 968}
+};
+
+int length = sizeof(cross_tabs) / sizeof(cross_tabs[0]);
+int width = sizeof(cross_tabs[0])/sizeof(cross_tabs[0][0]);
 
 double chi_squared_test(double cross_tabs[length][width]) {
 
@@ -60,12 +66,6 @@ double chi_squared_test(double cross_tabs[length][width]) {
 }
 
 int main() {
-
-	double cross_tabs [3][3] = {
-		{163, 101, 264},
-		{309, 395, 704},
-		{472, 496, 968}
-	};
 
 	double chi_squared = chi_squared_test(cross_tabs);
 
