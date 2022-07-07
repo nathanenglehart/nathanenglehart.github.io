@@ -9,8 +9,8 @@ comments: false
 
 The K nearest neighbors (KNN) classifier is a highly useful and popular tool for applications of data mining. KNN is a relatively simple, supervised machine learning algorithm that classifies vector data points, each of which stores data and a classification, by computing the distance between an input vector and all other vectors. Upon examining all vectors in the dataset, KNN determines the plurality class of the K nearest vectors and assigns this ideal classification to the input vector. In KNN, distance can be measured using various $L^\mathcal{p}$ norms such as the Manhattan distance formula, the Chebyshev distance formula, and the Euclidean distance formula. \
 \
-The Manhattan distance formula is given by
-\\[ d(p,q) = \sum^{n}_{i=1} |p_i - q_i| \\]
+The Manhattan distance formula is given by $d(p,q) = \sum_{i=1}^{n} |p_i - q_i|$. \
+\
 The Chebyshev distance formula is given by
 \\[ d(p,q) = \max{(|p_i - q_i|)} \\]
 The Euclidean distance formula is given by
