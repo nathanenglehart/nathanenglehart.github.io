@@ -16,7 +16,7 @@ image:
 <div class="bod">
 <h3 class="small_title">Introduction</h3>
 
-<p>My name is Nathan Englehart. I use he/him/his pronouns. I am from Toledo, Ohio and attend university at Oberlin College. I am currently seeking to enter a Political Science PhD program in the Fall of 2024 with propective focuses in comparitive politics, political economy, and methodology.
+<p>My name is Nathan Englehart. I use he/him/his pronouns. I am from Toledo, Ohio and attend university at Oberlin College. I am currently seeking to enter a Political Science PhD program in the Fall of 2024 with propective focuses in methodology and comparitive politics.
   
   <!--In the summers of 2020 and 2021, I have also been a guest student at Bowling Green State University.-->
 <!--- My favorite areas of study include East Asian studies (particularly in Chinese language), history (with a focus in East Asia), computer science (especially involving gnu/linux and free software), and statistics (in particular, machine learning). --->
