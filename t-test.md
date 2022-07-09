@@ -14,7 +14,7 @@ The Student's T-Test, commonly known as the T-Test, is frequently used by social
 The one sample T-Test equation is given by \\[t = \frac{\overline{x} - \mu}{\frac{s}{\sqrt{n}}}\\]
 where $\overline{x}$ is the observed mean of the sample, $\mu$ is the theoretical mean of the population, $s$ is the standard deviation of the sample, and $n$ is the sample size. For the One Sample T-Test, degrees of freedom are given by \\[\text{df} = n - 1 \\]
 <!--Suppose the observed sample mean is 74, the theoretical population mean is 78, the standard deviation of the sample is 3.5, and the sample size is 10. Then, we can write:-->
-According to usnews, in 2021, the average American watched 3.1 hours of tv per day. As such, using data from the 2021 General Social Survey, we can hypothesize that there is no difference in the tv watching habits of the average American according to usnews and the average General Social Survey respondent. Then, using the tvhours variable from the 2021 General Social Survey, we can find that the observed sample mean is 3.476400, the standard deviation of the sample is 3.101692, and the sample size is 3780. Additionally, as previously noted, the theoretical population mean is 3.1.
+According to usnews, in 2021, the average American watched 3.1 hours of tv per day. As such, using data from the 2021 General Social Survey (GSS), we can hypothesize that there is no difference in the tv watching habits of the average American according to usnews and the average General Social Survey respondent. Then, using the tvhours variable from the 2021 GSS, we can find that the observed sample mean is 3.476400, the standard deviation of the sample is 3.101692, and the sample size is 3780. Additionally, as previously noted, the theoretical population mean is 3.1. Then, we can write using C:
 
 ```c
 /* Nathan Englehart (Summer, 2022) */
@@ -46,7 +46,7 @@ int main() {
 ```
 In this case, the sample's T value is 7.460448 with degree of freedom of 3779. \
 \
-To avoid so many manual calculations, this process can be simplified using <strong>R</strong>.
+To avoid so many manual calculations, this process can be simplified using R:
 
 ```r
 #!/usr/bin/env Rscript
@@ -135,6 +135,8 @@ To interpret the results of a one or two sample T-Test, one needs to know four d
 As such, given a T distribution table (such as the one available at <a style="color: #f56a6a; !important" href="https://t-tables.net/">https://t-tables.net/</a>) and these four details, one can determine the meaning of T-Test results and whether to accept or reject the null hypothesis. \
 \
 If one's determined T value is greater than its corresponding value on the T distribution table, one should reject the null hypothesis. If one's determined T value is less than its correpsonding value on the T distribution table, one should accept the null hypothesis, meaning that our test found no significant relationship between variables. \
+\
+For example, in the One Sample T-Test example, we found a T value of 7.4096 which is greater than 3.291, the value for the 99.9% confidence interval for more than 1000 degrees of freedom. As such, we can reject the null hypothesis, meaning there is a statistically significant difference in the average amount of time Americans watch tv per day according to usnews and the average amount of time respondents watch tv per day according to the 2021 GSS. \
 \
 Code available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/t-test">https://github.com/nathanenglehart/t-test</a>.
 
