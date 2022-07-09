@@ -211,4 +211,6 @@ Code available at: <a style="color: #f56a6a; !important" href="https://github.co
 
 Miller, Melissa. (2021, June). T-Test [Lecture]. Bowling Green State University: POLS 2900, Bowling Green, OH, United States.\
 \
+GSS General Social Survey. (2021). 2021 General Social Survey [Data File]. Retrieved from <a style="color: #f56a6a; !important" href="https://gss.norc.org/">https://gss.norc.org/</a>.
+\
 <!--T Table. (2022). <a style="color: #f56a6a; !important" href="https://www.ztable.net/">https://www.ztable.net</a>-->
