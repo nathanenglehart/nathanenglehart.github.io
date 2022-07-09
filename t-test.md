@@ -13,7 +13,8 @@ The Student's T-Test, commonly known as the T-Test, is frequently used by social
 
 The one sample T-Test equation is given by \\[t = \frac{\overline{x} - \mu}{\frac{s}{\sqrt{n}}}\\]
 where $\overline{x}$ is the observed mean of the sample, $\mu$ is the theoretical mean of the population, $s$ is the standard deviation of the sample, and $n$ is the sample size. For the One Sample T-Test, degrees of freedom are given by \\[\text{df} = n - 1 \\]
-Suppose the observed sample mean is 74, the theoretical population mean is 78, the standard deviation of the sample is 3.5, and the sample size is 10. Then, we can write:
+<!--Suppose the observed sample mean is 74, the theoretical population mean is 78, the standard deviation of the sample is 3.5, and the sample size is 10. Then, we can write:-->
+According to usnews, in 2021, the average American watched 3.1 hours of tv per day. As such, using data from the 2021 General Social Survey, we can hypothesize that there is no difference in the tv watching habits of the average American according to usnews and the average General Social Survey respondent. Then, using the tvhours variable from the 2021 General Social Survey, we can find that the observed sample mean is 3.476400, the standard deviation of the sample is 3.101692, and the sample size is 3780. Additionally, as previously noted, the theoretical population mean is 3.1.
 
 ```c
 /* Nathan Englehart (Summer, 2022) */
@@ -30,11 +31,11 @@ double one_sample(double x_bar, double mu, double s, int n) {
 
 int main() {
 
-	double x_bar = 74.0;
-	double mu = 78.0;
-	double s = 3.5;
-	int n = 10;
-
+	double x_bar = 3.476400;
+	double mu = 3.1;
+	double s = 3.10192;
+	int n = 3780;
+	
 	double t = one_sample(x_bar, mu, s, n);
 
 	printf("absolute t = %f.\n",t);
@@ -43,7 +44,44 @@ int main() {
 	return 0;
 }
 ```
-In this case, the sample's T value is 3.61 with degree of freedom of 9. 
+In this case, the sample's T value is 7.460448 with degree of freedom of 3779. \
+\
+To avoid so many manual calculations, this process can be simplified using <strong>R</strong>.
+
+```r
+#!/usr/bin/env Rscript
+
+### Nathan Englehart (Summer 2022)
+
+gss_data <- read_sav("data.sav")
+
+one_sample_t_test <- function(sample,theoretical_mean) {
+
+   ### Returns the t value and degrees of freedom with one sample t test using given sample and theoretical mean. 
+   ###	
+   ###   Args:
+   ###           
+   ###	      sample::[List]
+   ###	         Given sample 
+   ###	      
+   ###	      theoretical_mean::[Double]
+   ###	         Theoretical mean of sample.
+   ###
+   ###
+
+   t = (mean(sample,na.rm = TRUE)-theoretical_mean)/(sd(sample, na.rm = TRUE)/(sqrt(length(!is.na(sample)))))
+   df = length(sample) - 1 
+
+   return(list(t,df))
+}
+
+sample = as.numeric(unlist(gss_data[,"tvhours"])) # how many hours per day do you watch tv
+tm = 3.1
+
+result = one_sample_t_test(sample,tm)
+result
+```
+And this script returns the same results.
 
 ### Two Sample
 
