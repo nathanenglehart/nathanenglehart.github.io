@@ -23,6 +23,8 @@ comments: false
 
 <!--* [**Difference of Two Population Proportions Test**](https://nathanenglehart.github.io/difference-of-two-population-proportions-test)<br>
   Difference of Two Population Proportions Test written in C.<br>-->
+* [**Multivariate Regression Class Implementations**](https://nathanenglehart.github.io/regression)<br>
+  Implementations of OLS, ridge, lasso, and elastic net classes using Python. <br> 
   
 * [**Standard Score**](https://nathanenglehart.github.io/z-score)<br>
   Computing the Standard Score, commonly known as the Z-score, using C.<br>  
