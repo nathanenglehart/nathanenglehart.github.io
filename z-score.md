@@ -18,7 +18,7 @@ where $x_i$ represents each value from the population and $N$ represents the num
 One must also compute the the standard deviation, given by \\[\sigma = \sqrt{\frac{\sum (x_i - \mu)^2}{N}} \\] 
 where, again, $x_i$ represents each value from the population and $N$ represents the number of terms in the population. \
 \
-Thus, to compute a Z-score, we can write
+Thus, to compute the Z-score of 1 in a population of 1, 2, 3, 4, and 5, we can write
 
 ```c
 /* Nathan Englehart (Summer, 2022) */
