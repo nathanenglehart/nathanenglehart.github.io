@@ -11,8 +11,8 @@ The K nearest neighbors (KNN) classifier is a highly useful and popular tool for
 Therefore, using C++ and the Eigen linear algebra library, we can write:
 ```cpp
 #include <cmath>
-#include "includes/eigen3/Eigen/Dense"
-#include "includes/eigen3/Eigen/StdVector"
+#include "eigen3/Eigen/Dense"
+#include "eigen3/Eigen/StdVector"
 
 double EuclideanDistance(Eigen::VectorXd a, Eigen::VectorXd b, int length)
 {
@@ -36,6 +36,7 @@ where $\hat{t}_n$ represents the classifier's output for a training point $n$, a
 Hence, to compute the misclassification rate, we can write:
 ```cpp
 #include <vector>
+#include <algorithm>
 
 double misclassification_rate(std::vector<int> labels, std::vector<int> ground_truth_labels)
 {
