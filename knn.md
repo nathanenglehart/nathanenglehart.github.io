@@ -1,5 +1,5 @@
 ---
-layout: home2
+layout: page
 permalink: /knn/
 title: K-Nearest Neighbors Classifier Algorithm
 tags: [Jekyll, theme, responsive, blog, template]
