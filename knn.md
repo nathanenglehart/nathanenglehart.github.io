@@ -60,7 +60,7 @@ double misclassification_rate(std::vector<int> labels, std::vector<int> ground_t
 ```
 KNN is commonly applied in many settings, especially in medical research. For instance, KNN can be used to classify malignant cancer cells based on cell data including cell measurements in a dataset available freely from the UCI Maching Learning Repository. \
 \
-Code available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/knn-cpp-241">https://github.com/nathanenglehart/knn-cpp-241</a>.
+Full code for implementation available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/knn-cpp-241">https://github.com/nathanenglehart/knn-cpp-241</a>.
 
 ### References
 
