@@ -121,5 +121,33 @@ class ridge_regression():
 
       return self.predictions
 ```
-
+In both regressions, the prediction vector is given by:
+\\[ \hat{t} = X\theta \\]
 Code available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/regression">https://github.com/nathanenglehart/regression</a>.
+### Simple Linear Regression Example
+Using data from the 1993 Auto MPG (miles per gallon) Dataset available from the UCI Machine Learning repository, suppose we wish to graph a regression to predict MPG with car weight. To set up our data for our regression requires building our regressor matrix $X$. As such, our matrix should contain two columns. The first column should contain all ones. This columns account for the intercept term. The second column should contain the car weight data. Thus, we can write:
+\\[ X = \begin{bmatrix} 1 & x_1 \\ 1 & x_2 \\ \vdots & \vdots \\ 1 & x_n \end{bmatrix} \\]
+where car weight $= \{x_1, x_2, ..., x_n\}$. As such, with Python we can can write:
+```python
+data = pd.read_csv("mpg.csv", sep=",")
+
+t = np.array(data['mpg'])
+x = np.array(data['weight'])
+
+X = np.array([np.ones(len(t)), x]).T
+
+model = ols_regression()
+model = ols_regression().fit(X,t)
+
+t_hat = model.predict(X)
+
+plt.scatter(np.array(data['weight']), np.array(data['mpg']), color='g')
+plt.plot(np.array(data['weight']), t_hat, color='k')
+plt.xlabel('weight')
+plt.ylabel('mpg')
+plt.show()
+```
+As a result, this script yields:
+<img src="images/simple_regression.png" alt="simple_regression.png"/>
+### Polynomial Regression Example
+Again, utilizing the Auto MPG dataset, suppose we again wish to graph a regression predicting MPG with car weight. However, this time we wish to utilize a second order polynomial model. To do so, we can utilize the same process as before, but we must build our regressor matrix differently.
