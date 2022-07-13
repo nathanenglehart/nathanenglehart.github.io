@@ -126,10 +126,10 @@ In both regressions, the prediction vector is given by:
 Code available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/regression">https://github.com/nathanenglehart/regression</a>.
 ### Simple Linear Regression Example
 Using data from the 1993 Auto MPG (miles per gallon) Dataset available from the UCI Machine Learning repository, suppose we wish to graph a regression to predict MPG with car weight. To set up our data for our regression requires building our regressor matrix $X$. As such, our matrix should contain two columns. The first column should contain all ones. This columns account for the intercept term. The second column should contain the car weight data. Thus, we can write:
-\\[ X = \begin{bmatrix} 1 & x_1 \\ 
-                        1 & x_2 \\ 
-			\vdots & \vdots \\ 
-			1 & x_n \end{bmatrix} \\]
+\\[ X = \left[ \matrix{1 & x_1 \cr 
+                        1 & x_2 \cr 
+			\vdots & \vdots \cr 
+			1 & x_n \cr} \right]
 where car weight is represented by the vector $x = \{x_1, x_2, ..., x_n\}$. As such, with Python we can can write:
 ```python
 data = pd.read_csv("mpg.csv", sep=",")
