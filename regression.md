@@ -308,6 +308,6 @@ In all of the above examples, the ridge_regression() class can be used interchan
 
 ### References
 
-Rogers, Simon and Girolami, Mark. (2017).  A First Course in Machine Learning Second Edition. Routledge.
-
+Rogers, Simon and Girolami, Mark. (2017).  A First Course in Machine Learning Second Edition. Routledge.\
+\
 Quinlan, Ross. (1983). UCI Machine Learning Repository <a style="color: #f56a6a; !important" href="https://archive.ics.uci.edu/ml/datasets/auto+mpg">https://archive.ics.uci.edu/ml/datasets/auto+mpg</a>. Irvine, CA: University of California, School of Information and Computer Science.
