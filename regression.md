@@ -242,4 +242,61 @@ As such, this script displays:
 <img src="/images/mpg_multi.png" alt="/images/mpg_multi.png"/>
 Cases with more variables are similar, but not able to be visualized.
 ### Polynomial multivariate regression
-Suppose we want to again graph a regression predicting MPG with car weight and displacement. However, this time we wish to use a second order polynomial to do so. In this case, 
+Suppose we want to again graph a regression predicting MPG with car weight and displacement. However, this time we wish to use a second order polynomial to do so. Thus, we should create a regressor matrix with a column of the form
+\\[ X = \pmatrix{ 1 & x_1 & y_1 & x_1^2 & x_1 \cdot y_1 & y_1^2 \cr
+                  1 & x_2 & y_2 & x_2^2 & x_2 \cdot y_2 & y_2^2 \cr
+		  \vdots & \vdots & \vdots& \vdots & vdots \cr
+		  1 & x_n & y_n & x_n^2 & x_n \cdots y_n & y_n^2
+} \\]
+where again, car weight is given by $x = \{x_1, x_2, ..., x_n\}$ and displacement is given by $y = \{y_1, y_2, ..., y_n\}$. \
+\
+So, using Python, we can write:
+```python
+data = pd.read_csv("mpg.csv", sep=",")
+
+t = np.array(data['mpg'])
+x = np.array(data['weight'])
+y = np.array(data['displacement'])
+X = np.array([x, y]).T
+
+degree = 2
+poly = PolynomialFeatures(degree)
+X = poly.fit_transform(X)
+
+model = ols_regression()
+model = ols_regression().fit(X,t)
+
+t_hat = model.predict(X)
+
+# Create set of ordered pairs to work with on graph
+
+x_pts = np.linspace(x.min(), x.max(), 30)
+y_pts = np.linspace(y.min(), y.max(), 30)
+x_pairs, y_pairs = np.meshgrid(x_pts,y_pts)
+
+# Get values for all ordered pairs in set using model
+
+z = model.coef_[0] + model.coef_[1] * x_pairs + model.coef_[2] * y_pairs + model.coef_[3] * x_pairs**2 + (model.coef_[4] * y_pairs * x_pairs) + (model.coef_[5] * y_pairs**2)
+
+# Graph
+
+fig = plt.figure(figsize = (1000,1000))
+ax = plt.axes(projection='3d')
+ax.plot_surface(x_pairs,y_pairs,z, rstride=1, cstride=1, color='teal', alpha=0.4, antialiased=False)
+ax.scatter(x,y,t, c = 'r')
+ax.set_ylabel('displacement')
+ax.set_title('mpg', fontsize=20)
+plt.xlabel('\n\n\nweight', fontsize=18)
+plt.ylabel('\n\n\ndisplacement', fontsize=16)
+plt.show()
+```
+Then, this script displays:
+<img src="/images/mpg_multi_poly.png" alt="/images/mpg_multi_poly.png"/>
+Again, cases with more variables are similar, but not able to be visualized. Cases with higher degrees utilize a similar regressor matrix construction. For instance, for a third degree polynomial, we should create a regressor matrix of the form
+\\[ X = \pmatrix{ 1 & x_1 & y_1 & x_1^2 & x_1 \cdot y_1 & y_1^2 & x_1^3 & x_1^2 \cdot y_1 & x_1 \cdot y_1^2 & y_1^3 \cr
+                  1 & x_2 & y_2 & x_2^2 & x_2 \cdot y_2 & y_2^2 & x_2^3 & x_2^2 \cdot y_2 & x_2 \cdot y_2^2 & y_2^3 \cr
+	          \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \cr
+		  1 & x_n & y_n & x_n^2 & x_n \cdot y_n & y_n^2 & x_n^3 & x_n^2 \cdot y_n & x_n \cdot y_n^2 & y_n^3
+}
+\\]
+Other cases with higher degree polynomials entail the construction of similar regressor matricies.
