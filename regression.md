@@ -130,7 +130,7 @@ Using data from the 1993 Auto MPG (miles per gallon) Dataset available from the 
                         1 & x_2 \\ 
 			\vdots & \vdots \\ 
 			1 & x_n \end{bmatrix} \\]
-where car weight $= \{x_1, x_2, ..., x_n\}$. As such, with Python we can can write:
+where car weight is represented by the vector $x = \{x_1, x_2, ..., x_n\}$. As such, with Python we can can write:
 ```python
 data = pd.read_csv("mpg.csv", sep=",")
 
