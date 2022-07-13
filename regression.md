@@ -11,7 +11,7 @@ Multivariate regression methods are commonly used in the social sciences to exam
 \
 OLS seeks to find coefficients for the regression function which minimize prediction error. It does so with
 \\[ \theta = (X^T X)^{-1} X^T t \\]
-where $\theta$ represents the OLS estimator, $X$ is an n $\times$ m matrix containing independent variable parameters, and $t$ is a vector of response variables. \
+where $\theta$ represents the OLS estimator, $X$ is an $n \times m$ matrix containing independent variable parameters, and $t$ is a vector of response variables. \
 \
 As such, we can write an OLS class using Python with:
 
@@ -62,7 +62,7 @@ class ols_regression():
 
 In situations where regression equations need to be generalizable for future data, regressions that employ regularization methods to penalize overfitting with high coefficients are often utilized with cross validation. One such method is ridge regression, which computes its coefficients with
 \\[ \theta = (X^T X + \lambda I)^{-1} X^T t \\]
-where $\theta$ represents the ridge estimator, $X$ is an n $\times$ m matrix containing independent variable parameters, $\lambda$ is the weight penalty, $I$ is a m $\times$ m identity matrix, and $t$ is a vector of response variables. Notably, ridge regression is also highly useful with multicollinear, highly correlated independent variables.  \
+where $\theta$ represents the ridge estimator, $X$ is an $n \times m$ matrix containing independent variable parameters, $\lambda$ is the weight penalty, $I$ is a m $\times$ m identity matrix, and $t$ is a vector of response variables. Notably, ridge regression is also highly useful with multicollinear, highly correlated independent variables.  \
 \
 Thus, similar to OLS, we can again write a ridge class using Python with:
 
@@ -135,11 +135,11 @@ Using data from the 1993 Auto MPG (miles per gallon) Dataset available from the 
 1 & x_2 \cr
 \vdots & \vdots \cr
 1 & x_n}\\]
-\\[ X = \bmatrix{
+<!--\\[ X = \bmatrix{
 1 & x_1 \cr 
 1 & x_2 \cr
 \vdots & \vdots \cr
-1 & x_n}\\]
+1 & x_n}\\] -->
 where car weight is represented by the vector $x = \{x_1, x_2, ..., x_n\}$. As such, with Python we can can write:
 ```python
 data = pd.read_csv("mpg.csv", sep=",")
@@ -163,4 +163,33 @@ plt.show()
 As a result, this script displays:
 <img src="/images/mpg_simple.png" alt="/images/mpg_simple.png"/>
 ### Polynomial Regression Example
-Again, utilizing the Auto MPG dataset, suppose we again wish to graph a regression predicting MPG with car weight. However, this time we wish to utilize a second order polynomial model. To do so, we can utilize the same process as before, but we must build our regressor matrix differently.
+Again, utilizing the Auto MPG dataset, suppose we again wish to graph a regression predicting MPG with car weight. However, this time we wish to utilize a second order polynomial model. To do so, we can utilize the same process as before, but we must build our regressor matrix differently. In this case, our matrix will maintain the same format, except we will need to append another column of $x$ with every term squared. Therefore, we can write:
+\\[ X = \pmatrix{
+1 & x_1 & x_1^2 \cr 
+1 & x_2 & x_2^2 \cr
+\vdots & \vdots & \vdots \cr
+1 & x_n & x_n^2 }\\]
+Now, by slightly modifying our original Python code we can write:
+```python
+data = pd.read_csv("mpg.csv", sep=",")
+
+t = np.array(data['mpg'])
+x = np.array(data['weight'])
+
+X = np.array([np.ones(len(t)), x, np.square(x)]).T
+
+model = ols_regression()
+model = ols_regression().fit(X,t)
+
+t_hat = model.predict(X)
+
+plt.scatter(np.array(data['weight']), np.array(data['mpg']), color='g')
+x, t_hat = zip(*sorted(zip(x,t_hat))) # plot points in order
+plt.plot(np.array(data['weight']), t_hat, color='k')
+plt.xlabel('weight')
+plt.ylabel('mpg')
+plt.show()
+```
+And as a result, the script displays:
+<img src="/images/mpg_second_degree.png" alt="/images/mpg_second_degree.png"/>
+### Mulivariate Regression Example
