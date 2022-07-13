@@ -245,7 +245,7 @@ Cases with more variables are similar, but not able to be visualized.
 Suppose we want to again graph a regression predicting MPG with car weight and displacement. However, this time we wish to use a second order polynomial to do so. Thus, we should create a regressor matrix with a column of the form
 \\[ X = \pmatrix{ 1 & x_1 & y_1 & x_1^2 & x_1 \cdot y_1 & y_1^2 \cr
                   1 & x_2 & y_2 & x_2^2 & x_2 \cdot y_2 & y_2^2 \cr
-		  \vdots & \vdots & \vdots& \vdots & vdots \cr
+		  \vdots & \vdots & \vdots& \vdots & \vdots & \vdots \cr
 		  1 & x_n & y_n & x_n^2 & x_n \cdots y_n & y_n^2
 } \\]
 where again, car weight is given by $x = \{x_1, x_2, ..., x_n\}$ and displacement is given by $y = \{y_1, y_2, ..., y_n\}$. \
@@ -299,4 +299,8 @@ Again, cases with more variables are similar, but not able to be visualized. Cas
 		  1 & x_n & y_n & x_n^2 & x_n \cdot y_n & y_n^2 & x_n^3 & x_n^2 \cdot y_n & x_n \cdot y_n^2 & y_n^3
 }
 \\]
-Other cases with higher degree polynomials entail the construction of similar regressor matricies.
+Other cases with higher degree polynomials entail the construction of similar regressor matricies. 
+
+### Notes 
+
+In all of the above examples, the ridge_regression() class can be used interchangably with the ols_regression() class.
