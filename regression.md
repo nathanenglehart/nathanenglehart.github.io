@@ -193,3 +193,50 @@ plt.show()
 And as a result, the script displays:
 <img src="/images/mpg_second_degree.png" alt="/images/mpg_second_degree.png"/>
 ### Mulivariate Regression Example
+Now, suppose we want to graph a regression predicting MPG with car weight and displacement. In this case, we should create our regression matrix using a constant column, a column for car weight, and a column for displacement:
+\\[ X = \pmatrix{
+1 & x_{1_1} & x_{2_1} \cr
+1 & x_{1_2} & x_{2_2} \cr
+\vdots & \vdots & \vdots \cr
+1 & x_{1_n} & x_{2_n} }\\]
+Then, using Python, we can write:
+```python
+data = pd.read_csv("mpg.csv", sep=",")
+
+t = np.array(data['mpg'])
+x_1 = np.array(data['weight'])
+x_2 = np.array(data['displacement'])
+
+X = np.array([np.ones(len(t)), x_1, x_2).T
+
+model = ols_regression()
+model = ols_regression().fit(X,t)
+
+t_hat = model.predict(X)
+
+# Create set of ordered pairs to work with on graph
+
+x = np.linspace(x_1.min(), x_1.max(), 30)
+y = np.linspace(x_2.min(), x_2.max(), 30)
+x, y = np.meshgrid(x,y)
+
+# Get values for all ordered pairs in set using model
+
+z = model.coef_[0] + model.coef_[1] * x + model.coef_[2] * y
+
+# Graph
+
+fig = plt.figure(figsize = (1000,1000))
+ax = plt.axes(projection='3d')
+ax.plot_surface(x,y,z, rstride=1, cstride=1, color='teal', alpha=0.4, antialiased=False)
+ax.scatter(x_1,x_2,t, c = 'r')
+ax.set_ylabel('displacement')
+ax.set_title('mpg', fontsize=20)
+plt.xlabel('\n\n\nweight', fontsize=18)
+plt.ylabel('\n\n\ndisplacement', fontsize=16)
+plt.show()
+```
+As such, this script displays:
+<img src="/images/mpg_multi.png" alt="/images/mpg_multi.png"/>
+Cases with more variables are similar, but not able to be visualized.
+### Polynomial multivariate regression
