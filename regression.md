@@ -193,21 +193,23 @@ plt.show()
 And as a result, the script displays:
 <img src="/images/mpg_second_degree.png" alt="/images/mpg_second_degree.png"/>
 ### Mulivariate Regression Example
-Now, suppose we want to graph a regression predicting MPG with car weight and displacement. In this case, we should create our regression matrix using a constant column, a column for car weight, and a column for displacement:
+Now, suppose we want to graph a regression predicting MPG with car weight and displacement. In this case, we should create our regression matrix using a constant column, a column for car weight, and a column for displacement. As such, we can write:
 \\[ X = \pmatrix{
-1 & x_{1_1} & x_{2_1} \cr
-1 & x_{1_2} & x_{2_2} \cr
+1 & x_{1} & y_{1} \cr
+1 & x_{2} & y_{2} \cr
 \vdots & \vdots & \vdots \cr
-1 & x_{1_n} & x_{2_n} }\\]
+1 & x_{n} & y_{n} } \\]
+where car weight is given by $x = \{x_1, x_2, ..., x_n\}$ and displacement is given by $y = \{y_1, y_2, ..., y_n\}$. \
+\
 Then, using Python, we can write:
 ```python
 data = pd.read_csv("mpg.csv", sep=",")
 
 t = np.array(data['mpg'])
-x_1 = np.array(data['weight'])
-x_2 = np.array(data['displacement'])
+x = np.array(data['weight'])
+y = np.array(data['displacement'])
 
-X = np.array([np.ones(len(t)), x_1, x_2).T
+X = np.array([np.ones(len(t)), x, y]).T
 
 model = ols_regression()
 model = ols_regression().fit(X,t)
@@ -216,20 +218,20 @@ t_hat = model.predict(X)
 
 # Create set of ordered pairs to work with on graph
 
-x = np.linspace(x_1.min(), x_1.max(), 30)
-y = np.linspace(x_2.min(), x_2.max(), 30)
-x, y = np.meshgrid(x,y)
+x_pts = np.linspace(x.min(), x.max(), 30)
+y_pts = np.linspace(y.min(), y.max(), 30)
+x_pairs, y_pairs = np.meshgrid(x_pts,y_pts)
 
 # Get values for all ordered pairs in set using model
 
-z = model.coef_[0] + model.coef_[1] * x + model.coef_[2] * y
+z = model.coef_[0] + model.coef_[1] * x_pairs + model.coef_[2] * y_pairs
 
 # Graph
 
 fig = plt.figure(figsize = (1000,1000))
 ax = plt.axes(projection='3d')
-ax.plot_surface(x,y,z, rstride=1, cstride=1, color='teal', alpha=0.4, antialiased=False)
-ax.scatter(x_1,x_2,t, c = 'r')
+ax.plot_surface(x_pairs,y_pairs,z, rstride=1, cstride=1, color='teal', alpha=0.4, antialiased=False)
+ax.scatter(x,y,t, c = 'r')
 ax.set_ylabel('displacement')
 ax.set_title('mpg', fontsize=20)
 plt.xlabel('\n\n\nweight', fontsize=18)
@@ -240,3 +242,4 @@ As such, this script displays:
 <img src="/images/mpg_multi.png" alt="/images/mpg_multi.png"/>
 Cases with more variables are similar, but not able to be visualized.
 ### Polynomial multivariate regression
+Suppose we want to again graph a regression predicting MPG with car weight and displacement. However, this time we wish to use a second order polynomial to do so. In this case, 
