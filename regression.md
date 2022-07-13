@@ -148,6 +148,6 @@ plt.ylabel('mpg')
 plt.show()
 ```
 As a result, this script yields:
-<img src="images/simple_regression.png" alt="images/simple_regression.png"/>
+<img src="images/mpg_simple.png" alt="images/mpg_simple.png"/>
 ### Polynomial Regression Example
 Again, utilizing the Auto MPG dataset, suppose we again wish to graph a regression predicting MPG with car weight. However, this time we wish to utilize a second order polynomial model. To do so, we can utilize the same process as before, but we must build our regressor matrix differently.
