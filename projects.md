@@ -24,7 +24,7 @@ comments: false
 <!--* [**Difference of Two Population Proportions Test**](https://nathanenglehart.github.io/difference-of-two-population-proportions-test)<br>
   Difference of Two Population Proportions Test written in C.<br>-->
 * [**OLS and Ridge Regression Class Implementations**](https://nathanenglehart.github.io/regression)<br>
-  Implementations of OLS and ridge regression classes using Python. <br> 
+  Implementations of OLS and ridge regression classes using Python with 1993 Auto MPG dataset examples. <br> 
   
 * [**Standard Score**](https://nathanenglehart.github.io/z-score)<br>
   Computing the Standard Score, commonly known as the Z-score, using C.<br>  
