@@ -142,6 +142,8 @@ Using data from the 1993 Auto MPG (miles per gallon) Dataset available from the 
 1 & x_n}\\] -->
 where car weight is represented by the vector $x = \{x_1, x_2, ..., x_n\}$. As such, with Python we can can write:
 ```python
+from matplotlib import pyplot as plt
+
 data = pd.read_csv("mpg.csv", sep=",")
 
 t = np.array(data['mpg'])
@@ -171,6 +173,8 @@ Again, utilizing the Auto MPG dataset, suppose we again wish to graph a regressi
 1 & x_n & x_n^2 }\\]
 Now, by slightly modifying our original Python code we can write:
 ```python
+from matplotlib import pyplot as plt
+
 data = pd.read_csv("mpg.csv", sep=",")
 
 t = np.array(data['mpg'])
@@ -203,6 +207,10 @@ where car weight is given by $x = \{x_1, x_2, ..., x_n\}$ and displacement is gi
 \
 Then, using Python, we can write:
 ```python
+from matplotlib import pyplot as plt
+from mpl_toolkits import mplot3d
+plt.style.use('seaborn-poster')
+
 data = pd.read_csv("mpg.csv", sep=",")
 
 t = np.array(data['mpg'])
@@ -252,6 +260,10 @@ where again, car weight is given by $x = \{x_1, x_2, ..., x_n\}$ and displacemen
 \
 So, using Python, we can write:
 ```python
+from matplotlib import pyplot as plt
+from mpl_toolkits import mplot3d
+plt.style.use('seaborn-poster')
+
 data = pd.read_csv("mpg.csv", sep=",")
 
 t = np.array(data['mpg'])
