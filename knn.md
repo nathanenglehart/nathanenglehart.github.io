@@ -137,7 +137,7 @@ Next, in order to draw more accurate predictions than those one might come to by
 \\[ \text{Misclassification Rate} = \frac{1}{N} \sum_{n} I (\hat{t}_n \neq t_n) \\]
 where $\hat{t}_n$ represents the classifier's output for a training point $n$, and $I(A)$ returns $1$ if $A$ is true and $0$ if $A$ is false. Whichever K value has the least average misclassification rate across N folds is the ideal K. This K is the one that should be used when adding a new vector to assign a classification. \
 \
-Hence, to compute the misclassification rate, we can write:
+As such, to compute the misclassification rate, we can write:
 ```cpp
 #include <vector>
 #include <algorithm>
@@ -163,9 +163,118 @@ double misclassification_rate(std::vector<int> labels, std::vector<int> ground_t
   return (double) incorrect / labels.size();
 }
 ```
+Next, to split the dataset into $K$ folds, we can utilize the function:
+```cpp
+std::vector<Eigen::Matrix<double,Eigen::Dynamic,Eigen::Dynamic>, Eigen::aligned_allocator<Eigen::Matrix<double,Eigen::Dynamic,Eigen::Dynamic> > > split(Eigen::MatrixXd dataset, int K)
+{
+
+  	/* Returns shuffled list of K Eigen::MatrixXd folds, split from input dataset. */
+
+	int place = 0;
+
+	//create temporary std::vector to hold rows of dataset
+	std::vector<Eigen::Vector<double,Eigen::Dynamic>, Eigen::aligned_allocator<Eigen::Vector<double,Eigen::Dynamic> > > temp;
+	for(int i = 0; i < dataset.rows(); i++)
+	{
+		temp.push_back(dataset.row(i));
+	}
+
+	// shuffle std::vector
+
+	auto random_number_generator = std::default_random_engine {};
+	std::shuffle(std::begin(temp), std::end(temp), random_number_generator);
+
+	// write shuffled rows into a new shuffled matrix
+
+	Eigen::MatrixXd shuffled(dataset.rows(),dataset.cols());
+	for( auto v : temp )
+	{
+		shuffled.row(place++) = v;
+	}
+
+	place = 0;
+
+	std::vector<Eigen::Matrix<double,Eigen::Dynamic,Eigen::Dynamic>, Eigen::aligned_allocator<Eigen::Matrix<double,Eigen::Dynamic,Eigen::Dynamic> > > list; // does not like not regular ints as arguments, e.g. row len and fold len
+
+	for(int i = 0; i < K; i++)
+	{
+		Eigen::MatrixXd fold(dataset.rows() / K,dataset.cols());
+
+		for(int j = 0; j < dataset.rows() / K; j++)
+		{
+			Eigen::VectorXd x = shuffled.row(place++);
+			fold.row(j) = x;
+		}
+
+		list.push_back(fold);
+	}
+
+	return list;
+}
+```
+Finally to run $K$ fold cross validation, we can write:
+```cpp
+double kfcv(Eigen::MatrixXd dataset, int K, std::vector<int> (*classifier) (Eigen::MatrixXd train, int train_size, Eigen::MatrixXd validation, int validation_size, int optimal_parameter, double (*distance_function) (Eigen::VectorXd a, Eigen::VectorXd b, int length)), int param, double (*distance_function) (Eigen::VectorXd a, Eigen::VectorXd b, int length))
+{
+	/* Returns std::vector of error statistics from run of cross validation using given error function and classification function. */
+
+	std::vector<Eigen::Matrix<double,Eigen::Dynamic,Eigen::Dynamic>, Eigen::aligned_allocator<Eigen::Matrix<double,Eigen::Dynamic,Eigen::Dynamic> > > folds = split(dataset,K);
+
+	double total_error = 0;
+
+	for(int i = 0; i < K; i++)
+	{
+		int length = dataset.rows() / K;
+		int train_place = 0;
+		int validation_place = 0;
+
+		Eigen::MatrixXd validation(length * 1,dataset.cols());
+		Eigen::MatrixXd train(length * (K-1),dataset.cols());
+
+		int idx = 0;
+
+		for(auto v : folds)
+		{
+			if(idx != i)
+			{
+				for(int j = 0; j < length; j++)
+				{
+					train.row(train_place++) = v.row(j);
+				}
+			}
+
+			if(idx == i)
+			{
+				for(int j = 0; j < length; j++)
+				{
+					validation.row(validation_place++) = v.row(j);
+				}
+			}
+
+			idx = idx + 1;
+		}
+
+		std::vector<int> truth_labels;
+
+		idx = 0;
+
+		for(int i = 0; i < validation.rows(); i++)
+		{
+			truth_labels.push_back(validation.coeff(i,0));
+		}
+
+		std::vector<int> predictions = classifier(validation,validation.rows(),train,train.rows(),param,*&distance_function); // change to distance function parameter
+
+		double error = misclassification_rate(predictions,truth_labels);
+		total_error += error;
+	}
+
+	return (double) total_error / K;
+}
+```
 <!--KNN is commonly applied in many settings, especially in medical research. For instance, KNN can be used to classify malignant cancer cells based on cell data including cell measurements in a dataset available freely from the UCI Maching Learning Repository. \
 \-->
-For example, utilizing the 1936 Iris dataset which contains 150 flowers classified by species and their respective sepal and petal measurements, for $K = 1$ to $K = 135$, cross validation computed the following misclassification rates:
+Using this code on the 1936 Iris dataset which contains 150 flowers classified by species and their respective sepal and petal measurements, for $K = 1$ to $K = 135$, cross validation computed the following misclassification rates:
 <img src="/images/misclassification_rate_across_folds_iris.png" alt="/images/misclassification_rate_across_folds_iris.png"/>
 choosing $K = 19$ as the optimal value for minimizing the misclassification rate across folds. \
 \
