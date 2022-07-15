@@ -274,8 +274,10 @@ double kfcv(Eigen::MatrixXd dataset, int K, std::vector<int> (*classifier) (Eige
 ```
 <!--KNN is commonly applied in many settings, especially in medical research. For instance, KNN can be used to classify malignant cancer cells based on cell data including cell measurements in a dataset available freely from the UCI Maching Learning Repository. \
 \-->
-Using this code on the 1936 Iris dataset which contains 150 flowers classified by species and their respective sepal and petal measurements, for $K = 1$ to $K = 135$, cross validation computed the following misclassification rates:
-<img src="/images/misclassification_rate_across_folds_iris.png" alt="/images/misclassification_rate_across_folds_iris.png"/>
+Using this code on the 1936 Iris dataset which contains 150 flowers classified by species and their respective sepal and petal measurements, for $K = 1$ to $K = 135$, cross validation computed the following misclassification rates: \
+\
+<img src="/images/misclassification_rate_across_folds_iris.png" alt="/images/misclassification_rate_across_folds_iris.png"/> \
+\
 choosing $K = 19$ as the optimal value for minimizing the misclassification rate across folds. \
 \
 Full code for implementation available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/knn-cpp-241">https://github.com/nathanenglehart/knn-cpp-241</a>.
