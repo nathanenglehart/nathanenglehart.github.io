@@ -22,4 +22,4 @@ Code for both implementations available at: <a style="color: #f56a6a; !important
 ### References
 Barber, David. (2016). Bayesian Reasoning and Machine Learning. Cambridge University Press. \
 \
-Kuhn, Max and Johnson, Kjell. (2013). Applied Predictive Modeling, 2013. Springer
+Kuhn, Max and Johnson, Kjell. (2013). Applied Predictive Modeling, 2013. Springer.
