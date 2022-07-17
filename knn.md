@@ -284,4 +284,6 @@ Full code for implementation available at: <a style="color: #f56a6a; !important"
 
 ### References
 
+Barber, David (2016). Bayesian Reasoning and Machine Learning. Cambridge University Press. \
+\
 Fisher, R.A. (1988). UCI Machine Learning Repository <a style="color: #f56a6a; !important" href="https://archive.ics.uci.edu/ml/datasets/iris">https://archive.ics.uci.edu/ml/datasets/iris</a>. Irvine, CA: University of California, School of Information and Computer Science.
