@@ -19,3 +19,7 @@ where $\sigma$ represents standard deviation and $\mu$ represents mean. \
 Gaussian Naive Bayes assumes that the probabilities associated with each class are distributed using a normal distribution. Similar to a maximum likelihood estimator of Naive Bayes, we calculate the prior density using the overall frequency of each classification in our training dataset, however, the difference lies in how we calculate our class-conditional density. We calculate the class-conditional density by drawing from a Gaussian distribution. We are then able to predict the classification in a similar way to our maximum likelihood algorithm, by multiplying our class conditional probability by our prior for each classification. We then normalize our probabilities, using the total number of classifications, and classify each test vector using the highest probability. \
 \
 Code for both implementations available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/naive-bayes-cpp-241">https://github.com/nathanenglehart/naive-bayes-cpp-241</a>
+### References
+Barber, David. (2016). Bayesian Reasoning and Machine Learning. Cambridge University Press. \
+\
+Kuhn, Max and Johnson, Kjell. (2013). Applied Predictive Modeling, 2013. Springer
