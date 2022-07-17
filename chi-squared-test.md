@@ -9,7 +9,7 @@ comments: false
 
 <!--## Pearson's Chi-squared Test-->
 
-The equation for Pearson's Chi-squared Test, commonly known as the Chi-squared Test, is used by social scientists and staticians to determine whether there is a statistically significant relationship between two nominal variables. 
+The equation for Pearson's Chi-squared Test, commonly known as the Chi-squared Test, is used by social scientists and staticians to determine whether there is a statistically significant relationship between two nominal variables by accepting or rejecting a null hypothesis.  
 
 ### Implementation
 
@@ -18,9 +18,7 @@ The equation for Pearson's Chi-squared Test is given by \\[x^2 = \sum \frac{(O_i
 Similar to the Student's T-Test, degrees of freedom are needed to interpret the findings Chi-squared Tests. The equation for degrees of freedom for the Chi-squared Test is given by \\[ \text{df} = (r-1)(c-1) \\]
 where $r$ is the number of categories of the independent variable and $c$ is the number of categories of the dependent variable. \
 \
-Suppose we hypothesize that: "Women will be more likely than men to think that the government should do more to address climate change."\
-\
-To test this hypothesis, using data from the 2016 American National Election Study Pilot, we find that between the male and female sexes, respondents felt that
+Suppose we suspect that women will be more likely than men to think that the government should do more to address climate change. Then, using data from the 2016 American National Election Study Pilot (ANES), we find that between the male and female sexes, respondents felt that
 
 <!--\\[\begin{array} {|r|r|}\hline  & \text{Male} & \text{Female} & \text{Total} \\ \hline \text{Do Less} & 163 & 101 & 264 \\ \hline \text{Do More} & 309 & 395 & 704 \\ \hline \text{Total} & 472 & 496 & 968 \\ \hline  \end{array}\\] -->
 
@@ -30,7 +28,9 @@ To test this hypothesis, using data from the 2016 American National Election Stu
 | Do More | 309 | 395 | 704 |
 | Total | 472 | 496 | 968 |
 
-where "Do Less" indicates that the respondent feels the government should do less about climate change and "Do More" indicates that the respondent feels the government should do more about climate change. Then, we can write
+where "Do Less" indicates that the respondent feels the government should do less about climate change and "Do More" indicates that the respondent feels the government should do more about climate change. As such, we can see that approximately 65% of men selected "Do More" compared to 79% of women. To test whether these results are statistically significant, or merely due to chance alone, we must formulate a null hypothesis: "Women will be no more likely than men to think that the government should do more to address climate change." \
+\
+Then, to perform our Chi-squared Test, using C we can write
 
 ```c
 /* Nathan Englehart, (Summer, 2022) */
@@ -87,6 +87,8 @@ To interpret the results of a Chi-squared Test, one needs to know three details:
  Then, given a Chi-squared distribution table (such as the one available at <a style="color: #f56a6a; !important" href="https://people.richland.edu/james/lecture/m170/tbl-chi.html">https://people.richland.edu/james/lecture/m170/tbl-chi.html</a>) and these three details, one can determine the meaning of the Chi-squared Test results and whether to accept or reject the null hypothesis. \
 \
 If one's determined chi squared value is less than its corresponding value on the Chi-squared distribution table, one should accept the null hypothesis, meaning that no relationship was found between variables. Conversely, if one's determined chi squared value is greater than its corresponding value on the Chi-squared distribution table, one should reject null the hypothesis.\
+\
+In the case of our previous example using ANES data, given that we found the sample's chi squared value is 24.486299 with 1 degree of freedom, one can see that results from the ANES data were significant at the .001 level. This means that the probability that the observed results are due to chance alone is less than .1%. Thus, we can reject the null hypothesis and consequently. Likewise, since a greater percentage of women than men responded "Do More" when asked if the government should do more to combat climate change, we can conclude the chance that women in the sample are more likely than men to think that the government should do more to address climate change is due to chance alone is less than .1%.
 \
 Code available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/chi-squared-test">https://github.com/nathanenglehart/chi-squared-test</a>.
 
