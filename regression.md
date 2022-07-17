@@ -9,7 +9,7 @@ comments: false
 
 Multivariate regression methods are commonly used in the social sciences to examine the extent to which various independent variables are related to a dependent variable. Most commonly, when looking to analyze relationships between variables, ordered least squares regression (OLS) is the form of regression most often employed.\
 \
-OLS seeks to find coefficients for the regression function which minimize prediction error. It does so with
+OLS seeks to find coefficients for the regression function which minimize prediction error. Its closed-from solution does so with
 \\[ \theta = (X^T X)^{-1} X^T t \\]
 where $\theta$ represents the OLS estimator, $X$ is an $n \times m$ matrix containing independent variable parameters, and $t$ is a vector of response variables. \
 \
@@ -60,7 +60,7 @@ class ols_regression():
       return self.predictions
 ```
 
-In situations where regression equations need to be generalizable for future data, regressions that employ regularization methods to penalize overfitting with high coefficients are often utilized with cross validation. One such method is ridge regression, which computes its coefficients with
+In situations where regression equations need to be generalizable for future data, regressions that employ regularization methods to penalize overfitting with high coefficients are often utilized with cross validation. One such method is ridge regression, for which there exists a closed-form solution that computes its coefficients with
 \\[ \theta = (X^T X + \lambda I)^{-1} X^T t \\]
 where $\theta$ represents the ridge estimator, $X$ is an $n \times m$ matrix containing independent variable parameters, $\lambda$ is the weight penalty, $I$ is a m $\times$ m identity matrix, and $t$ is a vector of response variables. Notably, ridge regression is also highly useful with multicollinear, highly correlated independent variables.  \
 \
@@ -123,7 +123,9 @@ class ridge_regression():
 ```
 In both regressions, the prediction vector is given by:
 \\[ \hat{t} = X\theta \\]
-Code available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/regression">https://github.com/nathanenglehart/regression</a>.
+Additionally, in both regressions, coefficients can also be computed with algorithms that seek to minimize prediction error, such as coordinate descent or gradient descent. Some regression functions, such as logit, lasso, and elastic net, have no closed-form solution and must be calculated using such algorithms. \
+\
+OLS and ridge code available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/regression">https://github.com/nathanenglehart/regression</a>.
 ### Simple Linear Regression Example
 Using data from the 1993 Auto MPG (miles per gallon) Dataset available from the UCI Machine Learning repository, suppose we wish to graph a regression to predict MPG with car weight. To set up our data for our regression requires building our regressor matrix $X$. As such, our matrix should contain two columns. The first column should contain all ones. This columns account for the intercept term. The second column should contain the car weight data. Thus, we can write:
 <!--\\[ X = \begin{bmatrix} 1 & x_1 \\ 
