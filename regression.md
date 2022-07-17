@@ -62,7 +62,7 @@ class ols_regression():
 
 In situations where regression equations need to be generalizable for future data, regressions that employ regularization methods to penalize overfitting with high coefficients are often utilized with cross validation. One such method is ridge regression, for which there exists a closed-form solution that computes its coefficients with
 \\[ \theta = (X^T X + \lambda I)^{-1} X^T t \\]
-where $\theta$ represents the ridge estimator, $X$ is an $n \times m$ matrix containing independent variable parameters, $\lambda$ is the weight penalty, $I$ is a m $\times$ m identity matrix, and $t$ is a vector of response variables. Notably, ridge regression is also highly useful with multicollinear, highly correlated independent variables.  \
+where $\theta$ represents the ridge estimator, $X$ is an $n \times m$ matrix containing independent variable parameters, $\lambda$ is the weight penalty, $I$ is a $m \times m$ identity matrix, and $t$ is a vector of response variables. Notably, ridge regression is also highly useful with multicollinear, highly correlated independent variables.  \
 \
 Thus, similar to OLS, we can again write a ridge class using Python with:
 
