@@ -192,12 +192,12 @@ The above R script returns the same results as C.
 
 To interpret the results of a one or two sample T-Test, one needs to know four details:
 
-- The T value.
-- The degrees of freedom of the T-Test.
-- The number of tails of the T-Test.
-	- For a directional hypothesis, conduct a one-tailed T-Test. 
-	- For a non-directional hypothesis, conduct a two tailed T-Test. 
-- The level of significance or alpha level of the T-Test, e.g. 0.05, 0.01, 0.001 are standard alpha levels to achieve statistical significance. Lower alphas levels are also acceptable but not generally reported.
+- The T value
+- The degrees of freedom of the T-Test
+- The number of tails of the T-Test
+	- For a directional hypothesis, conduct a one-tailed T-Test
+	- For a non-directional hypothesis, conduct a two tailed T-Test
+- The level of significance or alpha level of the T-Test, e.g. 0.05, 0.01, 0.001 are standard alpha levels to achieve statistical significance. Lower alphas levels are also acceptable but not generally reported
 
 With a T distribution table (such as the one available at <a style="color: #f56a6a; !important" href="https://t-tables.net/">https://t-tables.net/</a>) and these four details, one can determine the meaning of T-Test results and whether to accept or reject the null hypothesis. \
 \
