@@ -7,16 +7,16 @@ modified: 2-16-22
 comments: false
 ---
 
-In statistics, the Standard Score, commonly known as a Z-score, is used to calculate the number of standard deviations away from the mean for specific data points. This calculation is highly useful for various applications, including the difference in population proportions test. \
+The Standard Score, commonly known as a Z-score, is used to calculate how far away from the mean a specific data point is in terms of standard deviations. This calculation is highly useful for various applications, including the difference in proportions test. \
 \
 The equation for the Z score for a raw score $x$ is computed by \\[Z = \frac{x - \mu}{\sigma}\\]
 where $\sigma$ is the standard deviation of the population and $\mu$ is the population mean. \
 \
-As such, before calculating a Z-score, one must compute the mean, given by \\[\mu = \frac{\sum x_i}{N}\\]
-where $x_i$ represents each value from the population and $N$ represents the number of terms in the population. \
+Before calculating a Z-score, one must compute the mean, given by \\[\mu = \frac{\sum x_i}{N}\\]
+where $x_i$ represents each value from the population and $N$ represents the size of the population. \
 \
 One must also compute the the standard deviation, given by \\[\sigma = \sqrt{\frac{\sum (x_i - \mu)^2}{N}} \\] 
-where, again, $x_i$ represents each value from the population and $N$ represents the number of terms in the population. \
+where, again, $x_i$ represents each value from the population and $N$ represents the size of the population. \
 \
 Thus, to compute the Z-score of 1 in a population of 1, 2, 3, 4, and 5, we can write
 
