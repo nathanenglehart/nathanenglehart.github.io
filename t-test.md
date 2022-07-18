@@ -7,15 +7,16 @@ modified: 2-16-22
 comments: false
 ---
 
-The Student's T-Test, commonly known as the T-Test, is frequently used by social scientists and staticians to determine whether to reject or accept a null hypothesis. 
+The Student's T-Test, commonly known as the T-Test, is frequently used by social scientists and staticians to determine whether to reject or accept a null hypothesis that pertains to two means. 
 
 ### One Sample
 
 The one sample T-Test equation is given by \\[t = \frac{\overline{x} - \mu}{\frac{s}{\sqrt{n}}}\\]
-where $\overline{x}$ is the observed mean of the sample, $\mu$ is the theoretical mean of the population, $s$ is the standard deviation of the sample, and $n$ is the sample size. For the One Sample T-Test, degrees of freedom are given by \\[\text{df} = n - 1 \\]
+where $\overline{x}$ is the observed mean of the sample, $\mu$ is the theoretical mean of the population, $s$ is the standard deviation of the sample, and $n$ is the sample size. The theoretical mean of the population may be known or hypothesized. For the One Sample T-Test, degrees of freedom are given by \\[\text{df} = n - 1 \\]
 <!--Suppose the observed sample mean is 74, the theoretical population mean is 78, the standard deviation of the sample is 3.5, and the sample size is 10. Then, we can write:-->
-According to U.S. News & World Report, in 2021, the average American watched 3.1 hours of tv per day (<a style="color: #f56a6a; !important" href="https://www.usnews.com/news/best-states/articles/2021-07-22/americans-spent-more-time-watching-television-during-covid-19-than-working">link</a>). As such, using data from the 2021 General Social Survey (GSS), we can hypothesize that there is no difference in the tv watching habits of the average American according to U.S. News & World Report and the average General Social Survey respondent. Then, using the tvhours variable from the 2021 GSS, we can find that the observed sample mean is 3.476400, the standard deviation of the sample is 3.101692, and the sample size is 3780. Additionally, as previously noted, the theoretical population mean is 3.1. Then, we can write using C:
-
+According to U.S. Bureau of Statistics, in 2021, the average American watched 3.1 hours of tv per day (<a style="color: #f56a6a; !important" href="https://www.usnews.com/news/best-states/articles/2021-07-22/americans-spent-more-time-watching-television-during-covid-19-than-working">link</a>). As such, we can treat 3.1 as the theoretical mean. Then, using data from the 2021 General Social Survey (GSS) for our sample, we can hypothesize that there is no difference in the tv watching habits of the average American according to U.S. Bureau of Statistics and the average General Social Survey respondent. \
+\
+The mean of the variable tvhours in the GSS is 3.476400 with a standard deviation of 3.101692 and a sample size of 3780. Additionally, as previously noted, the theoretical population mean is 3.1. Below is the code to solve for $t$ using C:
 ```c
 /* Nathan Englehart (Summer, 2022) */
 
@@ -44,9 +45,9 @@ int main() {
 	return 0;
 }
 ```
-In this case, the sample's T value is 7.460448 with degree of freedom of 3779. \
+In this case, $t = 7.460448$ with 3779 degrees of freedom. \
 \
-To avoid so many manual calculations, this process can be simplified using R:
+A simpler approach utilizes R rather than C. R can also easily load the dataset:
 
 ```r
 #!/usr/bin/env Rscript
@@ -83,13 +84,13 @@ tm = 3.1
 result = one_sample_t_test(sample,tm)
 result
 ```
-And this script returns the same results.
+The above R script returns the same results as C.
 
 ### Two Sample
 
-The two sample T-Test equation is given by \\[t = \frac{\overline{x}_1-\overline{x}_2}{\sqrt{\frac{s_1^2}{n_1-1} + \frac{s_2^2}{n_2-1}}} \\] where $\overline{x}_1$ is the observed mean of the 1st sample and $\overline{x}_2$ is the observed mean of the 2nd sample, $s_1$ is the standard deviation of the 1st sample and $s_2$ is the standard deviation of the 2nd sample, and $n_1$ is the size of the first sample whereas $n_2$ is the size of the second sample. In addition, for the Two Sample T-Test, degrees of freedom are given by \\[ \text{df} = n_1 + n_2 + 2 \\]
+The two sample T-Test equation is given by \\[t = \frac{\overline{x}_1-\overline{x}_2}{\sqrt{\frac{s_1^2}{n_1-1} + \frac{s_2^2}{n_2-1}}} \\] where $\overline{x}_1$ is the observed mean of the 1st sample and $\overline{x}_2$ is the observed mean of the 2nd sample; $s_1$ is the standard deviation of the 1st sample and $s_2$ is the standard deviation of the 2nd sample; and $n_1$ is the size of the first sample whereas $n_2$ is the size of the second sample. In addition, for the Two Sample T-Test, degrees of freedom are given by \\[ \text{df} = n_1 + n_2 + 2 \\]
 <!--Suppose the observed mean of the 1st sample is 3392.00, the observed mean of the 2nd sample is 16610.86, the standard deviation of the first sample is 3848.102, the standard deviation of the second sample is 3725.971, the size of the first sample is 84, and the size of the second sample is 21. Then, we can write:-->
-Suppose we hypothesize that between the male and female sexes, their is no difference that the average amount of tv watched per day. Let males represent the first sample and females represent the second sample. Then, again, using 2021 GSS survey data, the observed mean of the first sample is 3.379852, the standard deviation of the first sample is 3.155964, and the size of the first sample is 1082. Similarly, the observed mean of the second sample is 3.557818, the standard deviation of the second sample is 3.071581, and the size of the second sample is 1375. Then, using C, we can write:
+Suppose we hypothesize that between the male and female sexes, there is no difference in the average amount of tv watched per day. Let males represent the first sample and females represent the second sample. Then, again, using 2021 GSS survey data, the observed mean of the first sample is 3.379852, the standard deviation of the first sample is 3.155964, and the size of the first sample is 1082. Similarly, the observed mean of the second sample is 3.557818, the standard deviation of the second sample is 3.071581, and the size of the second sample is 1375. Then, using C, we can write:
 
 <!--
 
@@ -139,10 +140,9 @@ int main() {
 	return 0;
 }
 ```
-In this case, the sample's T value is -1.403427 with 2455 degrees of freedom. \
+In this case, $t = -1.403427$ with 2455 degrees of freedom. \
 \
-Again, to avoid so many manual calculations, we can use R:
-
+Again, a simpler approach utilizes R rather than C:
 ```r
 #!/usr/bin/env Rscript
 
@@ -186,6 +186,7 @@ w_hours <- w$t
 result <- two_sample_t_test(m_hours,w_hours)
 result
 ```
+The above R script returns the same results as C.
 
 ### Interpreting Results
 
@@ -194,16 +195,19 @@ To interpret the results of a one or two sample T-Test, one needs to know four d
 - The T value.
 - The degrees of freedom of the T-Test.
 - The number of tails of the T-Test.
-	- For a directional hypothesis, one should conduct a one-tailed T-Test. For a non-directional hypothesis, one should conduct a two tailed T-Test. 
-- The level of significance or alpha level of the T-Test, e.g. 0.05, 0.01, or 0.10.
+	- For a directional hypothesis, conduct a one-tailed T-Test. 
+	- For a non-directional hypothesis, conduct a two tailed T-Test. 
+- The level of significance or alpha level of the T-Test, e.g. 0.05, 0.01, 0.001 are standard alpha levels to achieve statistical significance. Lower alphas levels are also acceptable but not generally reported.
 
-As such, given a T distribution table (such as the one available at <a style="color: #f56a6a; !important" href="https://t-tables.net/">https://t-tables.net/</a>) and these four details, one can determine the meaning of T-Test results and whether to accept or reject the null hypothesis. \
+With a T distribution table (such as the one available at <a style="color: #f56a6a; !important" href="https://t-tables.net/">https://t-tables.net/</a>) and these four details, one can determine the meaning of T-Test results and whether to accept or reject the null hypothesis. \
 \
-If one's determined T value is greater than its corresponding value on the T distribution table, one should reject the null hypothesis. If one's determined T value is less than its correpsonding value on the T distribution table, one should accept the null hypothesis, meaning that our test found no significant relationship between variables. \
+If the computed T value is greater than its corresponding value on the T distribution table, one should reject the null hypothesis. \
 \
-For example, in the One Sample T-Test example, we found a T value of 7.4096 which is greater than 3.291, the value for the 99.9% confidence interval (with alpha = 0.0005) for more than 1000 degrees of freedom. As such, we can reject the null hypothesis, meaning there is a statistically significant difference in the average amount of time Americans watch tv per day according to U.S. News & World Report and the average amount of time respondents watch tv per day according to the 2021 GSS. \
+If the computed T value is less than its corresponding value on the T distribution table, one should accept the null hypothesis since there was no significant difference between the means. \
 \
-Similarly, in the Two Sample T-Test example, we found a T value of -1.403427, the absolute value of which is greater than the value for alpha = 0.2 on the 80% confidence interval for more than 1000 degrees of freedom. Therefore, for the 0.20 level of significance, we can reject the null hypothesis meaning we can be 80% confident that there is a statistically significant difference in the average amount of time Americans of the male and female sex watch tv per day. However, for lower levels of significance, we cannot reject the null hypothesis. \
+In the One Sample T-Test example above, we found $t = 7.4096$ which is greater than 3.291, the value of $t$ for the 99.9% confidence interval (with alpha = 0.001) for 3779 degrees of freedom. As such, we can reject the null hypothesis, since there is a statistically significant difference between the average amount of time Americans watch tv per day according to the U.S. Bureau of Statistics and the average amount of time respondents watch tv per day according to the 2021 GSS. \
+\
+In the Two Sample T-Test example above, we found $t = -1.403427$, the absolute value of which is less than the value of $t$ for the 95% confidence interval with alpha = 0.05. The 0.05 level of statistical significance must be achieved in order to be statistically significant, so we cannot reject the null hypothesis since there is not a statistically significant difference in sample means. \
 \
 Code available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/t-test">https://github.com/nathanenglehart/t-test</a>.
 
