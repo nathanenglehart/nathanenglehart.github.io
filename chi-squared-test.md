@@ -96,7 +96,7 @@ In our previous example using ANES data, the computed chi-squared value is 24.48
 \
 We know that the results are statistically significant, but the results must be consistent with the hypothesis in order for the hypothesis to be supported. Recall that a greater percentage of women than men responded "Do More" when asked if the government should do more to combat climate change. As such, we can conclude that the hypothesis is supported. \
 \
-For the Chi-squared Test and other significance tests, the results must be statistically significant and consistent with the hypothesis in order for the hypothesis to be supported.
+For the Chi-squared Test and other significance tests, the results must be statistically significant and consistent with the hypothesis in order for the hypothesis to be supported. \
 \
 Code available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/chi-squared-test">https://github.com/nathanenglehart/chi-squared-test</a>.
 
