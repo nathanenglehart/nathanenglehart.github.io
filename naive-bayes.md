@@ -197,10 +197,13 @@ plt.ylabel('x_2')
 plt.show()
 ```
 Which graphs the first categorical feature vector $x_1$ against the second categorical feature vector $x_2$, as such:
-<img src="/images/nb-fig-x1x2.png" alt="/images/nb-fig-x1x2.png"/> \
-\
+
+<img src="/images/nb-fig-x1x2.png" alt="/images/nb-fig-x1x2.png"/> 
+
 Similarly, we can modify the script to graph $x_2$ against $x_3$:
+
 <img src="/images/nb-fig-x2x3.png" alt="/images/nb-fig-x2x3.png"/> 
+
 ### Gaussian Naive Bayes
 Another implementation of the Naive Bayes algorithm is Gaussian Naive Bayes. It is highly useful for classifying vector rows with continuous feature variables. The equation for Gaussian Naive Bayes is given by:
 \\[ P(x_i|y) = \frac{1}{\sqrt{2\pi\sigma^2_y}}exp\bigg(- \frac{(x_i - \mu_y)^2}{2\sigma^2_y} \bigg) \\]
