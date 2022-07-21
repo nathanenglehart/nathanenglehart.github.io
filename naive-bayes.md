@@ -164,7 +164,7 @@ A help menu is available with:
 ```
 Now, using a synthetic dataset classifying rows as 0 or 1 using three feature vectors (train available [here](https://nathanenglehart.github.io/data/synth_cat_train-3.csv); test available [here](https://nathanenglehart.github.io/data/synth_cat_test-3.csv)), we can run:
 ```bash
-./naive-bayes-cli data/bc/breast-cancer-wisconsin_cleaned.csv data/bc/cancer_test_cleaned.csv -m -v
+./naive-bayes-cli synth_cat_train-3.csv synth_cat_test-3.csv -m -v
 ```
 Which, using 10 fold cross validation, returns an error rate of 5.2% error rate. \
 \
