@@ -303,6 +303,44 @@ std::vector<int> gaussian_naive_bayes_classifier(Eigen::MatrixXd validation, int
   return predictions;
 }
 ```
+As with the previous example, after cloning and making the program, we can run Gaussian Naive Bayes. Then, using the 1936 iris data set available from the UCI Machine Learning Repository (and with my split of train data available [here]() and split of test data available [here]()), we can run: 
+```bash
+./naive-bayes-cli data/iris/iris.csv data/iris/iris-test.csv -g -v
+```
+Which, using 10 fold cross validation, returns an error rate of 10% error rate. \
+\
+Now, to graph the results we can first use bash and regex to save the results to a csv:
+```bash
+./naive-bayes-cli data/iris/iris.csv data/iris/iris-test.csv -g | sed -E 's/.*(.{1})$/\1/' | sed '$d' | awk '{print}' ORS=', ' | sed '$ s/..$//' > iris-preds.csv
+```
+Then, using a python script, we can write:
+```
+#!/usr/bin/env python3
+
+import numpy as np
+import pandas as pd
+from matplotlib import pyplot as plt
+
+results = pd.read_csv("iris_preds.csv", header=None, sep=",")
+results = results.iloc[:,0]
+
+data = pd.read_csv("data/iris/iris-test.csv", header=None)
+	
+x_1 = np.array(data.iloc[:,1])
+x_2 = np.array(data.iloc[:,2])
+	
+categories = results
+colormap=np.array(['tab:blue','tab:orange','tab:green'])
+
+plt.scatter(x_1, x_2, s=50, c=colormap[categories], alpha=0.5)
+plt.xlabel('sepal length')
+plt.ylabel('sepal width')
+plt.show()
+```
+Which graphs the first categorical feature vector, sepal width, against the second categorical feature vector, sepal length:
+
+<p align="center"><img src="/images/nb-fig-sepal_width-sepal_height.png" alt="/images/nb-fig-sepal_width-sepal_height.png"></p> \
+\
 Full code for both implementations available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/naive-bayes-cpp-241">https://github.com/nathanenglehart/naive-bayes-cpp-241</a>
 ### References
 Barber, David. (2016). Bayesian Reasoning and Machine Learning. Cambridge University Press. \
