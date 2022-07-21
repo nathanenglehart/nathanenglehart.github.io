@@ -6,8 +6,9 @@ tags: [Jekyll, theme, responsive, blog, template]
 modified: 2-16-22
 comments: false
 ---
-The Naive Bayesian Classifier Algorithm is a family of probabalistic supervised machine learning algorithms that assumes each feature is independent of other features inside a feature vector. Each implementation is based on Bayes Rule, which is given by:
-\\[  P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)} \\]
+The Naive Bayesian Classifier Algorithm is a family of probabalistic supervised machine learning algorithms that assumes each feature is independent of other features inside a feature vector. 
+<!--Each implementation is based on Bayes Rule, which is given by:
+\\[  P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)} \\] -->
 ### MLE Naive Bayes
 One implementation of Naive Bayes uses maximum likelihood estimation (MLE). MLE Naive Bayes is useful for classifying vector rows with ordinal data as features. Its equation is given by:
 \\[ P(y,x_1 … x_d) = q(y) \prod^{d}_{j=1} q_j (x_j|y) \\]
@@ -151,7 +152,7 @@ std::vector<int> mle_naive_bayes_classifier(Eigen::MatrixXd validation, int vali
   return predictions;
 }
 ```
-On Unix based operating systems such as any distribution of GNU + Linux or macOS, the full implementation can be loaded with
+On Unix based operating systems such as any distribution of GNU + Linux or Mac OS, the full implementation can be loaded with
 ```bash
 git clone https://github.com/nathanenglehart/naive-bayes-cpp-241
 cd naive-bayes-cpp-241
@@ -196,9 +197,12 @@ plt.ylabel('x_2')
 plt.show()
 ```
 Which graphs the first categorical feature vector $x_1$ against the second categorical feature vector $x_2$, as such:
-<img src="/images/nb-fig-x1x2.png" alt="/images/nb-fig-x1x2.png"/>
+<img src="/images/nb-fig-x1x2.png" alt="/images/nb-fig-x1x2.png"/> \
+\
 Similarly, we can modify the script to graph $x_2$ against $x_3$:
-<img src="/images/nb-fig-x2x3.png" alt="/images/nb-fig-x2x3.png"/>
+<img src="/images/nb-fig-x2x3.png" alt="/images/nb-fig-x2x3.png"/> \
+\
+### Gaussian Naive Bayes
 Another implementation of the Naive Bayes algorithm is Gaussian Naive Bayes. It is highly useful for classifying vector rows with continuous feature variables. The equation for Gaussian Naive Bayes is given by:
 \\[ P(x_i|y) = \frac{1}{\sqrt{2\pi\sigma^2_y}}exp\bigg(- \frac{(x_i - \mu_y)^2}{2\sigma^2_y} \bigg) \\]
 where $\sigma$ represents standard deviation and $\mu$ represents mean. \
