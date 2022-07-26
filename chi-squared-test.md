@@ -101,6 +101,6 @@ For the Chi-squared Test and other significance tests, the results must be stati
 Code available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/chi-squared-test">https://github.com/nathanenglehart/chi-squared-test</a>.
 
 ### References 
-Miller, Melissa. (2021, June). Chi-squared Test [Lecture]. Bowling Green State University: POLS 2900, Bowling Green, OH, United States.\
+American National Election Studies. (2016). <i>2016 American National Election Study Pilot</i> [Data File]. Retrieved from <a style="color: #f56a6a; !important" href="https://electionstudies.org/data-center/anes-2016-pilot-study/">https://electionstudies.org/data-center/anes-2016-pilot-study/</a>. \
 \
-American National Election Studies. (2016). <i>2016 American National Election Study Pilot</i> [Data File]. Retrieved from <a style="color: #f56a6a; !important" href="https://electionstudies.org/data-center/anes-2016-pilot-study/">https://electionstudies.org/data-center/anes-2016-pilot-study/</a>.
+Miller, Melissa. (2021, June). Chi-squared Test [Lecture]. Bowling Green State University: POLS 2900, Bowling Green, OH, United States.
