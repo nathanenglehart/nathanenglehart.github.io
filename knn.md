@@ -51,11 +51,44 @@ Full code for implementation written in C++ available at: <a style="color: #f56a
 
 ## Visualization
 
-Using this code on the 1936 Iris dataset which contains 150 flowers classified by species and their respective sepal and petal measurements (test available [here](https://raw.githubusercontent.com/nathanenglehart/knn-cpp-241/main/data/iris/iris-test.csv); train available [here](https://raw.githubusercontent.com/nathanenglehart/knn-cpp-241/main/data/iris/iris.csv)), for $K = 1$ to $K = 135$, N-fold cross validation computed the following misclassification rates with $N = 10$: \
+The 1936 Iris dataset, a classic dataset used for classification algorithms, contains 150 flowers classified by species and their respective sepal and petal measurements (test available [here](); train available [here]()). \
+\
+Using a python script, we can write:
+```python
+#!/usr/bin/env python3
+
+import pandas as pd
+import seaborn as sns
+from matplotlib import pyplot as plt
+
+data = pd.read_csv("iris-test.csv", sep=',')
+data.columns=["classifications", "sepal length", "sepal width", "petal length", "petal width"]
+sns.pairplot(data, hue="classifications", palette=['tab:blue','tab:orange','tab:green'])
+plt.show()
+```
+Which graphs the whole test dataset's information with its true classifications:
+<img src="/images/pairplot-iris-true.png" alt="/images/pairplot-iris-true.png"/> \
+\
+Then, utilizing the aforementioned C++ implementation above, we can run KNN. First, to clone and compile KNN, we can run:
+```bash
+git clone https://github.com/nathanenglehart/knn-cpp-241
+cd knn-cpp-241
+make
+```
+Then, to test run KNN on our datasets, we can run:
+```bash
+./knn-cli iris-train.csv iris-test.csv -e -v
+```
+For $K = 1$ to $K = 135$, N-fold cross validation computed the following misclassification rates with $N = 10$: \
 \
 <img src="/images/misclassification_rate_across_folds_iris.png" alt="/images/misclassification_rate_across_folds_iris.png"/> \
 \
-choosing $K = 19$ as the optimal value for minimizing the misclassification rate across folds. 
+choosing $K = 3$ (with an average misclassification rate of 0.03) as the optimal value for minimizing the misclassification rate across folds. \
+\
+Then, using the predicted classifications on the test dataset 
+<img src="/images/pairplot-iris-true.png" alt="/images/pairplot-iris-preds.png"/> \
+\
+We can see that the predicted classifications are very similar to the true classifications!
 
 ### References
 
