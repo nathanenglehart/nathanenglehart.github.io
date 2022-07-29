@@ -66,7 +66,8 @@ data.columns=["classifications", "sepal length", "sepal width", "petal length", 
 sns.pairplot(data, hue="classifications", palette=['tab:blue','tab:orange','tab:green'])
 plt.show()
 ```
-Which graphs the whole test dataset's information with its true classifications:
+Now, we can view a graph of the whole test dataset's information with its true classifications: \
+\
 <img src="/images/pairplot-iris-true.png" alt="/images/pairplot-iris-true.png"/> \
 \
 Then, utilizing the aforementioned C++ implementation above, we can run KNN. First, to clone and compile KNN, we can run:
@@ -85,7 +86,27 @@ For $K = 1$ to $K = 135$, N-fold cross validation computed the following misclas
 \
 choosing $K = 3$ (with an average misclassification rate of 0.03) as the optimal value for minimizing the misclassification rate across folds. \
 \
-Then, using the predicted classifications on the test dataset 
+Then, by storing the predicting classifications in a csv file to use on the test dataset we can write another python script:
+```python
+#!/usr/bin/env python3
+
+import pandas as pd
+import seaborn as sns
+from matplotlib import pyplot as plt
+
+data = pd.read_csv("iris-test.csv", sep=',')
+
+preds = pd.read_csv("iris-pred-classifications.csv", sep=',')
+preds = preds.iloc[:,0]
+
+data.iloc[:,0] = preds
+data.columns=["classifications", "sepal length", "sepal width", "petal length", "petal width"]
+
+sns.pairplot(data, hue="classifications", palette=['tab:blue','tab:orange','tab:green'])
+plt.show()
+```
+As such, we can view a graph of the test dataset's information, now using its predicted classifications: \
+\
 <img src="/images/pairplot-iris-true.png" alt="/images/pairplot-iris-preds.png"/> \
 \
 We can see that the predicted classifications are very similar to the true classifications!
