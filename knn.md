@@ -15,7 +15,7 @@ To run, the KNN algorithm requires three inputs:
 
 1. A set of test vectors for which to determine classifications
 2. A set of train vectors for which to compare test vectors against
-3. Some pre-determined $1 \leq K \leq$ length(train vectors)
+3. Some pre-determined $K \in \mathbb{N}$ such that $1 \leq K \leq$ length(train vectors)
 
 Then, for each test vector, KNN: 
 
