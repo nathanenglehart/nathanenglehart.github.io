@@ -51,7 +51,7 @@ Full code for implementation written in C++ available at: <a style="color: #f56a
 
 ## Visualization
 
-Using this code on the 1936 Iris dataset which contains 150 flowers classified by species and their respective sepal and petal measurements (test available [here](https://raw.githubusercontent.com/nathanenglehart/knn-cpp-241/main/data/iris/iris-test.csv); train available [here](https://raw.githubusercontent.com/nathanenglehart/knn-cpp-241/main/data/iris/iris.csv)), for $K = 1$ to $K = 135$, cross validation computed the following misclassification rates: \
+Using this code on the 1936 Iris dataset which contains 150 flowers classified by species and their respective sepal and petal measurements (test available [here](https://raw.githubusercontent.com/nathanenglehart/knn-cpp-241/main/data/iris/iris-test.csv); train available [here](https://raw.githubusercontent.com/nathanenglehart/knn-cpp-241/main/data/iris/iris.csv)), for $K = 1$ to $K = 135$, N-fold cross validation computed the following misclassification rates with $N = 10$: \
 \
 <img src="/images/misclassification_rate_across_folds_iris.png" alt="/images/misclassification_rate_across_folds_iris.png"/> \
 \
