@@ -101,144 +101,55 @@ Similarly, we can modify the script to graph $x_2$ against $x_3$:
 
 Under construction. \
 \
-<!--
 Another implementation of the Naive Bayes algorithm is Gaussian Naive Bayes. It is highly useful for classifying vector rows with continuous feature variables. The equation for Gaussian Naive Bayes is given by:
 \\[ P(x_i|y) = \frac{1}{\sqrt{2\pi\sigma^2_y}}exp\bigg(- \frac{(x_i - \mu_y)^2}{2\sigma^2_y} \bigg) \\]
 where $\sigma$ represents standard deviation and $\mu$ represents mean. \
 \
 Gaussian Naive Bayes assumes that the probabilities associated with each class are distributed using a normal distribution. Similar to a maximum likelihood estimator of Naive Bayes, we calculate the prior density using the overall frequency of each classification in our training dataset, however, the difference lies in how we calculate our class-conditional density. We calculate the class-conditional density by drawing from a Gaussian distribution. We are then able to predict the classification in a similar way to our maximum likelihood algorithm, by multiplying our class conditional probability by our prior for each classification. We then normalize our probabilities, using the total number of classifications, and classify each test vector using the highest probability. \
 \
-Again, using C++ and leaving out some functions for simplicity, we can write:
-```c++
-std::map<int, double> calculate_classification_probabilities(std::map<int, std::vector<std::vector<double>>> summaries, Eigen::VectorXd row, int size, bool verbose)
-{
 
-  /* Calculates the classification probabilities for a single vector with P(class = y | x_1, ..., x_2) = P(x_1 | class = y) * ... * P(x_n | class = y) * P(class = y) */
+### Gaussian Visualization
 
-  std::map<int, double> probabilities;
-  std::map<int, std::vector<std::vector<double>>>::iterator it;
-  int classification_value = 0;
-
-  if(verbose == true)
-  {
-    std::cout << "Row " << verbose_vector_count++ << ": [ ";
-    for(auto v : row)
-    {
-      std::cout << v << " ";
-    }
-    std::cout << "]\n";
-
-  }
-
-  for(it=summaries.begin(); it != summaries.end(); ++it)
-  {
-
-    std::vector<std::vector<double>> entry = it->second;
-    probabilities[classification_value] = double_vector_list_lookup(entry,0,2) / (size); // P(class = y)
-
-    for(int i = 1; i < row.size(); i++) // P(class = y | x_1, ..., x_n)
-    {
-      double mean = double_vector_list_lookup(entry,i,0);
-      double standard_deviation = double_vector_list_lookup(entry,i,1);
-      double x = get_eigen_index(row,i);
-      probabilities[classification_value] *= gaussian_pdf(x,mean,standard_deviation); 
-    }
-
-    if(verbose == true)
-    {
-      std::cout << "Class: " << classification_value << " Probability: " << probabilities[classification_value] << "\n";
-    }
-
-    classification_value++;
-  }
-
-  if(verbose == true)
-  {
-    std::cout << "\n";
-  }
-
-  return probabilities;
-}
-
-int predict(std::map<int, std::vector<std::vector<double>>> summaries, Eigen::VectorXd row, int size, bool verbose)
-{
-
-  /* Returns classification prediction for Gaussian NB. */
-
-  std::map<int, double> probabilities = calculate_classification_probabilities(summaries, row, size, verbose);
-  std::map<int, double>::iterator it;
-
-  int best_label = -1;
-  double best_probability = -1;
-
-  for(it=probabilities.begin(); it != probabilities.end(); ++it)
-  {
-    if(best_label == -1 || it->second > best_probability)
-    {
-      best_probability = it->second;
-      best_label = it->first;
-    }
-  }
-
-  return best_label;
-}
-
-std::vector<int> gaussian_naive_bayes_classifier(Eigen::MatrixXd validation, int validation_size, Eigen::MatrixXd training, int training_size, int length, bool verbose)
-{
-
-  /* Calculates the classification probabilities for each row in dataset and puts their predicted classification in a list. */
-
-  std::map<int, std::vector<std::vector<double>>> summaries = summarize_by_classification(training, training_size, length);
-  std::vector<int> predictions;
-
-  for(int i = 0; i < validation_size; i++)
-  {
-    int output = predict(summaries, validation.row(i), training_size, verbose);
-    predictions.push_back(output);
-  }
-
-  return predictions;
-}
-```
-As with the previous example, after cloning and making the program, we can run Gaussian Naive Bayes. Then, using the 1936 iris data set available from the UCI Machine Learning Repository (and with my split of train data available [here]() and split of test data available [here]()), we can run: 
-```bash
-./naive-bayes-cli data/iris/iris.csv data/iris/iris-test.csv -g -v
-```
-Which, using 10 fold cross validation, returns an error rate of 10% error rate. \
+The 1936 Iris dataset, previously mentioned in the KNN writeup, contains 150 flowers classified by species and their respective sepal and petal measurements (test available [here](https://github.com/nathanenglehart/nathanenglehart.github.io/blob/gh-pages/data/iris-test.csv) and train available [here](https://github.com/nathanenglehart/nathanenglehart.github.io/blob/gh-pages/data/iris-train.csv) where 0 represents iris-setosa, 1 represents iris-versicolor, and 2 represents iris-virginica). \
 \
-Now, to graph the results we can first use bash and regex to save the results to a csv:
-```bash
-./naive-bayes-cli data/iris/iris.csv data/iris/iris-test.csv -g | sed -E 's/.*(.{1})$/\1/' | sed '$d' | awk '{print}' ORS=', ' | sed '$ s/..$//' > iris-preds.csv
-```
 Then, using a python script, we can write:
-```
+```python
 #!/usr/bin/env python3
 
-import numpy as np
 import pandas as pd
+import seaborn as sns
 from matplotlib import pyplot as plt
 
-results = pd.read_csv("iris_preds.csv", header=None, sep=",")
-results = results.iloc[:,0]
-
-data = pd.read_csv("data/iris/iris-test.csv", header=None)
-	
-x_1 = np.array(data.iloc[:,1])
-x_2 = np.array(data.iloc[:,2])
-	
-categories = results
-colormap=np.array(['tab:blue','tab:orange','tab:green'])
-
-plt.scatter(x_1, x_2, s=50, c=colormap[categories], alpha=0.5)
-plt.xlabel('sepal length')
-plt.ylabel('sepal width')
+data = pd.read_csv("iris-test.csv", sep=',')
+data.columns=["classifications", "sepal length", "sepal width", "petal length", "petal width"]
+sns.pairplot(data, hue="classifications", palette=['tab:blue','tab:orange','tab:green'])
 plt.show()
 ```
-Which graphs the first categorical feature vector, sepal width, against the second categorical feature vector, sepal length:
+Now, we can view a graph of the whole test dataset's information with its true classifications
+<img src="/images/pairplot-iris-true.png" alt="/images/pairplot-iris-true.png"/>
+Then, using the previously mentioned C++ implementation, we can generate classification predictions for the test set with Gaussian Naive Bayes. To do so, we can run:
+```bash
+./naive-bayes-cli iris-train.csv iris-test.csv -g -v
+```
+Then, by storing the predicting classifications in a csv file to use on the test dataset we can write another python script:
+```python
+#!/usr/bin/env python3
 
-<p align="center"><img src="/images/nb-fig-sepal_width-sepal_height.png" alt="/images/nb-fig-sepal_width-sepal_height.png"></p> \
-\
--->
+import pandas as pd
+import seaborn as sns
+from matplotlib import pyplot as plt
+
+data = pd.read_csv("iris-test.csv", sep=',')
+
+preds = pd.read_csv("iris-pred-classifications.csv", sep=',')
+preds = preds.iloc[:,0]
+
+data.iloc[:,0] = preds
+data.columns=["classifications", "sepal length", "sepal width", "petal length", "petal width"]
+
+sns.pairplot(data, hue="classifications", palette=['tab:blue','tab:orange','tab:green'])
+plt.show()
+```
 
 Full code for both implementations available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/naive-bayes-cpp-241">https://github.com/nathanenglehart/naive-bayes-cpp-241</a>
 ### References
