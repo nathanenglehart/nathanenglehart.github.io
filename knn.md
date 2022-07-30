@@ -82,7 +82,7 @@ Then, to test run KNN on our datasets, we can run:
 ```
 For $K = 1$ to $K = 135$, N-fold cross validation computed the following misclassification rates with $N = 10$: \
 \
-<img src="/images/misclassification_rate_across_folds_iris.png" alt="/images/misclassification_rate_across_folds_iris.png"/> \
+<p align="center"><img src="/images/misclassification_rate_across_folds_iris.png" alt="/images/misclassification_rate_across_folds_iris.png"/></p> \
 \
 choosing $K = 3$ (with an average misclassification rate of 0.03) as the optimal value for minimizing the misclassification rate across folds. \
 \
