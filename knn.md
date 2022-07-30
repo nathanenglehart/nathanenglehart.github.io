@@ -51,7 +51,7 @@ Full code for implementation written in C++ available at: <a style="color: #f56a
 
 ## Visualization
 
-The 1936 Iris dataset, a classic dataset used for classification algorithms, contains 150 flowers classified by species and their respective sepal and petal measurements (test available [here](https://github.com/nathanenglehart/nathanenglehart.github.io/blob/gh-pages/data/iris-test.csv) and train available [here](https://github.com/nathanenglehart/nathanenglehart.github.io/blob/gh-pages/data/iris-train.csv); 0 represents iris-setosa, 1 represents iris-versicolor, and 2 represents iris-virginica). \
+The 1936 Iris dataset, a classic dataset used for classification algorithms, contains 150 flowers classified by species and their respective sepal and petal measurements (test available [here](https://github.com/nathanenglehart/nathanenglehart.github.io/blob/gh-pages/data/iris-test.csv) and train available [here](https://github.com/nathanenglehart/nathanenglehart.github.io/blob/gh-pages/data/iris-train.csv) where 0 represents iris-setosa, 1 represents iris-versicolor, and 2 represents iris-virginica). \
 \
 Using a python script, we can write:
 ```python
