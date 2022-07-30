@@ -36,11 +36,11 @@ For each run, N-fold cross validation requires the same three inputs as KNN. It 
 1. Randomly splits the set of train vectors into $N$ groups.
 2. Assigns $N-1$ of the groups to be a *new* train set and $1$ of the sets to be a *new* test set
 3. Put error $= 0$.
-4. Then, until every set has served as a *new* test set ($N$ runs):
+4. Then, until every set has served as a *new* test set, N-fold cross validation:
 	- Runs KNN on the *new* train and *new* test
-	- Computes the misclassification rate of the computed *new* test classifications and the true *new* test classifications  
+	- Computes the misclassification rate of the computed *new* test classifications with the true *new* test classifications  
 	- Adds the computed misclassification rate to the error term
-	- Assigns the *new* test to be a different vector
+	- Assigns the *new* test to be a different vector and repeats (for $N$ runs)
 5. Return mean error $=$ error / $N$
 
 where miscalculation rate can be computed with:
