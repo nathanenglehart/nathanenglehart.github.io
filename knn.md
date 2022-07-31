@@ -80,8 +80,7 @@ Then, to test run KNN on our datasets, we can run:
 ```bash
 ./knn-cli iris-train.csv iris-test.csv -e -v
 ```
-For $K = 1$ to $K = 135$, N-fold cross validation computed the following misclassification rates with $N = 10$: \
-\
+For $K = 1$ to $K = 135$, N-fold cross validation computed the following misclassification rates with $N = 10$: 
 <div align="center">
 <img src="/images/misclassification_rate_across_folds_iris.png" alt="/images/misclassification_rate_across_folds_iris.png"/> \
 </div>
