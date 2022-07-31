@@ -10,12 +10,12 @@ The Naive Bayesian Classifier Algorithm is a family of probabalistic supervised 
 
 ### Multinomial Naive Bayes
 
-Perhaps the most common implementation of Naive Bayes is Multinomial Naive Bayes. Multinomial Naive Bayes is useful for classifying vector rows with categorical data (nominal or ordinal) as features. To compute the probability of a test vector with categorical features $x_1 ... x_d$ belonging to classification $y$, Multinomial Naive Bayes uses the equation:
+Perhaps the most common implementation of Naive Bayes is Multinomial Naive Bayes. Multinomial Naive Bayes is useful for classifying vector rows with categorical data (nominal or ordinal) as features. To compute the probability of a test vector with features $x_1 ... x_d$ belonging to classification $y$, Multinomial Naive Bayes uses the equation:
 \\[ P(y,x_1 ... x_d) = P(y) \prod^{d}_{i=1} P_j (x_i|y) \\]
 where $P(y)$ and each $P_j$ are computed using a train dataset. More specifically, Multinomial Naive Bayes:
 
 1. First calculates $P(y)$ by dividing the frequency of each classification in the train data by the number of vectors in the train data
-2. Computes the product sum of the conditional class probabilities of each given categorical feature $x_i$ occuring with classification $y$
+2. Computes the product sum of the conditional class probabilities of each given feature $x_i$ occuring with classification $y$
 	- To do so, for each feature column $i$ in the train data: divide the frequency of vectors with the feature $x_i$ *and* classification $y$, by the length of the feature column
 4. Multiply the result of the first and second steps
 
