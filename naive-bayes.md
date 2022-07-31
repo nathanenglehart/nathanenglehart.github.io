@@ -10,7 +10,7 @@ The Naive Bayesian Classifier Algorithm is a family of probabalistic supervised 
 
 ### Multinomial Naive Bayes
 
-Perhaps the most common implementation of Naive Bayes is Multinomial Naive Bayes. Multinomial Naive Bayes uses maximum likelihood estimation (MLE) and is useful for classifying vector rows with categorical data (nominal or ordinal) as features. To compute the probability of a test vector with features $x_1 ... x_d$ belonging to classification $y$, Multinomial Naive Bayes uses the equation:
+Perhaps the most common implementation of Naive Bayes is Multinomial Naive Bayes. Multinomial Naive Bayes is useful for classifying vector rows with categorical data (nominal or ordinal) as features. To compute the probability of a test vector with features $x_1 ... x_d$ belonging to classification $y$, Multinomial Naive Bayes uses the equation:
 \\[ P(y,x_1 ... x_d) = P(y) \prod^{d}_{i=1} P_j (x_i|y) \\]
 where $P(y)$ and each $P_j$ are computed using a train dataset. More specifically, Multinomial Naive Bayes:
 
@@ -19,9 +19,9 @@ where $P(y)$ and each $P_j$ are computed using a train dataset. More specificall
 	- To do so, for each feature column $i$ in the train data: divide the frequency of vectors with the feature $x_i$ *and* classification $y$, by the length of the feature column
 4. Multiply the result of the first and second steps
 
-By running this equation for each possible classification $y$, MLE Naive Bayes is able to assigns the classification with maximal probability as the predicted classification.
+By running this equation for each possible classification $y$, Multinomial Naive Bayes is able to assigns the classification with maximal probability as the predicted classification.
 
-### Laplace Smoothing for MLE Naive Bayes
+### Laplace Smoothing for Multinomial Naive Bayes
 
 Multinomial Naive Bayes faces an issue if individual features $x_i$ are missing from the classification data for some classification $y$ since this will lead to  frequency based probability estimates becoming zero. This will set our product sum to zero and greatly hinder the accuracy of the classifier. \
 \
