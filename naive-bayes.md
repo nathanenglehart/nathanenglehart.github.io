@@ -33,82 +33,11 @@ This problem can be solved using a technique called Laplace Smoothing. Laplace S
 
 Under construction.
 
-<!--
-To perform a run of MLE Naive Bayes, let us use a synthetic dataset classifying rows as 0 or 1 using three feature vectors (train available [here](https://nathanenglehart.github.io/data/synth_cat_train-3.csv); test available [here](https://nathanenglehart.github.io/data/synth_cat_test-3.csv)). \
-\
-Using a python script, we can write:
-```python
-
-```
-
-
-
-
-
-
-
-On Unix based operating systems such as any distribution of GNU + Linux or Mac OS, the full implementation can be loaded with
-```bash
-git clone https://github.com/nathanenglehart/naive-bayes-cpp-241
-cd naive-bayes-cpp-241
-make
-```
-A help menu is available with:
-```bash
-./naive-bayes-cli -h
-```
-Now, using a synthetic dataset classifying rows as 0 or 1 using three feature vectors (train available [here](https://nathanenglehart.github.io/data/synth_cat_train-3.csv); test available [here](https://nathanenglehart.github.io/data/synth_cat_test-3.csv)), we can run:
-```bash
-./naive-bayes-cli synth_cat_train-3.csv synth_cat_test-3.csv -m -v
-```
-Which, using 10 fold cross validation, returns an error rate of 5.2% error rate. \
-\
-Now, to graph the results we can first use bash and regex to save the results to a csv:
-```bash
-./naive-bayes-cli synth_cat_train-3.csv synth_cat_test-3.csv -m | sed -E 's/.*(.{1})$/\1/' | sed '$d' | awk '{print}' ORS=', ' | sed '$ s/..$//' > synth_cat_preds-3.csv
-```
-Then, using a python script, we can write:
-```
-#!/usr/bin/env python3
-
-import numpy as np
-import pandas as pd
-from matplotlib import pyplot as plt
-
-results = pd.read_csv("synth_cat_preds-3.csv", header=None, sep=",")
-results = results.iloc[0]
-
-data = pd.read_csv("synth_cat_test-3.csv", header=None) 
-	
-x_1 = np.array(data.iloc[:,1])
-x_2 = np.array(data.iloc[:,2])
-	
-categories = results
-colormap=np.array(['tab:blue','tab:orange'])
-
-plt.scatter(x_1, x_2, s=8, c=colormap[categories], alpha=0.5)
-plt.xlabel('x_1') 
-plt.ylabel('x_2')
-plt.show()
-```
-Which graphs the first categorical feature vector $x_1$ against the second categorical feature vector $x_2$, as such:
-
-<p align="center"><img src="/images/nb-fig-x1x2.png" alt="/images/nb-fig-x1x2.png"/></p> \
-\
-Similarly, we can modify the script to graph $x_2$ against $x_3$:
-
-<p align="center"><img src="/images/nb-fig-x2x3.png" alt="/images/nb-fig-x2x3.png"/></p> 
--->
 ### Gaussian Naive Bayes
 
-Under construction. \
-\
 Another implementation of the Naive Bayes algorithm is Gaussian Naive Bayes. It is highly useful for classifying vector rows with continuous feature variables. The equation for Gaussian Naive Bayes is given by:
 \\[ P(x_i|y) = \frac{1}{\sqrt{2\pi\sigma^2_y}}exp\bigg(- \frac{(x_i - \mu_y)^2}{2\sigma^2_y} \bigg) \\]
-where $\sigma$ represents standard deviation and $\mu$ represents mean. \
-\
-Gaussian Naive Bayes assumes that the probabilities associated with each class are distributed using a normal distribution. Similar to a maximum likelihood estimator of Naive Bayes, we calculate the prior density using the overall frequency of each classification in our training dataset, however, the difference lies in how we calculate our class-conditional density. We calculate the class-conditional density by drawing from a Gaussian distribution. We are then able to predict the classification in a similar way to our maximum likelihood algorithm, by multiplying our class conditional probability by our prior for each classification. We then normalize our probabilities, using the total number of classifications, and classify each test vector using the highest probability. \
-\
+where $\sigma$ represents standard deviation and $\mu$ represents mean.
 
 ### Gaussian Visualization
 
@@ -131,7 +60,36 @@ plt.show()
 ```
 Which displays: \
 \
-<img src="/images/pairplot-synth-nb_ex.png" alt="/images/pairplot-synth-nb_ex.png">
+<img src="/images/pairplot-synth-nb_ex.png" alt="/images/pairplot-synth-nb_ex.png"> \
+\
+Then, again utilizing `naive-bayes-cli`, to run Gaussian Naive Bayes, we can write:
+```bash
+$ ./naive-bayes-cli synth-train-blobs-5.csv synth-test-blobs-5.csv -g -v # Verbose
+$ ./naive-bayes-cli synth-train-blobs-5.csv synth-test-blobs-5.csv -g > preds.csv # Store results
+```
+By storing the results in a csv file to use on the test dataset we can write another python script:
+```python
+#!/usr/bin/env python3
+
+import numpy as np
+import pandas as pd
+import seaborn as sns
+from matplotlib import pyplot as plt
+
+data = pd.read_csv('synth-test-blobs-5.csv', sep=',', header=None)
+results = pd.read_csv("preds.csv", header=None, sep=",")
+results = results.iloc[:,0]
+data.iloc[:,0] = results
+
+data.columns = ['classification','x_1','x_2','x_3','x_4','x_5']
+sns.pairplot(data, hue='classification',palette=['tab:blue','tab:orange','tab:green','tab:red','tab:purple'])
+plt.show()
+```
+Which displays: \
+\
+<img src="/images/pairplot-synth-nb_ex-preds.png" alt="/images/pairplot-synth-nb_ex-preds.png"> \
+\
+As such, we can see that the predicted classifications are very close to the true classifications (in fact, running in verbose shows an error rate of ~0.1% on any given run)! 
 
 ### Notes
 
