@@ -8,9 +8,11 @@ comments: false
 ---
 The Naive Bayesian Classifier Algorithm is a family of probabalistic supervised machine learning algorithms that assumes each feature is independent of other features inside a feature vector. 
 
-### MLE Naive Bayes
+### Multinomial Naive Bayes
 
-One implementation of Naive Bayes uses maximum likelihood estimation (MLE). MLE Naive Bayes is useful for classifying vector rows with ordinal data as features. To compute the probability of a test vector with features $x_1 ... x_d$ belonging to classification $y$, MLE Naive Bayes uses the equation:
+Perhaps the most common implementation of Naive Bayes is Multinomial Naive Bayes. Multi
+
+uses maximum likelihood estimation (MLE). MLE Naive Bayes is useful for classifying vector rows with ordinal data as features. To compute the probability of a test vector with features $x_1 ... x_d$ belonging to classification $y$, MLE Naive Bayes uses the equation:
 \\[ P(y,x_1 ... x_d) = P(y) \prod^{d}_{i=1} P_j (x_i|y) \\]
 where $P(y)$ and each $P_j$ are computed using a train dataset. More specifically, MLE Naive Bayes:
 
@@ -110,48 +112,31 @@ Gaussian Naive Bayes assumes that the probabilities associated with each class a
 
 ### Gaussian Visualization
 
-The 1936 Iris dataset, previously mentioned in the KNN writeup, contains 150 flowers classified by species and their respective sepal and petal measurements (test available [here](https://github.com/nathanenglehart/nathanenglehart.github.io/blob/gh-pages/data/iris-test.csv) and train available [here](https://github.com/nathanenglehart/nathanenglehart.github.io/blob/gh-pages/data/iris-train.csv) where 0 represents iris-setosa, 1 represents iris-versicolor, and 2 represents iris-virginica). \
+To perform a run of Gaussian Naive Bayes, let us use a synthetic dataset classifying rows as 0, 1, 2, 3, or 4 using five feature vectors (train available [here](https://nathanenglehart.github.io/data/synth-train-blobs-5.csv); test available [here](https://nathanenglehart.github.io/data/synth-test-blobs-5.csv.csv)). \
 \
-Then, using a python script, we can write:
+To visualize the data, using python we can write:
 ```python
 #!/usr/bin/env python3
 
+import numpy as np
 import pandas as pd
 import seaborn as sns
 from matplotlib import pyplot as plt
 
-data = pd.read_csv("iris-test.csv", sep=',')
-data.columns=["classifications", "sepal length", "sepal width", "petal length", "petal width"]
-sns.pairplot(data, hue="classifications", palette=['tab:blue','tab:orange','tab:green'])
+data = pd.read_csv('synth-test-blobs-5.csv', sep=',', header=None)
+
+data.columns = ['classification','x_1','x_2','x_3','x_4','x_5']
+sns.pairplot(data, hue='classification',palette=['tab:blue','tab:orange','tab:green','tab:red','tab:purple'])
 plt.show()
 ```
-Now, we can view a graph of the whole test dataset's information with its true classifications
-<img src="/images/pairplot-iris-true.png" alt="/images/pairplot-iris-true.png"/>
-Then, using the previously mentioned C++ implementation, we can generate classification predictions for the test set with Gaussian Naive Bayes. To do so, we can run:
-```bash
-./naive-bayes-cli iris-train.csv iris-test.csv -g -v
-```
-Then, by storing the predicting classifications in a csv file to use on the test dataset we can write another python script:
-```python
-#!/usr/bin/env python3
+Which displays: \
+\
+<img src="/images/pairplot-synth-nb_ex.png" alt="/images/pairplot-synth-nb_ex.png">
 
-import pandas as pd
-import seaborn as sns
-from matplotlib import pyplot as plt
+### Notes
 
-data = pd.read_csv("iris-test.csv", sep=',')
+Full code for both implementations available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/naive-bayes-cpp-241">https://github.com/nathanenglehart/naive-bayes-cpp-241</a>.
 
-preds = pd.read_csv("iris-pred-classifications.csv", sep=',')
-preds = preds.iloc[:,0]
-
-data.iloc[:,0] = preds
-data.columns=["classifications", "sepal length", "sepal width", "petal length", "petal width"]
-
-sns.pairplot(data, hue="classifications", palette=['tab:blue','tab:orange','tab:green'])
-plt.show()
-```
-
-Full code for both implementations available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/naive-bayes-cpp-241">https://github.com/nathanenglehart/naive-bayes-cpp-241</a>
 ### References
 Barber, David. (2016). Bayesian Reasoning and Machine Learning. Cambridge University Press. \
 \
