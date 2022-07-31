@@ -10,11 +10,9 @@ The Naive Bayesian Classifier Algorithm is a family of probabalistic supervised 
 
 ### Multinomial Naive Bayes
 
-Perhaps the most common implementation of Naive Bayes is Multinomial Naive Bayes. Multi
-
-uses maximum likelihood estimation (MLE). MLE Naive Bayes is useful for classifying vector rows with ordinal data as features. To compute the probability of a test vector with features $x_1 ... x_d$ belonging to classification $y$, MLE Naive Bayes uses the equation:
+Perhaps the most common implementation of Naive Bayes is Multinomial Naive Bayes. Multinomial Naive Bayes uses maximum likelihood estimation (MLE) and is useful for classifying vector rows with categorical data (nominal or ordinal) as features. To compute the probability of a test vector with features $x_1 ... x_d$ belonging to classification $y$, Multinomial Naive Bayes uses the equation:
 \\[ P(y,x_1 ... x_d) = P(y) \prod^{d}_{i=1} P_j (x_i|y) \\]
-where $P(y)$ and each $P_j$ are computed using a train dataset. More specifically, MLE Naive Bayes:
+where $P(y)$ and each $P_j$ are computed using a train dataset. More specifically, Multinomial Naive Bayes:
 
 1. First calculates $P(y)$ by dividing the frequency of each classification in the train data by the number of vectors in the train data
 2. Computes the product sum of the conditional class probabilities of each given feature $x_i$ occuring with classification $y$
@@ -25,11 +23,11 @@ By running this equation for each possible classification $y$, MLE Naive Bayes i
 
 ### Laplace Smoothing for MLE Naive Bayes
 
-MLE Naive Bayes faces an issue if individual features $x_i$ are missing from the classification data for some classification $y$ since this will lead to  frequency based probability estimates becoming zero. This will set our product sum to zero and greatly hinder the accuracy of the classifier. \
+Multinomial Naive Bayes faces an issue if individual features $x_i$ are missing from the classification data for some classification $y$ since this will lead to  frequency based probability estimates becoming zero. This will set our product sum to zero and greatly hinder the accuracy of the classifier. \
 \
 This problem can be solved using a technique called Laplace Smoothing. Laplace Smoothing is a slight modification to the Naive Bayes algorithm which eliminates the zero frequency problem by adding $1$ to each frequency of vectors with the feature $x_i$ *and* classification $y$. 
 
-### MLE Naive Bayes Visualization
+### Multinomial Naive Bayes Visualization
 
 Under construction.
 
