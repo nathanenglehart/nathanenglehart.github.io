@@ -23,7 +23,6 @@ Perhaps the one of the most common implementations of Naive Bayes is Categorical
 <div align="center">
 $P(y) = \frac{\sum^n_{j=1} I(y_j = y)}{n}$ and $P_i (x_i|y) = \frac{\sum^n_{j=1} I(x_i = x_j \land y_j = y)}{\sum^n_{j=1} I(y_j = y)}$
 </div> \
-\
 In plain English, Categorical Naive Bayes:
 
 1. First calculates $P(y)$ by dividing the frequency of each classification in the train data by the number of vector rows in the train data $k$ with classification $y$
@@ -39,7 +38,7 @@ Categorical Naive Bayes faces an issue if individual categorical features labels
 \
 This problem can be solved using a technique called Laplace Smoothing. Laplace Smoothing is a slight modification to the Naive Bayes algorithm which solves the zero frequency problem by modifying the conditional class probability equation with:
 <!--\\[ P_i (x_i|y) = \frac{(\sum^n_{j=1} I(x_i = x_j \land y_j = y)) + \alpha}{(\sum^n_{j=1} I(y_j = y)) + (\alpha m)} \\]-->
-\\[ P_i (x_i|y) = \frac{(\sum^n_{j=1} I(x_i = x_j \land y_j = y))}{(\sum^n_{j=1} I(y_j = y))} \\]
+\\[ P_i (x_i|y) = \frac{(\sum^n_{j=1} I(x_i = x_j \land y_j = y)) + \alpha}{(\sum^n_{j=1} I(y_j = y)) + (\alpha m)} \\]
 for some $\alpha \geq 1$. This ensures that conditional class probabilities will never become zero. Laplace smoothing can also be applied to other forms of Naive Bayes. For example, Laplace Smoothing is often applied to Multinomial Naive Bayes.
 
 ### Categorical Naive Bayes Visualization
