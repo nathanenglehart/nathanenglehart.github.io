@@ -23,7 +23,7 @@ $P(y) = \frac{\sum^n_{j=1} I(y_j = y)}{n}$ and $P_i (x_i|y) = \frac{\sum^n_{j=1}
 </div> \
 In plain English, Categorical Naive Bayes:
 
-1. First calculates $P(y)$ by dividing the frequency of each classification in the train data by the number of vector rows in the train data $k$ with classification $y$
+1. First calculates $P(y)$ by dividing the frequency of each classification in the train data by the number of vector rows in the train data $n$ with classification $y$
 2. Compute the likelihood by taking the product sum of conditional class probabilities where conditional class probabilities are calculated for each $x_i$ within feature column $i$ in the train data by:
 	- Dividing the frequency of the feature $x_i$ with classification $y$ by the total number of rows in the train data $n$ with classification $y$
 4. Multiply the result of the first and second steps
@@ -35,7 +35,6 @@ By running this equation for each possible classification $y$, Categorical Naive
 Categorical Naive Bayes faces an issue if individual categorical features labels are missing from the train data for some classification $y$ since this will lead to frequency based probability estimates becoming zero. This will set our product sum to zero and hinder the accuracy of the classifier. \
 \
 This problem can be solved using a technique called Laplace Smoothing. Laplace Smoothing is a slight modification to the Naive Bayes algorithm which solves the zero frequency problem by modifying the conditional class probability equation with:
-<!--\\[ P_i (x_i|y) = \frac{(\sum^n_{j=1} I(x_i = x_j \land y_j = y)) + \alpha}{(\sum^n_{j=1} I(y_j = y)) + (\alpha m)} \\]-->
 \\[ P_i (x_i|y) = \frac{(\sum^n_{j=1} I(x_i = x_j \land y_j = y)) + \alpha}{(\sum^n_{j=1} I(y_j = y)) + (\alpha m)} \\]
 for some $\alpha \geq 1$. This ensures that conditional class probabilities will never become zero. Laplace smoothing can also be applied to other forms of Naive Bayes. For example, Laplace Smoothing is often applied to Multinomial Naive Bayes.
 
