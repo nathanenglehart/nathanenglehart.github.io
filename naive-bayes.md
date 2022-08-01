@@ -14,8 +14,9 @@ Perhaps the most common implementation of Naive Bayes is Categorical Naive Bayes
 \\[ P(y,x_1 ... x_d) = P(y) \prod^{d}_{i=1} P_i (x_i|y) \\]
 such that
 <div align="center">
-$P(y) = \frac{\sum^k_{j=1} (y_j = y)}{k}$ and $P_i (x_i|y) = \frac{\sum^k_{j=1} I(x_i = x_j \land y_j = y)}{k}$
-</div>
+$P(y) = \frac{\sum^k_{j=1} I(y_j = y)}{k}$ and $P_i (x_i|y) = \frac{\sum^k_{j=1} I(x_i = x_j \land y_j = y)}{k}$
+</div> \
+\
 In plain English, Categorical Naive Bayes:
 
 1. First calculates $P(y)$ by dividing the frequency of each classification in the train data by the number of vector rows in the train data $k$
