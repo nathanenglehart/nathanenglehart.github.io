@@ -28,9 +28,9 @@ By running this equation for each possible classification $y$, Categorical Naive
 
 ### Laplace Smoothing for Categorical Naive Bayes
 
-Categorical Naive Bayes faces an issue if individual categorical features labels of $x_i$ are missing from the classification data for some classification $y$ since this will lead to  frequency based probability estimates becoming zero. This will set our product sum to zero and greatly hinder the accuracy of the classifier. \
+Categorical Naive Bayes faces an issue if individual categorical features labels of $x_i$ are missing from the classification data for some classification $y$ since this will lead to  frequency based probability estimates becoming zero. This will set our product sum to zero and hinder the accuracy of the classifier. \
 \
-This problem can be solved using a technique called Laplace Smoothing. Laplace Smoothing is a slight modification to the Naive Bayes algorithm which eliminates the zero frequency problem by adding $1$ to each frequency of vectors with the feature $x_i$ *and* classification $y$. 
+This problem can be solved using a technique called Laplace Smoothing. Laplace Smoothing is a slight modification to the Naive Bayes algorithm which eliminates the zero frequency problem by adding $1$ to each frequency of vectors with the feature $x_i$ *and* classification $y$. Laplace smoothing can also be applied to other forms of Naive Bayes, such as Multinomial Naive Bayes.
 
 ### Categorical Naive Bayes Visualization
 
