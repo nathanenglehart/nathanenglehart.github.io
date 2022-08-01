@@ -44,9 +44,11 @@ Under construction.
 
 ### Gaussian Naive Bayes
 
-Another implementation of the Naive Bayes algorithm is Gaussian Naive Bayes. It is highly useful for classifying vector rows with continuous feature variables. The equation for the Gaussian Naive Baye likelihood is given by:
+Another implementation of the Naive Bayes algorithm is Gaussian Naive Bayes. It is highly useful for classifying vector rows with continuous feature variables. As in Categorical Naive Bayes, in Gaussian Naive Bayes, the prior probability is given by:
+\\[ P(y) = \frac{\sum^n_{j=1} I(y_j = y)}{n} \\]
+On the other hand, the equation for the Gaussian Naive Baye likelihood is given by:
 \\[ P(x_i|y) = \frac{1}{\sqrt{2\pi\sigma^2_y}}exp\bigg(- \frac{(x_i - \mu_y)^2}{2\sigma^2_y} \bigg) \\]
-where $\sigma$ represents standard deviation and $\mu$ represents mean.
+where $\sigma_y$ represents standard deviation computed using features of column $i$ with classification $y$ and $\mu_y$ represents mean computed using features of column $i$ with classification $y$.
 
 ### Gaussian Visualization
 
@@ -73,8 +75,8 @@ Which displays: \
 \
 Then, again utilizing `naive-bayes-cli`, to run Gaussian Naive Bayes, we can write:
 ```bash
-$ ./naive-bayes-cli synth-train-blobs-5.csv synth-test-blobs-5.csv -g -v # Verbose
-$ ./naive-bayes-cli synth-train-blobs-5.csv synth-test-blobs-5.csv -g > preds.csv # Store results
+./naive-bayes-cli synth-train-blobs-5.csv synth-test-blobs-5.csv -g -v # Verbose
+./naive-bayes-cli synth-train-blobs-5.csv synth-test-blobs-5.csv -g > preds.csv # Store results
 ```
 By storing the results in a csv file to use on the test dataset we can write another python script:
 ```python
