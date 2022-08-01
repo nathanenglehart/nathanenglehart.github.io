@@ -12,9 +12,6 @@ To compute the probability of a test vector with features $x_1 ... x_d$ belongin
 \\[ P(y,x_1 ... x_m) = P(y) \prod^{m}_{i=1} P_i (x_i|y) \\]
 
 Then, by running this equation for each possible classification $y$, Naive Bayes assigns the classification with maximal probability as the predicted classification. As such, to compute the predicted classification $\hat{y}$, we can write:
-<!--<div align="center">
-$\hat{y} = \arg \max_{y \in C} P(y,x_1 ... x_m) = \arg \max_{y \in C} P(y) \prod^{m}_{i=1} P_i (x_i|y)$
-</div> \ -->
 \\[ P(y) \prod^{m}_{i=1} P_i (x_i|y) \\]
 Implementations of Naive Bayes differ in how they compute the prior: $P(y)$ and the likelihood: $\prod^{m}_{i=1} P_i (x_i|y)$.  
 
