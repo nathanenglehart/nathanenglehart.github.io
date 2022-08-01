@@ -10,7 +10,6 @@ The Naive Bayesian Classifier Algorithm is a family of probabalistic supervised 
 \
 To compute the probability of a test vector with features $x_1 ... x_d$ belonging to classification $y \in C$ where $C$ is the set containing all possible classifications, using a $n \times m$ train matrix, Naive Bayes uses the equation:
 \\[ P(y,x_1 ... x_m) = P(y) \prod^{m}_{i=1} P_i (x_i|y) \\]
-where $P(y)$ is the prior and $\prod^{m}_{i=1} P_i (x_i|y)$ is the likelihood.
 
 Then, by running this equation for each possible classification $y$, Naive Bayes assigns the classification with maximal probability as the predicted classification. As such, to compute the predicted classification $\hat{y}$, we can write:
 \\[ \hat{y} = \arg \max_{y \in C} P(y,x_1 ... x_m) = \arg \max_{y \in C} P(y) \prod^{m}_{i=1} P_i (x_i|y) \\]
