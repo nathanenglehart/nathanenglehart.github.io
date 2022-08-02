@@ -168,6 +168,6 @@ As such, we can see that the predicted classifications are very close to the tru
 
 Barber, David. (2016). Bayesian Reasoning and Machine Learning. Cambridge University Press. \
 \
-Kuhn, Max and Johnson, Kjell. (2013). Applied Predictive Modeling, 2013. Springer. \
+Kuhn, Max and Johnson, Kjell. (2013). Applied Predictive Modeling. Springer. \
 \
 Wolberg, William et al. (1995). UCI Machine Learning Repository <a style="color: #f56a6a; !important" href="https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(diagnostic)">https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(diagnostic)</a>. Irvine, CA: University of California, School of Information and Computer Science.
