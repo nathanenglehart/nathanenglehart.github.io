@@ -44,7 +44,7 @@ For each run, N-fold cross validation requires the same three inputs as KNN. It 
 5. Return mean error $=$ error / $N$
 
 where miscalculation rate can be computed with:
-\\[ \text{Misclassification Rate} = \frac{1}{N} \sum_{n} I (\hat{t}_n \neq t_n) \\]
+\\[ \text{Misclassification Rate} = \frac{1}{N} \sum_{n=1}^N I (\hat{t}_n \neq t_n) \\]
 with $\hat{t}$ representing computed classifications and $t$ representing true classifications.\
 \
 Full code for implementation written in C++ available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/knn-cpp-241">https://github.com/nathanenglehart/knn-cpp-241</a>.
