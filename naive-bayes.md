@@ -13,7 +13,10 @@ To compute the probability of a test vector with features $x_1 ... x_d$ belongin
 
 Then, by running this equation for each possible classification $y$, Naive Bayes assigns the classification with maximal probability as the predicted classification. As such, to compute the predicted classification $\hat{y}$, we can write:
 \\[ \hat{y} = \arg \max_{y \in C} P(y,x_1 ... x_m) = \arg \max_{y \in C} P(y) \prod^{m}_{i=1} P_i (x_i|y) \\]
-Implementations of Naive Bayes differ in how they compute the prior and likelihood.
+Implementations of Naive Bayes differ in how they compute the prior and likelihood. \
+\
+Full code for Categorical Naive Bayes and Gaussian Naive Bayes available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/naive-bayes-cpp-241">https://github.com/nathanenglehart/naive-bayes-cpp-241</a>.
+
 
 ### Categorical Naive Bayes
 
@@ -40,7 +43,66 @@ for some $\alpha \geq 1$. This ensures that conditional class probabilities will
 
 ### Categorical Naive Bayes Visualization
 
-Under construction.
+The 1993 University of Wisconsin Breast Cancer Dataset contains information on cells gathered from digitized images of fine need aspirate (FNA) breast mass. Cells are classified as benign (0) or malignant (1). Feature include cell radius, texture, perimeter, area, smoothness, compacteness, concavity, concave points, symmetry, and fractal dimension such that each features is ordinal on a scale of 1 to 10 (train available [here](https://nathanenglehart.github.io/data/bc-train.csv); test available [here](https://nathanenglehart.github.io/data/bc-test.csv)). \
+\
+To visualize the data, with python we can write:
+```python
+#!/usr/bin/env python3
+
+import numpy as np
+import pandas as pd
+import seaborn as sns
+from matplotlib import pyplot as plt
+
+data = pd.read_csv('bc-test.csv', sep=',', header=None)
+data.columns = ['classification','radius','texture','perimeter','area','smoothness','compactness','concavity','concave points','symmetry','fractal dimension']
+sns.pairplot(data, hue='classification',palette=['tab:cyan','tab:olive'])
+plt.show()
+```
+Which displays: \
+\
+<img src="/images/bc-pairplot-true.png" alt="/images/bc-pairplot-true.png"> \
+\
+Now, to generate predictions we can use the previously mentioned C++ implementation. To clone and compile the repository, we must first run:
+
+```bash
+git clone https://github.com/nathanenglehart/naive-bayes-cpp-241
+cd naive-bayes-cpp-241
+make
+```
+
+This compiles the program `naive-bayes-cli`. Next, to run Categorical Naive Bayes on the dataset, we can run:
+
+```bash
+./naive-bayes-cli bc-train.csv bc-test.csv -c -v # Verbose
+./naive-bayes-cli bc-train.csv bc-test.csv -c > preds.csv # Store results
+```
+
+By storing the results in a csv file to use on the test dataset we can write another python script:
+
+```python
+#!/usr/bin/env python3
+
+import numpy as np
+import pandas as pd
+import seaborn as sns
+from matplotlib import pyplot as plt
+
+data = pd.read_csv('bc-test.csv', sep=',', header=None)
+data.columns = ['classification','radius','texture','perimeter','area','smoothness','compactness','concavity','concave points','symmetry','fractal dimension']
+results = pd.read_csv('preds.csv',header=None,sep=',')
+results = results.iloc[:,0]
+data.iloc[:,0] = results
+
+sns.pairplot(data, hue='classification',palette=['tab:cyan','tab:olive'])
+plt.show()
+```
+
+Which displays: \
+\
+<img src="/images/bc-pairplot-preds.png" alt="/images/bc-pairplot-preds.png"> \
+\
+Very similar to our original graph of true predictions! Further, by running in verbose, we can see that this run of Categorical Naive Bayes had an error rate of ~4%.
 
 ### Gaussian Naive Bayes
 
@@ -100,13 +162,12 @@ Which displays: \
 \
 <img src="/images/pairplot-synth-nb_ex-preds.png" alt="/images/pairplot-synth-nb_ex-preds.png"> \
 \
-As such, we can see that the predicted classifications are very close to the true classifications (in fact, running in verbose shows an error rate of ~0.1% on any given run)! 
-
-### Notes
-
-Full code for both implementations available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/naive-bayes-cpp-241">https://github.com/nathanenglehart/naive-bayes-cpp-241</a>.
+As such, we can see that the predicted classifications are very close to the true classifications. In fact, running in verbose shows an error rate of ~1% on any given run! 
 
 ### References
+
 Barber, David. (2016). Bayesian Reasoning and Machine Learning. Cambridge University Press. \
 \
-Kuhn, Max and Johnson, Kjell. (2013). Applied Predictive Modeling, 2013. Springer.
+Kuhn, Max and Johnson, Kjell. (2013). Applied Predictive Modeling, 2013. Springer. \
+\
+Wolberg, William et al. (1995). UCI Machine Learning Repository <a style="color: #f56a6a; !important" href="https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(diagnostic)">https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(diagnostic)</a>. Irvine, CA: University of California, School of Information and Computer Science.
