@@ -24,8 +24,8 @@ comments: false
 ### 2021
 
 * [**Naive Bayesian Classifier Algorithm**](https://nathanenglehart.github.io/naive-bayes)<br>
-  Naive bayesian classification algorithm (Categorical and Gaussian) with implementations written in C++ and implementation examples visualized using Python scripting. <br>
+  Naive bayesian classification algorithm (Categorical and Gaussian) with implementations written in C++; implementation examples visualized using Python scripting. <br>
  
 * [**K-nearest-neighbors Classifier Algorithm**](https://nathanenglehart.github.io/knn)<br>
-  K-nearest-neighbors classification algorithm (utilizing k-fold cross-validation) with accompanying C++ code and implementation example visualized using Python scripting.
+  K-nearest-neighbors classification algorithm (utilizing k-fold cross-validation) with accompanying C++ code; implementation example visualized using Python scripting.
   
