@@ -14,8 +14,8 @@ The K nearest neighbors (KNN) classifier is a highly useful and popular tool for
 To run, the KNN algorithm requires three inputs:
 
 1. A set of test vectors for which to determine classifications
-2. A set of train vectors for which to compare test vectors against
-3. Some pre-determined $K \in \mathbb{N}$ such that $1 \leq K \leq$ length(train vectors)
+2. An $n \times m$ train matrix for which to compare test vectors against
+3. Some pre-determined $K \in \mathbb{N}$ such that $1 \leq K \leq n$ 
 
 Then, for each test vector, KNN: 
 
@@ -76,7 +76,7 @@ git clone https://github.com/nathanenglehart/knn-cpp-241
 cd knn-cpp-241
 make
 ```
-Then, to test run KNN on our datasets, we can run:
+Which compiles the program `knn-cli`. Then, to test run KNN on our datasets, we can run:
 ```bash
 ./knn-cli iris-train.csv iris-test.csv -e -v
 ```
@@ -85,7 +85,7 @@ For $K = 1$ to $K = 135$, N-fold cross validation computed the following misclas
 <img src="/images/misclassification_rate_across_folds_iris.png" alt="/images/misclassification_rate_across_folds_iris.png"/>
 </div> \
 \
-choosing $K = 3$ (with an average misclassification rate of 0.03) as the optimal value for minimizing the misclassification rate across folds. \
+choosing $K = 3$ with a 3% misclassification rate as the optimal value for minimizing the misclassification rate across folds. \
 \
 Then, by storing the predicting classifications in a csv file to use on the test dataset we can write another python script:
 ```python
