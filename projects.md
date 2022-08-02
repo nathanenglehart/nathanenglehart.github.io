@@ -6,25 +6,11 @@ tags: [projects]
 modified: 10-24-21
 comments: false
 ---
-<!--
-### 2022
-  
-* [**Hidden Markov Model Implementation**](https://github.com/nathanenglehart/hmm)<br>
-  Forward-backward, Baum-Welch, and Viterbi written in C++. <br>
-  
-* [**Modeling Carbon Dioxide Growth with Land Loss Indicators**](https://github.com/nathanenglehart/eco-vit-ml)<br>
-  Lasso, Ridge, and Neural Network regression models for environmental data, written in Python. <br>
--->
+
 ### 2022
 
-<!--* [**ASCII Art**](https://nathanenglehart.github.io/ascii-art)<br>
-  Fun renderings using ASCII characters.
--->
-
-<!--* [**Difference of Two Population Proportions Test**](https://nathanenglehart.github.io/difference-of-two-population-proportions-test)<br>
-  Difference of Two Population Proportions Test written in C.<br>-->
 * [**OLS and Ridge Regression Class Implementations**](https://nathanenglehart.github.io/regression)<br>
-  Implementations of OLS and ridge regression classes using Python with 1993 Auto MPG dataset examples. <br> 
+  Implementations of OLS and ridge regression classes using Python with 1993 Auto MPG dataset visualization examples. <br> 
   
 * [**Standard Score**](https://nathanenglehart.github.io/z-score)<br>
   Computing the Standard Score, commonly known as the Z-score, using C.<br>  
@@ -37,12 +23,9 @@ comments: false
 
 ### 2021
 
-<!--* [**Naive Bayesian Classifier Algorithm**](https://github.com/nathanenglehart/naive-bayes-cpp-241)<br>-->
 * [**Naive Bayesian Classifier Algorithm**](https://nathanenglehart.github.io/naive-bayes)<br>
-  Naive bayesian classification algorithm (Categorical and Gaussian) with implementations written in C++ and examples. <br>
+  Naive bayesian classification algorithm (Categorical and Gaussian) with implementations written in C++ and implementation examples visualized using Python scripting. <br>
  
-<!--* [**K-nearest-neighbors Classifier Algorithm**](https://github.com/nathanenglehart/knn-cpp-241)<br>-->
 * [**K-nearest-neighbors Classifier Algorithm**](https://nathanenglehart.github.io/knn)<br>
-  K-nearest-neighbors classification algorithm (utilizing k-fold cross-validation) with accompanying C++ code and example.
-  <!--<img src="/images/teaser.png" width="400"><br>-->
+  K-nearest-neighbors classification algorithm (utilizing k-fold cross-validation) with accompanying C++ code and implementation example visualized using Python scripting.
   
