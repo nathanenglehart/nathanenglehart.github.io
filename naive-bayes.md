@@ -6,6 +6,7 @@ tags: [Jekyll, theme, responsive, blog, template]
 modified: 2-16-22
 comments: false
 ---
+
 The Naive Bayesian Classifier Algorithm is a family of probabalistic supervised machine learning algorithms that assumes each feature is independent of other features inside a feature vector. \
 \
 To compute the probability of a test vector with features $x_1 ... x_d$ belonging to classification $y \in C$ where $C$ is the set containing all possible classifications, using a $n \times m$ train matrix, Naive Bayes uses the equation:
@@ -13,10 +14,11 @@ To compute the probability of a test vector with features $x_1 ... x_d$ belongin
 
 Then, by running this equation for each possible classification $y$, Naive Bayes assigns the classification with maximal probability as the predicted classification. As such, to compute the predicted classification $\hat{y}$, we can write:
 \\[ \hat{y} = \arg \max_{y \in C} P(y,x_1 ... x_m) = \arg \max_{y \in C} P(y) \prod^{m}_{i=1} P_i (x_i|y) \\]
-Implementations of Naive Bayes differ in how they compute the prior and likelihood. \
-\
-Code for Categorical Naive Bayes and Gaussian Naive Bayes implementations available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/naive-bayes-cpp-241">https://github.com/nathanenglehart/naive-bayes-cpp-241</a>.
+Implementations of Naive Bayes are unique in how they compute the prior and likelihood. This writeup will explore two varieties of Naive Bayes: Categorical Naive Bayes and Gaussian Naive Bayes.
 
+### Note
+
+To see my full code behind the mathematical notation for Categorical Naive Bayes and Gaussian Naive Bayes implementations (which will be used below in demonstrations), please see: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/naive-bayes-cpp-241">https://github.com/nathanenglehart/naive-bayes-cpp-241</a>.
 
 ### Categorical Naive Bayes
 
@@ -162,7 +164,7 @@ Which displays: \
 \
 <img src="/images/pairplot-synth-nb_ex-preds.png" alt="/images/pairplot-synth-nb_ex-preds.png"> \
 \
-As such, we can see that the predicted classifications are very close to the true classifications. In fact, running in verbose shows an error rate of ~1% on any given run! 
+As such, we can see that the predicted classifications are very close to the true classifications. In fact, running in verbose shows an error rate of ~1% on any given run!
 
 ### References
 
