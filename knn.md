@@ -9,7 +9,7 @@ comments: false
 
 The K nearest neighbors (KNN) classifier is a highly useful and popular tool for applications of data mining. KNN is a non-probabalistic supervised machine learning algorithm that classifies vectors containing data and a classification. 
 
-## KNN Classification Algorithm
+### KNN Classification Algorithm
 
 To run, the KNN algorithm requires three inputs:
 
@@ -27,7 +27,7 @@ Then, for each test vector, KNN:
 In KNN, distance can be measured using various $L^\mathcal{p}$ norms. Most commonly, Euclidean Distance is used, which is given by: \\[ d(p,q) = \sqrt{\sum_{i=1}^n (q_i - p_i)^2} \\]
 However, Chebyshev Distance and Manhattan Distance are also frequently used.
 
-## KNN with N-Fold Cross Validation
+### KNN with N-Fold Cross Validation
 
 In order to draw more accurate predictions than those one might come to by using an arbitrary K value, we can utilize N-fold cross validation to determine the error for an array of $K$ values. Then, finding the $K$ value which minimizes error shows us the optimal $K$ value which best fits the data. \
 \
@@ -49,7 +49,7 @@ with $\hat{t}$ representing computed classifications and $t$ representing true c
 \
 Full code for implementation written in C++ available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/knn-cpp-241">https://github.com/nathanenglehart/knn-cpp-241</a>.
 
-## Visualization
+### Visualization
 
 The 1936 Iris dataset, a classic dataset used for classification algorithms, contains 150 flowers classified by species and their respective sepal and petal measurements (test available [here](https://github.com/nathanenglehart/nathanenglehart.github.io/blob/gh-pages/data/iris-test.csv) and train available [here](https://github.com/nathanenglehart/nathanenglehart.github.io/blob/gh-pages/data/iris-train.csv) where 0 represents iris-setosa, 1 represents iris-versicolor, and 2 represents iris-virginica). \
 \
@@ -78,7 +78,8 @@ make
 ```
 Which compiles the program `knn-cli`. Then, to test run KNN on our datasets, we can run:
 ```bash
-./knn-cli iris-train.csv iris-test.csv -e -v
+./knn-cli iris-train.csv iris-test.csv -e -v # Verbose
+./knn-cli iris-train.csv iris-test.csv -e > preds.csv # Store results
 ```
 For $K = 1$ to $K = 135$, N-fold cross validation computed the following misclassification rates with $N = 10$: 
 <div align="center">
@@ -97,7 +98,7 @@ from matplotlib import pyplot as plt
 
 data = pd.read_csv("iris-test.csv", sep=',')
 
-preds = pd.read_csv("iris-pred-classifications.csv", sep=',')
+preds = pd.read_csv("preds.csv", sep=',')
 preds = preds.iloc[:,0]
 
 data.iloc[:,0] = preds
