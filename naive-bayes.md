@@ -15,12 +15,12 @@ Then, by running this equation for each possible classification $y$, Naive Bayes
 \\[ \hat{y} = \arg \max_{y \in C} P(y,x_1 ... x_m) = \arg \max_{y \in C} P(y) \prod^{m}_{i=1} P_i (x_i|y) \\]
 Implementations of Naive Bayes differ in how they compute the prior and likelihood. \
 \
-Full code for Categorical Naive Bayes and Gaussian Naive Bayes available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/naive-bayes-cpp-241">https://github.com/nathanenglehart/naive-bayes-cpp-241</a>.
+Code for Categorical Naive Bayes and Gaussian Naive Bayes implementations available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/naive-bayes-cpp-241">https://github.com/nathanenglehart/naive-bayes-cpp-241</a>.
 
 
 ### Categorical Naive Bayes
 
-Perhaps the one of the most common implementations of Naive Bayes is Categorical Naive Bayes. Categorical Naive Bayes is useful for classifying vector rows with categorical data (nominal or ordinal) as features. Respectively, Categorical Naive Bayes computes the prior and likelihood with: 
+One of the most common implementations of Naive Bayes is Categorical Naive Bayes. Categorical Naive Bayes is useful for classifying vectors with categorical data (nominal or ordinal) as features. Respectively, Categorical Naive Bayes computes the prior and likelihood with: 
 <div align="center">
 $P(y) = \frac{\sum^n_{j=1} I(y_j = y)}{n}$ and $P_i (x_i|y) = \frac{\sum^n_{j=1} I(x_i = x_j \land y_j = y)}{\sum^n_{j=1} I(y_j = y)}$
 </div> \
