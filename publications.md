@@ -23,6 +23,7 @@ comments: false
     <li>
       <b>Englehart, Nathan.</b> Great Firewall of China: Implementations and Impact. <i>The Synapse</i>, Oberlin College, April 25, 2021. 
     </li>
+    <br>
     <li>
       <b>Englehart, Nathan.</b> Representations of French Colonialism in Babar the Little Elephant. <i>On Second Thought</i>, Oberlin College, April 16, 2021. [<a style="color: #f56a6a !important;" href="https://oberlinost.wordpress.com/2021/04/16/representations-of-french-colonialism-in-the-story-of-babar-the-little-elephant/">link</a>]
     </li>
@@ -36,6 +37,7 @@ comments: false
     <li>
       Housing Provision under Authoritarianism in Modern China (in progress second capstone paper) 
     </li>
+    <br>
     <li>
       Mary Jane Patterson Profile for Oberlin African American Women Intellectuals Project
     </li>
