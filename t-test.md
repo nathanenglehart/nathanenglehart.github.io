@@ -56,7 +56,7 @@ A simpler approach utilizes R rather than C. R can also easily load the dataset:
 
 library(haven) # in order to read sav
 
-gss_data <- read_sav("data.sav") # see https://gss.norc.org/get-the-data for 2021 GSS data
+gss_data <- read_sav("gss_2021.sav") # see https://gss.norc.org/get-the-data for 2021 GSS data
 
 one_sample_t_test <- function(sample,theoretical_mean) {
 
@@ -150,7 +150,7 @@ Again, a simpler approach utilizes R rather than C:
 
 library(haven) # in order to read sav
 
-gss_data <- read_sav("data.sav") # see https://gss.norc.org/get-the-data for 2021 GSS data
+gss_data <- read_sav("gss_2021.sav") # see https://gss.norc.org/get-the-data for 2021 GSS data
 
 two_sample_t_test <- function(sample_1,sample_2) {
 
