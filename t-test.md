@@ -14,7 +14,7 @@ The Student's T-Test, commonly known as the T-Test, is frequently used by social
 The one sample T-Test equation is given by \\[t = \frac{\overline{x} - \mu}{\frac{s}{\sqrt{n}}}\\]
 where $\overline{x}$ is the observed mean of the sample, $\mu$ is the theoretical mean of the population, $s$ is the standard deviation of the sample, and $n$ is the sample size. The theoretical mean of the population may be known or hypothesized. For the One Sample T-Test, degrees of freedom are given by \\[\text{df} = n - 1 \\]
 <!--Suppose the observed sample mean is 74, the theoretical population mean is 78, the standard deviation of the sample is 3.5, and the sample size is 10. Then, we can write:-->
-According to U.S. Bureau of Statistics, in 2021, the average American watched 3.1 hours of tv per day (<a style="color: #f56a6a; !important" href="https://www.usnews.com/news/best-states/articles/2021-07-22/americans-spent-more-time-watching-television-during-covid-19-than-working">link</a>). As such, we can treat 3.1 as the theoretical mean. Then, using data from the 2021 General Social Survey (GSS) for our sample, we can hypothesize that there is no difference in the tv watching habits of the average American according to U.S. Bureau of Statistics and the average General Social Survey respondent. \
+According to U.S. Bureau of Statistics, in 2021, the average American watched 3.1 hours of tv per day (<a style="color: #f56a6a; !important" href="https://www.bls.gov/tus/">link</a>). As such, we can treat 3.1 as the theoretical mean. Then, using data from the 2021 General Social Survey (GSS) for our sample, we can hypothesize that there is no difference in the tv watching habits of the average American according to U.S. Bureau of Statistics and the average General Social Survey respondent. \
 \
 The mean of the variable tvhours in the GSS is 3.476400 with a standard deviation of 3.101692 and a sample size of 3780. Additionally, as previously noted, the theoretical population mean is 3.1. Below is the code to solve for $t$ using C:
 ```c
@@ -54,9 +54,9 @@ A simpler approach utilizes R rather than C. R can also easily load the dataset:
 
 ### Nathan Englehart (Summer 2022)
 
-library(haven) # to read sav
+library(haven) # in order to read sav
 
-gss_data <- read_sav("data.sav")
+gss_data <- read_sav("data.sav") # see https://gss.norc.org/get-the-data for 2021 GSS data
 
 one_sample_t_test <- function(sample,theoretical_mean) {
 
@@ -78,10 +78,10 @@ one_sample_t_test <- function(sample,theoretical_mean) {
    return(list(t,df))
 }
 
-sample = as.numeric(unlist(gss_data[,"tvhours"])) # "how many hours per day do you watch tv?"
-tm = 3.1
+sample = as.numeric(unlist(gss_data[,"tvhours"])) # "how many hours per day do you watch tv?" (continuous)
+theoretical_mean = 3.1
 
-result = one_sample_t_test(sample,tm)
+result = one_sample_t_test(sample,theoretical_mean)
 result
 ```
 The above R script returns the same results as C.
@@ -148,9 +148,9 @@ Again, a simpler approach utilizes R rather than C:
 
 ### Nathan Englehart (Summer 2022)
 
-library(haven) # to read sav
+library(haven) # in order to read sav
 
-gss_data <- read_sav("data.sav")
+gss_data <- read_sav("data.sav") # see https://gss.norc.org/get-the-data for 2021 GSS data
 
 two_sample_t_test <- function(sample_1,sample_2) {
 
