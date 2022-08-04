@@ -144,6 +144,11 @@ Using data from the 1993 Auto MPG (miles per gallon) Dataset available from the 
 1 & x_n}\\] -->
 where car weight is represented by the vector $x = \{x_1, x_2, ..., x_n\}$. As such, with Python we can can write:
 ```python
+#!/bin/bash python3
+
+import numpy as np
+import pandas as pd
+
 from matplotlib import pyplot as plt
 
 data = pd.read_csv("mpg.csv", sep=",")
@@ -175,6 +180,11 @@ Again, utilizing the Auto MPG dataset, suppose we again wish to graph a regressi
 1 & x_n & x_n^2 }\\]
 Now, by slightly modifying our original Python code we can write:
 ```python
+#!/bin/bash python3
+
+import numpy as np
+import pandas as pd
+
 from matplotlib import pyplot as plt
 
 data = pd.read_csv("mpg.csv", sep=",")
@@ -209,8 +219,14 @@ where car weight is given by $x = \{x_1, x_2, ..., x_n\}$ and displacement is gi
 \
 Then, using Python, we can write:
 ```python
+#!/bin/bash python3
+
+import numpy as np
+import pandas as pd
+
 from matplotlib import pyplot as plt
 from mpl_toolkits import mplot3d
+
 plt.style.use('seaborn-poster')
 
 data = pd.read_csv("mpg.csv", sep=",")
@@ -238,7 +254,7 @@ z = model.coef_[0] + model.coef_[1] * x_pairs + model.coef_[2] * y_pairs
 
 # Graph
 
-fig = plt.figure(figsize = (1000,1000))
+fig = plt.figure(figsize = (100,100))
 ax = plt.axes(projection='3d')
 ax.plot_surface(x_pairs,y_pairs,z, rstride=1, cstride=1, color='teal', alpha=0.4, antialiased=False)
 ax.scatter(x,y,t, c = 'r')
@@ -262,8 +278,15 @@ where again, car weight is given by $x = \{x_1, x_2, ..., x_n\}$ and displacemen
 \
 So, using Python, we can write:
 ```python
+#!/bin/bash python3
+
+import numpy as np
+import pandas as pd
+
 from matplotlib import pyplot as plt
+from sklearn.preprocessing import PolynomialFeatures
 from mpl_toolkits import mplot3d
+
 plt.style.use('seaborn-poster')
 
 data = pd.read_csv("mpg.csv", sep=",")
@@ -294,7 +317,7 @@ z = model.coef_[0] + model.coef_[1] * x_pairs + model.coef_[2] * y_pairs + model
 
 # Graph
 
-fig = plt.figure(figsize = (1000,1000))
+fig = plt.figure(figsize = (100,100))
 ax = plt.axes(projection='3d')
 ax.plot_surface(x_pairs,y_pairs,z, rstride=1, cstride=1, color='teal', alpha=0.4, antialiased=False)
 ax.scatter(x,y,t, c = 'r')
@@ -318,7 +341,6 @@ Other cases with higher degree polynomials entail the construction of similar re
 ### Notes 
 
 In all of the above examples, the ridge_regression() class can be used interchangably with the ols_regression() class.
-
 
 ### References
 
