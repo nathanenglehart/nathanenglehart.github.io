@@ -144,7 +144,7 @@ Using data from the 1993 Auto MPG (miles per gallon) Dataset available from the 
 1 & x_n}\\] -->
 where car weight is represented by the vector $x = \{x_1, x_2, ..., x_n\}$. As such, with Python we can can write:
 ```python
-#!/bin/bash python3
+#!/usr/bin/env python3
 
 import numpy as np
 import pandas as pd
@@ -180,7 +180,7 @@ Again, utilizing the Auto MPG dataset, suppose we again wish to graph a regressi
 1 & x_n & x_n^2 }\\]
 Now, by slightly modifying our original Python code we can write:
 ```python
-#!/bin/bash python3
+#!/usr/bin/env python3
 
 import numpy as np
 import pandas as pd
@@ -219,7 +219,7 @@ where car weight is given by $x = \{x_1, x_2, ..., x_n\}$ and displacement is gi
 \
 Then, using Python, we can write:
 ```python
-#!/bin/bash python3
+#!/usr/bin/env python3
 
 import numpy as np
 import pandas as pd
@@ -278,7 +278,7 @@ where again, car weight is given by $x = \{x_1, x_2, ..., x_n\}$ and displacemen
 \
 So, using Python, we can write:
 ```python
-#!/bin/bash python3
+#!/usr/bin/env python3
 
 import numpy as np
 import pandas as pd
