@@ -340,7 +340,7 @@ Other cases with higher degree polynomials entail the construction of similar re
 
 ### Notes 
 
-In all of the above examples, the ridge_regression() class can be used interchangably with the ols_regression() class.
+In all of the above examples, the `ols_regression()` class can be used interchangably with the `ridge_regression()` class.
 
 ### References
 
