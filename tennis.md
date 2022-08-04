@@ -1,7 +1,7 @@
 ---
 layout: home2
-permalink: /tennis/
-title: Tennis
+permalink: /tennis-2021/
+title: Tennis 2021
 tags: [Jekyll, theme, responsive, blog, template]
 modified: 2-16-22
 comments: false
