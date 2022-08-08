@@ -10,7 +10,7 @@ comments: false
 ### 2022
 
 * [**Logistic Regression Class Implementation**](https://nathanenglehart.github.io/logit)<br>
-  Implementation of Logistic Regression using Stochastic Gradient Descent (SGD) and Python. <br>
+  Implementation of Logistic Regression using Gradient Descent and Python. <br>
 
 * [**OLS and Ridge Regression Class Implementations**](https://nathanenglehart.github.io/regression)<br>
   Implementations of OLS and ridge regression classes using Python with 1993 Auto MPG dataset visualization examples. <br> 
