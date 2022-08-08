@@ -1,6 +1,6 @@
 ---
 layout: home2
-permalink: /logit/
+permalink: /logistic-regression/
 title: Logit Regression Class Implementation
 tags: [Jekyll, theme, responsive, blog, template]
 modified: 2-16-22
