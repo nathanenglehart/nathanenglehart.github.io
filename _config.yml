@@ -9,10 +9,12 @@ disqus_shortname: nathanenglehart
 # Links to include in top navigation
 # For external links add external: true
 links:
+  - title: CV
+    url: /files/cv.pdf
   - title: Background
     url: /background/
   - title: Projects
-    url: /projects
+    url: /projects/
   - title: Research
     url: /research/
   
