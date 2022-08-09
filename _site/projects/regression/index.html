@@ -1,0 +1,494 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="Fj_N72IqAGK0viQu4NkuCT8-IngrAaeA4el6G3GQtAc" />
+<title>Nathan Englehart  &#8211; OLS and Ridge Regression Class Implementations </title>
+<meta name="description" content="">
+<meta name="keywords" content="Jekyll, theme, responsive, blog, template">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OLS and Ridge Regression Class Implementations">
+<meta property="og:description" content="Welcome to my personal site.">
+<meta property="og:url" content="http://localhost:4000/projects/regression/">
+<meta property="og:site_name" content="Nathan Englehart">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/regression/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Nathan Englehart Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/academicons.css" />
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="http://localhost:4000/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="http://localhost:4000/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<!--<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">-->
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!--<link rel="shortcut icon" href="http://localhost:4000/favicon.png">-->
+
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<!--<link rel="apple-touch-icon-precomposed" sizes="192x192" href="http://localhost:4000/images/apple-icon-precomposed.png">-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+      }
+    });
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+
+  
+<!-- Load jquery -->  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>   <!-- Load KaTeX -->  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">  <script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script> 
+<!--<link href="/css/syntax.css" rel="stylesheet">-->
+</head>
+
+<body class="page">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://localhost:4000">Nathan Englehart</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+				<li><a href="http://localhost:4000/files/cv.pdf" >CV</a></li>
+		        
+				<li><a href="http://localhost:4000/background/" >Background</a></li>
+		        
+				<li><a href="http://localhost:4000/projects/" >Projects</a></li>
+		        
+				<li><a href="http://localhost:4000/research/" >Research</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+
+	<img src="http://localhost:4000/images/" class="bio-photo" alt=""></a>
+
+<h3></h3>
+<p></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <article>
+    <h1>OLS and Ridge Regression Class Implementations</h1>
+    <div class="article-wrap">
+      <p>Multivariate regression methods are commonly used in the social sciences to examine the extent to which various independent variables are related to a dependent variable. Most commonly, when looking to analyze relationships between variables, ordered least squares regression (OLS) is the form of regression most often employed.<br />
+<br />
+OLS seeks to find coefficients for the regression function which minimize prediction error. Its closed-from solution does so with
+\[ \theta = (X^T X)^{-1} X^T t \]
+where $\theta$ represents the OLS estimator, $X$ is an $n \times m$ matrix containing independent variable parameters, and $t$ is a vector of response variables. <br />
+<br />
+As such, we can write an OLS class using Python with:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="c1"># Nathan Englehart (Summer, 2022)
+</span>
+<span class="k">class</span> <span class="nc">ols_regression</span><span class="p">():</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      
+      <span class="s">""" OLS regression class based on sklearn functionality (for modular use) """</span>
+
+  <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+
+      <span class="s">""" Fits ridge regression model with given train matrix and target vector
+		Args:
+			
+			X::[Numpy Array]
+				Train matrix (build before putting into function)
+			
+			t::[Numpy Array]
+				Target vector
+      """</span>
+
+      <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linalg</span><span class="p">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X</span><span class="p">.</span><span class="n">T</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">)).</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">.</span><span class="n">T</span><span class="p">).</span><span class="n">dot</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+      
+      <span class="bp">self</span><span class="p">.</span><span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span>
+      <span class="bp">self</span><span class="p">.</span><span class="n">coef_</span> <span class="o">=</span> <span class="n">theta</span>
+      
+      <span class="k">return</span> <span class="bp">self</span>
+
+  <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+      
+      <span class="s">""" Generates predictions for the given matrix based on model.
+      		Args:
+			
+			X::[Numpy Array]
+				Test matrix (build before putting into function)
+      """</span>
+
+      <span class="bp">self</span><span class="p">.</span><span class="n">predictions</span> <span class="o">=</span> <span class="n">X</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">theta</span><span class="p">)</span>
+
+      <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">predictions</span>
+</code></pre></div></div>
+
+<p>In situations where regression equations need to be generalizable for future data, regressions that employ regularization methods to penalize overfitting with high coefficients are often utilized with cross validation. One such method is ridge regression, for which there exists a closed-form solution that computes its coefficients with
+\[ \theta = (X^T X + \lambda I)^{-1} X^T t \]
+where $\theta$ represents the ridge estimator, $X$ is an $n \times m$ matrix containing independent variable parameters, $\lambda$ is the weight penalty, $I$ is a $m \times m$ identity matrix, and $t$ is a vector of response variables. Notably, ridge regression is also highly useful with multicollinear, highly correlated independent variables.  <br />
+<br />
+Thus, similar to OLS, we can again write a ridge class using Python with:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="c1"># Nathan Englehart (Summer, 2022)
+</span>
+<span class="k">class</span> <span class="nc">ridge_regression</span><span class="p">():</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lam</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+      
+      <span class="s">""" Ridge regression class based on sklearn functionality (for modular use)
+		
+		Args:
+			
+			lam::[Float]
+				Weight penalty for high order polynomials
+      """</span>
+
+      <span class="bp">self</span><span class="p">.</span><span class="n">lam</span> <span class="o">=</span> <span class="n">lam</span>
+
+  <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+
+      <span class="s">""" Fits ridge regression model with given train matrix and target vector
+		Args:
+			
+			X::[Numpy Array]
+				Train matrix (build before putting into function)
+			
+			t::[Numpy Array]
+				Target vector
+      """</span>
+
+      <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">identity</span><span class="p">(</span><span class="n">X</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+      <span class="n">I</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="n">lam_matrix</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">lam</span> <span class="o">*</span> <span class="n">I</span>
+      <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linalg</span><span class="p">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X</span><span class="p">.</span><span class="n">T</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">+</span> <span class="n">lam_matrix</span><span class="p">).</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">.</span><span class="n">T</span><span class="p">).</span><span class="n">dot</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+      
+      <span class="bp">self</span><span class="p">.</span><span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span>
+      <span class="bp">self</span><span class="p">.</span><span class="n">coef_</span> <span class="o">=</span> <span class="n">theta</span>
+      
+      <span class="k">return</span> <span class="bp">self</span>
+
+  <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+      
+      <span class="s">""" Generates predictions for the given matrix based on model.
+      		Args:
+			
+			X::[Numpy Array]
+				Test matrix (build before putting into function)
+      """</span>
+
+      <span class="bp">self</span><span class="p">.</span><span class="n">predictions</span> <span class="o">=</span> <span class="n">X</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">theta</span><span class="p">)</span>
+
+      <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">predictions</span>
+</code></pre></div></div>
+<p>In both regressions, the prediction vector is given by:
+\[ \hat{t} = X\theta \]
+Additionally, in both regressions, coefficients can also be computed with algorithms that seek to minimize prediction error, such as coordinate descent or gradient descent. Some regression functions, such as logit, lasso, and elastic net, have no closed-form solution and must be calculated using such algorithms. <br />
+<br />
+OLS and ridge code available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/regression">https://github.com/nathanenglehart/regression</a>.</p>
+<h3 id="simple-linear-regression-example">Simple Linear Regression Example</h3>
+<p>Using data from the 1993 Auto MPG (miles per gallon) Dataset available from the UCI Machine Learning repository, suppose we wish to graph a regression to predict MPG with car weight. To set up our data for our regression requires building our regressor matrix $X$. As such, our matrix should contain two columns. The first column should contain all ones. This columns account for the intercept term. The second column should contain the car weight data. Thus, we can write:
+<!--\\[ X = \begin{bmatrix} 1 & x_1 \\ 
+                        1 & x_2 \\
+			\vdots & \vdots \\
+			1 & x_n \\ \end{bmatrix} \\] -->
+\[ X = \pmatrix{
+1 &amp; x_1 \cr 
+1 &amp; x_2 \cr
+\vdots &amp; \vdots \cr
+1 &amp; x_n}\]
+<!--\\[ X = \bmatrix{
+1 & x_1 \cr 
+1 & x_2 \cr
+\vdots & \vdots \cr
+1 & x_n}\\] -->
+where car weight is represented by the vector $x = {x_1, x_2, …, x_n}$. As such, with Python we can can write:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"mpg.csv"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">","</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'mpg'</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'weight'</span><span class="p">])</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="p">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span> <span class="n">x</span><span class="p">]).</span><span class="n">T</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols_regression</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols_regression</span><span class="p">().</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">t_hat</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'weight'</span><span class="p">]),</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'mpg'</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="s">'g'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'weight'</span><span class="p">]),</span> <span class="n">t_hat</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'k'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'weight'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'mpg'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+<p>As a result, this script displays:
+<img src="/images/mpg_simple.png" alt="/images/mpg_simple.png" /></p>
+<h3 id="polynomial-regression-example">Polynomial Regression Example</h3>
+<p>Again, utilizing the Auto MPG dataset, suppose we again wish to graph a regression predicting MPG with car weight. However, this time we wish to utilize a second order polynomial model. To do so, we can utilize the same process as before, but we must build our regressor matrix differently. In this case, our matrix will maintain the same format, except we will need to append another column of $x$ with every term squared. Therefore, we can write:
+\[ X = \pmatrix{
+1 &amp; x_1 &amp; x_1^2 \cr 
+1 &amp; x_2 &amp; x_2^2 \cr
+\vdots &amp; \vdots &amp; \vdots \cr
+1 &amp; x_n &amp; x_n^2 }\]
+Now, by slightly modifying our original Python code we can write:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"mpg.csv"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">","</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'mpg'</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'weight'</span><span class="p">])</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="p">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span> <span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="p">)]).</span><span class="n">T</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols_regression</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols_regression</span><span class="p">().</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">t_hat</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'weight'</span><span class="p">]),</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'mpg'</span><span class="p">]),</span> <span class="n">color</span><span class="o">=</span><span class="s">'g'</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">t_hat</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t_hat</span><span class="p">)))</span> <span class="c1"># plot points in order
+</span><span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'weight'</span><span class="p">]),</span> <span class="n">t_hat</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'k'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'weight'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'mpg'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+<p>And as a result, the script displays:
+<img src="/images/mpg_second_degree.png" alt="/images/mpg_second_degree.png" /></p>
+<h3 id="mulivariate-regression-example">Mulivariate Regression Example</h3>
+<p>Now, suppose we want to graph a regression predicting MPG with car weight and displacement. In this case, we should create our regression matrix using a constant column, a column for car weight, and a column for displacement. As such, we can write:
+\[ X = \pmatrix{
+1 &amp; x_{1} &amp; y_{1} \cr
+1 &amp; x_{2} &amp; y_{2} \cr
+\vdots &amp; \vdots &amp; \vdots \cr
+1 &amp; x_{n} &amp; y_{n} } \]
+where car weight is given by $x = {x_1, x_2, …, x_n}$ and displacement is given by $y = {y_1, y_2, …, y_n}$. <br />
+<br />
+Then, using Python, we can write:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">style</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="s">'seaborn-poster'</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"mpg.csv"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">","</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'mpg'</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'weight'</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'displacement'</span><span class="p">])</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="p">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]).</span><span class="n">T</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols_regression</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols_regression</span><span class="p">().</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">t_hat</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Create set of ordered pairs to work with on graph
+</span>
+<span class="n">x_pts</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="nb">min</span><span class="p">(),</span> <span class="n">x</span><span class="p">.</span><span class="nb">max</span><span class="p">(),</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">y_pts</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">y</span><span class="p">.</span><span class="nb">min</span><span class="p">(),</span> <span class="n">y</span><span class="p">.</span><span class="nb">max</span><span class="p">(),</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">x_pairs</span><span class="p">,</span> <span class="n">y_pairs</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x_pts</span><span class="p">,</span><span class="n">y_pts</span><span class="p">)</span>
+
+<span class="c1"># Get values for all ordered pairs in set using model
+</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">model</span><span class="p">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">x_pairs</span> <span class="o">+</span> <span class="n">model</span><span class="p">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">y_pairs</span>
+
+<span class="c1"># Graph
+</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s">'3d'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">x_pairs</span><span class="p">,</span><span class="n">y_pairs</span><span class="p">,</span><span class="n">z</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'teal'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">antialiased</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">t</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s">'r'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'displacement'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'mpg'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'</span><span class="se">\n\n\n</span><span class="s">weight'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'</span><span class="se">\n\n\n</span><span class="s">displacement'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+<p>As such, this script displays:
+<img src="/images/mpg_multi.png" alt="/images/mpg_multi.png" />
+Cases with more variables are similar, but not able to be visualized.</p>
+<h3 id="polynomial-multivariate-regression">Polynomial multivariate regression</h3>
+<p>Suppose we want to again graph a regression predicting MPG with car weight and displacement. However, this time we wish to use a second order polynomial to do so. Thus, we should create a regressor matrix with a column of the form
+\[ X = \pmatrix{ 1 &amp; x_1 &amp; y_1 &amp; x_1^2 &amp; x_1 \cdot y_1 &amp; y_1^2 \cr
+                  1 &amp; x_2 &amp; y_2 &amp; x_2^2 &amp; x_2 \cdot y_2 &amp; y_2^2 \cr
+		  \vdots &amp; \vdots &amp; \vdots&amp; \vdots &amp; \vdots &amp; \vdots \cr
+		  1 &amp; x_n &amp; y_n &amp; x_n^2 &amp; x_n \cdots y_n &amp; y_n^2
+} \]
+where again, car weight is given by $x = {x_1, x_2, …, x_n}$ and displacement is given by $y = {y_1, y_2, …, y_n}$. <br />
+<br />
+So, using Python, we can write:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PolynomialFeatures</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">style</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="s">'seaborn-poster'</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"mpg.csv"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">","</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'mpg'</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'weight'</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'displacement'</span><span class="p">])</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]).</span><span class="n">T</span>
+
+<span class="n">degree</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">poly</span><span class="p">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols_regression</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols_regression</span><span class="p">().</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">t_hat</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Create set of ordered pairs to work with on graph
+</span>
+<span class="n">x_pts</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="nb">min</span><span class="p">(),</span> <span class="n">x</span><span class="p">.</span><span class="nb">max</span><span class="p">(),</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">y_pts</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">y</span><span class="p">.</span><span class="nb">min</span><span class="p">(),</span> <span class="n">y</span><span class="p">.</span><span class="nb">max</span><span class="p">(),</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">x_pairs</span><span class="p">,</span> <span class="n">y_pairs</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x_pts</span><span class="p">,</span><span class="n">y_pts</span><span class="p">)</span>
+
+<span class="c1"># Get values for all ordered pairs in set using model
+</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">model</span><span class="p">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">x_pairs</span> <span class="o">+</span> <span class="n">model</span><span class="p">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">y_pairs</span> <span class="o">+</span> <span class="n">model</span><span class="p">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="n">x_pairs</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">*</span> <span class="n">y_pairs</span> <span class="o">*</span> <span class="n">x_pairs</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">*</span> <span class="n">y_pairs</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Graph
+</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s">'3d'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">x_pairs</span><span class="p">,</span><span class="n">y_pairs</span><span class="p">,</span><span class="n">z</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'teal'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">antialiased</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">t</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s">'r'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'displacement'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'mpg'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'</span><span class="se">\n\n\n</span><span class="s">weight'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'</span><span class="se">\n\n\n</span><span class="s">displacement'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+<p>Then, this script displays:
+<img src="/images/mpg_multi_poly.png" alt="/images/mpg_multi_poly.png" />
+Again, cases with more variables are similar, but not able to be visualized. Cases with higher degrees utilize a similar regressor matrix construction. For instance, for a third degree polynomial, we should create a regressor matrix of the form
+\[ X = \pmatrix{ 1 &amp; x_1 &amp; y_1 &amp; x_1^2 &amp; x_1 \cdot y_1 &amp; y_1^2 &amp; x_1^3 &amp; x_1^2 \cdot y_1 &amp; x_1 \cdot y_1^2 &amp; y_1^3 \cr
+                  1 &amp; x_2 &amp; y_2 &amp; x_2^2 &amp; x_2 \cdot y_2 &amp; y_2^2 &amp; x_2^3 &amp; x_2^2 \cdot y_2 &amp; x_2 \cdot y_2^2 &amp; y_2^3 \cr
+	          \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots \cr
+		  1 &amp; x_n &amp; y_n &amp; x_n^2 &amp; x_n \cdot y_n &amp; y_n^2 &amp; x_n^3 &amp; x_n^2 \cdot y_n &amp; x_n \cdot y_n^2 &amp; y_n^3
+}
+\]
+Other cases with higher degree polynomials entail the construction of similar regressor matricies.</p>
+
+<h3 id="notes">Notes</h3>
+
+<p>In all of the above examples, the <code class="highlighter-rouge">ols_regression()</code> class can be used interchangably with the <code class="highlighter-rouge">ridge_regression()</code> class.</p>
+
+<h3 id="references">References</h3>
+
+<p>Rogers, Simon and Girolami, Mark. (2017).  A First Course in Machine Learning Second Edition. Routledge.<br />
+<br />
+Quinlan, Ross. (1983). UCI Machine Learning Repository <a style="color: #f56a6a; !important" href="https://archive.ics.uci.edu/ml/datasets/auto+mpg">https://archive.ics.uci.edu/ml/datasets/auto+mpg</a>. Irvine, CA: University of California, School of Information and Computer Science.</p>
+
+      <p></p>
+    </div><!-- /.article-wrap -->
+
+    
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; Nathan Englehart 08/09/22. <!--<a href="/feed.xml"><i class="fa fa-rss-square"></i> RSS</a>--></span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+          
+
+</body>
+<footer>
+  <!-- Parse the Latex divs with Katex-->      <script type="text/javascript">          $("script[type='math/tex']").replaceWith(              function(){                  var tex = $(this).text();                  return katex.renderToString(tex, {displayMode: false});          });           $("script[type='math/tex; mode=display']").replaceWith(              function(){                  var tex = $(this).text();                  return katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});          });      </script>  
+</footer>
+  
+</html>

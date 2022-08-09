@@ -1,0 +1,277 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="Fj_N72IqAGK0viQu4NkuCT8-IngrAaeA4el6G3GQtAc" />
+<title>Nathan Englehart  &#8211; K Nearest Neighbors Classifier Algorithm </title>
+<meta name="description" content="">
+<meta name="keywords" content="Jekyll, theme, responsive, blog, template">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="K Nearest Neighbors Classifier Algorithm">
+<meta property="og:description" content="Welcome to my personal site.">
+<meta property="og:url" content="http://localhost:4000/projects/knn/">
+<meta property="og:site_name" content="Nathan Englehart">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/knn/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Nathan Englehart Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/academicons.css" />
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="http://localhost:4000/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="http://localhost:4000/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<!--<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">-->
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!--<link rel="shortcut icon" href="http://localhost:4000/favicon.png">-->
+
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<!--<link rel="apple-touch-icon-precomposed" sizes="192x192" href="http://localhost:4000/images/apple-icon-precomposed.png">-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+      }
+    });
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+
+  
+<!-- Load jquery -->  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>   <!-- Load KaTeX -->  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css">  <script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script> 
+<!--<link href="/css/syntax.css" rel="stylesheet">-->
+</head>
+
+<body class="page">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://localhost:4000">Nathan Englehart</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+				<li><a href="http://localhost:4000/files/cv.pdf" >CV</a></li>
+		        
+				<li><a href="http://localhost:4000/background/" >Background</a></li>
+		        
+				<li><a href="http://localhost:4000/projects/" >Projects</a></li>
+		        
+				<li><a href="http://localhost:4000/research/" >Research</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+
+	<img src="http://localhost:4000/images/" class="bio-photo" alt=""></a>
+
+<h3></h3>
+<p></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <article>
+    <h1>K Nearest Neighbors Classifier Algorithm</h1>
+    <div class="article-wrap">
+      <p>The K nearest neighbors (KNN) classifier is a highly useful and popular tool for applications of data mining. KNN is a non-probabalistic supervised machine learning algorithm that classifies vectors containing data and a classification.</p>
+
+<h3 id="knn-classification-algorithm">KNN Classification Algorithm</h3>
+
+<p>To run, the KNN algorithm requires three inputs:</p>
+
+<ol>
+  <li>A set of test vectors for which to determine classifications</li>
+  <li>An $n \times m$ train matrix for which to compare test vectors against</li>
+  <li>Some pre-determined $K \in \mathbb{N}$ such that $1 \leq K \leq n$</li>
+</ol>
+
+<p>Then, for each test vector, KNN:</p>
+
+<ol>
+  <li>Computes the distance between a test vector and all vectors in the train dataset</li>
+  <li>Determines which train vectors are the $K$ closest vectors to the test vector</li>
+  <li>Determine the plurality class (the most frequently occuring class) of the $K$ closest vectors</li>
+  <li>Assign the plurality class to the test vector</li>
+</ol>
+
+<p>In KNN, distance can be measured using various $L^\mathcal{p}$ norms. Most commonly, Euclidean Distance is used, which is given by: \[ d(p,q) = \sqrt{\sum_{i=1}^n (q_i - p_i)^2} \]
+However, Chebyshev Distance and Manhattan Distance are also frequently used.</p>
+
+<h3 id="knn-with-n-fold-cross-validation">KNN with N-Fold Cross Validation</h3>
+
+<p>In order to draw more accurate predictions than those one might come to by using an arbitrary K value, we can utilize N-fold cross validation to determine the error for an array of $K$ values. Then, finding the $K$ value which minimizes error shows us the optimal $K$ value which best fits the data. <br />
+<br />
+For each run, N-fold cross validation requires the same three inputs as KNN. It also requires an $N$ value, which represents the number of folds that we will split the train data into. $N = 10$ is a common choice. Then, N-fold cross validation:</p>
+
+<ol>
+  <li>Randomly splits the set of train vectors into $N$ groups.</li>
+  <li>Assigns $N-1$ of the groups to be a <em>new</em> train set and $1$ of the sets to be a <em>new</em> test set</li>
+  <li>Put error $= 0$.</li>
+  <li>Then, until every set has served as a <em>new</em> test set, N-fold cross validation:
+    <ul>
+      <li>Runs KNN on the <em>new</em> train and <em>new</em> test</li>
+      <li>Computes the misclassification rate of the computed <em>new</em> test classifications with the true <em>new</em> test classifications</li>
+      <li>Adds the computed misclassification rate to the error term</li>
+      <li>Assigns the <em>new</em> test to be a different vector and repeats (for $N$ runs)</li>
+    </ul>
+  </li>
+  <li>Return mean error $=$ error / $N$</li>
+</ol>
+
+<p>where miscalculation rate can be computed with:
+\[ \text{Misclassification Rate} = \frac{1}{N} \sum_{n=1}^N I (\hat{t}_n \neq t_n) \]
+with $\hat{t}$ representing computed classifications and $t$ representing true classifications.<br />
+<br />
+Full code for implementation written in C++ available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/knn-cpp-241">https://github.com/nathanenglehart/knn-cpp-241</a>.</p>
+
+<h3 id="visualization">Visualization</h3>
+
+<p>The 1936 Iris dataset, a classic dataset used for classification algorithms, contains 150 flowers classified by species and their respective sepal and petal measurements (test available <a href="https://github.com/nathanenglehart/nathanenglehart.github.io/blob/gh-pages/data/iris-test.csv">here</a> and train available <a href="https://github.com/nathanenglehart/nathanenglehart.github.io/blob/gh-pages/data/iris-train.csv">here</a> where 0 represents iris-setosa, 1 represents iris-versicolor, and 2 represents iris-virginica). <br />
+<br />
+Using a python script, we can write:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="n">sns</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"iris-test.csv"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">','</span><span class="p">)</span>
+<span class="n">data</span><span class="p">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">"classifications"</span><span class="p">,</span> <span class="s">"sepal length"</span><span class="p">,</span> <span class="s">"sepal width"</span><span class="p">,</span> <span class="s">"petal length"</span><span class="p">,</span> <span class="s">"petal width"</span><span class="p">]</span>
+<span class="n">sns</span><span class="p">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s">"classifications"</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s">'tab:blue'</span><span class="p">,</span><span class="s">'tab:orange'</span><span class="p">,</span><span class="s">'tab:green'</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+<p>Now, we can view a graph of the whole test dataset’s information with its true classifications: <br />
+<br />
+<img src="/images/pairplot-iris-true.png" alt="/images/pairplot-iris-true.png" /> <br />
+<br />
+Then, utilizing the aforementioned C++ implementation above, we can run KNN. First, to clone and compile KNN, we can run:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/nathanenglehart/knn-cpp-241
+<span class="nb">cd </span>knn-cpp-241
+make
+</code></pre></div></div>
+<p>Which compiles the program <code class="highlighter-rouge">knn-cli</code>. Then, to test run KNN on our datasets, we can run:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./knn-cli iris-train.csv iris-test.csv <span class="nt">-e</span> <span class="nt">-v</span> <span class="c"># Verbose</span>
+./knn-cli iris-train.csv iris-test.csv <span class="nt">-e</span> <span class="o">&gt;</span> preds.csv <span class="c"># Store results</span>
+</code></pre></div></div>
+<p>For $K = 1$ to $K = 135$, N-fold cross validation computed the following misclassification rates with $N = 10$:</p>
+<div align="center">
+<img src="/images/misclassification_rate_across_folds_iris.png" alt="/images/misclassification_rate_across_folds_iris.png" />
+</div>
+<p><br />
+<br />
+choosing $K = 3$ with a 3% misclassification rate as the optimal value for minimizing the misclassification rate across folds. <br />
+<br />
+Then, by storing the predicting classifications in a csv file to use on the test dataset we can write another python script:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="n">sns</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"iris-test.csv"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">','</span><span class="p">)</span>
+
+<span class="n">preds</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"preds.csv"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">','</span><span class="p">)</span>
+<span class="n">preds</span> <span class="o">=</span> <span class="n">preds</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">data</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">preds</span>
+<span class="n">data</span><span class="p">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">"classifications"</span><span class="p">,</span> <span class="s">"sepal length"</span><span class="p">,</span> <span class="s">"sepal width"</span><span class="p">,</span> <span class="s">"petal length"</span><span class="p">,</span> <span class="s">"petal width"</span><span class="p">]</span>
+
+<span class="n">sns</span><span class="p">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s">"classifications"</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s">'tab:blue'</span><span class="p">,</span><span class="s">'tab:orange'</span><span class="p">,</span><span class="s">'tab:green'</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+<p>As such, we can view a graph of the test dataset’s information, now using its predicted classifications: <br />
+<br />
+<img src="/images/pairplot-iris-true.png" alt="/images/pairplot-iris-preds.png" /> <br />
+<br />
+We can see that the predicted classifications are very similar to the true classifications!</p>
+
+<h3 id="references">References</h3>
+
+<p>Barber, David. (2016). Bayesian Reasoning and Machine Learning. Cambridge University Press. <br />
+<br />
+Fisher, R.A. (1988). UCI Machine Learning Repository <a style="color: #f56a6a; !important" href="https://archive.ics.uci.edu/ml/datasets/iris">https://archive.ics.uci.edu/ml/datasets/iris</a>. Irvine, CA: University of California, School of Information and Computer Science.</p>
+
+      <p></p>
+    </div><!-- /.article-wrap -->
+
+    
+  </article>
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; Nathan Englehart 08/09/22. <!--<a href="/feed.xml"><i class="fa fa-rss-square"></i> RSS</a>--></span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+
+          
+
+</body>
+<footer>
+  <!-- Parse the Latex divs with Katex-->      <script type="text/javascript">          $("script[type='math/tex']").replaceWith(              function(){                  var tex = $(this).text();                  return katex.renderToString(tex, {displayMode: false});          });           $("script[type='math/tex; mode=display']").replaceWith(              function(){                  var tex = $(this).text();                  return katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});          });      </script>  
+</footer>
+  
+</html>
