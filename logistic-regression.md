@@ -1,7 +1,7 @@
 ---
 layout: home2
 permalink: /logit/
-title: Logistic Regression Class Implementation
+title: Logit
 tags: [Jekyll, theme, responsive, blog, template]
 modified: 2-16-22
 comments: false
@@ -10,3 +10,6 @@ comments: false
 Under construction.
 
 ### This is a heading
+
+This is writing
+
