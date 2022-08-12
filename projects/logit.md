@@ -203,6 +203,8 @@ from matplotlib import pyplot as plt
 from mpl_toolkits import mplot3d
 from sklearn import preprocessing
 
+data = pd.read_csv('data/pima.csv',sep=",")
+
 t = np.array(data['diabetes']) 
 x_1 = preprocessing.scale(np.array(data['glucose'], dtype=np.float128))
 x_2 = preprocessing.scale(np.array(data['mass'], dtype=np.float128))
@@ -238,3 +240,102 @@ plt.show()
 
 Which displays:
 <img src="/images/multivariate_logit.png" alt="/images/multivariate_logit.png"/>
+
+## Logistic Regression as Classification
+
+Though logistic regression is commonly used by social scientists for regression analysis, logistic regression is also widely used for classification problems. In the field of machine learning, this makes logistic regression a supervised, probabalistic, classification method. \
+\
+Suppose, for example, that we split the Pima Indians Diabetes Dataset into a train dataset and a test dataset such that we wish to use the train dataset to predict whether an individual in the test dataset has diabetes based. \
+\
+To split the dataset into train data and test data, we can write:
+```python
+#!/usr/bin/env python3
+
+import numpy as np
+import pandas as pd
+
+data = pd.read_csv('data/pima.csv',sep=",")
+
+def train_test_split(data, train_filename, test_filename):
+	
+	df = pd.read_csv(data) 
+		
+	msk = np.random.rand(len(df)) < 0.8
+	train = df[msk]
+	test = df[~msk]
+
+	train.to_csv(r'./data/' + train_filename, index=False)
+	test.to_csv(r'./data/' + test_filename, index=False)
+
+train_test_split('data/pima.csv', 'pima-train.csv', 'pima-test.csv')
+
+train_data = pd.read_csv('data/train_data.csv', sep=",")
+test_data = pd.read_csv('data/test_data.csv', sep=",")
+```
+Then to visualize the test data with its true classifications, we can write:
+```python
+#!/usr/bin/env python3
+
+import numpy as np
+import pandas as pd
+import seaborn as sns
+from matplotlib import pyplot as plt
+
+test_data = pd.read_csv('data/pima-test.csv', sep=',')
+
+sns.pairplot(test_data, hue='diabetes',palette=['tab:cyan','tab:olive'])
+plt.show()
+```
+Which displays
+<img src="/images/true-pima-pairplot.png" alt="/images/true-pima-pairplot.png"/>
+Now, we can use logistic regression to predict classifications on the test dataset with:
+```python
+#!/usr/bin/env python3
+
+import numpy as np
+import pandas as pd
+
+t = np.array(train_data['diabetes'])
+
+train_data = train_data.drop(['diabetes'], axis=1)
+
+x_1 = np.ones((len(t),1))
+x_n = preprocessing.scale(np.array(train_data))	
+X = np.hstack((x_1,x_n)) 
+
+model = logit_regression()
+model = logit_regression().fit(X,t)
+
+t = np.array(test_data['diabetes'])
+
+test_data = test_data.drop(['diabetes'], axis=1)
+
+x_1 = np.ones((len(t),1))
+x_n = preprocessing.scale(np.array(test_data))	
+X = np.hstack((x_1,x_n)) 
+
+t_hat = model.predict(X)
+
+test_data_with_pred_classifications = pd.read_csv('data/pima-test.csv', sep=",")
+test_data_with_pred_classifications['diabetes'] = t_hat
+```
+Then, we can visualize the results with another pairplot by writing:
+```python
+sns.pairplot(test_data_with_pred_classifications, hue="diabetes", palette=['lightcoral', 'skyblue'], plot_kws={'alpha':0.75})
+plt.show()
+```
+This displays:
+<img src="/images/pred-pima-pairplot.png" alt="/images/pred-pima-pairplot.png"/>
+Which computes an error rate of ~0.24. Quite good for this dataset!
+
+## Polynomial Logistic Regression
+
+Under construction.
+
+## Computing R Squared
+
+Under construction.
+
+## References
+
+Smith, J.W., Everhart, J.E., Dickson, W.C., Knowler, W.C., & Johannes, R.S. (1988). Kaggle <a style="color: #f56a6a; !important" href="https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database">https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database</a>. San Francisco, CA.
