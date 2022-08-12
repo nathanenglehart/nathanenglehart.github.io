@@ -287,7 +287,9 @@ sns.pairplot(test_data, hue='diabetes',palette=['tab:cyan','tab:olive'])
 plt.show()
 ```
 Which displays \
+\
 <img src="/images/true-pima-pairplot.png" alt="/images/true-pima-pairplot.png"/> \
+\
 Now, we can use logistic regression to predict classifications on the test dataset with:
 ```python
 #!/usr/bin/env python3
@@ -325,7 +327,9 @@ sns.pairplot(test_data_with_pred_classifications, hue="diabetes", palette=['ligh
 plt.show()
 ```
 This displays: \
+\
 <img src="/images/pred-pima-pairplot.png" alt="/images/pred-pima-pairplot.png"/> \
+\
 Which computes an error rate of ~0.24. Quite good for this dataset!
 
 ## Polynomial Logistic Regression
