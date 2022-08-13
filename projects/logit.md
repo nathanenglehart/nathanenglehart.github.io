@@ -360,10 +360,6 @@ This displays: \
 \
 Which computes an error rate of ~0.24. Quite good for this dataset!
 
-### Polynomial Logistic Regression
-
-Under construction.
-
 ### References
 
 Smith, J.W., Everhart, J.E., Dickson, W.C., Knowler, W.C., & Johannes, R.S. (1988). Kaggle <a style="color: #f56a6a; !important" href="https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database">https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database</a>. San Francisco, CA.
