@@ -15,7 +15,7 @@ such that the probability that $t = 1$ is given by:
 \\[ P(t = 1 \text{ } \vert \text{ }x, \theta) = \sigma(\theta \cdot x) = \frac{1}{1 + e^{-(\theta \cdot x)}} = \frac{1}{1 + e^{-(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_n \cdot x_n)}} \\]
 and the probability that $t = 0$ is given by:
 \\[ P(t = 0 \text{ }\vert \text{ }x, \theta) = 1 - \sigma(\theta \cdot x) = 1 - \frac{1}{1 + e^{-(\theta \cdot x)}} = \frac{e^{-(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_n \cdot x_n)}}{1 + e^{-(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_n \cdot x_n)}} \\]
-where $\theta = [\theta_1,\theta_2,...,\theta_m]$ represents the logit coefficients and $x = [x_1,x_2,...,x_m]$ is a feature vector representing a single input observation. \
+where $\theta = \textbf{[}\theta_1,\theta_2,...,\theta_m\textbf{]}$ represents the logit coefficients and $x = \textbf{[}x_1,x_2,...,x_m\textbf{]}$ is a feature vector representing a single input observation. \
 \
 As such, using the latter equation, we can write that the predicted classification is given by:
 <div align="center">
@@ -139,9 +139,13 @@ class logit_regression():
 		return self.predict_proba(X).round()
 ```
 
-Logistic regression code available at <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/regression/blob/main/lib/gd/logit.py">https://github.com/nathanenglehart/regression/blob/main/lib/gd/logit.py</a>.
+Logistic regression code available at <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/regression">https://github.com/nathanenglehart/regression</a>.
 
-## Simple Logistic Regression Example
+### Computing R-Squared
+
+Under construction.
+
+### Simple Logistic Regression Example
 
 Using data from the 1988 Pima Indians Diabetes Dataset available on Kaggle, suppose we wish to graph a logistic regression to predict whether or not a person has diabetes based on their blood glucose levels. To set up our data for the regression, like with other forms of regression, we must first build our regressor matrix $X$. In this case, our matrix should contain two columns. The first column should contain all ones. This column accounts for the intercept term. The second column should contain the blood glucose data. As such, we can write:
 \\[ X = \pmatrix{
@@ -149,7 +153,7 @@ Using data from the 1988 Pima Indians Diabetes Dataset available on Kaggle, supp
 1 & x_2 \cr
 \vdots & \vdots \cr
 1 & x_n}\\]
-where each individuals blood glucose data is represented in the vector $x = x_1, x_2, ..., x_n$. Then, with Python, we can write: 
+where each individuals blood glucose data is represented in the vector $x = \textbf{[}x_1, x_2, ..., x_n \textbf{]}$. Then, with Python, we can write: 
 ```python
 #!/usr/bin/env python3
 
@@ -181,7 +185,7 @@ plt.show()
 As a result, this script displays:
 <img src="/images/simple_logit.png" alt="/images/simple_logit.png"/>
 
-## Multivarite Logistic Regression Example
+### Multivarite Logistic Regression Example
 
 Now, suppose we wish to graph a regression predicting diabetes with glucose *and* mass. In this case, we should build our regression matrix again using a constant column, a column for glucose, and a column for mass. Thus, we can write:
 \\[ X = \pmatrix{
@@ -189,7 +193,7 @@ Now, suppose we wish to graph a regression predicting diabetes with glucose *and
 1 & x_2 & y_2 \cr
 \vdots & \vdots \cr
 1 & x_n & y_n }\\]
-where glucose is represented by $x = x_1, x_2, ..., x_n$ and mass is represented by $y = y_1, y_2, ..., y_n$. \
+where glucose is represented by $x = \textbf{[}x_1, x_2, ..., x_n\textbf{]}$ and mass is represented by $y = \textbf{[}y_1, y_2, ..., y_n\textbf{]}$. \
 \
 Then using Python we can write:
 
@@ -241,7 +245,7 @@ plt.show()
 Which displays:
 <img src="/images/multivariate_logit.png" alt="/images/multivariate_logit.png"/>
 
-## Logistic Regression as Classification
+### Logistic Regression as Classification
 
 Though logistic regression is commonly used by social scientists for regression analysis, logistic regression is also widely used for classification problems. In the field of machine learning, this makes logistic regression a supervised, probabalistic, classification method. \
 \
@@ -274,10 +278,6 @@ test_data = pd.read_csv('data/test_data.csv', sep=",")
 ```
 Then to visualize the test data with its true classifications, we can write:
 ```python
-#!/usr/bin/env python3
-
-import numpy as np
-import pandas as pd
 import seaborn as sns
 from matplotlib import pyplot as plt
 
@@ -292,11 +292,6 @@ Which displays \
 \
 Now, we can use logistic regression to predict classifications on the test dataset with:
 ```python
-#!/usr/bin/env python3
-
-import numpy as np
-import pandas as pd
-
 t = np.array(train_data['diabetes'])
 
 train_data = train_data.drop(['diabetes'], axis=1)
@@ -332,14 +327,10 @@ This displays: \
 \
 Which computes an error rate of ~0.24. Quite good for this dataset!
 
-## Polynomial Logistic Regression
+### Polynomial Logistic Regression
 
 Under construction.
 
-## Computing R Squared
-
-Under construction.
-
-## References
+### References
 
 Smith, J.W., Everhart, J.E., Dickson, W.C., Knowler, W.C., & Johannes, R.S. (1988). Kaggle <a style="color: #f56a6a; !important" href="https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database">https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database</a>. San Francisco, CA.

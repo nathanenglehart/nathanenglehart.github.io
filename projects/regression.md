@@ -387,7 +387,7 @@ Now, suppose we want to graph a regression predicting MPG with car weight and di
 1 & x_{2} & y_{2} \cr
 \vdots & \vdots & \vdots \cr
 1 & x_{n} & y_{n} } \\]
-where car weight is given by the vector $x = [x_1, x_2, ..., x_n]$ and displacement is given by the vector $y = [y_1, y_2, ..., y_n]$. \
+where car weight is given by the vector $x = \textbf{[}x_1, x_2, ..., x_n\textbf{]}$ and displacement is given by the vector $y = [y_1, y_2, ..., y_n]$. \
 \
 Then, using Python, we can write:
 ```python
@@ -452,7 +452,7 @@ Suppose we want to again graph a regression predicting MPG with car weight and d
 		  \vdots & \vdots & \vdots& \vdots & \vdots & \vdots \cr
 		  1 & x_n & y_n & x_n^2 & x_n \cdots y_n & y_n^2
 } \\]
-where again, car weight is given by the vector $x = [x_1, x_2, ..., x_n]$ and displacement is given by the vector $y = [y_1, y_2, ..., y_n]$. \
+where again, car weight is given by the vector $x = \textbf{[}x_1, x_2, ..., x_n\textbf{]}$ and displacement is given by the vector $y = [y_1, y_2, ..., y_n]$. \
 \
 So, using Python, we can write:
 ```python
