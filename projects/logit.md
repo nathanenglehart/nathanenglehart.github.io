@@ -12,9 +12,9 @@ Logistic regression is commonly used in the social sciences to examine the exten
 Logistic regression uses the sigmoid function (also known as the logistic function) to compute classification $t$ probabilities with:
 \\[ \sigma(z) = \frac{1}{1 + e^{-z}} \\]
 such that the probability that $t = 1$ is given by:
-\\[ P(t = 1 \text{ } \vert \text{ }x, \theta) = \sigma(\theta \cdot x) = \frac{1}{1 + e^{-(\theta \cdot x)}} = \frac{1}{1 + e^{-(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_n \cdot x_n)}} \\]
+\\[ P(t = 1 \text{ } \vert \text{ }x, \theta) = \sigma(\theta \cdot x) = \frac{1}{1 + e^{-(\theta \cdot x)}} = \frac{1}{1 + e^{-(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_m \cdot x_m)}} \\]
 and the probability that $t = 0$ is given by:
-\\[ P(t = 0 \text{ }\vert \text{ }x, \theta) = 1 - \sigma(\theta \cdot x) = 1 - \frac{1}{1 + e^{-(\theta \cdot x)}} = \frac{e^{-(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_n \cdot x_n)}}{1 + e^{-(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_n \cdot x_n)}} \\]
+\\[ P(t = 0 \text{ }\vert \text{ }x, \theta) = 1 - \sigma(\theta \cdot x) = 1 - \frac{1}{1 + e^{-(\theta \cdot x)}} = \frac{e^{-(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_m \cdot x_m)}}{1 + e^{-(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_m \cdot x_m)}} \\]
 where $\theta = \textbf{[}\theta_1,\theta_2,...,\theta_m\textbf{]}$ represents the logit coefficients and $x = \textbf{[}x_1,x_2,...,x_m\textbf{]}$ is a feature vector representing a single input observation. \
 \
 As such, using the latter equation, we can write that the predicted classification is given by:
@@ -139,8 +139,6 @@ class logit_regression():
 
 		return self.predict_proba(X).round()
 ```
-
-Logistic regression code available at <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/regression">https://github.com/nathanenglehart/regression</a>.
 
 ### Computing Pseudo R-Squared
 
@@ -360,6 +358,12 @@ This displays: \
 \
 Which computes an error rate of ~0.24. Quite good for this dataset!
 
+### Notes 
+
+Logistic regression code available at <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/regression">https://github.com/nathanenglehart/regression</a>. This repository also contains code for OLS, ridge, and lasso regression with documentation <a  style="color: #f56a6a; !important" href="/projects/regression" >here</a>
+
 ### References
 
-Smith, J.W., Everhart, J.E., Dickson, W.C., Knowler, W.C., & Johannes, R.S. (1988). Kaggle <a style="color: #f56a6a; !important" href="https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database">https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database</a>. San Francisco, CA.
+Jurafsky, Daniel and Martin, James. (2021). <i>Speech and Language Processing (3rd ed. draft)</i> <a style="color: #f56a6a; !important" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a>. Stanford, CA. \
+\
+Smith, J.W., Everhart, J.E., Dickson, W.C., Knowler, W.C., and Johannes, R.S. (1988). Kaggle <a style="color: #f56a6a; !important" href="https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database">https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database</a>. San Francisco, CA.
