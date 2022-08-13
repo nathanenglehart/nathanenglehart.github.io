@@ -7,7 +7,7 @@ modified: 2-16-22
 comments: false
 ---
 
-Logistic regression is commonly used in the social sciences to examine the extent to which various independent variables are related to a binary dependent variable. \
+Logistic regression (also known as logit regression) is commonly used in the social sciences to examine the extent to which various independent variables are related to a binary dependent variable. \
 \
 Logistic regression uses the sigmoid function (also known as the logistic function) to compute classification $t$ probabilities with:
 \\[ \sigma(z) = \frac{1}{1 + e^{-z}} \\]
