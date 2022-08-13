@@ -10,10 +10,10 @@ comments: false
 ### 2022
 
 * [**Logistic Regression Class Implementation**](/projects/logit)<br>
-  Implementation of Logistic Regression using Gradient Descent and Python. <br>
+  Implementation of logistic regression using gradient descent and Python. <br>
 
-* [**OLS and Ridge Regression Class Implementations**](/projects/regression)<br>
-  Implementations of OLS and ridge regression classes using Python with 1993 Auto MPG dataset visualization examples. <br> 
+* [**OLS, Ridge, and Lasso Regression Class Implementations**](/projects/regression)<br>
+  Implementations of closed form OLS and ridge regression classes as well as gradient descent lasso regression class implementation. All written in Python with visualizations using 1993 Auto MPG dataset. <br> 
   
 * [**Standard Score**](/projects/z-score)<br>
   Computing the Standard Score, commonly known as the Z-score, using C.<br>  
@@ -30,5 +30,5 @@ comments: false
   Naive bayesian classification algorithm (Categorical and Gaussian) with implementations written in C++; implementation examples visualized using Python scripting. <br>
  
 * [**K-nearest-neighbors Classifier Algorithm**](/projects/knn)<br>
-  K-nearest-neighbors classification algorithm (utilizing k-fold cross-validation) with accompanying C++ code; implementation example visualized using Python scripting.
+  K-nearest-neighbors classification algorithm (utilizing k-fold cross-validation) with accompanying C++ code; implementation example visualized using the 1936 Iris dataset and Python scripting.
   

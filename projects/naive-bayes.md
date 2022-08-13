@@ -45,7 +45,7 @@ for some $\alpha \geq 1$. This ensures that conditional class probabilities will
 
 ### Categorical Naive Bayes Visualization
 
-The 1993 University of Wisconsin Breast Cancer Dataset contains information on cells gathered from digitized images of fine need aspirate (FNA) breast mass. Cells are classified as benign (0) or malignant (1). Feature include cell radius, texture, perimeter, area, smoothness, compacteness, concavity, concave points, symmetry, and fractal dimension such that each features is ordinal on a scale of 1 to 10 (train available [here](https://nathanenglehart.github.io/data/bc-train.csv); test available [here](https://nathanenglehart.github.io/data/bc-test.csv)). \
+The 1993 University of Wisconsin Breast Cancer dataset contains information on cells gathered from digitized images of fine need aspirate (FNA) breast mass. Cells are classified as benign (0) or malignant (1). Feature include cell radius, texture, perimeter, area, smoothness, compacteness, concavity, concave points, symmetry, and fractal dimension such that each features is ordinal on a scale of 1 to 10 (train available [here](https://nathanenglehart.github.io/data/bc-train.csv); test available [here](https://nathanenglehart.github.io/data/bc-test.csv)). \
 \
 To visualize the data, with python we can write:
 ```python
