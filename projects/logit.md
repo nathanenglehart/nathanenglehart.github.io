@@ -35,7 +35,8 @@ One such algorithm is batch gradient descent (also known as vanilla gradient des
 
 1. Initiailizes $\theta$ randomly. Commonly, $\theta$ is initialized to all zeros.
 2. Initializes a learning rate $\alpha$. 
-3. For some number of iterations also known as epochs (often $\geq 1000$), update $\theta$ with:
+3. For some number of iterations also known as epochs (often $\geq 1000$), update $\theta$ with:\
+\
 \\[ \theta_{i+1} = \theta_i - \frac{\alpha(X^T \cdot (P(t = 0 \text{ } | \text{ } x, \theta_i) - t))}{m} \\]
 
 \
@@ -141,9 +142,37 @@ class logit_regression():
 
 Logistic regression code available at <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/regression">https://github.com/nathanenglehart/regression</a>.
 
-### Computing R-Squared
+### Computing Pseudo R-Squared
 
-Under construction.
+In OLS, ridge, and lasso regression, $R^2$ measures what percent of variation in the dependent variable can be explained by the independent variables collectively. Since logistic regression computes probabilities for a binary dependent variable instead of a continuous dependent variable, we cannot use the vanilla $R^2$ measure on logistic regression. However, there are many proposed pseudo $R^2$ measures for logistic regression. Like $R^2$, each pseudo $R^2$ measures what percent of variation in the dependent variable can be explained by the independent variables collectively. Common pseudo $R^2$ include:
+
+- Efron's $R^2$
+- McFadden's $R^2$ (which can be adjusted)
+- Cox and Snell $R^2$
+- Nagelkerke/Cragg and Uhler's $R^2$
+
+For this writeup, we will utilize Efron's $R^2$. Efron's $R^2$ is given by:\
+\
+\\[ R_{\text{Efron}}^2 = \frac{\sum (t_i - \hat{\pi}_i)^2}{\sum (t_i - \overline{t})^2} \\]\
+where $t$ represents a vector of respsonse variables, $\hat{\pi}$ represents a vector of prediction probabilities, and $\overline{t}$ is the mean of the vector of response variables. As such, with Python we can write:
+
+```python
+def efron_r_squared(t, t_probs):
+
+	""" Returns Efron's psuedo R-Squared for logistic regression. 
+
+		Args:
+
+			t::[Numpy Array]
+				Truth values
+
+			t_probs::[Numpy Array]
+				Prediction value probabilities
+
+	"""
+
+	return 1.0 - ( np.sum(np.power(t - t_probs, 2.0)) / np.sum(np.power((t - (np.sum(t) / float(len(t)))), 2.0)) ) 
+```
 
 ### Simple Logistic Regression Example
 
@@ -183,7 +212,9 @@ plt.ylabel('t')
 plt.show()
 ```
 As a result, this script displays:
-<img src="/images/simple_logit.png" alt="/images/simple_logit.png"/>
+<img src="/images/simple_logit.png" alt="/images/simple_logit.png"/> \
+\
+with an Efron's pseudo $R^2$ of 0.09123912933661849. Therefore, we can say that 9.1% of variance in whether or not a person has diabetes is explained by the glucose variable. Thus, a low portion of variance is explained. Not amazing - but lets see what happens when we add more independent variable predictors to the model.
 
 ### Multivarite Logistic Regression Example
 
@@ -243,7 +274,9 @@ plt.show()
 ```
 
 Which displays:
-<img src="/images/multivariate_logit.png" alt="/images/multivariate_logit.png"/>
+<img src="/images/multivariate_logit.png" alt="/images/multivariate_logit.png"/> \
+\
+with an Efron's pseudo $R^2$ of 0.2788494451173642. As such we can say that 27.8 percent of the variance in whether or not a person has diabetes or not is explained by the glucose and mass variables. Thus, a low-to moderate portion of variance is explained. Much better than our single variable model!
 
 ### Logistic Regression as Classification
 
