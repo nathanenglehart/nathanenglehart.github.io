@@ -360,7 +360,7 @@ Which computes an error rate of ~0.24. Quite good for this dataset!
 
 ### Notes 
 
-Logistic regression code available at <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/regression">https://github.com/nathanenglehart/regression</a>. This repository also contains code for OLS, ridge, and lasso regression with documentation <a  style="color: #f56a6a; !important" href="/projects/regression" >here</a>
+Logistic regression code available at <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/regression">https://github.com/nathanenglehart/regression</a>. This repository also contains code for OLS, ridge, and lasso regression with documentation <a  style="color: #f56a6a; !important" href="/projects/regression" >here</a>.
 
 ### References
 
