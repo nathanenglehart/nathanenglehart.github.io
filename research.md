@@ -11,7 +11,11 @@ comments: false
 <div align="left">
   <ul style="padding-left: 1em !important;">
     <li>
-      <b>Englehart, Nathan.</b> 日本战国时代时期的一向一揆历史脉络分析. Undergraduate Capstone, Oberlin College, February 2, 2022. (completed junior year) [<a style="color: #f56a6a !important;" href="https://www.oberlin.edu/arts-and-sciences/departments/east-asian-studies/curriculum/capstone">link</a>] [<a style="color: #f56a6a; !important" href="/files/capstone.pdf" download>pdf</a>]
+      <b> Englehart, Nathan</b>. Housing Provision under Authoritarianism in Modern China. East Asian Studies Capstone Paper (POLT), Oberlin College, August 19, 2022. [<a style="color: #f56a6a !important;" href="https://www.oberlin.edu/arts-and-sciences/departments/east-asian-studies/curriculum/capstone">link</a>] [<a style="color: #f56a6a !important;" href="/files/housing_under_authoritarianism_china_englehart.pdf">pdf</a>] 
+    </li>
+    <br>
+    <li>
+      <b>Englehart, Nathan</b>. 日本战国时代时期的一向一揆历史脉络分析. East Asian Studies Capstone Paper (CHIN), Oberlin College, February 2, 2022. [<a style="color: #f56a6a !important;" href="https://www.oberlin.edu/arts-and-sciences/departments/east-asian-studies/curriculum/capstone">link</a>] [<a style="color: #f56a6a; !important" href="/files/capstone.pdf" download>pdf</a>]
     </li>
   </ul>
 </div>
@@ -34,10 +38,6 @@ comments: false
 
 <div align="left">
   <ul style="padding-left: 1em !important;">
-    <li>
-      Housing Provision under Authoritarianism in Modern China (in-progress second capstone paper) [<a style="color: #f56a6a !important;" href="/files/housing_under_authoritarianism_china_englehart.pdf">pdf</a>] 
-    </li>
-    <br>
     <li>
       Mary Jane Patterson Profile for Oberlin African American Women Intellectuals Project
     </li>
