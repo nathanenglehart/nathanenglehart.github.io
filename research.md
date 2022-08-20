@@ -11,11 +11,11 @@ comments: false
 <div align="left">
   <ul style="padding-left: 1em !important;">
     <li>
-      <b> Englehart, Nathan</b>. Housing Provision under Authoritarianism in Modern China. East Asian Studies Capstone Paper (POLT), Oberlin College, August 19, 2022. [<a style="color: #f56a6a !important;" href="https://www.oberlin.edu/arts-and-sciences/departments/east-asian-studies/curriculum/capstone">link</a>] [<a style="color: #f56a6a !important;" href="/files/polt_capstone.pdf">pdf</a>] 
+      <b> Englehart, Nathan</b>. Housing Provision under Authoritarianism in Modern China. East Asian Studies Capstone Paper (POLT), Oberlin College, August 19, 2022. (advised by Dr. Marc Blecher) [<a style="color: #f56a6a !important;" href="https://www.oberlin.edu/arts-and-sciences/departments/east-asian-studies/curriculum/capstone">link</a>] [<a style="color: #f56a6a !important;" href="/files/polt_capstone.pdf">pdf</a>] 
     </li>
     <br>
     <li>
-      <b>Englehart, Nathan</b>. 日本战国时代时期的一向一揆历史脉络分析. East Asian Studies Capstone Paper (CHIN), Oberlin College, February 2, 2022. [<a style="color: #f56a6a !important;" href="https://www.oberlin.edu/arts-and-sciences/departments/east-asian-studies/curriculum/capstone">link</a>] [<a style="color: #f56a6a; !important" href="/files/chin_capstone.pdf" download>pdf</a>]
+      <b>Englehart, Nathan</b>. 日本战国时代时期的一向一揆历史脉络分析. East Asian Studies Capstone Paper (CHIN), Oberlin College, February 2, 2022. (advised by Dr. Chialan Sharon Wang) [<a style="color: #f56a6a !important;" href="https://www.oberlin.edu/arts-and-sciences/departments/east-asian-studies/curriculum/capstone">link</a>] [<a style="color: #f56a6a; !important" href="/files/chin_capstone.pdf" download>pdf</a>]
     </li>
   </ul>
 </div>
