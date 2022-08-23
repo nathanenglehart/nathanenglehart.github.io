@@ -41,7 +41,7 @@ In the summer of 2021, I worked as a <strong>Research Assistant</strong> for Dr.
 
 #### Oberlin College and Conservatory (September 2021 - Present)
 
-Since 2021 I have worked as a <strong>Peer Tutor</strong> for Statistics, Chinese language, Data Structures, System Programming, and Discrete Mathematics.
+Since 2021 I have worked as a <strong>Peer Tutor</strong> for Statistics, Data Structures, System Programming, and Discrete Mathematics.
 
 ### Awards
 
