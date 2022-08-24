@@ -9,6 +9,9 @@ comments: false
 
 ### 2022
 
+* [**Unofficial Arch Linux Installation Guide**](https://github.com/nathanenglehart/unofficial-arch-install-guide)<br>
+  Arch Linux installation guide for UEFI systems. 
+
 * [**Logistic Regression Class Implementation**](/projects/logit)<br>
   Implementation of logistic regression using gradient descent and Python. <br>
 
