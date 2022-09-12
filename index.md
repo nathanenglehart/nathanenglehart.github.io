@@ -14,11 +14,18 @@ image:
 <div class="bod">
 <h3 class="small_title">Introduction</h3>
 
-My name is Nathan Englehart (he/him/his). I am from Toledo, Ohio and attend university at Oberlin College. <!-- Currently, I am seeking to enter a Political Science PhD program in the Fall of 2024 with prospective focuses in methodology and comparative politics. -->
+My name is Nathan Englehart (he/him/his). I am from Toledo, Ohio and attend university at Oberlin College. Currently, I am seeking to enter a Political Science PhD program in the Fall of 2024 with prospective focuses in methodology and comparative politics. 
+
+<h3 class="small_title">Project Writeups</h3>
+
+For a look at writeups of some supplementary, personal projects I have worked on, take a look <a style="color: #f56a6a; !important" href="/projects/">here</a>.
 
 <h3 class="small_title">Contact Me</h3>
 
 <p class="paragraph">
 Please reach out to me via my email: nengleha AT oberlin DOT edu. 
 </p>
+
+<!-- Project Writeups and Background -->
+
 <br />
