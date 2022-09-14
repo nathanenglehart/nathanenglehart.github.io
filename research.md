@@ -41,5 +41,13 @@ comments: false
     <li>
       Mary Jane Patterson Profile for Oberlin African American Women Intellectuals Project
     </li>
+    <br>
+    <li>
+      Marcy Kaptur Profile for Trailblazing Women in Ohio Politics Project
+    </li>
+    <br>
+    <li>
+      Betty Montgomery Profile for Trailblazing Women in Ohio Politics Project
+    </li>
   </ul>
 </div>
