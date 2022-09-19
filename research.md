@@ -34,8 +34,8 @@ comments: false
     <br>
     <li>
       <b>Englehart, Nathan. </b> Betty Montgomery Profile. <i>Trailblazing Women in Ohio Politics</i>, Bowling Green State University. (forthcoming)
-
     </li>
+    <br>
     <li>
       <b>Englehart, Nathan.</b> Great Firewall of China: Implementations and Impact. <i>The Synapse</i>, Oberlin College, April 25, 2021. 
     </li>
