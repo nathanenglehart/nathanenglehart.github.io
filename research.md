@@ -25,6 +25,18 @@ comments: false
 <div align="left">
   <ul style="padding-left: 1em !important;">
     <li>
+      <b>Englehart, Nathan.</b> Mary Jane Patterson and Respectability. <i>African American Women Intellectuals Project</i>, Oberlin College. (forthcoming)
+    </li>
+    <br>
+    <li>
+      <b>Englehart, Nathan.</b> Marcy Kaptur Profile. <i>Trailblazing Women in Ohio Politics</i>, Bowling Green State University. (forthcoming)
+    </li>
+    <br>
+    <li>
+      <b>Englehart, Nathan. </b> Betty Montgomery Profile. <i>Trailblazing Women in Ohio Politics</i>, Bowling Green State University. (forthcoming)
+
+    </li>
+    <li>
       <b>Englehart, Nathan.</b> Great Firewall of China: Implementations and Impact. <i>The Synapse</i>, Oberlin College, April 25, 2021. 
     </li>
     <br>
@@ -34,6 +46,7 @@ comments: false
   </ul>
 </div>
 
+<!--
 ### Work in Progress
 
 <div align="left">
@@ -51,3 +64,4 @@ comments: false
     </li>
   </ul>
 </div>
+-->
