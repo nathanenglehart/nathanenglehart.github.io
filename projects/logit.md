@@ -12,10 +12,10 @@ Logistic regression (also known as logit regression) is commonly used in the soc
 Logistic regression uses the sigmoid function (also known as the logistic function) to compute classification $t$ probabilities with:
 \\[ \sigma(z) = \frac{1}{1 + e^{-z}} \\]
 such that the probability that $t = 1$ is given by:
-\\[ P(t = 1 \text{ } \vert \text{ }x, \theta) = \sigma(\theta \cdot x) = \frac{1}{1 + e^{-(\theta \cdot x)}} = \frac{1}{1 + e^{-(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_m \cdot x_m)}} \\]
+\\[ P(t = 1 \text{ } \vert \text{ }x, \theta) = \sigma(\theta \cdot x) = \frac{1}{1 + e^{-(\theta \cdot x)}} = \frac{1}{1 + e^{-(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_n \cdot x_n)}} \\]
 and the probability that $t = 0$ is given by:
-\\[ P(t = 0 \text{ }\vert \text{ }x, \theta) = 1 - \sigma(\theta \cdot x) = 1 - \frac{1}{1 + e^{-(\theta \cdot x)}} = \frac{e^{-(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_m \cdot x_m)}}{1 + e^{-(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_m \cdot x_m)}} \\]
-where $\theta = \textbf{[}\theta_1,\theta_2,...,\theta_m\textbf{]}$ represents the logit coefficients and $x = \textbf{[}x_1,x_2,...,x_m\textbf{]}$ is a feature vector representing a single input observation. \
+\\[ P(t = 0 \text{ }\vert \text{ }x, \theta) = 1 - \sigma(\theta \cdot x) = 1 - \frac{1}{1 + e^{-(\theta \cdot x)}} = \frac{e^{-(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_n \cdot x_n)}}{1 + e^{-(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_n \cdot x_n)}} \\]
+where $\theta = \textbf{[}\theta_1,\theta_2,...,\theta_n \textbf{]}$ represents the logit coefficients and $x = \textbf{[}x_1,x_2,...,x_n \textbf{]}$ is a feature vector representing a single input observation. \
 \
 As such, using the latter equation, we can write that the predicted classification is given by:
 <div align="center">
@@ -31,13 +31,13 @@ As such, using the latter equation, we can write that the predicted classificati
 <!--\\[ \hat{t} = \arg \max_{t \in [0,1]} P(t) \\]--> <!-- this isnt true -->
 Like OLS and ridge regression, logistic regression seeks to find coefficients $\theta$ for the regression function which minimize prediction error. However, unlike OLS and ridge regression, logistic regression has no closed form solution. Instead, algorithms are used to compute optimal coefficients. \
 \
-One such algorithm is batch gradient descent (also known as vanilla gradient descent). For some $n \times m$ train matrix $X$, batch gradient descent:
+One such algorithm is batch gradient descent (also known as vanilla gradient descent). For some $m \times n$ train matrix $X$, batch gradient descent:
 
 1. Initiailizes $\theta$ randomly. Commonly, $\theta$ is initialized to all zeros.
 2. Initializes a learning rate $\alpha$. 
 3. For some number of iterations also known as epochs (often $\geq 1000$), update $\theta$ with:\
 \
-\\[ \theta_{i+1} = \theta_i - \frac{\alpha(X^T \cdot (P(t = 0 \text{ } | \text{ } x, \theta_i) - t))}{m} \\]
+\\[ \theta_{i+1} = \theta_i - \frac{\alpha(X^T \cdot (P(t = 0 \text{ } | \text{ } x, \theta_i) - t))}{n} \\]
 
 \
 With each run, the algorithm updates $\theta$ to minimize prediction error. At the end of a sufficient number of iterations, $\theta$ will converge on the most optimal weights for the logit model. \
@@ -179,8 +179,8 @@ Using data from the 1988 Pima Indians Diabetes Dataset available on Kaggle, supp
 1 & x_1 \cr 
 1 & x_2 \cr
 \vdots & \vdots \cr
-1 & x_n}\\]
-where each individuals blood glucose data is represented in the vector $x = \textbf{[}x_1, x_2, ..., x_n \textbf{]}$. Then, with Python, we can write: 
+1 & x_m}\\]
+where each individuals blood glucose data is represented in the vector $x = \textbf{[} x_1, x_2, ..., x_m \textbf{]}$. Then, with Python, we can write: 
 ```python
 #!/usr/bin/env python3
 
@@ -221,8 +221,8 @@ Now, suppose we wish to graph a regression predicting diabetes with glucose *and
 1 & x_1 & y_1 \cr 
 1 & x_2 & y_2 \cr
 \vdots & \vdots \cr
-1 & x_n & y_n }\\]
-where glucose is represented by $x = \textbf{[}x_1, x_2, ..., x_n\textbf{]}$ and mass is represented by $y = \textbf{[}y_1, y_2, ..., y_n\textbf{]}$. \
+1 & x_m & y_m }\\]
+where glucose is represented by $x = \textbf{[}x_1, x_2, ..., x_m \textbf{]}$ and mass is represented by $y = \textbf{[}y_1, y_2, ..., y_m \textbf{]}$. \
 \
 Then using Python we can write:
 

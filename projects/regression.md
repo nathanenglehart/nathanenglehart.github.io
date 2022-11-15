@@ -16,7 +16,7 @@ When looking to analyze relationships between independent variable(s) and a cont
 
 OLS seeks to find coefficients for the regression function which minimize prediction error. Its closed-from solution does so with
 \\[ \theta = (X^T X)^{-1} X^T t \\]
-where $\theta$ represents the OLS estimator (also known as coefficients or weights), $X$ is an $n \times m$ matrix containing independent variable parameters, and $t$ is a vector of response variables. Then, OLS regression generates predictions with:
+where $\theta$ represents the OLS estimator (also known as coefficients or weights), $X$ is an $m \times n$ matrix containing independent variable parameters, and $t$ is a vector of response variables. Then, OLS regression generates predictions with:
 \\[ \hat{t} = X\theta \\]
 As such, we can write an OLS class using Python with:
 
@@ -137,14 +137,14 @@ In both OLS and ridge regressions, instead of using their closed form solutions,
 
 Lasso regression uses l1 regularization to penalize high coefficients. As in OLS and ridge regression, lasso regression also generates predictions with:
 \\[ \hat{t} = X\theta \\]
-However, as lasso regression has no closed form solution to compute an optimal lasso estimator (coefficients/weights), an algorithm must be employed. Batch gradient descent (also known as vanilla gradient descent) is one such algorithm. For some $n \times m$ regressor matrix $X$, batch gradient descent:
+However, as lasso regression has no closed form solution to compute an optimal lasso estimator (coefficients/weights), an algorithm must be employed. Batch gradient descent (also known as vanilla gradient descent) is one such algorithm. For some $m \times n$ regressor matrix $X$, batch gradient descent:
 
 1. Initializes $\theta$ randomly. Often $\theta$ is initialized to all zeros though initializing $\theta$ as the OLS or ridge estimator is sometimes used.
 2. Initializes a learning rate $\alpha$.
 3. Initializes a weight penalty $\lambda$
 4. For some number of iterations, also known as epochs (often $\geq 1000$), update $\theta$ with:
 
-\\[ \theta_{i+1} = \theta_{i} - \frac{\alpha(X^T \cdot (\hat{t} - t))}{m} + \lambda \sum \vert \theta \vert \\] 
+\\[ \theta_{i+1} = \theta_{i} - \frac{\alpha(X^T \cdot (\hat{t} - t))}{n} + \lambda \sum \vert \theta \vert \\] 
 \
 With each run, the algorithm updates $\theta$ to minimize prediction error. At the end of a sufficient number of iterations, $\theta$ will converge on the most optimal lasso estimator for the model. \
 \
@@ -267,7 +267,7 @@ def r_squared(t, t_hat):
 
 In multivariate regression models, plain $R^2$ is slightly problematic. This is because $R^2$ increases or stays the same as new predictors are added to the model. To account for this issue, adjusted $R^2$ only increases if newly added predictors improve the model's predictive power. Similarly, adjusted $R^2$ decreases if irrelevant predictors are added to the model. The equation for adjusted $R^2$ is given by: \
 \
-\\[ R_{adj}^2 = 1 - \frac{(1 - R^2)(n - 1)}{n - p} \\]
+\\[ R_{adj}^2 = 1 - \frac{(1 - R^2)(m - 1)}{m - p} \\]
 \
 where $n$ is the number of rows in the dataset and $p$ is the number of features/predictors in the dataset. With Python, we can write:
 
@@ -291,9 +291,9 @@ def adj_r_squared(t,t_hat,p):
 	
 	"""
 
-	n = len(t)
+	m = len(t)
 
-	return 1 - ((1 - r_squared(t,t_hat)) * ((n-1) / (n-p))) 
+	return 1 - ((1 - r_squared(t,t_hat)) * ((m-1) / (m-p))) 
 ```
 
 ### Simple Linear Regression Example
@@ -303,8 +303,8 @@ Using data from the 1993 Auto MPG (miles per gallon) dataset available from the 
 1 & x_1 \cr 
 1 & x_2 \cr
 \vdots & \vdots \cr
-1 & x_n}\\]
-where car weight is represented by the vector $x = \textbf{[}x_1, x_2, ..., x_n\textbf{]}$. As such, with Python we can can write:
+1 & x_m}\\]
+where car weight is represented by the vector $x = \textbf{[}x_1, x_2, ..., x_m\textbf{]}$. As such, with Python we can can write:
 ```python
 #!/usr/bin/env python3
 
@@ -344,8 +344,8 @@ Again, utilizing the Auto MPG dataset, suppose we again wish to graph a regressi
 1 & x_1 & x_1^2 \cr 
 1 & x_2 & x_2^2 \cr
 \vdots & \vdots & \vdots \cr
-1 & x_n & x_n^2 }\\]
-where car weight is represented by $x = \textbf{[}x_1,x_2, ..., x_n\textbf{]}$. Now, by slightly modifying our original Python code we can write:
+1 & x_m & x_m^2 }\\]
+where car weight is represented by $x = \textbf{[}x_1,x_2, ..., x_m\textbf{]}$. Now, by slightly modifying our original Python code we can write:
 ```python
 #!/usr/bin/env python3
 
@@ -386,8 +386,8 @@ Now, suppose we want to graph a regression predicting MPG with car weight and di
 1 & x_{1} & y_{1} \cr
 1 & x_{2} & y_{2} \cr
 \vdots & \vdots & \vdots \cr
-1 & x_{n} & y_{n} } \\]
-where car weight is given by the vector $x = \textbf{[}x_1, x_2, ..., x_n\textbf{]}$ and displacement is given by the vector $y = [y_1, y_2, ..., y_n]$. \
+1 & x_{m} & y_{m} } \\]
+where car weight is given by the vector $x = \textbf{[}x_1, x_2, ..., x_m\textbf{]}$ and displacement is given by the vector $y = \textbf{[} y_1, y_2, ..., y_m \textbf{]}$. \
 \
 Then, using Python, we can write:
 ```python
@@ -450,9 +450,9 @@ Suppose we want to again graph a regression predicting MPG with car weight and d
 \\[ X = \pmatrix{ 1 & x_1 & y_1 & x_1^2 & x_1 \cdot y_1 & y_1^2 \cr
                   1 & x_2 & y_2 & x_2^2 & x_2 \cdot y_2 & y_2^2 \cr
 		  \vdots & \vdots & \vdots& \vdots & \vdots & \vdots \cr
-		  1 & x_n & y_n & x_n^2 & x_n \cdots y_n & y_n^2
+		  1 & x_m & y_m & x_m^2 & x_m \cdot y_m & y_m^2
 } \\]
-where again, car weight is given by the vector $x = \textbf{[}x_1, x_2, ..., x_n\textbf{]}$ and displacement is given by the vector $y = [y_1, y_2, ..., y_n]$. \
+where again, car weight is given by the vector $x = \textbf{[}x_1, x_2, ..., x_m\textbf{]}$ and displacement is given by the vector $y = \textbf{[} y_1, y_2, ..., y_m \textbf{]}$. \
 \
 So, using Python, we can write:
 ```python
@@ -515,7 +515,7 @@ Again, cases with more variables are similar, but not able to be visualized. Cas
 \\[ X = \pmatrix{ 1 & x_1 & y_1 & x_1^2 & x_1 \cdot y_1 & y_1^2 & x_1^3 & x_1^2 \cdot y_1 & x_1 \cdot y_1^2 & y_1^3 \cr
                   1 & x_2 & y_2 & x_2^2 & x_2 \cdot y_2 & y_2^2 & x_2^3 & x_2^2 \cdot y_2 & x_2 \cdot y_2^2 & y_2^3 \cr
 	          \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \cr
-		  1 & x_n & y_n & x_n^2 & x_n \cdot y_n & y_n^2 & x_n^3 & x_n^2 \cdot y_n & x_n \cdot y_n^2 & y_n^3
+		  1 & x_m & y_m & x_m^2 & x_m \cdot y_m & y_m^2 & x_m^3 & x_m^2 \cdot y_m & x_m \cdot y_m^2 & y_m^3
 }
 \\]
 Other cases with higher degree polynomials entail the construction of similar regressor matricies. 
