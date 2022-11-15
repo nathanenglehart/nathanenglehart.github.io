@@ -14,8 +14,8 @@ The K nearest neighbors (KNN) classifier is a highly useful and popular tool for
 To run, the KNN algorithm requires three inputs:
 
 1. A set of test vectors for which to determine classifications
-2. An $n \times m$ train matrix for which to compare test vectors against
-3. Some pre-determined $K \in \mathbb{N}$ such that $1 \leq K \leq n$ 
+2. An $m \times n$ train matrix for which to compare test vectors against
+3. Some pre-determined $K \in \mathbb{N}$ such that $1 \leq K \leq m$ 
 
 Then, for each test vector, KNN: 
 
@@ -24,7 +24,7 @@ Then, for each test vector, KNN:
 3. Determine the plurality class (the most frequently occuring class) of the $K$ closest vectors
 4. Assign the plurality class to the test vector
 
-In KNN, distance can be measured using various $L^\mathcal{p}$ norms. Most commonly, Euclidean Distance is used, which is given by: \\[ d(p,q) = \sqrt{\sum_{i=1}^n (q_i - p_i)^2} \\]
+In KNN, distance can be measured using various $L^\mathcal{p}$ norms. Most commonly, Euclidean Distance is used, which is given by: \\[ d(p,q) = \sqrt{\sum_{i=1}^m (q_i - p_i)^2} \\]
 However, Chebyshev Distance and Manhattan Distance are also frequently used.
 
 ### KNN with N-Fold Cross Validation
@@ -44,7 +44,7 @@ For each run, N-fold cross validation requires the same three inputs as KNN. It 
 5. Return mean error $=$ error / $N$
 
 where miscalculation rate can be computed with:
-\\[ \text{Misclassification Rate} = \frac{1}{N} \sum_{n=1}^N I (\hat{t}_n \neq t_n) \\]
+\\[ \text{Misclassification Rate} = \frac{1}{N} \sum_{i=1}^N I (\hat{t}_i \neq t_i) \\]
 with $\hat{t}$ representing computed classifications and $t$ representing true classifications.\
 \
 Full code for implementation written in C++ available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/knn-cpp-241">https://github.com/nathanenglehart/knn-cpp-241</a>.

@@ -9,11 +9,11 @@ comments: false
 
 The Naive Bayesian Classifier Algorithm is a family of probabalistic supervised machine learning algorithms that assumes each feature is independent of other features inside a feature vector. \
 \
-To compute the probability of a test vector with features $x_1 ... x_d$ belonging to classification $y \in C$ where $C$ is the set containing all possible classifications, using a $n \times m$ train matrix, Naive Bayes uses the equation:
-\\[ P(y,x_1 ... x_m) = P(y) \prod^{m}_{i=1} P_i (x_i|y) \\]
+To compute the probability of a test vector with features $x_1 ... x_d$ belonging to classification $y \in C$ where $C$ is the set containing all possible classifications, using an $m \times n$ train matrix, Naive Bayes uses the equation:
+\\[ P(y,x_1 ... x_n) = P(y) \prod^{n}_{i=1} P_i (x_i|y) \\]
 
 Then, by running this equation for each possible classification $y$, Naive Bayes assigns the classification with maximal probability as the predicted classification. As such, to compute the predicted classification $\hat{y}$, we can write:
-\\[ \hat{y} = \arg \max_{y \in C} P(y,x_1 ... x_m) = \arg \max_{y \in C} P(y) \prod^{m}_{i=1} P_i (x_i|y) \\]
+\\[ \hat{y} = \arg \max_{y \in C} P(y,x_1 ... x_n) = \arg \max_{y \in C} P(y) \prod^{n}_{i=1} P_i (x_i|y) \\]
 Implementations of Naive Bayes are unique in how they compute the prior and likelihood. This writeup will explore two varieties of Naive Bayes: Categorical Naive Bayes and Gaussian Naive Bayes.
 
 ### Note
@@ -24,11 +24,11 @@ To see my full code behind the mathematical notation for Categorical Naive Bayes
 
 One of the most common implementations of Naive Bayes is Categorical Naive Bayes. Categorical Naive Bayes is useful for classifying vectors with categorical data (nominal or ordinal) as features. Respectively, Categorical Naive Bayes computes the prior and likelihood with: 
 <div align="center">
-$P(y) = \frac{\sum^n_{j=1} I(y_j = y)}{n}$ and $P_i (x_i|y) = \frac{\sum^n_{j=1} I(x_i = x_j \land y_j = y)}{\sum^n_{j=1} I(y_j = y)}$
+$P(y) = \frac{\sum^m_{j=1} I(y_j = y)}{m}$ and $P_i (x_i|y) = \frac{\sum^m_{j=1} I(x_i = x_j \land y_j = y)}{\sum^m_{j=1} I(y_j = y)}$
 </div> \
 In plain English, Categorical Naive Bayes:
 
-1. First calculates $P(y)$ by dividing the frequency of each classification in the train data by the number of vector rows in the train data $n$ with classification $y$
+1. First calculates $P(y)$ by dividing the frequency of each classification in the train data by the number of vector rows in the train data $m$ with classification $y$
 2. Compute the likelihood by taking the product sum of conditional class probabilities where conditional class probabilities are calculated for each $x_i$ within feature column $i$ in the train data by:
 	- Dividing the frequency of the feature $x_i$ with classification $y$ by the total number of rows in the train data $n$ with classification $y$
 4. Multiply the result of the first and second steps
@@ -40,7 +40,7 @@ By running this equation for each possible classification $y$, Categorical Naive
 Categorical Naive Bayes faces an issue if individual categorical features labels are missing from the train data for some classification $y$ since this will lead to frequency based probability estimates becoming zero. This will set our product sum to zero and hinder the accuracy of the classifier. \
 \
 This problem can be solved using a technique called Laplace Smoothing. Laplace Smoothing is a slight modification to the Naive Bayes algorithm which solves the zero frequency problem by modifying the conditional class probability equation with:
-\\[ P_i (x_i|y) = \frac{(\sum^n_{j=1} I(x_i = x_j \land y_j = y)) + \alpha}{(\sum^n_{j=1} I(y_j = y)) + (\alpha m)} \\]
+\\[ P_i (x_i|y) = \frac{(\sum^m_{j=1} I(x_i = x_j \land y_j = y)) + \alpha}{(\sum^m_{j=1} I(y_j = y)) + (\alpha n)} \\]
 for some $\alpha \geq 1$. This ensures that conditional class probabilities will never become zero. Laplace smoothing can also be applied to other forms of Naive Bayes. For example, Laplace Smoothing is often applied to Multinomial Naive Bayes.
 
 ### Categorical Naive Bayes Visualization
@@ -109,7 +109,7 @@ Very similar to our original graph of true predictions! Further, by running in v
 ### Gaussian Naive Bayes
 
 Another implementation of the Naive Bayes algorithm is Gaussian Naive Bayes. It is highly useful for classifying vector rows with continuous feature variables. As in Categorical Naive Bayes, in Gaussian Naive Bayes, the prior probability is given by:
-\\[ P(y) = \frac{\sum^n_{j=1} I(y_j = y)}{n} \\]
+\\[ P(y) = \frac{\sum^m_{j=1} I(y_j = y)}{m} \\]
 On the other hand, the equation for the Gaussian Naive Baye likelihood is given by:
 \\[ P(x_i|y) = \frac{1}{\sqrt{2\pi\sigma^2_y}}exp\bigg(- \frac{(x_i - \mu_y)^2}{2\sigma^2_y} \bigg) \\]
 where $\sigma_y$ represents standard deviation computed using features of column $i$ with classification $y$ and $\mu_y$ represents mean computed using features of column $i$ with classification $y$.
