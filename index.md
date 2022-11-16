@@ -20,8 +20,8 @@ My name is Nathan Englehart (he/him/his). I am from Toledo, Ohio and attend univ
 
 Please reach out to me via my email: nengleha AT oberlin DOT edu. 
 
-<h3 class="small_title">Project Writeups</h3>
+<!--<h3 class="small_title">Project Writeups</h3>-->
 
-For a look at some writeups of supplementary projects I have worked on - primarily statistics and CS related - please feel free to take a look <a style="color: #f56a6a; !important" href="/projects/">here</a>. 
+<!--For a look at some writeups of supplementary projects I have worked on - primarily statistics and CS related - please feel free to take a look <a style="color: #f56a6a; !important" href="/projects/">here</a>. -->
 
 <br />
