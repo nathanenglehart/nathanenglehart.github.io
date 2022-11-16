@@ -527,7 +527,7 @@ Extensive OLS, ridge, and lasso code available at: <a style="color: #f56a6a; !im
 
 <!--This repository also contains code for logistic regression with documentation available <a style="color: #f56a6a; !important" href="/projects/logit">here</a>.-->
 
-## Logistic Regression
+# Logistic Regression
 
 Logistic regression (also known as logit regression) - like OLS regression - is commonly used in the social sciences. Unlike OLS, ridge, and lasso regression, logistic regression is used to examine the extent to which various independent variables are related to a binary dependent variable. \
 \

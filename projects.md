@@ -12,11 +12,11 @@ comments: false
 * [**Unofficial Arch Linux Installation Guide**](https://github.com/nathanenglehart/unofficial-arch-install-guide)<br>
   Arch Linux installation guide for UEFI systems. 
 
-* [**Logistic Regression Class Implementation**](/projects/logit)<br>
-  Implementation of logistic regression using gradient descent and Python. <br>
+<!--* [**Logistic Regression Class Implementation**](/projects/logit)<br>-->
+<!--  Implementation of logistic regression using gradient descent and Python. <br>-->
 
 * [**OLS, Ridge, and Lasso Regression Class Implementations**](/projects/regression)<br>
-  Implementations of closed form OLS and ridge regression classes as well as gradient descent lasso regression class implementation. All written in Python with visualizations using 1993 Auto MPG dataset. <br> 
+  Implementations of closed form OLS and ridge regression classes as well as gradient descent lasso and logit regression class implementations. All written in Python with visualizations using 1993 Auto MPG dataset and the 1988 Pima dataset. <br> 
   
 * [**Standard Score**](/projects/z-score)<br>
   Computing the Standard Score, commonly known as the Z-score, using C.<br>  
