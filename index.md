@@ -14,7 +14,9 @@ image:
 <div class="bod">
 <h3 class="small_title">Introduction</h3>
 
-My name is Nathan Englehart (he/him/his). I am from Toledo, Ohio and attend university at Oberlin College. Currently, I am seeking to enter a Political Science PhD program in the Fall of 2024 with prospective focuses in methodology and comparative politics. 
+My name is Nathan Englehart (he/him/his). I am from Toledo, Ohio and attend university at Oberlin College. Currently, I am completing a Bachelor of Arts degree with three majors in mathematics, history, and East Asian studies. 
+
+<!--Currently, I am seeking to enter a Political Science PhD program in the Fall of 2024 with prospective focuses in methodology and comparative politics.--> 
 
 <h3 class="small_title">Contact Me</h3>
 
