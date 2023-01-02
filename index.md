@@ -8,7 +8,7 @@ image:
 ---
 
 <figure>
-<img src="/images/home.jpg">
+<img src="/images/profile-1-640x480.jpg">
 <figcaption>July 2021</figcaption>
 </figure>
 <div class="bod">
