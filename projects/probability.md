@@ -103,6 +103,7 @@ The expectation or mean of a discrete random variable $X$ is defined by \\[\math
 The expectation or mean of a continuous random variable $X$ with density function $f$ is \\[\mathbb{E}(X) = \int_\infty^{-\infty} x f(x) dx\\]An alternative symbol is $\mu = \mathbb{E}(X)$.
 
 Let $g$ be a real-valued function defined on the range of a random variable $X$. If $X$ is a discrete random variable then \\[\mathbb{E}(g(X)) = \sum_k g(k)\mathbb{P}(X = k)\\]while if $X$ is a continuous random variable with density function $f$ then \\[\mathbb{E}(g(X)) = \int_{-\infty}^\infty g(x)f(x)dx\\]The *n*th moment of the random variable $X$ is the expectation $\mathbb{E}(X^n)$. In the discrete case the *n*th moment is calculated by \\[\mathbb{E}(X^n) = \sum_k k^n \mathbb{P}(X = k)\\]If $X$ has density function $f$ its *n*th moment is given by \\[\mathbb{E}(X^n) = \int^\infty_{-\infty}x^nf(x)dx\\]Let $X$ be a random variable and $a$ and $b$ real numbers. Then \\[\mathbb{E}(aX + b) = a\mathbb{E}(X) + b\\]
+
 ### Variance
 
 The **variance** of a random variable $X$ measures the expected distance from $X$ to its expected value.
@@ -112,6 +113,7 @@ Let $X$ be a random variable with mean $\mu$. The variance of $X$ is defined by 
 Let $X$ be a random variable with mean $\mu$. Then \\[\text{Var}(X) = \sum_k (k- \mu)^2 \mathbb{P}(X = k)\\]if $X$ is discrete and \\[\text{Var}(X) = \int^\infty_{-\infty} (x - \mu)^2f(x)dx\\]if $X$ has density function $f$.
 
 An alternative formula for variance is given by \\[\text{Var}(X) = \mathbb{E}(X^2) - (\mathbb{E}(X))^2\\]Let $X$ be a random variable and $a$ and $b$ real numbers. Then \\[\text{Var}(aX+b) = a^2 \text{Var}(X)\\]
+
 ### Standard Deviation
 
 The standard deviation of a random variable measures the amount of variation or dispersion of a set of values. A low standard deviation indicates that the values tend to be close to the expected value of the set, while a high standard deviation indicates that the values are spread out over a wider range. The standard deviation of a random variable, denoted $\text{sd}(X)$, is simply the positive square root of the variance: \\[\text{sd}(X) \equiv +\sqrt{\text{Var}(X)}\\]The standard devition is sometimes denoted $\sigma$ when the random variable is understood.   
@@ -123,10 +125,11 @@ The standard deviation of a random variable measures the amount of variation or 
 Let $X$ and $Y$ be random variables defined on the sample space with expectations $\mu x$ and $\mu y$. The covariance of $X$ and $Y$ is defined by \\[\text{Cov}(X,Y) = \mathbb{E}((X - \mu x)(Y - \mu y))\\]if the expectation on the right is finite.
 
 An alternative formula for the covariance is given by \\[\text{Cov}(X,Y) = \mathbb{E}(X \cap Y) - \mathbb{E}(X)\mathbb{E}(Y)\\]
+
 ### Sample Mean, Variance, Standard Deviation
 
 Given a sample of data $(x_i,y_i)$ for $i = 1,2,...,N$, we can get the sample mean, sample variance, and the sample covariance respectively. These are random variables with their own sampling distribution.
-\\[\begin{flalign*} \bar{x} &= \frac{1}{N} \sum_{i=1}^N x_i \\ s^2 &= \frac{1}{N-1} \sum^N_{i=1} (x_i - \bar{x})^2  \\ \text{Cov}(x,y) &= \frac{1}{N-1} \sum^N_{i=1} (x_i - \bar{x} )(y_i - \bar{y})\end{flalign*}\\]
+\\[\begin{align*} \bar{x} &= \frac{1}{N} \sum_{i=1}^N x_i \\ s^2 &= \frac{1}{N-1} \sum^N_{i=1} (x_i - \bar{x})^2  \\ \text{Cov}(x,y) &= \frac{1}{N-1} \sum^N_{i=1} (x_i - \bar{x} )(y_i - \bar{y})\end{align*}\\]
 
 ### Law of Large Numbers
 
