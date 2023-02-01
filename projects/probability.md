@@ -24,7 +24,7 @@ where (iii) also applies to finite events, meaning that if $A_1, A_2, ..., A_n$ 
 
 ### Experiments with Equally Likely Outcomes
 
-Suppose $\Omega$ is a sample space that is finite. Let $\# \Omega$ denote the **total number of possible outcomes**. If each outcome $\omega \in \Omega$ has the same probability, then: $\mathbb{P}(\omega) = \frac{1}{\# \Omega}$ because probabilities must add up to 1. As such: $\mathbb{P}(A) = \mathbb{P}(a_1) + \mathbb{P}(a_2) + ... + \mathbb{P}(a_r) = \frac{\#A}{\#\Omega}$. where #$A$ denotes the **number of elements in set** $A$. So, if the sample space $\Omega$ has finitely many elements and each outcome is equally likely, then for any event $A \subseteq \Omega$ we have: \\[\mathbb{P}(A) = \frac{\#A}{\#\Omega}\\]
+Suppose $\Omega$ is a sample space that is finite. Let $\text{#}\Omega$ denote the **total number of possible outcomes**. If each outcome $\omega \in \Omega$ has the same probability, then: $\mathbb{P}(\omega) = \frac{1}{\# \Omega}$ because probabilities must add up to 1. As such: $\mathbb{P}(A) = \mathbb{P}(a_1) + \mathbb{P}(a_2) + ... + \mathbb{P}(a_r) = \frac{\#A}{\#\Omega}$. where #$A$ denotes the **number of elements in set** $A$. So, if the sample space $\Omega$ has finitely many elements and each outcome is equally likely, then for any event $A \subseteq \Omega$ we have: \\[\mathbb{P}(A) = \frac{\#A}{\#\Omega}\\]
 
 ### Conditional Probability
 
@@ -136,6 +136,7 @@ Given a sample of data $(x_i,y_i)$ for $i = 1,2,...,N$, we can get the sample me
 The **weak Law of Large Numbers** (w-LLN) states the following. Suppose $(X_j)_{j \in \mathbb{N}}$ is a sequence of independent and identically distributed random variables with finite $\mathbb{E}(X_1) := \mu$ and $\text{Var}(X_1) =: \sigma^2$. Denote $S_n := \sum^n_{i=1} X_j$. Now $\frac{1}{n} S_n \xrightarrow{n \to \infty} \mu$ in probability if and only if for all $\varepsilon > 0$, \\[\mathbb{P} \bigg( \bigg| \frac{S_n}{n} - \mu \bigg| < \varepsilon \bigg) \xrightarrow{n \to \infty} 1\\]Less formally, this tells us that no matter how small an interval $(\mu - \varepsilon, \mu + \varepsilon)$ you put around $\mu$, as $n$ becomes larger, the observed mean $\frac{S_n}{n}$ will lie inside the interval with overwhelming probability.
 
 The **strong Law of Large Numbers** (s-LLN) states the following. Suppose that we have independently identically distributed random variables $X_1, X_2,...$ with finite mean $\mathbb{E}(X_1) = \mu$. Let $S_n = X_1 + ... + X_n$. Then \\[\mathbb{P} \bigg( \lim_{n \to \infty} \frac{X_1 + ... + X_n}{n} = \mu\bigg) = 1\\]
+
 ### Central Limit Theorem
 
 The **Central Limit Theorem** (CLT) states the following. Suppose that we have independent identically distributed random variables $X_1,X_2,X_3,...$ with finite mean $\mathbb{E}(X_1) = \mu$ and finite variance $\text{Var}(X_1) = \sigma^2$. Let $S_n = X_1 + ... + X_n$. Then for any fixed $-\infty \leq  a \leq b \leq \infty$ we have \\[\lim_{n \to \infty} \mathbb{P}\bigg( a \leq \frac{S_n - n\mu}{\sigma \sqrt{n}} \leq b \bigg) = \phi(b) - \phi(a) = \int^b_a \frac{1}{\sqrt{2\pi}} e^{\frac{-y^2}{2}}dy\\]
