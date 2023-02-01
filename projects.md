@@ -7,15 +7,20 @@ modified: 10-24-21
 comments: false
 ---
 
+### 2023
+
+* [**Probability Theory**](/projects/probability)<br>
+  Extensive notes from undergraduate probability theory course.
+
+* [**Linear Algebra**](/projects/linear-algebra)<br>
+  More notes from undergraduate linear algebra course. 
+
 ### 2022
 
-* [**Unofficial Arch Linux Installation Guide**](https://github.com/nathanenglehart/unofficial-arch-install-guide)<br>
-  Arch Linux installation guide for UEFI systems. 
+<!-- * [**Unofficial Arch Linux Installation Guide**](https://github.com/nathanenglehart/unofficial-arch-install-guide)<br>
+  Arch Linux installation guide for UEFI systems. -->
 
-<!--* [**Logistic Regression Class Implementation**](/projects/logit)<br>-->
-<!--  Implementation of logistic regression using gradient descent and Python. <br>-->
-
-* [**OLS, Ridge, and Lasso Regression Class Implementations**](/projects/regression)<br>
+* [**OLS, Ridge, Lasso, and Logit Regression Class Implementations**](/projects/regression)<br>
   Implementations of closed form OLS and ridge regression classes as well as gradient descent lasso and logit regression class implementations. All written in Python with visualizations using 1993 Auto MPG dataset and the 1988 Pima dataset. <br> 
   
 * [**Standard Score**](/projects/z-score)<br>
@@ -24,8 +29,8 @@ comments: false
 * [**Pearson's Chi-squared Test**](/projects/chi-squared-test)<br>
   Pearson's Chi-squared Test written in C with 2016 ANES survey data example.<br>
 
-<!-- * [**Student's T-Test**](/projects/t-test)<br>-->
-<!--  One Sample and Two Samples Student's T-Test implementations written utilizing C and R with examples using 2021 GSS survey data. -->
+* [**Student's T-Test**](/projects/t-test)<br>
+One Sample and Two Samples Student's T-Test implementations written utilizing C with examples using 2021 GSS survey data.
 
 ### 2021
 

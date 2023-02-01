@@ -14,7 +14,9 @@ The Student's T-Test, commonly known as the T-Test, is frequently used by social
 The one sample T-Test equation is given by \\[t = \frac{\overline{x} - \mu}{\frac{s}{\sqrt{n}}}\\]
 where $\overline{x}$ is the observed mean of the sample, $\mu$ is the theoretical mean of the population, $s$ is the standard deviation of the sample, and $n$ is the sample size. The theoretical mean of the population may be known or hypothesized. For the One Sample T-Test, degrees of freedom are given by \\[\text{df} = n - 1 \\]
 <!--Suppose the observed sample mean is 74, the theoretical population mean is 78, the standard deviation of the sample is 3.5, and the sample size is 10. Then, we can write:-->
-According to U.S. Bureau of Statistics, in 2021, the average American watched 3.1 hours of tv per day (<a style="color: #f56a6a; !important" href="https://www.bls.gov/tus/">link</a>). As such, we can treat 3.1 as the theoretical mean. Then, using data from the 2021 General Social Survey (GSS) for our sample, we can hypothesize that there is no difference in the tv watching habits of the average American according to U.S. Bureau of Statistics and the average General Social Survey respondent. \
+According to U.S. Bureau of Statistics, in 2021, the average American watched 3.1 hours of tv per day (<a style="color: #f56a6a; !important" href="https://www.bls.gov/tus/">link</a>). As such, we can treat 3.1 as the theoretical mean. \
+\
+Then, using data from the 2021 General Social Survey (GSS) for our sample (<a style="color: #f56a6a; !important" href="https://gss.norc.org/">link</a>), we can advance the following hypothesis. There is no difference in the tv watching habits of the average American according to U.S. Bureau of Statistics and the average General Social Survey respondent. \
 \
 The mean of the variable tvhours in the GSS is 3.476400 with a standard deviation of 3.101692 and a sample size of 3780. Additionally, as previously noted, the theoretical population mean is 3.1. Below is the code to solve for $t$ using C:
 ```c
@@ -46,45 +48,6 @@ int main() {
 }
 ```
 In this case, $t = 7.460448$ with 3779 degrees of freedom. \
-\
-A simpler approach utilizes R rather than C. R can also easily load the dataset:
-
-```r
-#!/usr/bin/env Rscript
-
-### Nathan Englehart (Summer 2022)
-
-library(haven) # in order to read sav
-
-gss_data <- read_sav("gss_2021.sav") # see https://gss.norc.org/get-the-data for 2021 GSS data
-
-one_sample_t_test <- function(sample,theoretical_mean) {
-
-   ### Returns the t value and degrees of freedom with one sample t test using given sample and theoretical mean. 
-   ###	
-   ###   Args:
-   ###           
-   ###	      sample::[List]
-   ###	         Given sample 
-   ###	      
-   ###	      theoretical_mean::[Double]
-   ###	         Theoretical mean of sample.
-   ###
-   ###
-
-   t = (mean(sample,na.rm = TRUE)-theoretical_mean)/(sd(sample, na.rm = TRUE)/(sqrt(length(!is.na(sample)))))
-   df = length(sample) - 1 
-
-   return(list(t,df))
-}
-
-sample = as.numeric(unlist(gss_data[,"tvhours"])) # "how many hours per day do you watch tv?" (continuous)
-theoretical_mean = 3.1
-
-result = one_sample_t_test(sample,theoretical_mean)
-result
-```
-The above R script returns the same results as C.
 
 ### Two Sample
 
@@ -142,51 +105,6 @@ int main() {
 ```
 In this case, $t = -1.403427$ with 2455 degrees of freedom. \
 \
-Again, a simpler approach utilizes R rather than C:
-```r
-#!/usr/bin/env Rscript
-
-### Nathan Englehart (Summer 2022)
-
-library(haven) # in order to read sav
-
-gss_data <- read_sav("gss_2021.sav") # see https://gss.norc.org/get-the-data for 2021 GSS data
-
-two_sample_t_test <- function(sample_1,sample_2) {
-
-   ### Returns the t value and degrees of freedom with two sample t test using given samples. 
-   ###	
-   ###   Args:
-   ###          
-   ###	      sample_1::[List]
-   ###	         First given sample 
-   ###
-   ###	      sample_2::[List]
-   ###	         Second given sample
-   ###
-   ###
-
-   t = (mean(sample_1, na.rm = TRUE) - mean(sample_2, na.rm = TRUE))/sqrt((((sd(sample_1, na.rm = TRUE))^2)/(sum(!is.na(sample_1))-1)) + (((sd(sample_2, na.rm = TRUE))^2)/(sum(!is.na(sample_2))-1)))
-   df = sum(!is.na(sample_1)) + sum(!is.na(sample_2)) - 2
-
-   return(list(t,df))
-}
-
-s <- as.numeric(unlist(gss_data[,"sex"]))
-t <- as.numeric(unlist(gss_data[,"tvhours"]))
-
-sample <- data.frame(s,t)
-
-m <- subset(sample, sample$s == 1)
-w <- subset(sample, sample$s == 2)
-
-m_hours <- m$t
-w_hours <- w$t
-
-result <- two_sample_t_test(m_hours,w_hours)
-result
-```
-The above R script returns the same results as C.
 
 ### Interpreting Results
 
