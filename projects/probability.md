@@ -24,7 +24,7 @@ where (iii) also applies to finite events, meaning that if $A_1, A_2, ..., A_n$ 
 
 ### Experiments with Equally Likely Outcomes
 
-Suppose $\Omega$ is a sample space that is finite. Let $\text{#}\Omega$ denote the **total number of possible outcomes**. If each outcome $\omega \in \Omega$ has the same probability, then: \\[ \mathbb{P}(\omega) = \frac{1}{\text{#} \Omega} \\] because probabilities must add up to 1. As such: \\[\mathbb{P}(A) = \mathbb{P}(a_1) + \mathbb{P}(a_2) + ... + \mathbb{P}(a_r) = \frac{\text{#}A}{\text{#}\Omega} \\] where #$A$ denotes the **number of elements in set** $A$. So, if the sample space $\Omega$ has finitely many elements and each outcome is equally likely, then for any event $A \subseteq \Omega$ we have: \\[\mathbb{P}(A) = \frac{\text{#}A}{\text{#}\Omega}\\]
+Suppose $\Omega$ is a sample space that is finite. Let $\text{#}\Omega$ denote the **total number of possible outcomes**. If each outcome $\omega \in \Omega$ has the same probability, then: \\[ \mathbb{P}(\omega) = \frac{1}{\text{#} \Omega} \\] because probabilities must add up to 1. As such: \\[\mathbb{P}(A) = \mathbb{P}(a_1) + \mathbb{P}(a_2) + ... + \mathbb{P}(a_r) = \frac{\text{#}A}{\text{#}\Omega} \\] where $\text{#}A$ denotes the **number of elements in set** $A$. So, if the sample space $\Omega$ has finitely many elements and each outcome is equally likely, then for any event $A \subseteq \Omega$ we have: \\[\mathbb{P}(A) = \frac{\text{#}A}{\text{#}\Omega}\\]
 
 ### Conditional Probability
 
@@ -67,6 +67,7 @@ Probability density functions are only defined for continuous random variables. 
 ### Cumulative Probability Function
 
 The cumulative distributon function of a random variable $X$ is defined by \\[F(s) = \mathbb{P}(X \leq s) \text{ } \text{ } \forall \text{ } s \in \mathbb{R}\\]
+
 ### Bernoulli Random Variable
 
 Let $0 \leq p \leq 1$. A random variable $X$ has the Bernoulli distribution with success probability $p$ if $X$ is $\{0,1\}$-valued and satisfies $\mathbb{P}(X = 1) = p$ and $\mathbb{P}(X = 0) = 1 - p$. Abbreviate this by $X \sim \text{Ber}(p)$. In plain English, a Bernoulli random variable models a trial with two possibilites. This is a discrete random variable.
@@ -81,11 +82,11 @@ Let $0 < p \leq 1$. A random variable $X$ has the geometric distribution with su
 
 ### Negative Binomial Random Variable
 
-Let $k$ be a positive integer and $0 < p < 1$. A random variable $X$ has the negative binomial distribution with parameters $(k,p)$ if the set of possible values of $X$ is the set of integers $\{k,k+1,k+2,...\}$ and the probability mass function is \\[\mathbb{P}(X = n) = {n - 1 \choose k - 1} p^k(1-p)^{n-k} \text{ for } n \geq k\\]Abbreviate this by $X \sim \text{Negbin}(k,p)$. The negative binomial distribution represents the number of trials needed to get exactly $k$ successes of $n$ Bernoulli trials. This is discrete random variable.
+Let $k$ be a positive integer and $0 < p < 1$. A random variable $X$ has the negative binomial distribution with parameters $(k,p)$ if the set of possible values of $X$ is the set of integers $\{k,k+1,k+2,...\}$ and the probability mass function is \\[ \mathbb{P}(X = n) = {n - 1 \choose k - 1} p^k(1-p)^{n-k} \text{ for } n \geq k\\]Abbreviate this by $X \sim \text{Negbin}(k,p)$. The negative binomial distribution represents the number of trials needed to get exactly $k$ successes of $n$ Bernoulli trials. This is discrete random variable.
 
 ### Uniform Random Variable
 
-Let $[a,b]$ be a bounded interval on the real line. A random variable $X$ has the uniform distribution on the interval $[a,b]$ if $X$ has density function \\[f(x) = \begin{cases} \frac{1}{b-a}, &\text{ if } x \in [a,b] \\ 0, &\text{ if } x \not\in [a,b]\end{cases}\\]Abbreviate this by $X \sim \text{Unif}[a,b]$. This is a continuous random variable.
+Let $[a,b]$ be a bounded interval on the real line. A random variable $X$ has the uniform distribution on the interval $[a,b]$ if $X$ has density function \\[f(x) = \begin{aligned} \begin{cases} \frac{1}{b-a}, &\text{ if } x \in [a,b] \\ 0, &\text{ if } x \not\in [a,b]\end{cases} \end{aligned} \\]Abbreviate this by $X \sim \text{Unif}[a,b]$. This is a continuous random variable.
 
 ### Gaussian Random Variable
 
