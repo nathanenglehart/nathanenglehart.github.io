@@ -22,23 +22,28 @@ We can compute the length of $\textbf{v}$ with \\[\lvert \textbf{v} \rvert = \sq
 
 ### Matrix Multiplication
 
-Without loss of generality, matrix multiplication functions in the following format. \\[\pmatrix{\text{ row 1 } \cr \text{ row 2 }} \pmatrix{\mid & \mid & \mid \cr \text{ col 1} &\text{col 2} &\text{col 3 } \cr \mid & \mid & \mid} = pmatrix{ \text{ row 1 } \cdot \text{ col 1 } & \text{ row 1 } \cdot \text{ col 2 } & \text{ row 1 } \cdot \text{ col 3 } \cr  \text{ row 2 } \cdot \text{ col 1 } & \text{ row 2 } \cdot \text{ col 2 } & \text{ row 2 } \cdot \text{ col 3 } } \\]
+Without loss of generality, matrix multiplication functions in the following format. \\[ \pmatrix{\text{ row 1 } \cr \text{ row 2 }} \pmatrix{\mid & \mid & \mid \cr \text{ col 1} & \text{col 2} & \text{col 3 } \cr \mid & \mid & \mid} = pmatrix{ \text{ row 1 } \cdot \text{ col 1 } & \text{ row 1 } \cdot \text{ col 2 } & \text{ row 1 } \cdot \text{ col 3 } \cr  \text{ row 2 } \cdot \text{ col 1 } & \text{ row 2 } \cdot \text{ col 2 } & \text{ row 2 } \cdot \text{ col 3 } } \\]
 Ex 1: Let $A = \pmatrix{ 1 & 2 & 3 \cr 4 & 5 & 6 }$ and $\textbf{v} = \pmatrix{ -1 \cr 5 \cr 2 }$. Calculate $A \textbf{v}$. \\[A\textbf{v} = \pmatrix{ 1 & 2 & 3 \cr 4 & 5 & 6 } \pmatrix{ -1 \cr 5 \cr 2 } = \pmatrix{ 1 \cdot -1 + 2 \cdot 5 + 3 \cdot 2 \cr 4 \cdot -1 + 5 \cdot 5 + 6 \cdot 2 } = \pmatrix{ -1 + 10 + 6 \cr -4 + 25 + 12 } = \pmatrix{ 15 \cr 33 }\\]
 
 ### Gaussian Elimination
 
-**Gaussian elimination**, also known as row reduction, is an algorithm for solving systems of linear equations. Examples of this algorithm consist of the following.
-
-Ex 1: Solve the matrix equation $A\textbf{x} = \pmatrix{ 1 & 2 & 4 \\ 0 & 1 & 5 \\ -2 & -4 & -3 } \pmatrix{ x_1 \\ x_2 \\ x_3 }  = \pmatrix{ -2 \\ 2 \\ 9 } = \textbf{v}$.
-
-Put $A$ and $\textbf{v}$ into an augmented matrix. Using Gaussian elimination, put $\text{row 3} = \text{row 3} + 2 \cdot \text{row 1}$: \\[\left[ \begin{array}{ccc|c} 1 & 2 & 4 & -2\\ 0 & 1 & 5 & 2 \\ -2 & -4 & -3 & 9\end{array} \right] \to \left[ \begin{array}{ccc|c} 1 & 2 & 4 & -2\\ 0 & 1 & 5 & 2 \\ 0 & 0 & 5 & 5\end{array} \right]\\]Now, since we have an upper triangular matrix, we can write: \\[\begin{flalign*} 1 \cdot x_1 + 2 \cdot x_2 + 4 x_3 &= -2 \\ x_2 + 5 x_3 &= 2 \\ 5x_3 &= 5 \end{flalign*}\\]This implies that $x_3 = 1$. So: $x_2 + 5(1) = 2 \implies x_2 = -3$. Then: $x_1 + 2 \cdot -3 + 4 \cdot 1 = -2 \implies x_1 - 6 + 4 = -2 \implies x_1 = 0$. So: $(x_1, x_2, x_3) = (0,-3,1)$.
+**Gaussian elimination**, also known as row reduction, is an algorithm for solving systems of linear equations. Examples of this algorithm consist of the following.\
+\
+Ex 1: Solve the matrix equation $A\textbf{x} = \pmatrix{ 1 & 2 & 4 \cr 0 & 1 & 5 \cr -2 & -4 & -3 } \pmatrix{ x_1 \cr x_2 \cr x_3 }  = \pmatrix{ -2 \cr 2 \cr 9 } = \textbf{v}$.\
+\
+Put $A$ and $\textbf{v}$ into an augmented matrix. Using Gaussian elimination, put $\text{row 3} = \text{row 3} + 2 \cdot \text{row 1}$: \\[\pmatrix{ 1 & 2 & 4 & -2 \cr 0 & 1 & 5 & 2 \cr -2 & -4 & -3 & 9} \to \pmatrix{1 & 2 & 4 & -2 \cr 0 & 1 & 5 & 2 \cr 0 & 0 & 5 & 5} \\]
+Now, since we have an upper triangular matrix, we can write: \\[\begin{aligned} 1 \cdot x_1 + 2 \cdot x_2 + 4 x_3 &= -2 \\\\ x_2 + 5 x_3 &= 2 \\\\ 5x_3 &= 5 \end{aligned}\\]
+This implies that $x_3 = 1$. So: $x_2 + 5(1) = 2 \implies x_2 = -3$. Then: $x_1 + 2 \cdot -3 + 4 \cdot 1 = -2 \implies x_1 - 6 + 4 = -2 \implies x_1 = 0$. So: $(x_1, x_2, x_3) = (0,-3,1)$.
 
 ### PA = LU
 
-The **PA = LU** factorization method is a well-known numerical method for solving types of linear equations against multiple input.
+The **PA = LU** factorization method is a well-known numerical method for solving types of linear equations against multiple input.\
+\
+Ex 1: Find a permutation matrix $P$, a lower triangular matrix $L$, and an upper triangular matrix $U$ such that $PA = LU$, where $A = \pmatrix{ 1 & 0 & 1 \\ 2 & 2 & 2 \\ 3 & 4 & 5}$.\
+\
+Now, using a Gaussian elimination: \\[\pmatrix{ 1 & 0 & 1 \\ 2 & 2 & 2 \\ 3 & 4 & 5  } \to \pmatrix{  1 & 0 & 1 \\ 0 & 2 & 0 \\ 3 & 4 & 5 } \to \pmatrix{ 1 & 0 & 1 \\ 0 & 2 & 0 \\ 0 & 4 & 2  } \to \pmatrix{  1 & 0 & 1 \\ 0 & 2 & 0 \\ 3 & 4 & 5 } \to \pmatrix{ 1 & 0 & 1 \\ 0 & 2 & 0 \\ 0 & 0 & 2} = U\\]
+So: \\[P = \pmatrix{  1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 } \text{, } \text{ } \text{ } \text{ } \text{ } \text{ } \text{ } E = E_{32}(2)E_{31}(3) E_{21}(2) = \pmatrix{ 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & -2 & 1} \pmatrix{ 1 & 0 & 0 \\ 0 & 1 & 0 \\ -3 & 0 & 1 } \pmatrix{ 1 & 0 & 0 \\ -2 & 1 & 0 \\ 0 & 0 & 1 } \text{, } \text{ } \text{ } \text{ } \text{ } \text{ } \text{ } L = E^{-1} = E_{21}(-2) E_{31}(-3) E_{32}(-2) = \pmatrix{ 1 & 0 & 0 \\ 2 & 1 & 0 \\ 0 & 0 & 1 } \pmatrix{ 1 & 0 & 0 \\ 0 & 1 & 0 \\ 3 & 0 & 1 }  \pmatrix{ 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 2 & 1} = \pmatrix{ 1 & 0 & 0 \\ 2 & 1 & 0 \\ 3 & 2 & 1}\\]This implies that: \\[\begin{aligned} PA &= LU \\\\  \pmatrix{  1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 } \pmatrix{ 1 & 0 & 1 \\ 2 & 2 & 2 \\ 3 & 4 & 5  } &= \pmatrix{ 1 & 0 & 0 \\ 2 & 1 & 0 \\ 3 & 2 & 1} \pmatrix{ 1 & 0 & 1 \\ 0 & 2 & 0 \\ 0 & 0 & 2 } \\\\  \pmatrix{ 1 & 0 & 1 \\ 2 & 2 & 2 \\ 3 & 4 & 5  }  &= \pmatrix{ 1 & 0 & 1 \\ 2 & 2 & 2 \\ 3 & 4 & 5  } \end{aligned}\\]
 
-Ex 1: Find a permutation matrix $P$, a lower triangular matrix $L$, and an upper triangular matrix $U$ such that $PA = LU$, where $A = \begin{pmatrix} 1 & 0 & 1 \\ 2 & 2 & 2 \\ 3 & 4 & 5  \end{pmatrix}$.
-Now, using a Gaussian elimination: \\[\begin{pmatrix} 1 & 0 & 1 \\ 2 & 2 & 2 \\ 3 & 4 & 5  \end{pmatrix} \to \begin{pmatrix}  1 & 0 & 1 \\ 0 & 2 & 0 \\ 3 & 4 & 5 \end{pmatrix} \to \begin{pmatrix} 1 & 0 & 1 \\ 0 & 2 & 0 \\ 0 & 4 & 2  \end{pmatrix} \to \begin{pmatrix}  1 & 0 & 1 \\ 0 & 2 & 0 \\ 3 & 4 & 5 \end{pmatrix} \to \begin{pmatrix} 1 & 0 & 1 \\ 0 & 2 & 0 \\ 0 & 0 & 2 \end{pmatrix} = U\\]So: \\[P = \begin{pmatrix}  1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix} \text{, } \text{ } \text{ } \text{ } \text{ } \text{ } \text{ } E = E_{32}(2)E_{31}(3) E_{21}(2) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & -2 & 1\end{pmatrix} \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ -3 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1 & 0 & 0 \\ -2 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix} \text{, } \text{ } \text{ } \text{ } \text{ } \text{ } \text{ } L = E^{-1} = E_{21}(-2) E_{31}(-3) E_{32}(-2) = \begin{pmatrix} 1 & 0 & 0 \\ 2 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 3 & 0 & 1 \end{pmatrix}  \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 2 & 1\end{pmatrix} = \begin{pmatrix} 1 & 0 & 0 \\ 2 & 1 & 0 \\ 3 & 2 & 1\end{pmatrix}\\]This implies that: \\[\begin{flalign*} PA &= LU \\  \begin{pmatrix}  1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1 & 0 & 1 \\ 2 & 2 & 2 \\ 3 & 4 & 5  \end{pmatrix} &= \begin{pmatrix} 1 & 0 & 0 \\ 2 & 1 & 0 \\ 3 & 2 & 1\end{pmatrix} \begin{pmatrix} 1 & 0 & 1 \\ 0 & 2 & 0 \\ 0 & 0 & 2 \end{pmatrix} \\  \begin{pmatrix} 1 & 0 & 1 \\ 2 & 2 & 2 \\ 3 & 4 & 5  \end{pmatrix}  &= \begin{pmatrix} 1 & 0 & 1 \\ 2 & 2 & 2 \\ 3 & 4 & 5  \end{pmatrix} \end{flalign*}\\]
 ### Matrix Transpose
 
 The **transpose** of a matrix $A$ is given by \\[(A^T)_{ij} = A_{ji}\\]Ex 1: If $A = \begin{pmatrix} 1 & 2 & 3 \\ 0 & 0 & 4 \end{pmatrix}$, then $A^T = \begin{pmatrix} 1 & 0 \\ 2 & 0 \\ 3 & 4 \end{pmatrix}$.
