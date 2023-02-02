@@ -100,7 +100,9 @@ Let $\lambda > 0$. A random variable $X$ has the Poisson distribution with param
 
 ### Exponential Random Variable
 
-Let $0 < \lambda < \infty$. A random variable $X$ has the exponential distribution with parameter $\lambda$ if $X$ has the density function \\[f(x) = \begin{cases} \lambda e^{-\lambda x}, & x \geq 0 \\ 0, & x < 0 \end{cases}\\]on the real line. Abbreviate this by $X \sim \text{Exp}(\lambda)$. The $\text{Exp}(\lambda)$ distribution is also called the exponential distribution with rate $\lambda$. The exponential distribution is the continuous counterpart to the geometric distribution. The exponential distribution models continuous waiting times, for example, the first customer arrival at a post office. This is a continuous random variable.
+Let $0 < \lambda < \infty$. A random variable $X$ has the exponential distribution with parameter $\lambda$ if $X$ has the density function 
+\\[f(x) = \begin{aligned} \begin{cases} \lambda e^{-\lambda x}, & x \geq 0 \\\\ 0, & x < 0 \end{cases} \end{aligned} \\]
+on the real line. Abbreviate this by $X \sim \text{Exp}(\lambda)$. The $\text{Exp}(\lambda)$ distribution is also called the exponential distribution with rate $\lambda$. The exponential distribution is the continuous counterpart to the geometric distribution. The exponential distribution models continuous waiting times, for example, the first customer arrival at a post office. This is a continuous random variable.
 
 ### Expectation
 
@@ -137,11 +139,11 @@ An alternative formula for the covariance is given by \\[\text{Cov}(X,Y) = \math
 ### Sample Mean, Variance, Standard Deviation
 
 Given a sample of data $(x_i,y_i)$ for $i = 1,2,...,N$, we can get the sample mean, sample variance, and the sample covariance respectively. These are random variables with their own sampling distribution.
-\\[\begin{aligned} \bar{x} &= \frac{1}{N} \sum_{i=1}^N x_i \ s^2 &= \frac{1}{N-1} \sum^N_{i=1} (x_i - \bar{x})^2  \ \text{Cov}(x,y) &= \frac{1}{N-1} \sum^N_{i=1} (x_i - \bar{x} )(y_i - \bar{y})\end{aligned}\\]
+\\[\begin{aligned} \bar{x} &= \frac{1}{N} \sum_{i=1}^N x_i \\\\ s^2 &= \frac{1}{N-1} \sum^N_{i=1} (x_i - \bar{x})^2  \\\\ \text{Cov}(x,y) &= \frac{1}{N-1} \sum^N_{i=1} (x_i - \bar{x})(y_i - \bar{y})\end{aligned}\\]
 
 ### Law of Large Numbers
 
-The **weak Law of Large Numbers** (w-LLN) states the following. Suppose $(X_j)_{j \in \mathbb{N}}$ is a sequence of independent and identically distributed random variables with finite $\mathbb{E}(X_1) := \mu$ and $\text{Var}(X_1) =: \sigma^2$. Denote $S_n := \sum^n_{i=1} X_j$. Now $\frac{1}{n} S_n \xrightarrow{n \to \infty} \mu$ in probability if and only if for all $\varepsilon > 0$, \\[\mathbb{P} \bigg( \bigg\lvert \frac{S_n}{n} - \mu \bigg\rvert < \varepsilon \bigg) \xrightarrow{n \to \infty} 1\\]Less formally, this tells us that no matter how small an interval $(\mu - \varepsilon, \mu + \varepsilon)$ you put around $\mu$, as $n$ becomes larger, the observed mean $\frac{S_n}{n}$ will lie inside the interval with overwhelming probability.
+The **weak Law of Large Numbers** (w-LLN) states the following. Suppose $(X_j)_{j = 1}^\infty$ is a sequence of independent and identically distributed random variables with finite $\mathbb{E}(X_1) := \mu$ and $\text{Var}(X_1) =: \sigma^2$. Denote $S_n := \sum^n_{i=1} X_j$. Now $\frac{1}{n} S_n \xrightarrow{n \to \infty} \mu$ in probability if and only if for all $\varepsilon > 0$, \\[\mathbb{P} \bigg( \bigg\lvert \frac{S_n}{n} - \mu \bigg\rvert < \varepsilon \bigg) \xrightarrow{n \to \infty} 1\\]Less formally, this tells us that no matter how small an interval $(\mu - \varepsilon, \mu + \varepsilon)$ you put around $\mu$, as $n$ becomes larger, the observed mean $\frac{S_n}{n}$ will lie inside the interval with overwhelming probability.
 
 The **strong Law of Large Numbers** (s-LLN) states the following. Suppose that we have independently identically distributed random variables $X_1, X_2,...$ with finite mean $\mathbb{E}(X_1) = \mu$. Let $S_n = X_1 + ... + X_n$. Then \\[\mathbb{P} \bigg( \lim_{n \to \infty} \frac{X_1 + ... + X_n}{n} = \mu\bigg) = 1\\]
 
