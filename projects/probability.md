@@ -9,8 +9,8 @@ comments: false
 
 ### Sample Spaces and Probability Spaces
 
-**Sample spaces** are denoted by $\Omega$ with elements called **sample points** $\omega \in \Omega$.  Subsets of $\Omega$ are called **events** = $\{\omega_1, ..., \omega_n\} \subseteq \Omega$. The collection of events in $\Omega$ is denoted by $\mathcal{F}$.
-
+**Sample spaces** are denoted by $\Omega$ with elements called **sample points** $\omega \in \Omega$.  Subsets of $\Omega$ are called **events** = $\{\omega_1, ..., \omega_n\} \subseteq \Omega$. The collection of events in $\Omega$ is denoted by $\mathcal{F}$. \
+\
 The **probability measure** (also known as a probability distribution) $P$ is a function from $\mathcal{F}$ into the real numbers. Each **event** $A$ has a probability $\mathbb{P}(A)$. A **probability space** is defined by the triple $(\Omega, F, \mathbb{P})$.
 
 ### Kolmogorov's Axioms
@@ -86,7 +86,9 @@ Let $k$ be a positive integer and $0 < p < 1$. A random variable $X$ has the neg
 
 ### Uniform Random Variable
 
-Let $[a,b]$ be a bounded interval on the real line. A random variable $X$ has the uniform distribution on the interval $[a,b]$ if $X$ has density function \\[f(x) = \begin{aligned} \begin{cases} \frac{1}{b-a}, &\text{ if } x \in [a,b] \\ 0, &\text{ if } x \not\in [a,b]\end{cases} \end{aligned} \\]Abbreviate this by $X \sim \text{Unif}[a,b]$. This is a continuous random variable.
+Let $[a,b]$ be a bounded interval on the real line. A random variable $X$ has the uniform distribution on the interval $[a,b]$ if $X$ has density function 
+\\[f(x) = \begin{aligned} \begin{cases} \frac{1}{b-a}, &\text{ if } x \in [a,b] \ 0, &\text{ if } x \not\in [a,b] \end{cases} \end{aligned} \\]
+Abbreviate this by $X \sim \text{Unif}[a,b]$. This is a continuous random variable.
 
 ### Gaussian Random Variable
 
@@ -102,22 +104,22 @@ Let $0 < \lambda < \infty$. A random variable $X$ has the exponential distributi
 
 ### Expectation
 
-Let $X$ be a random variable. The **expectation** of $X$ is a weighted average of all possible values of $X$. The weights are determined by the probability mass/density function of $X$.
-
-The expectation or mean of a discrete random variable $X$ is defined by \\[\mathbb{E}(X) = \sum_k k \mathbb{P}(X = k) \\]where the sum ranges over all the possible values $k$ of $X$.
-
-The expectation or mean of a continuous random variable $X$ with density function $f$ is \\[\mathbb{E}(X) = \int_\infty^{-\infty} x f(x) dx\\]An alternative symbol is $\mu = \mathbb{E}(X)$.
-
+Let $X$ be a random variable. The **expectation** of $X$ is a weighted average of all possible values of $X$. The weights are determined by the probability mass/density function of $X$.\
+\
+The expectation or mean of a discrete random variable $X$ is defined by \\[\mathbb{E}(X) = \sum_k k \mathbb{P}(X = k) \\]where the sum ranges over all the possible values $k$ of $X$.\
+\
+The expectation or mean of a continuous random variable $X$ with density function $f$ is \\[\mathbb{E}(X) = \int_\infty^{-\infty} x f(x) dx\\]An alternative symbol is $\mu = \mathbb{E}(X)$.\
+\
 Let $g$ be a real-valued function defined on the range of a random variable $X$. If $X$ is a discrete random variable then \\[\mathbb{E}(g(X)) = \sum_k g(k)\mathbb{P}(X = k)\\]while if $X$ is a continuous random variable with density function $f$ then \\[\mathbb{E}(g(X)) = \int_{-\infty}^\infty g(x)f(x)dx\\]The *n*th moment of the random variable $X$ is the expectation $\mathbb{E}(X^n)$. In the discrete case the *n*th moment is calculated by \\[\mathbb{E}(X^n) = \sum_k k^n \mathbb{P}(X = k)\\]If $X$ has density function $f$ its *n*th moment is given by \\[\mathbb{E}(X^n) = \int^\infty_{-\infty}x^nf(x)dx\\]Let $X$ be a random variable and $a$ and $b$ real numbers. Then \\[\mathbb{E}(aX + b) = a\mathbb{E}(X) + b\\]
 
 ### Variance
 
-The **variance** of a random variable $X$ measures the expected distance from $X$ to its expected value.
-
-Let $X$ be a random variable with mean $\mu$. The variance of $X$ is defined by \\[\text{Var}(X) = \mathbb{E}[(X - \mu)^2]\\]An alternative symbol is $\sigma^2 = \text{Var}(X)$.
-
-Let $X$ be a random variable with mean $\mu$. Then \\[\text{Var}(X) = \sum_k (k- \mu)^2 \mathbb{P}(X = k)\\]if $X$ is discrete and \\[\text{Var}(X) = \int^\infty_{-\infty} (x - \mu)^2f(x)dx\\]if $X$ has density function $f$.
-
+The **variance** of a random variable $X$ measures the expected distance from $X$ to its expected value.\
+\
+Let $X$ be a random variable with mean $\mu$. The variance of $X$ is defined by \\[\text{Var}(X) = \mathbb{E}[(X - \mu)^2]\\]An alternative symbol is $\sigma^2 = \text{Var}(X)$.\
+\
+Let $X$ be a random variable with mean $\mu$. Then \\[\text{Var}(X) = \sum_k (k- \mu)^2 \mathbb{P}(X = k)\\]if $X$ is discrete and \\[\text{Var}(X) = \int^\infty_{-\infty} (x - \mu)^2f(x)dx\\]if $X$ has density function $f$.\
+\
 An alternative formula for variance is given by \\[\text{Var}(X) = \mathbb{E}(X^2) - (\mathbb{E}(X))^2\\]Let $X$ be a random variable and $a$ and $b$ real numbers. Then \\[\text{Var}(aX+b) = a^2 \text{Var}(X)\\]
 
 ### Standard Deviation
@@ -126,20 +128,20 @@ The standard deviation of a random variable measures the amount of variation or 
 
 ### Covariance
 
-**Covariance** measures the amount of linear dependence between two random variables $X$ and $Y$. $X$ and $Y$ are positively correlated if $\text{Cov}(X,Y) > 0$. This means that the occurence of $X$ increases the chances of $Y$. $X$ and $Y$ are negatively correlated if $\text{Cov} < 0$. This means that the occurence of $X$ decreases the chances of $Y$. $X$ and $Y$ are uncorrelated if $\text{Cov}(X,Y) = 0$.
-
-Let $X$ and $Y$ be random variables defined on the sample space with expectations $\mu x$ and $\mu y$. The covariance of $X$ and $Y$ is defined by \\[\text{Cov}(X,Y) = \mathbb{E}((X - \mu x)(Y - \mu y))\\]if the expectation on the right is finite.
-
+**Covariance** measures the amount of linear dependence between two random variables $X$ and $Y$. $X$ and $Y$ are positively correlated if $\text{Cov}(X,Y) > 0$. This means that the occurence of $X$ increases the chances of $Y$. $X$ and $Y$ are negatively correlated if $\text{Cov} < 0$. This means that the occurence of $X$ decreases the chances of $Y$. $X$ and $Y$ are uncorrelated if $\text{Cov}(X,Y) = 0$.\
+\
+Let $X$ and $Y$ be random variables defined on the sample space with expectations $\mu x$ and $\mu y$. The covariance of $X$ and $Y$ is defined by \\[\text{Cov}(X,Y) = \mathbb{E}((X - \mu x)(Y - \mu y))\\]if the expectation on the right is finite.\
+\
 An alternative formula for the covariance is given by \\[\text{Cov}(X,Y) = \mathbb{E}(X \cap Y) - \mathbb{E}(X)\mathbb{E}(Y)\\]
 
 ### Sample Mean, Variance, Standard Deviation
 
 Given a sample of data $(x_i,y_i)$ for $i = 1,2,...,N$, we can get the sample mean, sample variance, and the sample covariance respectively. These are random variables with their own sampling distribution.
-\\[\begin{align*} \bar{x} &= \frac{1}{N} \sum_{i=1}^N x_i \\ s^2 &= \frac{1}{N-1} \sum^N_{i=1} (x_i - \bar{x})^2  \\ \text{Cov}(x,y) &= \frac{1}{N-1} \sum^N_{i=1} (x_i - \bar{x} )(y_i - \bar{y})\end{align*}\\]
+\\[\begin{aligned} \bar{x} &= \frac{1}{N} \sum_{i=1}^N x_i \ s^2 &= \frac{1}{N-1} \sum^N_{i=1} (x_i - \bar{x})^2  \ \text{Cov}(x,y) &= \frac{1}{N-1} \sum^N_{i=1} (x_i - \bar{x} )(y_i - \bar{y})\end{aligned}\\]
 
 ### Law of Large Numbers
 
-The **weak Law of Large Numbers** (w-LLN) states the following. Suppose $(X_j)_{j \in \mathbb{N}}$ is a sequence of independent and identically distributed random variables with finite $\mathbb{E}(X_1) := \mu$ and $\text{Var}(X_1) =: \sigma^2$. Denote $S_n := \sum^n_{i=1} X_j$. Now $\frac{1}{n} S_n \xrightarrow{n \to \infty} \mu$ in probability if and only if for all $\varepsilon > 0$, \\[\mathbb{P} \bigg( \bigg| \frac{S_n}{n} - \mu \bigg| < \varepsilon \bigg) \xrightarrow{n \to \infty} 1\\]Less formally, this tells us that no matter how small an interval $(\mu - \varepsilon, \mu + \varepsilon)$ you put around $\mu$, as $n$ becomes larger, the observed mean $\frac{S_n}{n}$ will lie inside the interval with overwhelming probability.
+The **weak Law of Large Numbers** (w-LLN) states the following. Suppose $(X_j)_{j \in \mathbb{N}}$ is a sequence of independent and identically distributed random variables with finite $\mathbb{E}(X_1) := \mu$ and $\text{Var}(X_1) =: \sigma^2$. Denote $S_n := \sum^n_{i=1} X_j$. Now $\frac{1}{n} S_n \xrightarrow{n \to \infty} \mu$ in probability if and only if for all $\varepsilon > 0$, \\[\mathbb{P} \bigg( \bigg\lvert \frac{S_n}{n} - \mu \bigg\rvert < \varepsilon \bigg) \xrightarrow{n \to \infty} 1\\]Less formally, this tells us that no matter how small an interval $(\mu - \varepsilon, \mu + \varepsilon)$ you put around $\mu$, as $n$ becomes larger, the observed mean $\frac{S_n}{n}$ will lie inside the interval with overwhelming probability.
 
 The **strong Law of Large Numbers** (s-LLN) states the following. Suppose that we have independently identically distributed random variables $X_1, X_2,...$ with finite mean $\mathbb{E}(X_1) = \mu$. Let $S_n = X_1 + ... + X_n$. Then \\[\mathbb{P} \bigg( \lim_{n \to \infty} \frac{X_1 + ... + X_n}{n} = \mu\bigg) = 1\\]
 
