@@ -143,8 +143,8 @@ Given a sample of data $(x_i,y_i)$ for $i = 1,2,...,N$, we can get the sample me
 
 ### Law of Large Numbers
 
-The **weak Law of Large Numbers** (w-LLN) states the following. Suppose $(X_j)_{j = 1}^\infty$ is a sequence of independent and identically distributed random variables with finite $\mathbb{E}(X_1) := \mu$ and $\text{Var}(X_1) =: \sigma^2$. Denote $S_n := \sum^n_{i=1} X_j$. Now $\frac{1}{n} S_n \xrightarrow{n \to \infty} \mu$ in probability if and only if for all $\varepsilon > 0$, \\[\mathbb{P} \bigg( \bigg\lvert \frac{S_n}{n} - \mu \bigg\rvert < \varepsilon \bigg) \xrightarrow{n \to \infty} 1\\]Less formally, this tells us that no matter how small an interval $(\mu - \varepsilon, \mu + \varepsilon)$ you put around $\mu$, as $n$ becomes larger, the observed mean $\frac{S_n}{n}$ will lie inside the interval with overwhelming probability.
-
+The **weak Law of Large Numbers** (w-LLN) states the following. Suppose $(X_j)$ with $j \in \mathbb{N}$ is a sequence of independent and identically distributed random variables with finite $\mathbb{E}(X_1) := \mu$ and $\text{Var}(X_1) =: \sigma^2$. Denote $S_n := \sum^n_{i=1} X_j$. Now $\frac{1}{n} S_n \xrightarrow{n \to \infty} \mu$ in probability if and only if for all $\varepsilon > 0$, \\[\mathbb{P} \bigg( \bigg\lvert \frac{S_n}{n} - \mu \bigg\rvert < \varepsilon \bigg) \xrightarrow{n \to \infty} 1\\]Less formally, this tells us that no matter how small an interval $(\mu - \varepsilon, \mu + \varepsilon)$ you put around $\mu$, as $n$ becomes larger, the observed mean $\frac{S_n}{n}$ will lie inside the interval with overwhelming probability.\
+\
 The **strong Law of Large Numbers** (s-LLN) states the following. Suppose that we have independently identically distributed random variables $X_1, X_2,...$ with finite mean $\mathbb{E}(X_1) = \mu$. Let $S_n = X_1 + ... + X_n$. Then \\[\mathbb{P} \bigg( \lim_{n \to \infty} \frac{X_1 + ... + X_n}{n} = \mu\bigg) = 1\\]
 
 ### Central Limit Theorem
