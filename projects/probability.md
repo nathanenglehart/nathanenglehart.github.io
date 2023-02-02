@@ -87,7 +87,7 @@ Let $k$ be a positive integer and $0 < p < 1$. A random variable $X$ has the neg
 ### Uniform Random Variable
 
 Let $[a,b]$ be a bounded interval on the real line. A random variable $X$ has the uniform distribution on the interval $[a,b]$ if $X$ has density function 
-\\[f(x) = \begin{aligned} \begin{cases} \frac{1}{b-a}, &\text{ if } x \in [a,b] \ 0, &\text{ if } x \not\in [a,b] \end{cases} \end{aligned} \\]
+\\[f(x) = \begin{aligned} \begin{cases} \frac{1}{b-a}, &\text{ if } x \in [a,b] \\\\ 0, &\text{ if } x \not\in [a,b] \end{cases} \end{aligned} \\]
 Abbreviate this by $X \sim \text{Unif}[a,b]$. This is a continuous random variable.
 
 ### Gaussian Random Variable
