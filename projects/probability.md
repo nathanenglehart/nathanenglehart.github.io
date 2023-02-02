@@ -24,11 +24,12 @@ where (iii) also applies to finite events, meaning that if $A_1, A_2, ..., A_n$ 
 
 ### Experiments with Equally Likely Outcomes
 
-Suppose $\Omega$ is a sample space that is finite. Let $\text{#}\Omega$ denote the **total number of possible outcomes**. If each outcome $\omega \in \Omega$ has the same probability, then: $\mathbb{P}(\omega) = \frac{1}{\# \Omega}$ because probabilities must add up to 1. As such: $\mathbb{P}(A) = \mathbb{P}(a_1) + \mathbb{P}(a_2) + ... + \mathbb{P}(a_r) = \frac{\#A}{\#\Omega}$. where #$A$ denotes the **number of elements in set** $A$. So, if the sample space $\Omega$ has finitely many elements and each outcome is equally likely, then for any event $A \subseteq \Omega$ we have: \\[\mathbb{P}(A) = \frac{\#A}{\#\Omega}\\]
+Suppose $\Omega$ is a sample space that is finite. Let $\text{#}\Omega$ denote the **total number of possible outcomes**. If each outcome $\omega \in \Omega$ has the same probability, then: $\mathbb{P}(\omega) = \frac{1}{\text{#} \Omega}$ because probabilities must add up to 1. As such: $\mathbb{P}(A) = \mathbb{P}(a_1) + \mathbb{P}(a_2) + ... + \mathbb{P}(a_r) = \frac{\text{#}A}{\text{#}\Omega}$. where #$A$ denotes the **number of elements in set** $A$. So, if the sample space $\Omega$ has finitely many elements and each outcome is equally likely, then for any event $A \subseteq \Omega$ we have: \\[\mathbb{P}(A) = \frac{\text{#}A}{\text{#}\Omega}\\]
 
 ### Conditional Probability
 
 Let $B$ be an event in the sample space $\Omega$ such that $P(B) > 0$. Then for all events $A$ the **conditional probability** of $A$ given $B$ is defined as \\[\mathbb{P}(A \text{ } | \text{ } B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}\\]If $A_1,...,A_n$ are events and all the conditional probabilities below make sense then we have \\[\mathbb{P}(A_1 \text { } \cap \text { }... \text { }\cap\text { } A_n) = \mathbb{P}(A_1)\mathbb{P}(A_2 \text{ } | \text{  } A_1)\mathbb{P}(A_3 \text{ } | \text{ } A_1 \cap A_2) \text{ } \cdot \text{ } ... \text{ } \cdot \text{ } \mathbb{P}(A_n \text{ } | \text{ } A_1 \text{ } \cap \text{ } ... \text{ } \cap \text{ } A_{n-1} )\\]
+
 ### Bayes Formula
 
 Let $A$, $B$ be events in the sample space $\Omega$ such that $\mathbb{P}(B) > 0$. **Bayes formula** for two random variables is given by \\[\mathbb{P}(A \text{ } | \text{ } B) = \frac{\mathbb{P}(B \text{ } | \text{ } A)\mathbb{P}(A)}{\mathbb{P}(B)}\\]In addition, **Bayes formula** has a general version. Let $B_1,..., B_n$ be a partition of the sample space $\Omega$ such that each $\mathbb{P}(B_i) > 0$. Then for any event $A$ with $\mathbb{P}(A) > 0$, and any $k = 1,...,n$, \\[\mathbb{P}(B_k \text{ } | \text{ } A) = \frac{\mathbb{P}(A \cap B_k)}{\mathbb{P}(A)} = \frac{\mathbb{P}(A \text{ } | \text { } B_k) \mathbb{P}(B_k)}{\sum^n_{i=1} \mathbb{P}(A \text{ } | \text{ } B_i) \mathbb{P}(B_i)}\\]
@@ -36,6 +37,7 @@ Let $A$, $B$ be events in the sample space $\Omega$ such that $\mathbb{P}(B) > 0
 ### Independence
 
 Events $A_1, A_2,..., A_n$ are **independent** if and only if \\[\mathbb{P}(A_1 \text{ }\cap\text{ } ...\text{ } \cap \text{ }A_n) = \mathbb{P}(A_1) \text{ } \cdot \text{ } ... \text{ } \cdot \text{ } \mathbb{P}(A_n)\\]
+
 ### Random Variable
 
 Let $\Omega$ be a sample space. A **random variable** is a function from $\Omega$ into the real numbers which represents numerical values derived from the outcomes of an experiment. Any random variable $X$ has a probability distribution which is the collection of probabilities $\mathbb{P}(X \in B)$ for sets $B$ of real numbers.

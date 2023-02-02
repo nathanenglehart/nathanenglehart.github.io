@@ -10,15 +10,15 @@ comments: false
 
 ### Vector Length
 
-The **vector length** of an arbitrary vector $\textbf{v}$ given by $|\textbf{v}| = \sqrt{v_1^2 + ... + v_n^2}$.
+The **vector length** of an arbitrary vector $\textbf{v}$ given by $\lvert \textbf{v} \rvert = \sqrt{v_1^2 + ... + v_n^2}$
 
 ### Unit Vector
 
-A **unit vector** is a vector of length one.
-
-Ex 1: Find a unit vector in the direction of $\textbf{v} = (-1,5,2)$.
-
-We can compute the length of $\textbf{v}$ with $|\textbf{v}| = \sqrt{-1^2 + 5^2 + 2^2} = \sqrt{1 + 25 + 4} = \sqrt{30}$. Put $\textbf{u} = \frac{\textbf{v}}{|\textbf{v}|} = (\frac{-1}{\sqrt{30}}, \frac{5}{\sqrt{30}}, \frac{2}{\sqrt{30}})$. Now, $\textbf{u}$ is a unit vector in the direction of $\textbf{v}$.
+A **unit vector** is a vector of length one.\
+\
+Ex 1: Find a unit vector in the direction of $\textbf{v} = (-1,5,2)$.\
+\
+We can compute the length of $\textbf{v}$ with $\lvert \textbf{v} \rvert = \sqrt{-1^2 + 5^2 + 2^2} = \sqrt{1 + 25 + 4} = \sqrt{30}$. Put $\textbf{u} = \frac{\textbf{v}}{\lvert \textbf{v} \rvert} = (\frac{-1}{\sqrt{30}}, \frac{5}{\sqrt{30}}, \frac{2}{\sqrt{30}})$. Now, $\textbf{u}$ is a unit vector in the direction of $\textbf{v}$.
 
 ### Matrix Multiplication
 

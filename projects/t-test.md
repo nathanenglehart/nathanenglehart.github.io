@@ -47,7 +47,7 @@ int main() {
 	return 0;
 }
 ```
-In this case, $t = 7.460448$ with 3779 degrees of freedom. \
+In this case, $t = 7.460448$ with 3779 degrees of freedom. 
 
 ### Two Sample
 
@@ -55,21 +55,6 @@ The two sample T-Test equation is given by \\[t = \frac{\overline{x}_1-\overline
 <!--Suppose the observed mean of the 1st sample is 3392.00, the observed mean of the 2nd sample is 16610.86, the standard deviation of the first sample is 3848.102, the standard deviation of the second sample is 3725.971, the size of the first sample is 84, and the size of the second sample is 21. Then, we can write:-->
 Suppose we hypothesize that between the male and female sexes, there is no difference in the average amount of tv watched per day. Let males represent the first sample and females represent the second sample. Then, again, using 2021 GSS survey data, the observed mean of the first sample is 3.379852, the standard deviation of the first sample is 3.155964, and the size of the first sample is 1082. Similarly, the observed mean of the second sample is 3.557818, the standard deviation of the second sample is 3.071581, and the size of the second sample is 1375. Then, using C, we can write:
 
-<!--
-
-[1] "men:"
-[1] "mean: 3.379852"
-[1] "sd: 3.155964"
-[1] "n: 1082"
-[1] ""
-[1] "women:"
-[1] "mean: 3.557818"
-[1] "sd: 3.071581"
-[1] "n 1375"
-
-
-
--->
 ```c
 /* Nathan Englehart (Summer, 2022) */
 
@@ -103,8 +88,7 @@ int main() {
 	return 0;
 }
 ```
-In this case, $t = -1.403427$ with 2455 degrees of freedom. \
-\
+In this case, $t = -1.403427$ with 2455 degrees of freedom. 
 
 ### Interpreting Results
 

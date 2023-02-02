@@ -266,9 +266,9 @@ def r_squared(t, t_hat):
 
 In multivariate regression models, plain $R^2$ is slightly problematic. This is because $R^2$ increases or stays the same as new predictors are added to the model. To account for this issue, adjusted $R^2$ only increases if newly added predictors improve the model's predictive power. Similarly, adjusted $R^2$ decreases if irrelevant predictors are added to the model. The equation for adjusted $R^2$ is given by: \
 \
-\\[ R_{adj}^2 = 1 - \frac{(1 - R^2)(m - 1)}{m - p} \\]
+\\[ R_{adj}^2 = 1 - \frac{(1 - R^2)(m - 1)}{m - k} \\]
 \
-where $n$ is the number of rows in the dataset and $p$ is the number of features/predictors in the dataset. With Python, we can write:
+where $m$ is the number of rows in the dataset and $k = n - 1$ is the number of features/predictors in the dataset. With Python, we can write:
 
 ```python
 import numpy as np
