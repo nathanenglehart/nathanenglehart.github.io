@@ -134,7 +134,13 @@ The standard deviation of a random variable measures the amount of variation or 
 \
 Let $X$ and $Y$ be random variables defined on the sample space with expectations $\mu x$ and $\mu y$. The covariance of $X$ and $Y$ is defined by \\[\text{Cov}(X,Y) = \mathbb{E}((X - \mu x)(Y - \mu y))\\]if the expectation on the right is finite.\
 \
-An alternative formula for the covariance is given by \\[\text{Cov}(X,Y) = \mathbb{E}(X \cap Y) - \mathbb{E}(X)\mathbb{E}(Y)\\]
+An alternative formula for the covariance is given by \\[\text{Cov}(X,Y) = \mathbb{E}(XY) - \mathbb{E}(X)\mathbb{E}(Y)\\]
+
+Covariance has the following rules associated with it. \
+\
+1. The covariance of the same random variable $X$ is $\text{Cov}(X,X) = \text{Var}(X)$. 
+2. The covariance of anything with a constant $a \in \mathbb{R}$ is zero: $\text{Cov}(a,X) = 0$. 
+3. The covariance of a random variable multiplied by a constant $a \in \mathbb{R}$ is zero: $\text{Cov}(aX,Y) = a \text{Cov}(X,Y)$.
 
 ### Sample Mean, Variance, Standard Deviation
 
