@@ -532,11 +532,11 @@ Extensive OLS, ridge, and lasso code available at: <a style="color: #f56a6a; !im
 Logistic regression (also known as logit regression) - like OLS regression - is commonly used in the social sciences. Unlike OLS, ridge, and lasso regression, logistic regression is used to examine the extent to which various independent variables are related to a binary dependent variable. \
 \
 Logistic regression uses the sigmoid function (also known as the logistic function) to compute classification $t$ probabilities with:
-\\[ \sigma(z) = \frac{1}{1 + e^{-z}} \\]
+\\[ \sigma(z) = \frac{1}{1 + e^{-z}} = \frac{e^z}{1+e^z} \\]
 such that the probability that $t = 1$ is given by:
 \\[ P(t = 1 \text{ } \vert \text{ }x, \theta) = \sigma(\theta \cdot x) = \frac{1}{1 + e^{-(\theta \cdot x)}} = \frac{1}{1 + e^{-(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_n \cdot x_n)}} \\]
 and the probability that $t = 0$ is given by:
-\\[ P(t = 0 \text{ }\vert \text{ }x, \theta) = 1 - \sigma(\theta \cdot x) = 1 - \frac{1}{1 + e^{-(\theta \cdot x)}} = \frac{e^{-(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_n \cdot x_n)}}{1 + e^{-(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_n \cdot x_n)}} \\]
+\\[ P(t = 0 \text{ }\vert \text{ }x, \theta) = 1 - \sigma(\theta \cdot x) = 1 - \frac{1}{1 + e^{-(\theta \cdot x)}} = \frac{e^{(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_n \cdot x_n)}}{1 + e^{(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_n \cdot x_n)}} \\]
 where $\theta = \textbf{[}\theta_1,\theta_2,...,\theta_n \textbf{]}$ represents the logit coefficients and $x = \textbf{[}x_1,x_2,...,x_n \textbf{]}$ is a feature vector representing a single input observation. \
 \
 As such, using the latter equation, we can write that the predicted classification is given by:
