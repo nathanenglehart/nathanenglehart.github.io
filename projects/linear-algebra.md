@@ -23,7 +23,7 @@ We can compute the length of $\textbf{v}$ with \\[\lvert \textbf{v} \rvert = \sq
 ### Matrix Multiplication
 
 Without loss of generality, matrix multiplication functions in the following format. 
-\\[ \pmatrix{\text{ row 1 } \cr \text{ row 2 }} \pmatrix{\vert & \vert & \vert \cr \text{ col 1} & \text{col 2} & \text{col 3 } \cr \vert & \vert & \vert} = pmatrix{\text{test $\cdot$ test} \cr \text{test $\cdot$ test} \\]  <!--= pmatrix{ \text{ row 1 } \cdot \text{ col 1 } & \text{ row 1 } \cdot \text{ col 2 } & \text{ row 1 } \cdot \text{ col 3 } \cr  \text{ row 2 } \cdot \text{ col 1 } & \text{ row 2 } \cdot \text{ col 2 } & \text{ row 2 } \cdot \text{ col 3 } } \\]-->
+\\[ \pmatrix{\text{ row 1 } \cr \text{ row 2 }} \pmatrix{\vert & \vert & \vert \cr \text{ col 1} & \text{col 2} & \text{col 3 } \cr \vert & \vert & \vert} = pmatrix{\text{test test} \cr \text{test test} \\]  <!--= pmatrix{ \text{ row 1 } \cdot \text{ col 1 } & \text{ row 1 } \cdot \text{ col 2 } & \text{ row 1 } \cdot \text{ col 3 } \cr  \text{ row 2 } \cdot \text{ col 1 } & \text{ row 2 } \cdot \text{ col 2 } & \text{ row 2 } \cdot \text{ col 3 } } \\]-->
 Ex 1: Let $A = \pmatrix{ 1 & 2 & 3 \cr 4 & 5 & 6 }$ and $\textbf{v} = \pmatrix{ -1 \cr 5 \cr 2 }$. Calculate $A \textbf{v}$. \\[A\textbf{v} = \pmatrix{ 1 & 2 & 3 \cr 4 & 5 & 6 } \pmatrix{ -1 \cr 5 \cr 2 } = \pmatrix{ 1 \cdot -1 + 2 \cdot 5 + 3 \cdot 2 \cr 4 \cdot -1 + 5 \cdot 5 + 6 \cdot 2 } = \pmatrix{ -1 + 10 + 6 \cr -4 + 25 + 12 } = \pmatrix{ 15 \cr 33 }\\]
 
 ### Gaussian Elimination
@@ -55,7 +55,7 @@ This implies that: \\[\begin{aligned} PA &= LU \\\\  \pmatrix{  1 & 0 & 0 \cr 0 
 
 The **transpose** of a matrix $A$ is given by 
 \\[\left(A^T\right)_{ij} = A_{ji}\\]
-Ex 1: If $A = \begin{pmatrix} 1 & 2 & 3 \\ 0 & 0 & 4 \end{pmatrix}$, then $A^T = \begin{pmatrix} 1 & 0 \\ 2 & 0 \\ 3 & 4 \end{pmatrix}$.
+Ex 1: If $A = \pmatrix{ 1 & 2 & 3 \cr 0 & 0 & 4 }$, then $A^T = \pmatrix{ 1 & 0 \cr 2 & 0 \cr 3 & 4 }$.
 
 The **transpose** of $A +B$ is $A^T + B^T$. The **transpose** of $AB$ is $(AB)^T = B^TA^T$. The **transpose** of $A^{-1}$ is $(A^{-1})^T = (A^T)^{-1}$.
 
@@ -65,7 +65,7 @@ The **inverse** of a matrix is denoted $A^{-1}$. It has the properties: $AA^{-1}
 
 Without loss of generality, the inverse product of two matrices $A,B$ is given by: \\[(AB)^{-1} = B^{-1}A^{-1}\\]A matrix is invertible if and only if it has independent columns/full rank.
 
-A 2 by 2 matrix is invertible if and only if $ad - bc \neq 0$, as such: \\[\begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1} = \frac{1}{ad-bc}\begin{pmatrix} d & -b \\ -c & a\end{pmatrix}\\]Generally, the inverse of a matrix $A$ can be computed by creating an augmented matrix of the form $\begin{pmatrix} A & I\end{pmatrix}$. Using Gaussian elimination to row reduce $A$ to $I$ by performing row operations on both sides yields $\begin{pmatrix} I & A^{-1} \end{pmatrix}$. Note that the zero matrix is not invertible.
+A 2 by 2 matrix is invertible if and only if $ad - bc \neq 0$, as such: \\[\pmatrix{a & b \cr c & d }^{-1} = \frac{1}{ad-bc}\pmatrix{ d & -b \cr -c & a}\\]Generally, the inverse of a matrix $A$ can be computed by creating an augmented matrix of the form $\pmatrix{ A & I}$. Using Gaussian elimination to row reduce $A$ to $I$ by performing row operations on both sides yields $\pmatrix{ I & A^{-1}}$. Note that the zero matrix is not invertible.
 
 Ex: Can a square matrix with two identical rows be invertible?
 
@@ -73,79 +73,90 @@ No. An invertible matrix must have full rank. Two identical rows implies that th
 
 ### Linear Independence
 
-Vectors $\textbf{v}_1, ..., \textbf{v}_k$ are **linearly independent** if the only zero combination $c_1\textbf{v}_1 + ... + c_k\textbf{v}_k = 0$ has all $c_i = 0$. \\[\begin{pmatrix} 1 \\ 3 \\ 0\end{pmatrix} \text{ and } \begin{pmatrix} 5 \\ 5 \\ 0\end{pmatrix} \text{ are linearly independent. } \begin{pmatrix} 1 \\ 0\end{pmatrix} \text{ and } \begin{pmatrix} 0 \\ 1\end{pmatrix} \text{ are linearly independent}\\]We can test if two vectors are **linearly independent** with the following.
-
-Put $v_1 = (1,5,0)$ and $v_2 = (3,3,0)$. These vectors are **linearly independent** if $a(1,5,0) + b(3,3,0) = (0,0,0)$ implies $a = b = 0$. Put independent\\[(a + 3b, 5a + 3b, 0) = (0,0,0) \text{ so } a + 3b = 5a + 3b = 0 \implies 4a = 0 \implies a = 0 \implies b = 0\\]Therefore, $v_1, v_2$ are **linearly independent**.
-
-The columns of an arbitrary matrix $A \subseteq \mathbb{R}^m$ are independent when the only solution to $A\textbf{x} = \textbf{0}$ is $\textbf{0}$. In other words, the columns of $A$ are independent if $N(A) = \{\textbf{0}\}$.
-
+Vectors $\textbf{v}_1, ..., \textbf{v}_k$ are **linearly independent** if the only zero combination $c_1\textbf{v}_1 + ... + c_k\textbf{v}_k = 0$ has all $c_i = 0$. 
+\\[\pmatrix{ 1 \cr 3 \cr 0} \text{ and } \pmatrix{ 5 \cr 5 \cr 0} \text{ are linearly independent. } \pmatrix{ 1 \cr 0} \text{ and } \pmatrix{ 0 \cr 1} \text{ are linearly independent}\\]
+We can test if two vectors are **linearly independent** with the following.\
+\
+Put $v_1 = (1,5,0)$ and $v_2 = (3,3,0)$. These vectors are **linearly independent** if $a(1,5,0) + b(3,3,0) = (0,0,0)$ implies $a = b = 0$. Put independent\\[(a + 3b, 5a + 3b, 0) = (0,0,0) \text{ so } a + 3b = 5a + 3b = 0 \implies 4a = 0 \implies a = 0 \implies b = 0\\]Therefore, $v_1, v_2$ are **linearly independent**. \
+\
+The columns of an arbitrary matrix $A \subseteq \mathbb{R}^m$ are independent when the only solution to $A\textbf{x} = \textbf{0}$ is $\textbf{0}$. In other words, the columns of $A$ are independent if $N(A) = \{\textbf{0}\}$. \
+\
 The columns of $A$ are independent exactly when $n = r$.
 
 ### Linear Dependence
 
-Vectors $\textbf{v}_1, ..., \textbf{v}_k$ are **linearly dependent** if the there exists a zero combination $c_1\textbf{v}_1, ..., c_k\textbf{v}_k = 0$ such that not all $c_i = 0$ .
-
+Vectors $\textbf{v}_1, ..., \textbf{v}_k$ are **linearly dependent** if the there exists a zero combination $c_1\textbf{v}_1, ..., c_k\textbf{v}_k = 0$ such that not all $c_i = 0$ .\
+\
 Any set of $n$ vectors in $\mathbb{R}^m$ must be linearly dependent if $n > m$.
 
 ### Rank
 
-The **rank** of a matrix is the maximum number of linearly independent column vectors.
-
+The **rank** of a matrix is the maximum number of linearly independent column vectors.\
+\
 If $A \subseteq \mathbb{R}^m$ is invertible, then $A$ is full rank.
 
 ### Vector Space
 
-A **vector space** is a collection of vectors together with the operation of vector addition $\vec{\textbf{v}} + \vec{\textbf{w}}$ and scalar multiplication $c\vec{\textbf{v}}$ such that
-
-(1) $\vec{\textbf{v}} + \vec{\textbf{w}} = \vec{\textbf{w}} + \vec{\textbf{v}}$
-(2) $\vec{\textbf{v}} + (\vec{\textbf{w}} + \vec{\textbf{x}}) = (\vec{\textbf{w}} + \vec{\textbf{v}}) + \vec{\textbf{x}}$
-(3) There exists a unique $\vec{\textbf{0}}$ vector such that $\vec{\textbf{v}} + \vec{\textbf{0}} = \vec{\textbf{v}}$ for all $\vec{\textbf{v}}$.
-(4) For all vectors $\vec{\textbf{v}}$, there exists a unique vector $-\vec{\textbf{v}}$ such that $\vec{\textbf{v}} + (-\vec{\textbf{v}}) = \vec{\textbf{0}}$.
-(5) $1 \cdot \vec{\textbf{v}} = \vec{\textbf{v}}$.
-(6) $c(d\vec{\textbf{v}}) = (cd)\vec{\textbf{v}}$
-(7) $c(\vec{\textbf{v}} + \vec{\textbf{w}}) = c\vec{\textbf{v}} + c\vec{\textbf{w}}$
-(8) $(c + d)\vec{\textbf{v}} = c\vec{\textbf{v}} + d\vec{\textbf{v}}$
-
-The result of each of these operations must remain in the **vector space**.  
-
-Any set of vectors from a vector space will span a subspace of that space.
-
-Ex 1: Give an example of a vector space $\textbf{V}$ that has $\{(1,3,0), (5,5,0)\}$ as a basis (these component vectors are shown above to be a basis).   
-
-The vector space $\textbf{V} = \bigg\{ c_1\begin{pmatrix} 1 \\ 3 \\ 0\end{pmatrix} + c_2 \begin{pmatrix} 5 \\ 5 \\ 0 \end{pmatrix} : c_1, c_2 \in \mathbb{R} \bigg\}$ has basis $\bigg\{ \begin{pmatrix} 1 \\ 3 \\ 0 \end{pmatrix}, \begin{pmatrix} 5 \\ 5 \\ 0 \end{pmatrix} \bigg\} = \{(1,3,0), (5,5,0)\}$.
-
-Ex 2: Is $\mathbb{R}^2$ a subspace of $\mathbb{R}^3$? Briefly explain your answer.
-
+A **vector space** is a collection of vectors together with the operation of vector addition $\vec{\textbf{v}} + \vec{\textbf{w}}$ and scalar multiplication $c\vec{\textbf{v}}$ such that\
+\
+(1) $\vec{\textbf{v}} + \vec{\textbf{w}} = \vec{\textbf{w}} + \vec{\textbf{v}}$ <br>
+(2) $\vec{\textbf{v}} + (\vec{\textbf{w}} + \vec{\textbf{x}}) = (\vec{\textbf{w}} + \vec{\textbf{v}}) + \vec{\textbf{x}}$ <br>
+(3) There exists a unique $\vec{\textbf{0}}$ vector such that $\vec{\textbf{v}} + \vec{\textbf{0}} = \vec{\textbf{v}}$ for all $\vec{\textbf{v}}$. <br>
+(4) For all vectors $\vec{\textbf{v}}$, there exists a unique vector $-\vec{\textbf{v}}$ such that $\vec{\textbf{v}} + (-\vec{\textbf{v}}) = \vec{\textbf{0}}$. <br>
+(5) $1 \cdot \vec{\textbf{v}} = \vec{\textbf{v}}$. <br>
+(6) $c(d\vec{\textbf{v}}) = (cd)\vec{\textbf{v}}$ <br>
+(7) $c(\vec{\textbf{v}} + \vec{\textbf{w}}) = c\vec{\textbf{v}} + c\vec{\textbf{w}}$ <br>
+(8) $(c + d)\vec{\textbf{v}} = c\vec{\textbf{v}} + d\vec{\textbf{v}}$ \
+\
+The result of each of these operations must remain in the **vector space**.  \
+\
+Any set of vectors from a vector space will span a subspace of that space.\
+\
+Ex 1: Give an example of a vector space $\textbf{V}$ that has $\{(1,3,0), (5,5,0)\}$ as a basis (these component vectors are shown above to be a basis).   \
+\
+The vector space $\textbf{V} = \bigg\{ c_1\pmatrix{ 1 \cr 3 \cr 0} + c_2 \pmatrix{ 5 \cr 5 \cr 0 } : c_1, c_2 \in \mathbb{R} \bigg\}$ has basis $\bigg\{ \pmatrix{ 1 \cr 3 \cr 0 }, \pmatrix{ 5 \cr 5 \cr 0 } \bigg\} = \{(1,3,0), (5,5,0)\}$.\
+\
+Ex 2: Is $\mathbb{R}^2$ a subspace of $\mathbb{R}^3$? Briefly explain your answer.\
+\
 No. $(1,0) \not\in \mathbb{R}^3$ since $\mathbb{R}^3$ only contains elements of the form $(a,b,c)$ with $a,b,c \in \mathbb{R}$.
 
 ### Vector Subspace
 
-A **vector subspace** is subset of a vector space satisfying vector addition and scalar multiplication.
+A **vector subspace** is subset of a vector space satisfying vector addition and scalar multiplication.\
+\
+Ex 1: Consider the vector space $P_2$ of polynomials of degree at most two, with vector addition and scalar multiplication given as usual. Which of the following sets are subspaces of $P_2$? 
 
-Ex 1: Consider the vector space $P_2$ of polynomials of degree at most two, with vector addition and scalar multiplication given as usual. Which of the following sets are subspaces of $P_2$? \\[\text{1. } \{ax^2 + bx + c \text{ } | \text{ } a \text{ is odd}\} \text{ and 2. } \{ax^2 + bx + c \text{ } | \text{ } b = a+c\}\\](1) Not a subspace. $x^2$ lies in this set, but $x^2 + x^2 = 2x^2$ does not. Thus, set is not closed under vector addition.
+\\[ \begin{aligned} &\text{1. } \{ax^2 + bx + c \text{ } | \text{ } a \text{ is odd}\} \\\\ &\text{2. } \{ax^2 + bx + c \text{ } | \text{ } b = a+c\} \end{aligned} \\]
+
+(1) Not a subspace. $x^2$ lies in this set, but $x^2 + x^2 = 2x^2$ does not. Thus, set is not closed under vector addition. \
+\
 (2) Is a subspace:
 * Suppose $ax^2 + bx + c$, $a^{\prime}x^2 + b^{\prime}x + c^{\prime}$ are in the set so that $b = a + c$, $b^{\prime} = a^\prime + c^\prime$. Then \\[(ax^2 + bx + c) + (a^{\prime}x^2 + b^{\prime}x + c^{\prime}) = (a + a^{\prime})x^2 + (b + b^{\prime})x + (c + c^{\prime})\\]and $b + b^\prime = (a + a^{\prime}) + (c + c^{\prime})$ as required so vector addition is satisfied.
 * Suppose $r$ is a scalar. Then $r(ax^2 + bx + c) = rax^2 + rbx + rc$ and $rb = ra + rc = r(a+c)$ as required.
 
-Ex 2: Let $P$ be a plane in $\mathbb{R}^3$ defined by $x + y - 2z = 4$. This plane $P$ does not contain $(0,0,0)$ and is therefore not a subspace. Find two vectors in $P$ whose sum is not in $P$.
-
+Ex 2: Let $P$ be a plane in $\mathbb{R}^3$ defined by $x + y - 2z = 4$. This plane $P$ does not contain $(0,0,0)$ and is therefore not a subspace. Find two vectors in $P$ whose sum is not in $P$.\
+\
 We have: $\vec{v}_1 = (0,4,0), \vec{v}_2 = (4,0,0) \in P$. However, $\vec{v}_3 = \vec{v}_1 + \vec{v}_2 = (0,4,0) + (4,0,0) = (4,4,0) \not\in P$.
 
 ### Span
 
-The **span** of $S \subseteq \mathbb{R}^m$ is all combinations of vectors of $S$. \\[\text{If } S = \bigg\{\begin{pmatrix} 1 \\ 1\end{pmatrix}, \begin{pmatrix} 3 \\ 2 \end{pmatrix} \bigg\} \text{ then Span}(S) = \bigg\{c\begin{pmatrix} 1 \\ 1\end{pmatrix} + d\begin{pmatrix} 3 \\ 2 \end{pmatrix} : c,d \in \mathbb{R} \bigg\}\\]Similarly, one can find the **span** of the columns of a matrix as in the following. \\[\text{If } A = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \text{ then the span of the columns of }A \text{ is } \bigg\{ c \begin{pmatrix} 1 \\ 0\end{pmatrix} + d \begin{pmatrix} 0 \\ 1\end{pmatrix} : c,d \in \mathbb{R}\bigg\} = C(A)\\]Notice that the **span** of the columns of the matrix is equivalent to the column space of the matrix.
-
-By definition, to show that vectors - say $(2,1)$ and $(4,3)$ - span a vector space - say $\mathbb{R}^2$ - we need to prove the following without loss of generality.
-
-$\forall  \text{ } \textbf{v} = (a,b) \in \mathbb{R}^2$, there exists $x,y \in \mathbb{R}$ such that $\textbf{v} = x(2,1) + y(4,3)$. This is true $\iff \begin{cases} 2x + 4y &= a \\ x + 3y &= b\end{cases}$  has a solution for any $a,b \in \mathbb{R}$.
-
-Ex: When do 10 vectors span $\mathbb{R}^5$?
-
+The **span** of $S \subseteq \mathbb{R}^m$ is all combinations of vectors of $S$. 
+\\[\text{If } S = \bigg\{\pmatrix{ 1 \cr 1}, \pmatrix{ 3 \cr 2 } \bigg\} \text{ then Span}(S) = \bigg\{c\pmatrix{ 1 \cr 1} + d\pmatrix{ 3 \cr 2 } : c,d \in \mathbb{R} \bigg\}\\]
+Similarly, one can find the **span** of the columns of a matrix as in the following. 
+\\[\text{If } A = \pmatrix{ 1 & 0 \cr 0 & 1 } \text{ then the span of the columns of }A \text{ is } \bigg\{ c \pmatrix{ 1 \cr 0} + d \pmatrix{ 0 \cr 1} : c,d \in \mathbb{R}\bigg\} = C(A)\\]
+Notice that the **span** of the columns of the matrix is equivalent to the column space of the matrix.\
+\
+By definition, to show that vectors - say $(2,1)$ and $(4,3)$ - span a vector space - say $\mathbb{R}^2$ - we need to prove the following without loss of generality.\
+\
+$\forall  \text{ } \textbf{v} = (a,b) \in \mathbb{R}^2$, there exists $x,y \in \mathbb{R}$ such that $\textbf{v} = x(2,1) + y(4,3)$. This is true if and only if $\begin{aligned} \begin{cases} 2x + 4y &= a \\\\ x + 3y &= b \end{cases} \end{aligned}$  has a solution for any $a,b \in \mathbb{R}$.\
+\
+Ex: When do 10 vectors span $\mathbb{R}^5$?\
+\
 10 vectors span $\mathbb{R}^5$ when 5 of the vectors are linearly independent.
 
 ### Basis
 
-The **basis** for a vector space is a sequence of vector that are (1) linearly independent and (2) span the space. For example: \\[\text{The basis of }\mathbb{R}^2 \text{ (all vectors of the form $\begin{pmatrix} a\\ b\end{pmatrix}$) is } \bigg\{\begin{pmatrix} 1 \\ 0\end{pmatrix}, \begin{pmatrix} 0 \\ 1 \end{pmatrix}\bigg\} \text{. The basis of all $2 \times 2$ matricies is }\bigg\{\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix} \bigg\} \\]The **basis** of the column space of a matrix is the set containing the matrix's pivot columns after reducing to the matrix RREF form. \\[\text{The basis of the column space of the RREF matrix }R_0 = \begin{pmatrix} 1 & 3 & 0 & 0 & 5 \\ 0 & 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 & 3 \end{pmatrix}, \text{ is given by } \bigg\{ \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}\bigg\}\\]The vectors $\textbf{v}_1,...,\textbf{v}_n$ are a basis for $\mathbb{R}^n$ exactly when they are the columns of an $n \times n$ invertible matrix. Thus, $\mathbb{R}^n$ has infinitely many different bases. When the columns are dependent, we keep only the pivot columns. These columns are independent and span the column space.
+The **basis** for a vector space is a sequence of vector that are (1) linearly independent and (2) span the space. For example: \\[\text{The basis of }\mathbb{R}^2 \text{ (all vectors of the form $\pmatrix}{ a\cr b}$) is } \bigg\{\pmatrix{ 1 \cr 0}, \pmatrix{ 0 \cr 1 }\bigg\} \text{. The basis of all $2 \times 2$ matricies is }\bigg\{\pmatrix{ 1 & 0 \cr 0 & 0 }, \pmatrix{ 0 & 1 \cr 0 & 0 }, \pmatrix{ 0 & 0 \cr 1 & 0 }, \pmatrix{ 0 & 0 \cr 0 & 1 } \bigg\} \\]The **basis** of the column space of a matrix is the set containing the matrix's pivot columns after reducing to the matrix RREF form. \\[\text{The basis of the column space of the RREF matrix }R_0 = \pmatrix{ 1 & 3 & 0 & 0 & 5 \cr 0 & 0 & 1 & 0 & 0 \cr 0 & 0 & 0 & 1 & 3 }, \text{ is given by } \bigg\{ \pmatrix{ 1 \cr 0 \cr 0 }, \pmatrix{ 0 \cr 1 \cr 0 }, \pmatrix{ 0 \cr 0 \cr 1 }\bigg\}\\]The vectors $\textbf{v}_1,...,\textbf{v}_n$ are a basis for $\mathbb{R}^n$ exactly when they are the columns of an $n \times n$ invertible matrix. Thus, $\mathbb{R}^n$ has infinitely many different bases. When the columns are dependent, we keep only the pivot columns. These columns are independent and span the column space.
 
 Every set of independent vectors can be extended to a basis. Every spanning set of vectors can be reduced to a basis.
 
@@ -153,13 +164,13 @@ For instance, given five vectors in $\mathbb{R}^7$ we find a basis for the space
 
 Note: all bases for a vector space contain the same number of vectors.
 
-Ex: Find the standard basis for all symmetric matrices in $\mathbb{R}^{2 \times 2}$. \\[\bigg\{ \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}  \bigg\}\\]Ex: Show that the invertile $2 \times 2$ matrices span $\mathbb{R}^{2 \times 2}$.
+Ex: Find the standard basis for all symmetric matrices in $\mathbb{R}^{2 \times 2}$. \\[\bigg\{ \pmatrix{ 1 & 0 \cr 0 & 0 }, \pmatrix{ 0 & 1 \cr 1 & 0 }, \pmatrix{ 0 & 0 \cr 0 & 1 }  \bigg\}\\]Ex: Show that the invertile $2 \times 2$ matrices span $\mathbb{R}^{2 \times 2}$.
 
-The standard basis for $\mathbb{R}^{2 \times 2}$ is \\[\bigg\{ \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 1\\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 0 \\ 0 & 1\end{pmatrix}  \bigg\}\\]Notice that each element the standard basis is not invertible since each contains a column of zeros. However, there are infinite bases for $\mathbb{R}^{2 \times 2}$. Another basis for $\mathbb{R}^{2 \times 2}$ is \\[\bigg\{ \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}\bigg\}\\]Notice that each element of this basis has independent columns. This just so happens to be the basis for all invertible matrices.
+The standard basis for $\mathbb{R}^{2 \times 2}$ is \\[\bigg\{ \pmatrix{ 1 & 0 \cr 0 & 0 }, \pmatrix{ 0 & 1\\ 0 & 0 }, \pmatrix{ 0 & 0 \cr 1 & 0 }, \pmatrix{ 0 & 0 \cr 0 & 1}  \bigg\}\\]Notice that each element the standard basis is not invertible since each contains a column of zeros. However, there are infinite bases for $\mathbb{R}^{2 \times 2}$. Another basis for $\mathbb{R}^{2 \times 2}$ is \\[\bigg\{ \pmatrix{ 1 & 0 \cr 0 & 1 }, \pmatrix{ 1 & 0 \cr 0 & -1 }, \pmatrix{ 0 & 1 \cr 1 & 0 }, \pmatrix{ 0 & 1 \cr -1 & 0 }\bigg\}\\]Notice that each element of this basis has independent columns. This just so happens to be the basis for all invertible matrices.
 
 Ex: Find a basis for the space of polynomials $p(x)$ of degree $\leq 3$. Find a basis for the subspace $p(1) = 0$.
 
-The standard basis for all polynomials of degree $\leq 3$ is $\{x^3,x^2, x, 1\}$. With the condition $p(1) = 0$, it is implied that \\[\begin{flalign*} p(x) &= ax^3 + bx^2 + cx + d \\ p(1) &= a + b + c + d = 0 \\ d &= -a-b-c\end{flalign*}\\]Therefore, basis is $\{x^3-1,x^2-1,x-1\}$.
+The standard basis for all polynomials of degree $\leq 3$ is $\{x^3,x^2, x, 1\}$. With the condition $p(1) = 0$, it is implied that \\[\begin{aligned} p(x) &= ax^3 + bx^2 + cx + d \\\\ p(1) &= a + b + c + d = 0 \\\\ d &= -a-b-c\end{aligned}\\]Therefore, basis is $\{x^3-1,x^2-1,x-1\}$.
 
 ### Dimension
 
@@ -182,34 +193,34 @@ To find the *column space* and the *nullspace*, reduce $A$ to RREF, denoted $R_0
 
 ### Column Space
 
-The **column space** of $A$, denoted $C(A)$, consists of all linear combinations of the columns of $A$. \\[\text{If } A = \begin{pmatrix} 1 & 0 \\ 0 & 1 \\ 2 & 0 \end{pmatrix} \text{ then } C(A) = \bigg\{ c_1 \begin{pmatrix} 1 \\ 0 \\ 2\end{pmatrix} + c_2 \begin{pmatrix} 0 \\ 1 \\ 0\end{pmatrix} : c_1, c_2 \in \mathbb{R} \bigg\}\\]
-Ex 1: What is the column space of the matrix $A = \begin{pmatrix} 0 & 1 & 0 & 0 \\ -1 & 0 & 2 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix}$? Is the vector $\textbf{v} = \begin{pmatrix} -1 \\ 5 \\ 2 \end{pmatrix}$.
+The **column space** of $A$, denoted $C(A)$, consists of all linear combinations of the columns of $A$. \\[\text{If } A = \pmatrix{ 1 & 0 \cr 0 & 1 \cr 2 & 0 } \text{ then } C(A) = \bigg\{ c_1 \pmatrix{ 1 \cr 0 \cr 2} + c_2 \pmatrix{ 0 \cr 1 \cr 0} : c_1, c_2 \in \mathbb{R} \bigg\}\\]
+Ex 1: What is the column space of the matrix $A = \pmatrix{ 0 & 1 & 0 & 0 \cr -1 & 0 & 2 & 0 \cr 0 & 0 & 0 & 1 }$? Is the vector $\textbf{v} = \pmatrix{ -1 \cr 5 \cr 2 }$.
 
-Observe $-2 \cdot (0,-1,0) = (0,2,0)$. As such, $A$ has 3 independent columns and its column space is all of $\mathbb{R}^3$, i.e. $C(A) = \bigg\{ c_1 \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} + c_2\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} + c_3\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} : c_1, c_2, c_3 \in \mathbb{R} \bigg\}$. Hence, we must have that $\textbf{v} \in C(A)$.
+Observe $-2 \cdot (0,-1,0) = (0,2,0)$. As such, $A$ has 3 independent columns and its column space is all of $\mathbb{R}^3$, i.e. $C(A) = \bigg\{ c_1 \pmatrix{ 1 \cr 0 \cr 0 } + c_2\pmatrix{ 0 \cr 1 \cr 0 } + c_3\pmatrix{ 0 \cr 0 \cr 1 } : c_1, c_2, c_3 \in \mathbb{R} \bigg\}$. Hence, we must have that $\textbf{v} \in C(A)$.
 
-Ex 2: Give examples of matrices whose column space is the vector space $\textbf{V} = \bigg\{ c_1\begin{pmatrix} 1 \\ 3 \\ 0\end{pmatrix} + c_2 \begin{pmatrix} 5 \\ 5 \\ 0 \end{pmatrix} : c_1, c_2 \in \mathbb{R} \bigg\}$.
+Ex 2: Give examples of matrices whose column space is the vector space $\textbf{V} = \bigg\{ c_1\pmatrix{ 1 \cr 3 \cr 0} + c_2 \pmatrix{ 5 \cr 5 \cr 0 } : c_1, c_2 \in \mathbb{R} \bigg\}$.
 
-Two examples are $\begin{pmatrix} 1 & 5 \\ 3 & 5 \\ 0 & 0\end{pmatrix}$ and $\begin{pmatrix} 1 & 0 \\ 0 & 1 \\ 0 & 0 \end{pmatrix}$.
+Two examples are $\pmatrix{ 1 & 5 \cr 3 & 5 \cr 0 & 0}$ and $\pmatrix{ 1 & 0 \cr 0 & 1 \cr 0 & 0 }$.
 
 ### Row Space
 
-The **row space** of $A$, denoted $C(A)$, consists of all linear cominations of the rows of $A$. \\[\text{If } A = \begin{pmatrix} 1 & 0 \\ 0 & 1 \\ 2 & 0 \end{pmatrix} \text{ then } C(A^T) = \bigg\{ c_1 \begin{pmatrix} 1 & 0 \end{pmatrix} + c_2 \begin{pmatrix} 0 & 1 \end{pmatrix} : c_1, c_2 \in \mathbb{R} \bigg\}\\]
+The **row space** of $A$, denoted $C(A)$, consists of all linear cominations of the rows of $A$. \\[\text{If } A = \pmatrix{ 1 & 0 \cr 0 & 1 \cr 2 & 0 } \text{ then } C(A^T) = \bigg\{ c_1 \pmatrix{ 1 & 0 } + c_2 \pmatrix{ 0 & 1 } : c_1, c_2 \in \mathbb{R} \bigg\}\\]
 ### Nullspace
 
 The **nullspace** of a $m \times n$ matrix $A$, denoted $N(A)$, is the set of all solutions to $A\textbf{x} = \textbf{0}$. So, if $\textbf{v} \in N(A)$ then $A\textbf{v} = \textbf{0}$.
 
-Ex 1: Give an example of a matrix whose nullspace is $\textbf{V} = \bigg\{ c_1\begin{pmatrix} 1 \\ 3 \\ 0\end{pmatrix} + c_2 \begin{pmatrix} 5 \\ 5 \\ 0 \end{pmatrix} : c_1, c_2 \in \mathbb{R} \bigg\}$.
+Ex 1: Give an example of a matrix whose nullspace is $\textbf{V} = \bigg\{ c_1\pmatrix{ 1 \cr 3 \cr 0} + c_2 \pmatrix{ 5 \cr 5 \cr 0 } : c_1, c_2 \in \mathbb{R} \bigg\}$.
 
-The nullspace of $A = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1\end{pmatrix}$ is $\textbf{V}$. This is because of the following. Let $\vec{v} \in \textbf{V}$ be arbitrary. Then $\vec{v} = (a,b,0)$ for some $a,b \in \mathbb{R}$. Performing matrix multiplication on $A$ and $\vec{v}$ will always yield the zero vector $\textbf{0}$ as such: \\[\begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1\end{pmatrix}\vec{v} = \textbf{0}\\]
+The nullspace of $A = \pmatrix{ 0 & 0 & 0 \cr 0 & 0 & 0 \cr 0 & 0 & 1}$ is $\textbf{V}$. This is because of the following. Let $\vec{v} \in \textbf{V}$ be arbitrary. Then $\vec{v} = (a,b,0)$ for some $a,b \in \mathbb{R}$. Performing matrix multiplication on $A$ and $\vec{v}$ will always yield the zero vector $\textbf{0}$ as such: \\[\pmatrix{ 0 & 0 & 0 \cr 0 & 0 & 0 \cr 0 & 0 & 1}\vec{v} = \textbf{0}\\]
 ### Left Nullspace
 
 The **left nullspace** of a $m \times n$ matrix $A$, denoted $N(A^T)$, is the set of all solutions to $A^T\textbf{x} = \textbf{0}$. So, if $\textbf{v} \in N(A^T)$ then $A^T\textbf{v} = \textbf{0}$.
 
 ### Complete Solution to Ax = b
 
-Determine all solutions to the equation $A\textbf{x} = \textbf{b}$ where \\[A = \begin{pmatrix} 2 & 4 & 6 & 4 \\ 2 & 5 & 7 & 6 \\ 2 & 3 & 5 & 2 \end{pmatrix} \text{, } \textbf{ x} = \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{pmatrix} \text{, } \textbf{ b} = \begin{pmatrix} 4 \\ 3 \\ 5 \end{pmatrix} \\]First we must combine $A$ and $\textbf{b}$ in an augmented matrix and reduce this matrix to RREF form with the following gaussian elimination. \\[\begin{flalign*} \begin{pmatrix} 2 & 4 & 6 & 4 & 4 \\ 2 & 5 & 7 & 6 & 3 \\ 2 & 3 & 5 & 2 & 5\end{pmatrix} &\to \begin{pmatrix} 2 & 3 & 5 & 2 & 5 \\ 2 & 4 & 6 & 4 & 4 \\ 2 & 5 & 7 & 6 & 3 \end{pmatrix} \to \begin{pmatrix} 2 & 3 & 5 & 2 & 5 \\ 0 & 1 & 1 & 2 & -1 \\ 0 & 2 & 2 & 4 & -2 \end{pmatrix} \to \begin{pmatrix} 2 & 3 & 5 & 2 & 5 \\ 0 & 1 & 1 & 2 & -1 \\ 0 & 0 & 0 & 0 & 0 \end{pmatrix} \to \begin{pmatrix} 2 & 2 & 4 & 0 & 6 \\ 0 & 1 & 1 & 2 & -1 \\ 0 & 0 & 0 & 0 & 0 \end{pmatrix}\to \begin{pmatrix} 1 & 1 & 2 & 0 & 3 \\ 0 & 1 & 1 & 2 & -1 \\ 0 & 0 & 0 & 0 & 0 \end{pmatrix} \to \begin{pmatrix} 1 & 0 & 1 & -2 & 4 \\ 0 & 1 & 1 & 2 & -1 \\ 0 & 0 & 0 & 0 & 0 \end{pmatrix}  \end{flalign*} \\]Notice that the first and second columns are the pivot columns. Now... \\[\begin{aligned} x_1 + x_3 + -2x_4 &= 4 \\ x_2 + x_3 + 2x_4 &= -1 \end{aligned} \implies \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{pmatrix} = \begin{pmatrix} -x_3 + 2x_4 + 4 \\ -x_3 - 2x_4 - 1 \\ x_3 \\ x_4 \end{pmatrix} = \underbrace{x_3 \begin{pmatrix} -1 \\ -1 \\ 1 \\ 0 \end{pmatrix} + x_4 \begin{pmatrix} 2 \\ -2 \\ 0 \\ 1\end{pmatrix}}_{\textbf{x}_n} + \underbrace{\begin{pmatrix} 4 \\ -1 \\ 0 \\ 0 \end{pmatrix}}_{\textbf{x}_p} \\]This is the complete solution $\textbf{x} = \textbf{x}_n + \textbf{x}_p$. The nullspace is given by $\textbf{x}_n$ as such:  \\[\bigg\{x_3\begin{pmatrix} -1 \\ -1\\ 1 \\ 0 \end{pmatrix}  +x_4 \begin{pmatrix} 2 \\ -2\\ 0\\ 1 \end{pmatrix}: x_3,x_4 \in \mathbb{R}\bigg\}\\]
+Determine all solutions to the equation $A\textbf{x} = \textbf{b}$ where \\[A = \pmatrix{ 2 & 4 & 6 & 4 \cr 2 & 5 & 7 & 6 \cr 2 & 3 & 5 & 2 } \text{, } \textbf{ x} = \pmatrix{ x_1 \cr x_2 \cr x_3 \cr x_4 } \text{, } \textbf{ b} = \pmatrix{ 4 \cr 3 \cr 5 } \\]First we must combine $A$ and $\textbf{b}$ in an augmented matrix and reduce this matrix to RREF form with the following gaussian elimination. \\[\begin{aligned} \pmatrix{ 2 & 4 & 6 & 4 & 4 \cr 2 & 5 & 7 & 6 & 3 \cr 2 & 3 & 5 & 2 & 5} &\to \pmatrix{ 2 & 3 & 5 & 2 & 5 \cr 2 & 4 & 6 & 4 & 4 \cr 2 & 5 & 7 & 6 & 3 } \to \pmatrix{ 2 & 3 & 5 & 2 & 5 \cr 0 & 1 & 1 & 2 & -1 \cr 0 & 2 & 2 & 4 & -2 } \to \pmatrix{ 2 & 3 & 5 & 2 & 5 \cr 0 & 1 & 1 & 2 & -1 \cr 0 & 0 & 0 & 0 & 0 } \to \pmatrix{ 2 & 2 & 4 & 0 & 6 \cr 0 & 1 & 1 & 2 & -1 \cr 0 & 0 & 0 & 0 & 0 }\to \pmatrix{ 1 & 1 & 2 & 0 & 3 \cr 0 & 1 & 1 & 2 & -1 \cr 0 & 0 & 0 & 0 & 0 } \to \pmatrix{ 1 & 0 & 1 & -2 & 4 \cr 0 & 1 & 1 & 2 & -1 \cr 0 & 0 & 0 & 0 & 0 }  \end{aligned} \\]Notice that the first and second columns are the pivot columns. Now... \\[\begin{aligned} x_1 + x_3 + -2x_4 &= 4 \\\\ x_2 + x_3 + 2x_4 &= -1 \end{aligned} \implies \pmatrix{ x_1 \cr x_2 \cr x_3 \cr x_4 } = \pmatrix{ -x_3 + 2x_4 + 4 \cr -x_3 - 2x_4 - 1 \cr x_3 \cr x_4 } = \underbrace{x_3 \pmatrix{ -1 \cr -1 \cr 1 \cr 0 } + x_4 \pmatrix{ 2 \cr -2 \cr 0 \cr 1}}_{\textbf{x}_n} + \underbrace{\pmatrix{ 4 \cr -1 \cr 0 \cr 0 }}_{\textbf{x}_p} \\]This is the complete solution $\textbf{x} = \textbf{x}_n + \textbf{x}_p$. The nullspace is given by $\textbf{x}_n$ as such:  \\[\bigg\{x_3\pmatrix{ -1 \cr -1\\ 1 \cr 0 }  +x_4 \pmatrix{ 2 \cr -2\\ 0\\ 1 }: x_3,x_4 \in \mathbb{R}\bigg\}\\]
 
-Thus, any element $\textbf{v} \in \textbf{x}_n$ will have the property $A\textbf{v} = \textbf{0}$ and the reason we are able to compute $\textbf{b}$ is due to $\textbf{x}_p$. We can quickly check that $A\textbf{x}_p = \textbf{b}$ holds with:\\[\begin{pmatrix} 2 & 4 & 6 & 4 \\ 2 & 5 & 7 & 6 \\ 2 & 3 & 5 & 2 \end{pmatrix}\begin{pmatrix} 4 \\-1 \\ 0 \\ 0 \end{pmatrix} = \begin{pmatrix} 4 \\ 3 \\ 5 \end{pmatrix} \implies \begin{aligned} 2 \cdot 4 + 4 \cdot (-1) + 0 + 0 &= 4 \\ 2 \cdot 4 + 5 \cdot (-1) + 0 + 0 &= 3 \\ 2 \cdot 4 + 3 \cdot (-1) + 0 + 0 &= 5 \end{aligned} \implies \begin{aligned} 4 &= 4 \\ 3 &= 3 \\ 5 &= 5 \end{aligned} \\]as required.
+Thus, any element $\textbf{v} \in \textbf{x}_n$ will have the property $A\textbf{v} = \textbf{0}$ and the reason we are able to compute $\textbf{b}$ is due to $\textbf{x}_p$. We can quickly check that $A\textbf{x}_p = \textbf{b}$ holds with:\\[\pmatrix{ 2 & 4 & 6 & 4 \cr 2 & 5 & 7 & 6 \cr 2 & 3 & 5 & 2 }\pmatrix{ 4 \\-1 \cr 0 \cr 0 } = \pmatrix{ 4 \cr 3 \cr 5 } \implies \begin{aligned} 2 \cdot 4 + 4 \cdot (-1) + 0 + 0 &= 4 \\\\ 2 \cdot 4 + 5 \cdot (-1) + 0 + 0 &= 3 \\\\ 2 \cdot 4 + 3 \cdot (-1) + 0 + 0 &= 5 \end{aligned} \implies \begin{aligned} 4 &= 4 \\\\ 3 &= 3 \\\\ 5 &= 5 \end{aligned} \\]as required.
 
 ### Vector Spaces Consisting of Functions
 
@@ -232,9 +243,9 @@ Non-zero orthogonal sets of vectors are automatically linearly independent.
 
 Projecting onto a line is given by the following. Let $n \in \mathbb{R}$. The projection of a vector $\textbf{b} \in \mathbb{R}^n$ onto the line through $\textbf{a} \in \mathbb{R}^n$ is the closest point $\textbf{p} = \textbf{a}\frac{\textbf{a}^T\textbf{b}}{\textbf{a}^T\textbf{a}}$. The orthogonal projection of the point $\textbf{b} = (2,3)$ onto the line $y = 2x$ is given by the following.
 
-Line $y = 2x$ implies we can have $\textbf{a} = \begin{pmatrix} 1 \\ 2\end{pmatrix}$ since the line goes through the point $(1,2)$.
+Line $y = 2x$ implies we can have $\textbf{a} = \pmatrix{ 1 \cr 2}$ since the line goes through the point $(1,2)$.
 
-Then $\textbf{b} = \begin{pmatrix} 2 \\ 3 \end{pmatrix}$ and $\textbf{p} = \textbf{a}\frac{\textbf{a}^T\textbf{b}}{\textbf{a}^T\textbf{a}} = \frac{1 \cdot 2 + 2 \cdot 3}{1 \cdot 1 + 2 \cdot 2} \begin{pmatrix} 1 \\ 2\end{pmatrix} = \frac{8}{5}\begin{pmatrix} 1 \\ 2\end{pmatrix} = \begin{pmatrix} \frac{8}{5} \\ \frac{16}{5}\end{pmatrix}$. This $\textbf{p}$ that we have computed is the closest point on the line that goes through $\textbf{a}$ to the point $\textbf{b}$.
+Then $\textbf{b} = \pmatrix{ 2 \cr 3 }$ and $\textbf{p} = \textbf{a}\frac{\textbf{a}^T\textbf{b}}{\textbf{a}^T\textbf{a}} = \frac{1 \cdot 2 + 2 \cdot 3}{1 \cdot 1 + 2 \cdot 2} \pmatrix{ 1 \cr 2} = \frac{8}{5}\pmatrix{ 1 \cr 2} = \pmatrix{ \frac{8}{5} \cr \frac{16}{5}}$. This $\textbf{p}$ that we have computed is the closest point on the line that goes through $\textbf{a}$ to the point $\textbf{b}$.
 
 The error $\textbf{e} = \textbf{b} - \textbf{p}$ is perpendicular to $\textbf{a}$. In this case $\textbf{e} = \textbf{b} - \textbf{p} = (2,3) - (\frac{8}{5}, \frac{16}{5}) = (\frac{2}{5}, -\frac{1}{5})$.
 
@@ -248,33 +259,33 @@ When looking to find a linear combination of vectors closest to another vector $
 
 ### Least Squares Approximations
 
-Solving $A^TA\hat{\textbf{x}} = A^T\textbf{b}$ gives the projection $\textbf{p} = A\hat{\textbf{x}}$ of $\textbf{b}$ onto the column space of $A$. If we are looking for the best horizontal line, we have that $\hat{\textbf{x}} = \begin{pmatrix} C \end{pmatrix}$. If we are looking for a line generally, we have that $\hat{\textbf{x}} = \begin{pmatrix} C \\D \end{pmatrix}$.
+Solving $A^TA\hat{\textbf{x}} = A^T\textbf{b}$ gives the projection $\textbf{p} = A\hat{\textbf{x}}$ of $\textbf{b}$ onto the column space of $A$. If we are looking for the best horizontal line, we have that $\hat{\textbf{x}} = \pmatrix{ C }$. If we are looking for a line generally, we have that $\hat{\textbf{x}} = \pmatrix{ C \\D }$.
 
 When $A\textbf{x} - \textbf{b}$ has no solution, $\hat{\textbf{x}} = (A^TA)^{-1}A^T\textbf{b}$ is the least squares solution. The least squares solution $\hat{\textbf{x}}$ makes $E = ||A\textbf{x}-\textbf{b}||^2$ as small as possible.
 
 Setting partial derivatives of $E = ||||A\textbf{x}-\textbf{b}||^2||$ to zero $\bigg( \frac{\partial E}{\partial x_i} = 0 \bigg)$ also produces $A^TA\hat{\textbf{x}} = A^T\textbf{b}$. For example, suppose we need to find the closest line (not through the origin) to the points (0,6), (1,0), (2,0).
 
-Then we have that $A = \begin{pmatrix} 1 & 0 \\ 1 & 1 \\ 1 & 2 \end{pmatrix}$, $x = \begin{pmatrix} C \\ D \end{pmatrix}$, and $\textbf{b} = \begin{pmatrix} 6 \\ 0 \\ 0 \end{pmatrix}$.
+Then we have that $A = \pmatrix{ 1 & 0 \cr 1 & 1 \cr 1 & 2 }$, $x = \pmatrix{ C \cr D }$, and $\textbf{b} = \pmatrix{ 6 \cr 0 \cr 0 }$.
 
-When $t = 0$ the first point is on the line $\textbf{b} = C + Dt$ if $C + D \cdot 0 = 6$. When $t = 1$ the second point is on the line $\textbf{b} = C + Dt$ if $C + D \cdot 1 = 0$. When $t = 2$ the third point is on the line $\textbf{b} = C + Dt$ if $C + D \cdot 2 = 0$. So... \\[E = e_1^2 + e_2^2 + e_3^2 = (C + D \cdot 0 - 6)^2 + (C + D \cdot 1 - 0)^2 + (C + D \cdot 2 - 0)^2\\]Now, by computing $\frac{\partial E}{\partial C}$, $\frac{\partial E}{\partial D}$ and setting them equal to zero... \\[\begin{flalign*} \frac{\partial E}{\partial C} &= 2(C + D \cdot 0 - 6) + 2(C + D \cdot 1) + 2(C + D \cdot 2) = 0 \implies 6C + 6D = 12 \\ \frac{\partial E}{\partial D} &= 2(C +D \cdot 0 - 6)(0) + 2(C + D \cdot 1)(1) + 2(C + D \cdot 2)(2) = 0 \implies 6C + 10D = 0 \end{flalign*}\\]Simplifying we get \\[\begin{flalign*} 3C + 3D &= 6 \\ 3C + 5D &= 0 \end{flalign*}\\]Solving yields $D = -3$ and $C = 5$. So, the best fit line is $y = C + Dt = 5 - 3t$.
+When $t = 0$ the first point is on the line $\textbf{b} = C + Dt$ if $C + D \cdot 0 = 6$. When $t = 1$ the second point is on the line $\textbf{b} = C + Dt$ if $C + D \cdot 1 = 0$. When $t = 2$ the third point is on the line $\textbf{b} = C + Dt$ if $C + D \cdot 2 = 0$. So... \\[E = e_1^2 + e_2^2 + e_3^2 = (C + D \cdot 0 - 6)^2 + (C + D \cdot 1 - 0)^2 + (C + D \cdot 2 - 0)^2\\]Now, by computing $\frac{\partial E}{\partial C}$, $\frac{\partial E}{\partial D}$ and setting them equal to zero... \\[\begin{aligned} \frac{\partial E}{\partial C} &= 2(C + D \cdot 0 - 6) + 2(C + D \cdot 1) + 2(C + D \cdot 2) = 0 \implies 6C + 6D = 12 \\\\  \frac{\partial E}{\partial D} &= 2(C +D \cdot 0 - 6)(0) + 2(C + D \cdot 1)(1) + 2(C + D \cdot 2)(2) = 0 \implies 6C + 10D = 0 \end{aligned}\\]Simplifying we get \\[\begin{aligned} 3C + 3D &= 6 \\\\ 3C + 5D &= 0 \end{aligned}\\]Solving yields $D = -3$ and $C = 5$. So, the best fit line is $y = C + Dt = 5 - 3t$.
 
 Ex: Find the height $C$ of the best horizontal line to fit $\textbf{b} = (0,8,8,20)$.
 
-Since we are looking for a horizontal line, put $A = \begin{pmatrix} 1 \\ 1\\ 1 \\1 \end{pmatrix}$. Then $\hat{\textbf{x}} = (A^TA)^{-1}A^T\textbf{b} = ... = \begin{pmatrix} 9 \end{pmatrix}$. This implies that $C = 9$ is the best horizontal line height. The four errors in $e$ are given by $e_1 = C - 0 = 9$, $e_2 = C - 8 = 1$, $e_3 = C - 8 = 1$, and $e_4 = C - 20 = -11$.
+Since we are looking for a horizontal line, put $A = \pmatrix{ 1 \cr 1\\ 1 \\1 }$. Then $\hat{\textbf{x}} = (A^TA)^{-1}A^T\textbf{b} = ... = \pmatrix{ 9 }$. This implies that $C = 9$ is the best horizontal line height. The four errors in $e$ are given by $e_1 = C - 0 = 9$, $e_2 = C - 8 = 1$, $e_3 = C - 8 = 1$, and $e_4 = C - 20 = -11$.
 
 Ex: Find the best fit line through the origin $b = Dt$ to the points $(0,0),(1,8),(3,8),(4,20)$.
 
-Here, we are not looking for a horizontal line, but since we want to go through the origin, we cannot have an intercept so no ones column. We have $\hat{\textbf{x}} = \begin{pmatrix} D \end{pmatrix}$ Put $A = \begin{pmatrix} 0 \\ 1 \\ 3 \\ 4 \end{pmatrix}$, $\textbf{b} = \begin{pmatrix} 0 \\ 8 \\ 8 \\20 \end{pmatrix}$. So $A^TA\hat{\textbf{x}} = A^T\textbf{b} \implies 26D = 112 \implies D = 56/13$. So the best fit line throught the origin $b = Dt$ is given by $b = \frac{56}{13}t$.
+Here, we are not looking for a horizontal line, but since we want to go through the origin, we cannot have an intercept so no ones column. We have $\hat{\textbf{x}} = \pmatrix{ D }$ Put $A = \pmatrix{ 0 \cr 1 \cr 3 \cr 4 }$, $\textbf{b} = \pmatrix{ 0 \cr 8 \cr 8 \\20 }$. So $A^TA\hat{\textbf{x}} = A^T\textbf{b} \implies 26D = 112 \implies D = 56/13$. So the best fit line throught the origin $b = Dt$ is given by $b = \frac{56}{13}t$.
 
 ### Orthonormal Matrices
 
-A set of vectors $q_1,...,q_n$ are called orthogonal when the dot products $q_i \cdot q_j$ are zero. Set of orthogonal unit vectors (unit vectors are vectors with length 1) are called **orthonormal**. Recall vector length is given by $|\vec{v}| = \sqrt{v_1^2 + ... + v_n^2}$. It follows that a set of vectors $q_1,...,q_n$ is orthonormal when: \\[q_i \cdot q_j = \begin{cases} 0, i \neq j \\ 1, i = j\end{cases}\\]If $Q$ is a matrix with orthonormal columns $q_1,...,q_n$ then $Q^TQ = I$. For example, permutation matrices have orthonormal columns. On a seperate note, the inverse of a permutation matrix is its transpose. This is also true for all *square* orthonormal matrices i.e. $Q^T = Q^{-1}$. Therefore, we also have $QQ^T = QQ^{-1} = I$ for all *square* matrices $Q$ (so to check if $Q$ is not orthonormal, one could check these equalities). Going forward, it will often be assumed that $Q$ is square.
+A set of vectors $q_1,...,q_n$ are called orthogonal when the dot products $q_i \cdot q_j$ are zero. Set of orthogonal unit vectors (unit vectors are vectors with length 1) are called **orthonormal**. Recall vector length is given by $|\vec{v}| = \sqrt{v_1^2 + ... + v_n^2}$. It follows that a set of vectors $q_1,...,q_n$ is orthonormal when: \\[q_i \cdot q_j = \begin{aligned}\begin{cases} 0, i \neq j \\\\ 1, i = j\end{cases}\end{aligned} \\]If $Q$ is a matrix with orthonormal columns $q_1,...,q_n$ then $Q^TQ = I$. For example, permutation matrices have orthonormal columns. On a seperate note, the inverse of a permutation matrix is its transpose. This is also true for all *square* orthonormal matrices i.e. $Q^T = Q^{-1}$. Therefore, we also have $QQ^T = QQ^{-1} = I$ for all *square* matrices $Q$ (so to check if $Q$ is not orthonormal, one could check these equalities). Going forward, it will often be assumed that $Q$ is square.
 
 Now, if $Q^TQ = I$ and $\vec{x}, \vec{y} = \mathbb{R}^n$. Then
 1. $||Q\vec{x}|| = \sqrt{Q\vec{x} \cdot Q\vec{x}} = \sqrt{(Q\vec{x})^TQ\vec{x}} = \sqrt{\vec{x}^TQ^TQ\vec{x}} = ||\vec{x}||$
 2. $Q\vec{x} \cdot Q\vec{x} = (Q\vec{x})^TQ\vec{y} = \vec{x}^TQ^TQ\vec{y} = \vec{x}^TI\vec{y} = \vec{x}^T\vec{y} = \vec{x} \cdot \vec{y}$
 
-There is an interesting factorization of $A = QR$. Without loss of generality... \\[\begin{flalign*} A &= QR \\ \begin{pmatrix} \phantom{a} & \phantom{a} & \phantom{a} \\ \textbf{a} & \textbf{b} & \textbf{c} \\ \phantom{a} & \phantom{a} & \phantom{a} \end{pmatrix} &= \begin{pmatrix} \phantom{a} & \phantom{a} & \phantom{a} \\ \textbf{q}_1 & \textbf{q}_2 & \textbf{q}_3 \\ \phantom{a} & \phantom{a} & \phantom{a} \end{pmatrix} \begin{pmatrix} \textbf{q}_1 \cdot \textbf{a} & \textbf{q}_1 \cdot \textbf{b} & \textbf{q}_1 \cdot \textbf{c} \\ \textbf{0} & \textbf{q}_2 \cdot \textbf{b} & \textbf{q}_2 \cdot \textbf{c} \\ \textbf{0} & \textbf{0} & \textbf{q}_3 \cdot \textbf{c} \end{pmatrix} \end{flalign*}\\]So $R = Q^TA$. It follows for least squares that $R^TR\hat{\textbf{x}} = R^TQ^T\textbf{b}$ or $R\hat{\textbf{x}} = Q^T\textbf{b}$ or $\hat{\textbf{x}} = R^{-1}Q^T\textbf{b} = (Q^TA)^{-1}Q^T\textbf{b}$.
+There is an interesting factorization of $A = QR$. Without loss of generality... \\[\begin{aligned} A &= QR \\\\ \pmatrix{ \phantom{a} & \phantom{a} & \phantom{a} \cr \textbf{a} & \textbf{b} & \textbf{c} \cr \phantom{a} & \phantom{a} & \phantom{a} } &= \pmatrix{ \phantom{a} & \phantom{a} & \phantom{a} \cr \textbf{q}_1 & \textbf{q}_2 & \textbf{q}_3 \cr \phantom{a} & \phantom{a} & \phantom{a} } \pmatrix{ \textbf{q}_1 \cdot \textbf{a} & \textbf{q}_1 \cdot \textbf{b} & \textbf{q}_1 \cdot \textbf{c} \cr \textbf{0} & \textbf{q}_2 \cdot \textbf{b} & \textbf{q}_2 \cdot \textbf{c} \cr \textbf{0} & \textbf{0} & \textbf{q}_3 \cdot \textbf{c} } \end{aligned}\\]So $R = Q^TA$. It follows for least squares that $R^TR\hat{\textbf{x}} = R^TQ^T\textbf{b}$ or $R\hat{\textbf{x}} = Q^T\textbf{b}$ or $\hat{\textbf{x}} = R^{-1}Q^T\textbf{b} = (Q^TA)^{-1}Q^T\textbf{b}$.
 
 ### Gram Schmidt
 
@@ -300,13 +311,13 @@ Now $\{\textbf{A}, \textbf{B}, \textbf{C}\}$ are a set of orthonormal vectors cr
 
 ### Determinants
 
-The determinant of a 2x2 matrix is given by $\text{det} \begin{pmatrix} a & b \\ c & d\end{pmatrix} = ad - bc$. Larger cases follow from this case.
+The determinant of a 2x2 matrix is given by $\text{det} \pmatrix{ a & b \cr c & d} = ad - bc$. Larger cases follow from this case.
 
-The determinant of a 3x3 matrix is given by $\text{det} \begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix} = a \cdot \text{det} \begin{pmatrix} e & f \\ h & i \end{pmatrix} - b \cdot \text{det}  \begin{pmatrix} d & f \\ g & i \end{pmatrix} + c \cdot \text{det} \begin{pmatrix} d & e \\ g & h \end{pmatrix}$.
+The determinant of a 3x3 matrix is given by $\text{det} \pmatrix{ a & b & c \cr d & e & f \cr g & h & i } = a \cdot \text{det} \pmatrix{ e & f \cr h & i } - b \cdot \text{det}  \pmatrix{ d & f \cr g & i } + c \cdot \text{det} \pmatrix{ d & e \cr g & h }$.
 
 The determinant of a 4x4 matrix is given by
 
-$\text{det} \begin{pmatrix} a & b & c & d \\ e &f & g & h \\ i & j & k & l \\ m & n & o & p \end{pmatrix} = a \cdot \text{det} \begin{pmatrix} f & g & h \\ j & k & l \\ n & o & p \end{pmatrix} - b \cdot \text{det} \begin{pmatrix} e & g & h \\ i & k & l \\ m & o & p \end{pmatrix} + c \cdot \text{det} \begin{pmatrix} e & f & h \\ i & j & l \\ m & n & p \end{pmatrix} - d \cdot \text{det} \begin{pmatrix} e & f & g \\ i & j & k \\ m & n & o \end{pmatrix}$.
+$\text{det} \pmatrix{ a & b & c & d \cr e &f & g & h \cr i & j & k & l \cr m & n & o & p } = a \cdot \text{det} \pmatrix{ f & g & h \cr j & k & l \cr n & o & p } - b \cdot \text{det} \pmatrix{ e & g & h \cr i & k & l \cr m & o & p } + c \cdot \text{det} \pmatrix{ e & f & h \cr i & j & l \cr m & n & p } - d \cdot \text{det} \pmatrix{ e & f & g \cr i & j & k \cr m & n & o }$.
 
 Only square matrices have determinants.
 
@@ -318,7 +329,7 @@ A matrix $A$ is invertible if and only if $\text{det}(A) \neq 0$. This is becaus
 
 The determinant of an upper or lower triangular matrix is the product of the terms on the diagonal. The determinant of a diagonal matrix is the product of the terms on the diagonal.
 
-Ex: \\[\text{ det}\begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 2 & 0 & 0 \\ 0 & 0 & 3 & 0 \\ 0 & 0 & 0 & 4 \end{pmatrix} = \text{ det}\begin{pmatrix} 1 & 1 & 1 & 1 \\ 0 & 2 & 1 & 1 \\ 0 & 0 & 3 & 1 \\ 0 & 0 & 0 & 4 \end{pmatrix} = \text{det}\begin{pmatrix} 1 & 0 & 0 & 0 \\ 1 & 2 & 0 & 0 \\ 1 & 1 & 3 & 0 \\ 1 & 1 & 1 & 4\end{pmatrix} = 1 \cdot 2 \cdot 3 \cdot 4 = 24\\]
+Ex: \\[\text{ det}\pmatrix{ 1 & 0 & 0 & 0 \cr 0 & 2 & 0 & 0 \cr 0 & 0 & 3 & 0 \cr 0 & 0 & 0 & 4 } = \text{ det}\pmatrix{ 1 & 1 & 1 & 1 \cr 0 & 2 & 1 & 1 \cr 0 & 0 & 3 & 1 \cr 0 & 0 & 0 & 4 } = \text{det}\pmatrix{ 1 & 0 & 0 & 0 \cr 1 & 2 & 0 & 0 \cr 1 & 1 & 3 & 0 \cr 1 & 1 & 1 & 4} = 1 \cdot 2 \cdot 3 \cdot 4 = 24\\]
 
 ### Linear Transformations
 
@@ -342,8 +353,8 @@ This proves that $T_1 \circ T_2$ is a linear transformation. $\square$
 
 Ex 1: Suppose a linear transformation $T$ transforms $(1,1)$ to $(2,2)$ and $(2,0)$ to $(0,0)$. Find $T((2,2))$.
 
-Let $(a,b) \in \mathbb{R}^2$ be a combination of vectors $(1,1)$ and $(2,2)$. Then $(a,b) = x(1,1) + y(2,0) = (x+2y,x)$. So: $a = x + 2y$ and $b = x$. Therefore $x = b$ and $y = (a-b)/2$. \\[\begin{flalign*} %&\implies (a,b) = b T((1,1)) + \frac{a-b}{2}T((2,0)) \\
-&\implies T((a,b)) = bT((1,1)) + \frac{a-b}{2}T((2,0)) = b(2,2) + \frac{a-b}{2} (0,0) = (2b,2b) \end{flalign*}\\]So: \\[T((2,2)) = (2\cdot2,2\cdot2) = (4,4)\\]Alternatively we can use $\textbf{b} = T(\vec{\textbf{x}}) = A \vec{\textbf{x}}$. Here: $(2,2)$ and $(0,0)$ correspond to $\textbf{b}$; $(1,1)$ and $(2,0)$ correspond to $\vec{\textbf{x}}$. So: \\[\begin{flalign*} A &= \textbf{b} \vec{\textbf{x}}^{-1} \\ &= \begin{pmatrix} 2 & 0 \\ 2 & 0\end{pmatrix} \begin{pmatrix} 1 & 2 \\ 1 & 0 \end{pmatrix}^{-1} \\ &=\begin{pmatrix} 2 & 0 \\ 2 & 0\end{pmatrix} \begin{pmatrix} 0 & 1 \\ \frac{1}{2} & -\frac{1}{2} \end{pmatrix} \\ &= \begin{pmatrix} 0 & 2 \\ 0 & 2 \end{pmatrix} \end{flalign*}\\]So: \\[\begin{pmatrix} 0 & 2 \\ 0 & 2 \end{pmatrix}\begin{pmatrix}  2 \\ 2\end{pmatrix} = \begin{pmatrix}  4 \\ 4\end{pmatrix}\\]as required.
+Let $(a,b) \in \mathbb{R}^2$ be a combination of vectors $(1,1)$ and $(2,2)$. Then $(a,b) = x(1,1) + y(2,0) = (x+2y,x)$. So: $a = x + 2y$ and $b = x$. Therefore $x = b$ and $y = (a-b)/2$. \\[\begin{aligned} %&\implies (a,b) = b T((1,1)) + \frac{a-b}{2}T((2,0)) \\
+&\implies T((a,b)) = bT((1,1)) + \frac{a-b}{2}T((2,0)) = b(2,2) + \frac{a-b}{2} (0,0) = (2b,2b) \end{aligned}\\]So: \\[T((2,2)) = (2\cdot2,2\cdot2) = (4,4)\\]Alternatively we can use $\textbf{b} = T(\vec{\textbf{x}}) = A \vec{\textbf{x}}$. Here: $(2,2)$ and $(0,0)$ correspond to $\textbf{b}$; $(1,1)$ and $(2,0)$ correspond to $\vec{\textbf{x}}$. So: \\[\begin{aligned} A &= \textbf{b} \vec{\textbf{x}}^{-1} \\\\ &= \pmatrix{ 2 & 0 \cr 2 & 0} \pmatrix{ 1 & 2 \cr 1 & 0 }^{-1} \\\\ &=\pmatrix{ 2 & 0 \cr 2 & 0} \pmatrix{ 0 & 1 \cr \frac{1}{2} & -\frac{1}{2} } \\\\ &= \pmatrix{ 0 & 2 \cr 0 & 2 } \end{aligned}\\]So: \\[\pmatrix{ 0 & 2 \cr 0 & 2 }\pmatrix{  2 \cr 2} = \pmatrix{  4 \cr 4}\\]as required.
 
 Ex 2: Let $\textbf{v},\textbf{w} \in \mathbb{R}^2$. Is $T(\textbf{v})=(0,1)$ a linear transformation? No since it does not satisfy scalar multiplication: \\[T(\textbf{v} + \textbf{w}) = T(\textbf{v}) + T(\textbf{w}) = (0,1) + (0,1) = (0,2) \neq (0,1)\\]Is $T(\textbf{v}) = (v_2,v_1)$ a linear transformation? Yes since it satisfies (1) vector addition and (2) scalar multiplication.
 
@@ -352,35 +363,35 @@ Ex 2: Let $\textbf{v},\textbf{w} \in \mathbb{R}^2$. Is $T(\textbf{v})=(0,1)$ a l
 
 ### Eigenstuff
 
-An eigen vector $\textbf{v}$ of a square matrix $A$ is a vector satisfying the equation: $A\textbf{v} = \lambda\textbf{v}$ for some $\lambda \in \mathbb{R}$ called the eigen value. So $A$ stretches or compresses $\textbf{v}$ without changing its direction. For instance: \\[\begin{flalign*} A\textbf{v} &= \lambda \textbf{v}\\ \begin{pmatrix} 1 & 1 \\ 1 & -1\end{pmatrix} \begin{pmatrix} 1 + \sqrt{2} \\ 1\end{pmatrix} &= \sqrt{2} \begin{pmatrix} 1 + \sqrt{2} \\ 1\end{pmatrix} \end{flalign*}\\]Notice: $A(c\textbf{v}) = cA\textbf{v} = c\lambda\textbf{v} = \lambda(cA)$.
+An eigen vector $\textbf{v}$ of a square matrix $A$ is a vector satisfying the equation: $A\textbf{v} = \lambda\textbf{v}$ for some $\lambda \in \mathbb{R}$ called the eigen value. So $A$ stretches or compresses $\textbf{v}$ without changing its direction. For instance: \\[\begin{aligned} A\textbf{v} &= \lambda \textbf{v}\\ \pmatrix{ 1 & 1 \cr 1 & -1} \pmatrix{ 1 + \sqrt{2} \cr 1} &= \sqrt{2} \pmatrix{ 1 + \sqrt{2} \cr 1} \end{aligned}\\]Notice: $A(c\textbf{v}) = cA\textbf{v} = c\lambda\textbf{v} = \lambda(cA)$.
 
-To find the eigen values of a matrix the fundamental equation is \\[A\textbf{v} = \lambda \textbf{v} \iff A\textbf{v} - \lambda \textbf{v} = \textbf{0} \iff \underbracket{(A - \lambda I)}_{ \text{cols are dep} }\textbf{v} = \textbf{0}\\]Ex 1: Keeping $A = \begin{pmatrix} 1 & 1 \\ 1 & -1\end{pmatrix}$, solve the determinant equation $\text{det}(A - \lambda I) = 0$ for the eigen value $\lambda$.
+To find the eigen values of a matrix the fundamental equation is \\[A\textbf{v} = \lambda \textbf{v} \iff A\textbf{v} - \lambda \textbf{v} = \textbf{0} \iff \underbracket{(A - \lambda I)}_{ \text{cols are dep} }\textbf{v} = \textbf{0}\\]Ex 1: Keeping $A = \pmatrix{ 1 & 1 \cr 1 & -1}$, solve the determinant equation $\text{det}(A - \lambda I) = 0$ for the eigen value $\lambda$.
 
-We are given that $\text{det}(A - \lambda I) = 0 \implies \begin{pmatrix} 1 & 1 \\ 1 & -1\end{pmatrix} - \begin{pmatrix} \lambda & 0 \\ 0 & \lambda\end{pmatrix} = \begin{pmatrix} 1-\lambda & 1 \\ 1 & -1-\lambda\end{pmatrix}$. So, using the equation for a $2 \times 2$ determinant: \\[\begin{flalign*} (1-\lambda)(-1-\lambda) - 1 &= 0 \\ (1-\lambda)(-1-\lambda) &= 1 \\ (1-\lambda)(1+\lambda) &= -1 \\ 1(1-\lambda) + \lambda(1 - \lambda) &= -1 \\ 1 - \lambda + \lambda - \lambda^2 &= -1 \\ 1 - \lambda^2 &= -1 \\ -\lambda^2 &= -2 \\\lambda^2 &= 2 \\ \lambda &= \pm \sqrt{2} \end{flalign*}\\]To find the eigen vector $\textbf{v}$, we have that \\[(A - \sqrt{2} I) \textbf{v} = \textbf{0} \implies \bigg( \begin{pmatrix} 1 & 1 \\ 1 & -1\end{pmatrix} - \begin{pmatrix} \sqrt{2} & 0 \\ 0 & \sqrt{2} \end{pmatrix} \bigg) \textbf{v} = \textbf{0} \implies \begin{pmatrix} 1 - \sqrt{2} & 1 \\ 1 & -1 - \sqrt{2}\end{pmatrix} \textbf{v} = \textbf{0}\\]Solving the system of equations reveals that \\[\textbf{v} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} = \begin{pmatrix} 1 \\ -1 + \sqrt{2}\end{pmatrix}\\]Notice: $\lambda$ is an eigen value $\iff (A - \lambda I)$ is singular (recall a square matrix is singular $\iff$ its determinant is zero/it does not have an inverse).  Now, The equation given by $\text{det}(A - \lambda I) = 0$ is a polynomial of degree $n$ called the characteristic polynomial whose variable is $\lambda$ (not $x$).
+We are given that $\text{det}(A - \lambda I) = 0 \implies \pmatrix{ 1 & 1 \cr 1 & -1} - \pmatrix{ \lambda & 0 \cr 0 & \lambda} = \pmatrix{ 1-\lambda & 1 \cr 1 & -1-\lambda}$. So, using the equation for a $2 \times 2$ determinant: \\[\begin{aligned} (1-\lambda)(-1-\lambda) - 1 &= 0 \\\\ (1-\lambda)(-1-\lambda) &= 1 \\\\ (1-\lambda)(1+\lambda) &= -1 \\\\ 1(1-\lambda) + \lambda(1 - \lambda) &= -1 \\\\ 1 - \lambda + \lambda - \lambda^2 &= -1 \\\\ 1 - \lambda^2 &= -1 \\\\ -\lambda^2 &= -2 \\\lambda^2 &= 2 \\\\ \lambda &= \pm \sqrt{2} \end{aligned}\\]To find the eigen vector $\textbf{v}$, we have that \\[(A - \sqrt{2} I) \textbf{v} = \textbf{0} \implies \bigg( \pmatrix{ 1 & 1 \cr 1 & -1} - \pmatrix{ \sqrt{2} & 0 \cr 0 & \sqrt{2} } \bigg) \textbf{v} = \textbf{0} \implies \pmatrix{ 1 - \sqrt{2} & 1 \cr 1 & -1 - \sqrt{2}} \textbf{v} = \textbf{0}\\]Solving the system of equations reveals that \\[\textbf{v} = \pmatrix{ v_1 \cr v_2 } = \pmatrix{ 1 \cr -1 + \sqrt{2}}\\]Notice: $\lambda$ is an eigen value $\iff (A - \lambda I)$ is singular (recall a square matrix is singular $\iff$ its determinant is zero/it does not have an inverse).  Now, The equation given by $\text{det}(A - \lambda I) = 0$ is a polynomial of degree $n$ called the characteristic polynomial whose variable is $\lambda$ (not $x$).
 
 Facts: If $A$ is a diagonal/triangular matrix, the eigen values are diagonal entries. The product of the $n$ eigen values of $A$ is the determinant of $A$. The sum of the $n$ eigen values of $A$ equals the sum of the $n$ diagonal entires of $A$.
 
 When $A$ is squared, the eigenvectors stay the same but the eigen values are squared.
 
-Ex 2: Find eigenvalues for the matrix $A = \begin{pmatrix} 1 & 4 \\ 2 & 3\end{pmatrix}$.
+Ex 2: Find eigenvalues for the matrix $A = \pmatrix{ 1 & 4 \cr 2 & 3}$.
 
-Set $\text{det}(A - \lambda I) = 0$. So $\text{det}\bigg(\begin{pmatrix} 1 & 4 \\ 2 & 3 \end{pmatrix} - \begin{pmatrix} \lambda & 0 \\ \lambda & 0  \end{pmatrix}\bigg) = 0$. Using the equation for $2 \times 2$ determinant: $(1-\lambda)(3- \lambda) - 8 = 0 \implies (\lambda + 1)(\lambda - 5) = 0$. So $\lambda = -1,5$. Then $(A - \lambda I)\textbf{v} = \textbf{0}$. So for $\lambda = 1$: $(A + I)\textbf{v} = \textbf{0} \implies (\begin{pmatrix} 2 & 4 \\ 2 & 4 \end{pmatrix})\textbf{v} = \textbf{0}$. So $v_1 + 2v_2 = 0$. Set $v_1 = 1$. Then $\textbf{v} = (-2,1)$. Other case similar.
+Set $\text{det}(A - \lambda I) = 0$. So $\text{det}\bigg(\pmatrix{ 1 & 4 \cr 2 & 3 } - \pmatrix{ \lambda & 0 \cr \lambda & 0  }\bigg) = 0$. Using the equation for $2 \times 2$ determinant: $(1-\lambda)(3- \lambda) - 8 = 0 \implies (\lambda + 1)(\lambda - 5) = 0$. So $\lambda = -1,5$. Then $(A - \lambda I)\textbf{v} = \textbf{0}$. So for $\lambda = 1$: $(A + I)\textbf{v} = \textbf{0} \implies (\pmatrix{ 2 & 4 \cr 2 & 4 })\textbf{v} = \textbf{0}$. So $v_1 + 2v_2 = 0$. Set $v_1 = 1$. Then $\textbf{v} = (-2,1)$. Other case similar.
 
 ### Diagonalizing Matrices
 
 The process of writing $A = X\Lambda X^{-1}$ (which implies $AX = X\Lambda$) is called diagonalizing $A$. It requires that the matrix $X$ be invertible. In other words, the eigenvectors must be linearly independent. Fact: eigenvectors corresponding to distinct eigenvalues are always linearly independent.
 
-Diagonalize the matrix $A = \begin{pmatrix} 2 & 2 \\ 0 & 3\end{pmatrix}$.
+Diagonalize the matrix $A = \pmatrix{ 2 & 2 \cr 0 & 3}$.
 
 Upper triangular so we have that $\lambda = 2,3$ are the eigenvalues.
 
-For $\lambda = 2$: $\begin{pmatrix} 2 & 2 \\ 0 & 3 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} =\begin{pmatrix} 2x \\ 2y \end{pmatrix} \implies y = 0, x \in\mathbb{R}$. Set $x = 1$. So $\lambda_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$.
+For $\lambda = 2$: $\pmatrix{ 2 & 2 \cr 0 & 3 } \pmatrix{ x \cr y } =\pmatrix{ 2x \cr 2y } \implies y = 0, x \in\mathbb{R}$. Set $x = 1$. So $\lambda_1 = \pmatrix{ 1 \cr 0 }$.
 
-For $\lambda = 3$: $\begin{pmatrix} 2 & 2 \\ 0 & 3 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 3x \\ 3y \end{pmatrix} \implies x = 2, y \in\mathbb{R}$. Set $y = 1$. So $\lambda_2 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$.
+For $\lambda = 3$: $\pmatrix{ 2 & 2 \cr 0 & 3 }\pmatrix{ x \cr y } = \pmatrix{ 3x \cr 3y } \implies x = 2, y \in\mathbb{R}$. Set $y = 1$. So $\lambda_2 = \pmatrix{ 2 \cr 1 }$.
 
-Then $X = \begin{pmatrix} \lambda_1 & \lambda_2 \end{pmatrix} = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}$. $\Lambda = \begin{pmatrix} 2 & 0 \\ 0 & 3\end{pmatrix}$.
+Then $X = \pmatrix{ \lambda_1 & \lambda_2 } = \pmatrix{ 1 & 2 \cr 0 & 1 }$. $\Lambda = \pmatrix{ 2 & 0 \cr 0 & 3}$.
 
-Now \\[\begin{flalign*} A &= X \Lambda X^{-1} \\ &= \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix} \begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix} \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}^{-1} \\ &= \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix} \begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix} \begin{pmatrix} 1 & -2 \\ 0 & 1 \end{pmatrix} \\ &= \begin{pmatrix} 2 & 6 \\ 0 & 3 \end{pmatrix} \begin{pmatrix} 1 & -2 \\ 0 & 1 \end{pmatrix} \\ &= \begin{pmatrix} 2 & 2 \\ 0 & 3\end{pmatrix}\end{flalign*}\\]Notice that $A^n$ has the same eigenvectors in $X$ and its squared eigenvalues are in $\Lambda^n$. So $A^n = X \Lambda^n X^{-1}$.
+Now \\[\begin{aligned} A &= X \Lambda X^{-1} \\\\ &= \pmatrix{ 1 & 2 \cr 0 & 1 } \pmatrix{ 2 & 0 \cr 0 & 3 } \pmatrix{ 1 & 2 \cr 0 & 1 }^{-1} \\\\ &= \pmatrix{ 1 & 2 \cr 0 & 1 } \pmatrix{ 2 & 0 \cr 0 & 3 } \pmatrix{ 1 & -2 \cr 0 & 1 } \\\\ &= \pmatrix{ 2 & 6 \cr 0 & 3 } \pmatrix{ 1 & -2 \cr 0 & 1 } \\\\ &= \pmatrix{ 2 & 2 \cr 0 & 3}\end{aligned}\\]Notice that $A^n$ has the same eigenvectors in $X$ and its squared eigenvalues are in $\Lambda^n$. So $A^n = X \Lambda^n X^{-1}$.
 
 Notice that if $A = X \Lambda X^{-1}$ and $B = Y \Lambda Y^{-1}$, then $A$ and $B$ have the same eigenvalues.
 
