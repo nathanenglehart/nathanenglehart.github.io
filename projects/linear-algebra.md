@@ -23,7 +23,7 @@ We can compute the length of $\textbf{v}$ with \\[\lvert \textbf{v} \rvert = \sq
 ### Matrix Multiplication
 
 Without loss of generality, matrix multiplication functions in the following format. 
-\\[ \pmatrix{\text{ row 1 } \cr \text{ row 2 }} \pmatrix{\vert & \vert & \vert \cr \text{ col 1} & \text{col 2} & \text{col 3 } \cr \vert & \vert & \vert} = pmatrix{\text{test} \cr \text{test} \\]  <!--= pmatrix{ \text{ row 1 } \cdot \text{ col 1 } & \text{ row 1 } \cdot \text{ col 2 } & \text{ row 1 } \cdot \text{ col 3 } \cr  \text{ row 2 } \cdot \text{ col 1 } & \text{ row 2 } \cdot \text{ col 2 } & \text{ row 2 } \cdot \text{ col 3 } } \\]-->
+\\[ \pmatrix{\text{ row 1 } \cr \text{ row 2 }} \pmatrix{\vert & \vert & \vert \cr \text{ col 1} & \text{col 2} & \text{col 3 } \cr \vert & \vert & \vert} =  \pmatrix{ \text{ row 1 } \cdot \text{ col 1 } & \text{ row 1 } \cdot \text{ col 2 } & \text{ row 1 } \cdot \text{ col 3 } \cr  \text{ row 2 } \cdot \text{ col 1 } & \text{ row 2 } \cdot \text{ col 2 } & \text{ row 2 } \cdot \text{ col 3 } }\\]  <!--= pmatrix{ \text{ row 1 } \cdot \text{ col 1 } & \text{ row 1 } \cdot \text{ col 2 } & \text{ row 1 } \cdot \text{ col 3 } \cr  \text{ row 2 } \cdot \text{ col 1 } & \text{ row 2 } \cdot \text{ col 2 } & \text{ row 2 } \cdot \text{ col 3 } } \\]-->
 Ex 1: Let $A = \pmatrix{ 1 & 2 & 3 \cr 4 & 5 & 6 }$ and $\textbf{v} = \pmatrix{ -1 \cr 5 \cr 2 }$. Calculate $A \textbf{v}$. \\[A\textbf{v} = \pmatrix{ 1 & 2 & 3 \cr 4 & 5 & 6 } \pmatrix{ -1 \cr 5 \cr 2 } = \pmatrix{ 1 \cdot -1 + 2 \cdot 5 + 3 \cdot 2 \cr 4 \cdot -1 + 5 \cdot 5 + 6 \cdot 2 } = \pmatrix{ -1 + 10 + 6 \cr -4 + 25 + 12 } = \pmatrix{ 15 \cr 33 }\\]
 
 ### Gaussian Elimination
@@ -212,6 +212,7 @@ The **nullspace** of a $m \times n$ matrix $A$, denoted $N(A)$, is the set of al
 Ex 1: Give an example of a matrix whose nullspace is $\textbf{V} = \bigg\{ c_1\pmatrix{ 1 \cr 3 \cr 0} + c_2 \pmatrix{ 5 \cr 5 \cr 0 } : c_1, c_2 \in \mathbb{R} \bigg\}$.
 
 The nullspace of $A = \pmatrix{ 0 & 0 & 0 \cr 0 & 0 & 0 \cr 0 & 0 & 1}$ is $\textbf{V}$. This is because of the following. Let $\vec{v} \in \textbf{V}$ be arbitrary. Then $\vec{v} = (a,b,0)$ for some $a,b \in \mathbb{R}$. Performing matrix multiplication on $A$ and $\vec{v}$ will always yield the zero vector $\textbf{0}$ as such: \\[\pmatrix{ 0 & 0 & 0 \cr 0 & 0 & 0 \cr 0 & 0 & 1}\vec{v} = \textbf{0}\\]
+
 ### Left Nullspace
 
 The **left nullspace** of a $m \times n$ matrix $A$, denoted $N(A^T)$, is the set of all solutions to $A^T\textbf{x} = \textbf{0}$. So, if $\textbf{v} \in N(A^T)$ then $A^T\textbf{v} = \textbf{0}$.
