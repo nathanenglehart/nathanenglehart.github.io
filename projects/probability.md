@@ -154,7 +154,7 @@ The **strong Law of Large Numbers** (s-LLN) states the following. Suppose that w
 
 ### Central Limit Theorem
 
-The **Central Limit Theorem** (CLT) states the following. Suppose that we have independent identically distributed random variables $X_1,X_2,X_3,...$ with finite mean $\mathbb{E}(X_1) = \mu$ and finite variance $\text{Var}(X_1) = \sigma^2$. Let $S_n = X_1 + ... + X_n$. Then for any fixed $-\infty \leq  a \leq b \leq \infty$ we have \\[\lim_{n \to \infty} \mathbb{P}\bigg( a \leq \frac{S_n - n\mu}{\sigma \sqrt{n}} \leq b \bigg) = \phi(b) - \phi(a) = \int^b_a \frac{1}{\sqrt{2\pi}} e^{\frac{-y^2}{2}}dy\\]
+The **Central Limit Theorem** (CLT) states the following. Suppose that we have independent identically distributed random variables $X_1,X_2,X_3,...$ with finite mean $\mathbb{E}(X_1) = \mu$ and finite variance $\text{Var}(X_1) = \sigma^2$. Let $S_n = X_1 + ... + X_n$. Then for any fixed $-\infty \leq  a \leq b \leq \infty$ we have \\[\lim_{n \to \infty} \mathbb{P}\bigg( a \leq \frac{S_n - n\mu}{\sigma \sqrt{n}} \leq b \bigg) = \Phi(b) - \Phi(a) = \int^b_a \frac{1}{\sqrt{2\pi}} e^{\frac{-y^2}{2}}dy\\]
 
 
 

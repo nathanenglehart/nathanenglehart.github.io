@@ -23,7 +23,7 @@ We can compute the length of $\textbf{v}$ with \\[\lvert \textbf{v} \rvert = \sq
 ### Matrix Multiplication
 
 Without loss of generality, matrix multiplication functions in the following format. 
-\\[ \pmatrix{\text{ row 1 } \cr \text{ row 2 }} \pmatrix{\vert & \vert & \vert \cr \text{ col 1} & \text{col 2} & \text{col 3 } \cr \vert & \vert & \vert} = pmatrix{\text{test test} \cr \text{test test} \\]  <!--= pmatrix{ \text{ row 1 } \cdot \text{ col 1 } & \text{ row 1 } \cdot \text{ col 2 } & \text{ row 1 } \cdot \text{ col 3 } \cr  \text{ row 2 } \cdot \text{ col 1 } & \text{ row 2 } \cdot \text{ col 2 } & \text{ row 2 } \cdot \text{ col 3 } } \\]-->
+\\[ \pmatrix{\text{ row 1 } \cr \text{ row 2 }} \pmatrix{\vert & \vert & \vert \cr \text{ col 1} & \text{col 2} & \text{col 3 } \cr \vert & \vert & \vert} = pmatrix{\text{test} \cr \text{test} \\]  <!--= pmatrix{ \text{ row 1 } \cdot \text{ col 1 } & \text{ row 1 } \cdot \text{ col 2 } & \text{ row 1 } \cdot \text{ col 3 } \cr  \text{ row 2 } \cdot \text{ col 1 } & \text{ row 2 } \cdot \text{ col 2 } & \text{ row 2 } \cdot \text{ col 3 } } \\]-->
 Ex 1: Let $A = \pmatrix{ 1 & 2 & 3 \cr 4 & 5 & 6 }$ and $\textbf{v} = \pmatrix{ -1 \cr 5 \cr 2 }$. Calculate $A \textbf{v}$. \\[A\textbf{v} = \pmatrix{ 1 & 2 & 3 \cr 4 & 5 & 6 } \pmatrix{ -1 \cr 5 \cr 2 } = \pmatrix{ 1 \cdot -1 + 2 \cdot 5 + 3 \cdot 2 \cr 4 \cdot -1 + 5 \cdot 5 + 6 \cdot 2 } = \pmatrix{ -1 + 10 + 6 \cr -4 + 25 + 12 } = \pmatrix{ 15 \cr 33 }\\]
 
 ### Gaussian Elimination
