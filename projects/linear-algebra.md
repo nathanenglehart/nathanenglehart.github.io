@@ -118,8 +118,10 @@ Any set of vectors from a vector space will span a subspace of that space.\
 \
 Ex 1: Give an example of a vector space $\textbf{V}$ that has $\{(1,3,0), (5,5,0)\}$ as a basis (these component vectors are shown above to be a basis).   \
 \
-The vector space $\textbf{V} = \bigg\{ c_1\pmatrix{ 1 \cr 3 \cr 0} + c_2 \pmatrix{ 5 \cr 5 \cr 0 } : c_1, c_2 \in \mathbb{R} \bigg\}$ has basis $\bigg\{ \pmatrix{ 1 \cr 3 \cr 0 }, \pmatrix{ 5 \cr 5 \cr 0 } \bigg\} = \{(1,3,0), (5,5,0)\}$.\
-\
+Let the vector space $\textbf{V}$ by defined by: 
+\\[\textbf{V} = \bigg\{ c_1\pmatrix{ 1 \cr 3 \cr 0} + c_2 \pmatrix{ 5 \cr 5 \cr 0 } : c_1, c_2 \in \mathbb{R} \bigg\}\\] 
+Then, $\textbf{V}$ has basis: 
+\\[\bigg\{ \pmatrix{ 1 \cr 3 \cr 0 }, \pmatrix{ 5 \cr 5 \cr 0 } \bigg\} = \{(1,3,0), (5,5,0)\}\\]
 Ex 2: Is $\mathbb{R}^2$ a subspace of $\mathbb{R}^3$? Briefly explain your answer.\
 \
 No. $(1,0) \not\in \mathbb{R}^3$ since $\mathbb{R}^3$ only contains elements of the form $(a,b,c)$ with $a,b,c \in \mathbb{R}$.
@@ -130,7 +132,7 @@ A **vector subspace** is subset of a vector space satisfying vector addition and
 \
 Ex 1: Consider the vector space $P_2$ of polynomials of degree at most two, with vector addition and scalar multiplication given as usual. Which of the following sets are subspaces of $P_2$? 
 
-\\[ \begin{aligned} &\text{1. } \{ax^2 + bx + c \text{ } | \text{ } a \text{ is odd}\} \\\\ &\text{2. } \{ax^2 + bx + c \text{ } | \text{ } b = a+c\} \end{aligned} \\]
+\\[ \begin{aligned} &\text{1. } \{ax^2 + bx + c \text{ } \vert \text{ } a \text{ is odd}\} \\\\ &\text{2. } \{ax^2 + bx + c \text{ } \vert \text{ } b = a+c\} \end{aligned} \\]
 
 (1) Not a subspace. $x^2$ lies in this set, but $x^2 + x^2 = 2x^2$ does not. Thus, set is not closed under vector addition. \
 \
@@ -231,13 +233,13 @@ Thus, any element $\textbf{v} \in \textbf{x}_n$ will have the property $A\textbf
 
 Recall cos(0) = 1 and sin(0) = 0.
 
-$\mathbb{R}^\mathbb{N} = \{f \text{ } | \text{ } f: \mathbb{N} \to \mathbb{R}\}$ is a vector space.  $\mathbb{R}^\mathbb{R} = \{f \text{ } | \text{ } f: \mathbb{R} \to \mathbb{R}\}$ is also a vector space.
+$\mathbb{R}^\mathbb{N} = \{f \text{ } \vert \text{ } f: \mathbb{N} \to \mathbb{R}\}$ is a vector space.  $\mathbb{R}^\mathbb{R} = \{f \text{ } \vert \text{ } f: \mathbb{R} \to \mathbb{R}\}$ is also a vector space.
 
 The set of all functions of the form $y(x) = A \cos(x) + B \cos(2x) + C \cos(3x)$ has the span \\[\bigg\{ c\cos(x) + d\cos(2x) + e\cos(3x) : c,d,e \in \mathbb{R} \bigg\}\\]It has basis \\[\bigg\{ \cos(x), \cos(2x), \cos(3x) \bigg\}\\]
 
 ### Orthogonality
 
-Two vectors are orthogonal when their dot product is zero: $\textbf{v} \cdot \textbf{w} = \textbf{v}^T\textbf{w} = \textbf{0}$. It follows that if these vectors are orthogonal, then we have that: $|\textbf{v}|^2 + |\textbf{w}|^2 = |\textbf{v} + \textbf{w}|^2$.
+Two vectors are orthogonal when their dot product is zero: $\textbf{v} \cdot \textbf{w} = \textbf{v}^T\textbf{w} = \textbf{0}$. It follows that if these vectors are orthogonal, then we have that: $\lvert\textbf{v}\rvert^2 + \lvert\textbf{w}\rvert^2 = \lvert\textbf{v} + \textbf{w}\rvert^2$.
 
 Subspaces $\textbf{V}$ and $\textbf{W}$ are orthogonal when $\textbf{v} \cdot \textbf{w} = \textbf{v}^T\textbf{w} = \textbf{0}$ for all $\textbf{v} \in \textbf{V}$ and $\textbf{w} \in \textbf{W}$.  
 
@@ -267,9 +269,9 @@ When looking to find a linear combination of vectors closest to another vector $
 
 Solving $A^TA\hat{\textbf{x}} = A^T\textbf{b}$ gives the projection $\textbf{p} = A\hat{\textbf{x}}$ of $\textbf{b}$ onto the column space of $A$. If we are looking for the best horizontal line, we have that $\hat{\textbf{x}} = \pmatrix{ C }$. If we are looking for a line generally, we have that $\hat{\textbf{x}} = \pmatrix{ C \\D }$.
 
-When $A\textbf{x} - \textbf{b}$ has no solution, $\hat{\textbf{x}} = (A^TA)^{-1}A^T\textbf{b}$ is the least squares solution. The least squares solution $\hat{\textbf{x}}$ makes $E = ||A\textbf{x}-\textbf{b}||^2$ as small as possible.
+When $A\textbf{x} - \textbf{b}$ has no solution, $\hat{\textbf{x}} = (A^TA)^{-1}A^T\textbf{b}$ is the least squares solution. The least squares solution $\hat{\textbf{x}}$ makes $E = \lvert\lvertA\textbf{x}-\textbf{b}\rvert\rvert^2$ as small as possible.
 
-Setting partial derivatives of $E = ||||A\textbf{x}-\textbf{b}||^2||$ to zero $\bigg( \frac{\partial E}{\partial x_i} = 0 \bigg)$ also produces $A^TA\hat{\textbf{x}} = A^T\textbf{b}$. For example, suppose we need to find the closest line (not through the origin) to the points (0,6), (1,0), (2,0).
+Setting partial derivatives of $E = \lvert\lvert\lvert\lvertA\textbf{x}-\textbf{b}\rvert\rvert^2\rvert\rvert$ to zero $\bigg( \frac{\partial E}{\partial x_i} = 0 \bigg)$ also produces $A^TA\hat{\textbf{x}} = A^T\textbf{b}$. For example, suppose we need to find the closest line (not through the origin) to the points (0,6), (1,0), (2,0).
 
 Then we have that $A = \pmatrix{ 1 & 0 \cr 1 & 1 \cr 1 & 2 }$, $x = \pmatrix{ C \cr D }$, and $\textbf{b} = \pmatrix{ 6 \cr 0 \cr 0 }$.
 
@@ -285,10 +287,10 @@ Here, we are not looking for a horizontal line, but since we want to go through 
 
 ### Orthonormal Matrices
 
-A set of vectors $q_1,...,q_n$ are called orthogonal when the dot products $q_i \cdot q_j$ are zero. Set of orthogonal unit vectors (unit vectors are vectors with length 1) are called **orthonormal**. Recall vector length is given by $|\vec{v}| = \sqrt{v_1^2 + ... + v_n^2}$. It follows that a set of vectors $q_1,...,q_n$ is orthonormal when: \\[q_i \cdot q_j = \begin{aligned}\begin{cases} 0, i \neq j \\\\ 1, i = j\end{cases}\end{aligned} \\]If $Q$ is a matrix with orthonormal columns $q_1,...,q_n$ then $Q^TQ = I$. For example, permutation matrices have orthonormal columns. On a seperate note, the inverse of a permutation matrix is its transpose. This is also true for all *square* orthonormal matrices i.e. $Q^T = Q^{-1}$. Therefore, we also have $QQ^T = QQ^{-1} = I$ for all *square* matrices $Q$ (so to check if $Q$ is not orthonormal, one could check these equalities). Going forward, it will often be assumed that $Q$ is square.
+A set of vectors $q_1,...,q_n$ are called orthogonal when the dot products $q_i \cdot q_j$ are zero. Set of orthogonal unit vectors (unit vectors are vectors with length 1) are called **orthonormal**. Recall vector length is given by $\lvert\vec{v}\rvert = \sqrt{v_1^2 + ... + v_n^2}$. It follows that a set of vectors $q_1,...,q_n$ is orthonormal when: \\[q_i \cdot q_j = \begin{aligned}\begin{cases} 0, i \neq j \\\\ 1, i = j\end{cases}\end{aligned} \\]If $Q$ is a matrix with orthonormal columns $q_1,...,q_n$ then $Q^TQ = I$. For example, permutation matrices have orthonormal columns. On a seperate note, the inverse of a permutation matrix is its transpose. This is also true for all *square* orthonormal matrices i.e. $Q^T = Q^{-1}$. Therefore, we also have $QQ^T = QQ^{-1} = I$ for all *square* matrices $Q$ (so to check if $Q$ is not orthonormal, one could check these equalities). Going forward, it will often be assumed that $Q$ is square.
 
 Now, if $Q^TQ = I$ and $\vec{x}, \vec{y} = \mathbb{R}^n$. Then
-1. $||Q\vec{x}|| = \sqrt{Q\vec{x} \cdot Q\vec{x}} = \sqrt{(Q\vec{x})^TQ\vec{x}} = \sqrt{\vec{x}^TQ^TQ\vec{x}} = ||\vec{x}||$
+1. $\lvert\lvert Q\vec{x}\rvert\rvert = \sqrt{Q\vec{x} \cdot Q\vec{x}} = \sqrt{(Q\vec{x})^TQ\vec{x}} = \sqrt{\vec{x}^TQ^TQ\vec{x}} = \lvert\lvert\vec{x}\rvert\rvert$
 2. $Q\vec{x} \cdot Q\vec{x} = (Q\vec{x})^TQ\vec{y} = \vec{x}^TQ^TQ\vec{y} = \vec{x}^TI\vec{y} = \vec{x}^T\vec{y} = \vec{x} \cdot \vec{y}$
 
 There is an interesting factorization of $A = QR$. Without loss of generality... \\[\begin{aligned} A &= QR \\\\ \pmatrix{ \phantom{a} & \phantom{a} & \phantom{a} \cr \textbf{a} & \textbf{b} & \textbf{c} \cr \phantom{a} & \phantom{a} & \phantom{a} } &= \pmatrix{ \phantom{a} & \phantom{a} & \phantom{a} \cr \textbf{q}_1 & \textbf{q}_2 & \textbf{q}_3 \cr \phantom{a} & \phantom{a} & \phantom{a} } \pmatrix{ \textbf{q}_1 \cdot \textbf{a} & \textbf{q}_1 \cdot \textbf{b} & \textbf{q}_1 \cdot \textbf{c} \cr \textbf{0} & \textbf{q}_2 \cdot \textbf{b} & \textbf{q}_2 \cdot \textbf{c} \cr \textbf{0} & \textbf{0} & \textbf{q}_3 \cdot \textbf{c} } \end{aligned}\\]So $R = Q^TA$. It follows for least squares that $R^TR\hat{\textbf{x}} = R^TQ^T\textbf{b}$ or $R\hat{\textbf{x}} = Q^T\textbf{b}$ or $\hat{\textbf{x}} = R^{-1}Q^T\textbf{b} = (Q^TA)^{-1}Q^T\textbf{b}$.
@@ -307,11 +309,11 @@ Put $\textbf{C} = \textbf{c} - \frac{\textbf{A}^T\textbf{c}}{\textbf{A}^T\textbf
 
 As so forth. Once you have transformed your vectors as such. Normalize each vector in the new set. For instance, with these three vectors, one would do the following.
 
-Put $\textbf{A} = \frac{\textbf{A}}{||\textbf{A}||}$.
+Put $\textbf{A} = \frac{\textbf{A}}{\lvert\lvert\textbf{A}\rvert\rvert}$.
 
-Put $\textbf{B} = \frac{\textbf{B}}{||\textbf{B}||}$.
+Put $\textbf{B} = \frac{\textbf{B}}{\lvert\lvert\textbf{B}\rvert\rvert}$.
 
-Put $\textbf{C} = \frac{\textbf{C}}{||\textbf{C}||}$.
+Put $\textbf{C} = \frac{\textbf{C}}{\lvert\lvert\textbf{C}\rvert\rvert}$.
 
 Now $\{\textbf{A}, \textbf{B}, \textbf{C}\}$ are a set of orthonormal vectors created from the set $\{\textbf{a}, \textbf{b}, \textbf{c}\}$. We say that $\{\textbf{A}, \textbf{B}, \textbf{C}\} = \{\textbf{q}_1,\textbf{q}_2,\textbf{q}_3\}$ if the elements of the set are columns of an orthonormal matrix $Q$.
 
@@ -327,7 +329,7 @@ $\text{det} \pmatrix{ a & b & c & d \cr e &f & g & h \cr i & j & k & l \cr m & n
 
 Only square matrices have determinants.
 
-Properties of determinants include: $\text{det} (A^T) = \text{det} (A)$, $\text{det} (AB) = (\text{det} (A))(\text{det} (B))$, and $|\text{det} (I)| = 1$. More properties: not additive i.e. $\text{det}(A+B) \neq \text{det}(A) + \text{det}(B)$, each row exchange of a matrix reverses the sign of a determinant, $\text{det}(\frac{1}{2}A) = \frac{1}{2}^n\text{det}(A)$ where $n$ is the dimension of $A$ ($n \times n$), $\text{det}(A^2) = \text{det}(A)^2$, and $\text{det}(A^{-1}) = \frac{1}{\text{det}(A)}$.  
+Properties of determinants include: $\text{det} (A^T) = \text{det} (A)$, $\text{det} (AB) = (\text{det} (A))(\text{det} (B))$, and $\lvert\text{det} (I)\rvert = 1$. More properties: not additive i.e. $\text{det}(A+B) \neq \text{det}(A) + \text{det}(B)$, each row exchange of a matrix reverses the sign of a determinant, $\text{det}(\frac{1}{2}A) = \frac{1}{2}^n\text{det}(A)$ where $n$ is the dimension of $A$ ($n \times n$), $\text{det}(A^2) = \text{det}(A)^2$, and $\text{det}(A^{-1}) = \frac{1}{\text{det}(A)}$.  
 
 Invertible matrices have $\text{det}(A) = \pm (\text{product of pivots})$ since if $PA = LU$, then $\text{det}(A) = (\text{det}(L))(\text{det}(U)) = \text{det}(U)$ and $\text{det}(P) = \pm 1$ because it is an invertible permutation matrix.  
 
