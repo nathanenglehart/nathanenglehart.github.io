@@ -23,7 +23,7 @@ We can compute the length of $\textbf{v}$ with \\[\lvert \textbf{v} \rvert = \sq
 ### Matrix Multiplication
 
 Without loss of generality, matrix multiplication functions in the following format. 
-\\[ \pmatrix{\text{ row 1 } \cr \text{ row 2 }} \pmatrix{\vert & \vert & \vert \cr \text{ col 1} & \text{col 2} & \text{col 3 } \cr \vert & \vert & \vert} =  \pmatrix{ \text{ row 1 } \cdot \text{ col 1 } & \text{ row 1 } \cdot \text{ col 2 } & \text{ row 1 } \cdot \text{ col 3 } \cr  \text{ row 2 } \cdot \text{ col 1 } & \text{ row 2 } \cdot \text{ col 2 } & \text{ row 2 } \cdot \text{ col 3 } }\\]  <!--= pmatrix{ \text{ row 1 } \cdot \text{ col 1 } & \text{ row 1 } \cdot \text{ col 2 } & \text{ row 1 } \cdot \text{ col 3 } \cr  \text{ row 2 } \cdot \text{ col 1 } & \text{ row 2 } \cdot \text{ col 2 } & \text{ row 2 } \cdot \text{ col 3 } } \\]-->
+\\[ \pmatrix{\text{ row 1 } \cr \text{ row 2 }} \pmatrix{\vert & \vert & \vert \cr \text{ col 1} & \text{col 2} & \text{col 3 } \cr \vert & \vert & \vert} =  \pmatrix{ \text{ row 1 } \cdot \text{ col 1 } & \text{ row 1 } \cdot \text{ col 2 } & \text{ row 1 } \cdot \text{ col 3 } \cr  \text{ row 2 } \cdot \text{ col 1 } & \text{ row 2 } \cdot \text{ col 2 } & \text{ row 2 } \cdot \text{ col 3 } }\\]  
 Ex 1: Let $A = \pmatrix{ 1 & 2 & 3 \cr 4 & 5 & 6 }$ and $\textbf{v} = \pmatrix{ -1 \cr 5 \cr 2 }$. Calculate $A \textbf{v}$. \\[A\textbf{v} = \pmatrix{ 1 & 2 & 3 \cr 4 & 5 & 6 } \pmatrix{ -1 \cr 5 \cr 2 } = \pmatrix{ 1 \cdot -1 + 2 \cdot 5 + 3 \cdot 2 \cr 4 \cdot -1 + 5 \cdot 5 + 6 \cdot 2 } = \pmatrix{ -1 + 10 + 6 \cr -4 + 25 + 12 } = \pmatrix{ 15 \cr 33 }\\]
 
 ### Gaussian Elimination
@@ -44,31 +44,35 @@ So: $(x_1, x_2, x_3) = (0,-3,1)$.
 
 The **PA = LU** factorization method is a well-known numerical method for solving types of linear equations against multiple input.\
 \
-Ex 1: Find a permutation matrix $P$, a lower triangular matrix $L$, and an upper triangular matrix $U$ such that $PA = LU$, where $A = \pmatrix{ 1 & 0 & 1 \cr 2 & 2 & 2 \cr 3 & 4 & 5}$.\
-\
+Ex 1: Find a permutation matrix $P$, a lower triangular matrix $L$, and an upper triangular matrix $U$ such that $PA = LU$, where: 
+\\[ A = \pmatrix{ 1 & 0 & 1 \cr 2 & 2 & 2 \cr 3 & 4 & 5} \\]
 Now, using a Gaussian elimination: \\[\pmatrix{ 1 & 0 & 1 \cr 2 & 2 & 2 \cr 3 & 4 & 5  } \to \pmatrix{  1 & 0 & 1 \cr 0 & 2 & 0 \cr 3 & 4 & 5 } \to \pmatrix{ 1 & 0 & 1 \cr 0 & 2 & 0 \cr 0 & 4 & 2  } \to \pmatrix{  1 & 0 & 1 \cr 0 & 2 & 0 \cr 3 & 4 & 5 } \to \pmatrix{ 1 & 0 & 1 \cr 0 & 2 & 0 \cr 0 & 0 & 2} = U\\]
-So: \\[P = \pmatrix{  1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 } \\] \\[E = E_{32}(2)E_{31}(3) E_{21}(2) = \pmatrix{ 1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & -2 & 1} \pmatrix{ 1 & 0 & 0 \cr 0 & 1 & 0 \cr -3 & 0 & 1 } \pmatrix{ 1 & 0 & 0 \cr -2 & 1 & 0 \cr 0 & 0 & 1 } \text{, }  \\]
+So $P$ is given by:
+\\[P = \pmatrix{  1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 } \\] 
+And $E$ is given by:
+\\[E = E_{32}(2)E_{31}(3) E_{21}(2) = \pmatrix{ 1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & -2 & 1} \pmatrix{ 1 & 0 & 0 \cr 0 & 1 & 0 \cr -3 & 0 & 1 } \pmatrix{ 1 & 0 & 0 \cr -2 & 1 & 0 \cr 0 & 0 & 1 } \text{, }  \\]
+And $L$ is given by:
 \\[ L = E^{-1} = E_{21}(-2) E_{31}(-3) E_{32}(-2) = \pmatrix{ 1 & 0 & 0 \cr 2 & 1 & 0 \cr 0 & 0 & 1 } \pmatrix{ 1 & 0 & 0 \cr 0 & 1 & 0 \cr 3 & 0 & 1 }  \pmatrix{ 1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 2 & 1} = \pmatrix{ 1 & 0 & 0 \cr 2 & 1 & 0 \cr 3 & 2 & 1}   \\]
 This implies that: \\[\begin{aligned} PA &= LU \\\\  \pmatrix{  1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 } \pmatrix{ 1 & 0 & 1 \cr 2 & 2 & 2 \cr 3 & 4 & 5  } &= \pmatrix{ 1 & 0 & 0 \cr 2 & 1 & 0 \cr 3 & 2 & 1} \pmatrix{ 1 & 0 & 1 \cr 0 & 2 & 0 \cr 0 & 0 & 2 } \\\\  \pmatrix{ 1 & 0 & 1 \cr 2 & 2 & 2 \cr 3 & 4 & 5  }  &= \pmatrix{ 1 & 0 & 1 \cr 2 & 2 & 2 \cr 3 & 4 & 5  } \end{aligned}\\]
 
 ### Matrix Transpose
 
 The **transpose** of a matrix $A$ is given by 
-\\[\left(A^T\right)_{ij} = A_{ji}\\]
-Ex 1: If $A = \pmatrix{ 1 & 2 & 3 \cr 0 & 0 & 4 }$, then $A^T = \pmatrix{ 1 & 0 \cr 2 & 0 \cr 3 & 4 }$.
-
+\\[ A^T_{ij} = A_{ji}\\]
+Ex 1: If $A = \pmatrix{ 1 & 2 & 3 \cr 0 & 0 & 4 }$, then $A^T = \pmatrix{ 1 & 0 \cr 2 & 0 \cr 3 & 4 }$.\
+\
 The **transpose** of $A +B$ is $A^T + B^T$. The **transpose** of $AB$ is $(AB)^T = B^TA^T$. The **transpose** of $A^{-1}$ is $(A^{-1})^T = (A^T)^{-1}$.
 
 ### Matrix Inverse
 
-The **inverse** of a matrix is denoted $A^{-1}$. It has the properties: $AA^{-1} = I$ and $A^{-1}A = I$.
-
-Without loss of generality, the inverse product of two matrices $A,B$ is given by: \\[(AB)^{-1} = B^{-1}A^{-1}\\]A matrix is invertible if and only if it has independent columns/full rank.
-
-A 2 by 2 matrix is invertible if and only if $ad - bc \neq 0$, as such: \\[\pmatrix{a & b \cr c & d }^{-1} = \frac{1}{ad-bc}\pmatrix{ d & -b \cr -c & a}\\]Generally, the inverse of a matrix $A$ can be computed by creating an augmented matrix of the form $\pmatrix{ A & I}$. Using Gaussian elimination to row reduce $A$ to $I$ by performing row operations on both sides yields $\pmatrix{ I & A^{-1}}$. Note that the zero matrix is not invertible.
-
-Ex: Can a square matrix with two identical rows be invertible?
-
+The **inverse** of a matrix is denoted $A^{-1}$. It has the properties: $AA^{-1} = I$ and $A^{-1}A = I$.\
+\
+Without loss of generality, the inverse product of two matrices $A,B$ is given by: \\[(AB)^{-1} = B^{-1}A^{-1}\\]A matrix is invertible if and only if it has independent columns/full rank.\
+\
+A 2 by 2 matrix is invertible if and only if $ad - bc \neq 0$, as such: \\[\pmatrix{a & b \cr c & d }^{-1} = \frac{1}{ad-bc}\pmatrix{ d & -b \cr -c & a}\\]Generally, the inverse of a matrix $A$ can be computed by creating an augmented matrix of the form $\pmatrix{ A & I}$. Using Gaussian elimination to row reduce $A$ to $I$ by performing row operations on both sides yields $\pmatrix{ I & A^{-1}}$. Note that the zero matrix is not invertible.\
+\
+Ex: Can a square matrix with two identical rows be invertible?\
+\
 No. An invertible matrix must have full rank. Two identical rows implies that this matrix is not full rank, since each column is not independent.
 
 ### Linear Independence
@@ -230,6 +234,7 @@ Recall cos(0) = 1 and sin(0) = 0.
 $\mathbb{R}^\mathbb{N} = \{f \text{ } | \text{ } f: \mathbb{N} \to \mathbb{R}\}$ is a vector space.  $\mathbb{R}^\mathbb{R} = \{f \text{ } | \text{ } f: \mathbb{R} \to \mathbb{R}\}$ is also a vector space.
 
 The set of all functions of the form $y(x) = A \cos(x) + B \cos(2x) + C \cos(3x)$ has the span \\[\bigg\{ c\cos(x) + d\cos(2x) + e\cos(3x) : c,d,e \in \mathbb{R} \bigg\}\\]It has basis \\[\bigg\{ \cos(x), \cos(2x), \cos(3x) \bigg\}\\]
+
 ### Orthogonality
 
 Two vectors are orthogonal when their dot product is zero: $\textbf{v} \cdot \textbf{w} = \textbf{v}^T\textbf{w} = \textbf{0}$. It follows that if these vectors are orthogonal, then we have that: $|\textbf{v}|^2 + |\textbf{w}|^2 = |\textbf{v} + \textbf{w}|^2$.

@@ -58,11 +58,18 @@ A random variable $X$ is a continuous random variable if it satisfies
 
 ### Probability Mass Function
 
-Probability mass functions are only defined for discrete random variables. The probability mass function of a discrete random variable $X$ is the function $p$ (or $p_X$) is defined by \\[p(k) = \mathbb{P}(X = k)\\]for all possible values $k$ of $X$.
+Probability mass functions are only defined for discrete random variables. The probability mass function of a discrete random variable $X$ is the function $p$ (or $p_X$) is defined by \\[p(k) = \mathbb{P}(X = k)\\]for all possible values $k$ of $X$.\
+\
+The **conditional probability mass function** of a discrete random variable $X$ and an event $B$ with $\mathbb{P}(B) > 0$ is the function $p_{X|B}$ which is defined by 
+\\[p_{X|B}(k) = \mathbb{P}(X = k \text{ } \vert \text{ } B) = \frac{\mathbb{P}(\{X=k\} \cap B)}{\mathbb{P}(B)}\\]
 
 ### Probability Density Function
 
-Probability density functions are only defined for continuous random variables. The probability density function of a continuous random variable $X$ is a function $f$ that satisfies \\[\mathbb{P}(X \leq b) = \int_{-\infty}^b f(x)dx\\]for all real values $b$.
+Probability density functions are only defined for continuous random variables. The probability density function of a continuous random variable $X$ is a function $f$ that satisfies \\[\mathbb{P}(X \leq b) = \int_{-\infty}^b f(x)dx\\]for all real values $b$. \
+\
+Let $X$ and $Y$ be jointly continuous random variables with joint density function $f_{X,Y}(x, y)$. Then, **conditional probability density function** of $X$ given $Y$ is the function $f_{X|Y}(x \text{ } | \text{ } y)$ which is defined by  
+\\[f_{X|Y}(x \text{ } | \text{ } y) = \frac{f_{X,Y}(x,y)}{f_Y(y)}\\]
+for those $y$ such that $f_Y(y) > 0$. 
 
 ### Cumulative Probability Function
 
@@ -110,7 +117,15 @@ Let $X$ be a random variable. The **expectation** of $X$ is a weighted average o
 \
 The expectation or mean of a discrete random variable $X$ is defined by \\[\mathbb{E}(X) = \sum_k k \mathbb{P}(X = k) \\]where the sum ranges over all the possible values $k$ of $X$.\
 \
+The conditional expectation or mean of a discrete random variable $X$ given event $B$ is denoted by $\mathbb{E}[X \vert B]$ and is defined as 
+\\[\mathbb{E}[X \vert B] = \sum_k k p_{X|B}(k) = \sum_k k \mathbb{P}(X = k \text{ } \vert \text{ } B)\\]
+where the sum ranges over all all possible values $k$ of $X$.\
+\
 The expectation or mean of a continuous random variable $X$ with density function $f$ is \\[\mathbb{E}(X) = \int_\infty^{-\infty} x f(x) dx\\]An alternative symbol is $\mu = \mathbb{E}(X)$.\
+\
+The conditional expectation of a continuous random variable $X$ given another random variable $Y$ denoted by $\mathbb{E}[X \vert Y = y]$ is defined as 
+\\[\mathbb{E}[X \text{ } \vert \text{ } Y = y] = \int^\infty_{-\infty} x f_{X|Y}(x \vert y)dx\\]
+where $y$ is defined such that $f_Y(y) > 0$.\
 \
 Let $g$ be a real-valued function defined on the range of a random variable $X$. If $X$ is a discrete random variable then \\[\mathbb{E}(g(X)) = \sum_k g(k)\mathbb{P}(X = k)\\]while if $X$ is a continuous random variable with density function $f$ then \\[\mathbb{E}(g(X)) = \int_{-\infty}^\infty g(x)f(x)dx\\]The *n*th moment of the random variable $X$ is the expectation $\mathbb{E}(X^n)$. In the discrete case the *n*th moment is calculated by \\[\mathbb{E}(X^n) = \sum_k k^n \mathbb{P}(X = k)\\]If $X$ has density function $f$ its *n*th moment is given by \\[\mathbb{E}(X^n) = \int^\infty_{-\infty}x^nf(x)dx\\]Let $X$ be a random variable and $a$ and $b$ real numbers. Then \\[\mathbb{E}(aX + b) = a\mathbb{E}(X) + b\\]
 
