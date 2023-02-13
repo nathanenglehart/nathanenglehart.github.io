@@ -47,7 +47,7 @@ The **PA = LU** factorization method is a well-known numerical method for solvin
 Ex 1: Find a permutation matrix $P$, a lower triangular matrix $L$, and an upper triangular matrix $U$ such that $PA = LU$, where: 
 \\[ A = \pmatrix{ 1 & 0 & 1 \cr 2 & 2 & 2 \cr 3 & 4 & 5} \\]
 Now, using a Gaussian elimination: \\[\pmatrix{ 1 & 0 & 1 \cr 2 & 2 & 2 \cr 3 & 4 & 5  } \to \pmatrix{  1 & 0 & 1 \cr 0 & 2 & 0 \cr 3 & 4 & 5 } \to \pmatrix{ 1 & 0 & 1 \cr 0 & 2 & 0 \cr 0 & 4 & 2  } \to \pmatrix{  1 & 0 & 1 \cr 0 & 2 & 0 \cr 3 & 4 & 5 } \to \pmatrix{ 1 & 0 & 1 \cr 0 & 2 & 0 \cr 0 & 0 & 2} = U\\]
-So $P$ is given by:
+Therefore, $P$ is given by:
 \\[P = \pmatrix{  1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & 0 & 1 } \\] 
 And $E$ is given by:
 \\[E = E_{32}(2)E_{31}(3) E_{21}(2) = \pmatrix{ 1 & 0 & 0 \cr 0 & 1 & 0 \cr 0 & -2 & 1} \pmatrix{ 1 & 0 & 0 \cr 0 & 1 & 0 \cr -3 & 0 & 1 } \pmatrix{ 1 & 0 & 0 \cr -2 & 1 & 0 \cr 0 & 0 & 1 } \text{, }  \\]
@@ -57,8 +57,8 @@ This implies that: \\[\begin{aligned} PA &= LU \\\\  \pmatrix{  1 & 0 & 0 \cr 0 
 
 ### Matrix Transpose
 
-The **transpose** of a matrix $A$ is given by 
-\\[ A^T_{ij} = A_{ji}\\]
+The **transpose** of a matrix $A$ is given by $A^T_{ij} = A_{ji}$. \
+\
 Ex 1: If $A = \pmatrix{ 1 & 2 & 3 \cr 0 & 0 & 4 }$, then $A^T = \pmatrix{ 1 & 0 \cr 2 & 0 \cr 3 & 4 }$.\
 \
 The **transpose** of $A +B$ is $A^T + B^T$. The **transpose** of $AB$ is $(AB)^T = B^TA^T$. The **transpose** of $A^{-1}$ is $(A^{-1})^T = (A^T)^{-1}$.
