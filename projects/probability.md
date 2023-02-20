@@ -99,7 +99,13 @@ Abbreviate this by $X \sim \text{Unif}[a,b]$. This is a continuous random variab
 
 ### Gaussian Random Variable
 
-A random variable $Z$ has the standard normal distribution (the standard Gaussian distribution) if $Z$ has density function \\[f(x) = \frac{1}{\sqrt{2\pi}}e^{\frac{-x^2}{2}}\\]on real line. Abbreviate this by $Z \sim \mathcal{N}(0,1)$. This is a continuous random variable.
+A random variable $X$ has the normal distribution (the Gaussian distribution) if $X$ has the density function 
+\\[ f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}  \\]
+on the real line. Abbreviate this by $X \sim \mathcal{N}(\mu,\sigma)$.\ 
+\
+A random variable $Z$ has the standard normal distribution (the standard Gaussian distribution) if $Z$ has density function 
+\\[f(z) = \frac{1}{\sqrt{2\pi}}e^{\frac{-z^2}{2}}\\]
+on the real line. Abbreviate this by $Z \sim \mathcal{N}(0,1)$. This is a continuous random variable.
 
 ### Poisson Random Variable
 
