@@ -823,10 +823,10 @@ def efron_r_squared(t, t_probs):
 ```
 
 McFadden's $R^2$ is computed as follows.
-\\[R^2_{\text{McFadden}} = 1 - \frac{L_{ur}}{L_{0}} = \frac{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta)] + y_i \log[G(\boldsymbol x_i\hat\theta)]\bigg)}{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta_0)] + y_i \log[G(\boldsymbol x_i\hat{\theta}_{0})]\bigg)} \\]
-
-<!--= \frac{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta)] + y_i \log[G(\boldsymbol x_i\hat\theta)]\bigg)}{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta_0)] + y_i \log[G(\boldsymbol x_i\hat\theta_0)]\bigg)} \\]
+<!-- \\[R^2_{\text{McFadden}} = 1 - \frac{L_{ur}}{L_{0}} = \frac{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta)] + y_i \log[G(\boldsymbol x_i\hat\theta)]\bigg)}{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta_0)] + y_i \log[G(\boldsymbol x_i\hat{\theta}_{0})]\bigg)} \\]
 -->
+
+\\[R^2_{\text{McFadden}} = 1 - \frac{L_{ur}}{L_{0}}  \\]
 
 where $G$ is the sigmoid function (logit) or the cumulative distribution function of a standard normal random variable (probit) and $\boldsymbol x_i$ are rows of the regressor matrix.\
 \
