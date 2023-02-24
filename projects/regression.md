@@ -527,29 +527,41 @@ Extensive OLS, ridge, and lasso code available at: <a style="color: #f56a6a; !im
 
 <!--This repository also contains code for logistic regression with documentation available <a style="color: #f56a6a; !important" href="/projects/logit">here</a>.-->
 
-# Logistic Regression
+# Logit and Probit Regression
 
-Logistic regression (also known as logit regression) - like OLS regression - is commonly used in the social sciences. Unlike OLS, ridge, and lasso regression, logistic regression is used to examine the extent to which various independent variables are related to a binary dependent variable. \
+Logistic regression (also known as logit regression) and probit regression - like OLS regression - are commonly used in the social sciences. Logit and probit regression models are used to examine the extent to which various independent variables are related to a binary dependent variable. \
 \
-Logistic regression uses the sigmoid function (also known as the logistic function) to compute classification $t$ probabilities with:
-\\[ \sigma(z) = \frac{1}{1 + e^{-z}} = \frac{e^z}{1+e^z} \\]
+Probit and logit regression models take the form:
+\\[ P(t = 1 \text{ } \vert \text{ }x, \theta) = G(\theta \cdot \boldsymbol x) \\]
+$\theta = \textbf{[}\theta_1,\theta_2,...,\theta_n \textbf{]}$ represents the logit coefficients, $\boldsymbol x = \textbf{[}x_1,x_2,...,x_n \textbf{]}$ is a feature vector representing a single input observation, and $G$ is a function that takes on values between zero and one. \
+\
+It follows that the probability that $t=0$ is given by
+\\[ P(t = 0 \text{ }\vert \text{ } \boldsymbol x, \theta) = 1 - P(t = 1 \text{ } \vert \text{ } \boldsymbol x, \theta) = 1 - G(\theta \cdot \boldsymbol x) \\]
+
+<!--
 such that the probability that $t = 1$ is given by:
 \\[ P(t = 1 \text{ } \vert \text{ }x, \theta) = \sigma(\theta \cdot x) = \frac{1}{1 + e^{-(\theta \cdot x)}} = \frac{1}{1 + e^{-(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_n \cdot x_n)}} \\]
 and the probability that $t = 0$ is given by:
 \\[ P(t = 0 \text{ }\vert \text{ }x, \theta) = 1 - \sigma(\theta \cdot x) = 1 - \frac{1}{1 + e^{-(\theta \cdot x)}} = \frac{e^{(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_n \cdot x_n)}}{1 + e^{(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_n \cdot x_n)}} \\]
 where $\theta = \textbf{[}\theta_1,\theta_2,...,\theta_n \textbf{]}$ represents the logit coefficients and $x = \textbf{[}x_1,x_2,...,x_n \textbf{]}$ is a feature vector representing a single input observation. \
 \
-As such, using the latter equation, we can write that the predicted classification is given by:
+-->
+
+As such, we can write that the predicted classification is given by:
 <div align="center">
 <script type="math/tex">
 % <![CDATA[
 \hat{t} = \begin{cases}
-         1 \text{ if } 1 - P(t = 0 \text{ } | \text{ } x, \theta) \geq 0.5 \\
+         1 \text{ if } P(t = 1 \text{ } \vert \text{ }x, \theta) \geq 0.5 \\
 	 0 \text{ otherwise }
     \end{cases}
 % ]]>
 </script>
 </div> \
+Logistic regression uses the sigmoid function (also known as the logistic function) to compute classification $t$ probabilities with:
+\\[ G(z) = \sigma(z) = \frac{1}{1 + e^{-z}} = \frac{e^z}{1+e^z} \\]
+Probit regression uses the standard normal cumulative distribution function to compute classification probabilities $t$ with:
+\\[ G(z) = \Phi(z) = \int^z_{-\infty} \phi (v)dz = \frac{1}{\sqrt{2\pi}} \int^z_{-\infty} e^{\frac{-z^2}{2}} dz  \\]
 <!--\\[ \hat{t} = \arg \max_{t \in [0,1]} P(t) \\]--> <!-- this isnt true -->
 Like OLS and ridge regression, logistic regression seeks to find coefficients $\theta$ for the regression function which minimize prediction error. However, unlike OLS and ridge regression, logistic regression has no closed form solution. Instead, algorithms are used to compute optimal coefficients. \
 \
@@ -562,7 +574,7 @@ One such algorithm is batch gradient descent (also known as vanilla gradient des
 \\[ \theta_{i+1} = \theta_i - \frac{\alpha(X^T \cdot (P(t = 0 \text{ } | \text{ } x, \theta_i) - t))}{n} \\]
 
 \
-With each run, the algorithm updates $\theta$ to minimize prediction error. At the end of a sufficient number of iterations, $\theta$ will converge on the most optimal weights for the logit model. \
+With each run, the algorithm updates $\theta$ to minimize prediction error. At the end of a sufficient number of iterations, $\theta$ will converge on the most optimal weights for the logit model. Note, however, that the formal derivation for this method is outside the scope of this writeup.  \
 \
 As such, we can write a logistic regression class using python:
 
@@ -660,18 +672,132 @@ class logit_regression():
 		"""
 
 		return self.predict_proba(X).round()
+
+    def log_likelihood(self,X,t,theta):
+		
+		""" Compute log likelihood given inputs. """
+
+		y_star = np.dot(X,theta)
+		return np.sum(-np.log(1+np.exp(y_star))) + np.sum(t * y_star) 
+
+```
+
+Similarly, we can write a probit class using python with:
+
+```python
+import numpy as np
+from scipy.stats import norm
+
+# Nathan Englehart (Spring, 2023)
+
+class probit_regression():
+	
+	def __init__(self, alpha=0.1, epoch=1000):
+		
+		""" Probit regression class based on sklearn functionality 
+			
+			Args:
+				alpha::[Float]
+					Learning rate for batch gradient descent algorithm
+
+				epoch::[Int]
+					Number of iterations for batch gradient descent algorithm
+
+		"""
+
+		self.alpha = alpha
+		self.epoch = epoch
+
+	def fit(self,X,t):
+
+		""" Fits probit regression model with given regressor/train matrix and target vector 
+
+			Args:
+				X::[Numpy Array]
+					Regressor/train matrix that already has column of ones for intercept
+
+				t::[Numpy Array]
+					Target vector
+
+		"""
+
+		self.bgd(X, t)
+		self.coef_ = self.theta
+
+		return self
+	
+	def bgd(self, X, t):
+	
+		""" Performs batch gradient descent (also known as vanilla gradient descent) to find optimal coefficients for logit model within fit function
+
+			Args:
+				X::[Numpy Array]
+					Regressor/train matrix that already has column of ones for intercept
+				
+				t::[Numpy Array]
+					Target vector
+
+		"""
+		
+		self.theta = np.zeros(X.shape[1]) 
+
+		for i in range(self.epoch):
+			
+			gradient = np.dot(X.T, (self.predict_proba(X) - t)) / t.size
+				
+			self.theta -= (self.alpha * gradient)
+		return self
+
+	def Phi(self, z):
+		
+		""" Cumulative distribution function for the standard normal distribution. """
+		
+		return norm.cdf(-z) 
+
+	def predict_proba(self, X):
+
+
+		""" Generates probability predictions for the given matrix based on model
+
+			Args:
+				X::[Numpy Array]
+					Test matrix that already has column of ones for intercept
+
+		"""
+
+		return 1 - self.Phi(np.dot(X,self.theta))
+
+	def predict(self, X):
+			
+		""" Generates classification predictions for the given matrix based on the model 
+
+			Args:
+				X::[Numpy Array]
+					Test matrix that already has column of ones for intercept
+
+		"""
+
+		return self.predict_proba(X).round()
+
+	def log_likelihood(self,X,t,theta):
+		
+		""" Compute log likelihood given inputs. """
+
+		y_star = np.dot(X,theta)
+		return np.sum(-np.log(1+np.exp(y_star))) + np.sum(t * y_star) 
+
 ```
 
 ### Computing Pseudo R-Squared
 
-In OLS, ridge, and lasso regression, $R^2$ measures what percent of variation in the dependent variable can be explained by the independent variables collectively. Since logistic regression computes probabilities for a binary dependent variable instead of a continuous dependent variable, we cannot use the vanilla $R^2$ measure on logistic regression. However, there are many proposed pseudo $R^2$ measures for logistic regression. Like $R^2$, each pseudo $R^2$ measures what percent of variation in the dependent variable can be explained by the independent variables collectively. Common pseudo $R^2$ include:
+In OLS, ridge, and lasso regression, $R^2$ measures what percent of variation in the dependent variable can be explained by the independent variables collectively. In models which predict binary dependent variables, however, we cannot use vanilla $R^2$ to measure goodness of fit. However, there are many proposed pseudo $R^2$ measures. Common pseudo $R^2$ include:
 
 - Efron's $R^2$
 - McFadden's $R^2$ (which can be adjusted)
 - Cox and Snell $R^2$
 - Nagelkerke/Cragg and Uhler's $R^2$
 
-For this writeup, we will utilize Efron's $R^2$. Efron's $R^2$ is given by:\
+For this writeup, we will utilize Efron's $R^2$ and McFadden's $R^2$. Efron's $R^2$ is given by:\
 \
 \\[ R_{\text{Efron}}^2 = \frac{\sum (t_i - \hat{\pi}_i)^2}{\sum (t_i - \overline{t})^2} \\]\
 where $t$ represents a vector of respsonse variables, $\hat{\pi}$ represents a vector of prediction probabilities, and $\overline{t}$ is the mean of the vector of response variables. As such, with Python we can write:
@@ -692,6 +818,42 @@ def efron_r_squared(t, t_probs):
 	"""
 
 	return 1.0 - ( np.sum(np.power(t - t_probs, 2.0)) / np.sum(np.power((t - (np.sum(t) / float(len(t)))), 2.0)) ) 
+```
+
+McFadden's $R^2$ is computed as follows.
+\\[R^2_{\text{McFadden}} = 1 - \frac{\mathcal{L}_{ur}}{\mathcal{L}_0} = \frac{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta)] + y_i \log[G(\boldsymbol x_i\hat\theta)]\bigg)}{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta_0)] + y_i \log[G(\boldsymbol x_i\hat\theta_0)]\bigg)} \\]
+
+where $G$ is the sigmoid function (logit) or the cumulative distribution function of a standard normal random variable (probit) and $x_i$ are rows of the regressor matrix.\
+\
+Notice that the numerator and denominator functions are log likelihood functions. The log likelihood of function gives the likelihood of observing a sample with given function parameters. In McFadden's $R^2$, the numerator and denominator are log likelihoods with coefficients $\hat{\theta}$ and $\hat{\theta}_0$ which maximize the likelihood of observing the given data. The difference between the two is that $\hat{\theta}$ represents the full vector of coefficients while $\hat{\theta}_0$ represents only the intercept term (first coefficient) while setting the rest of the coefficients to zero. \
+\
+Note that since $G$ is between $0$ and $1$, and the log of a number less than $1$ is negative, that both log-likelihoods are negative. If the $x$'s  has no predictive power, then the log likelihood will be the same. So: \\[\mathcal{L}_{ur} = \mathcal{L}_0 \implies R^2_{\text{McFadden}} = 0 \\]
+We can write McFadden's $R^2$ in python as follows:
+
+```python
+def mcfadden_r_squared(theta, X, t, model):
+
+	""" Returns McFadden's psuedo R-Squared for logistic regression 
+	
+		Args:
+			
+			theta::[Numpy Array]
+				Weights/coefficients for the given logistic regression model
+			
+			X::[Numpy Array]
+				Regressor matrix
+
+			t::[Numpy Array]
+				Truth values corresponding to regressor matrix
+
+	"""
+
+	L_ul = model.log_likelihood(X,t,theta)
+	theta_0 = np.zeros(theta.size)
+	theta_0[0] = theta[0]
+	L_0 = model.log_likelihood(X, t, theta_0)
+
+	return 1 - (L_ul / L_0)
 ```
 
 ### Simple Logistic Regression Example
@@ -882,14 +1044,18 @@ Which computes an error rate of ~0.24. Quite good for this dataset!
 
 ### Notes 
 
-Logistic regression code also available at <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/regression">https://github.com/nathanenglehart/regression</a>.
+In all of the above examples, the `logit_regression()` class can be used interchangably with the `probit_regression()` class with only *slightly* different results. \
+\
+Logit and probit regression code also available at <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/regression">https://github.com/nathanenglehart/regression</a>.
 
 ### References
 
-Jurafsky, Daniel and Martin, James. (2021). <i>Speech and Language Processing (3rd ed. draft)</i> <a style="color: #f56a6a; !important" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a>. Stanford, CA. \
+Jurafsky, D. & Martin, J. (2021). <i>Speech and Language Processing (3rd ed. draft)</i> <a style="color: #f56a6a; !important" href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a>. Stanford, CA. \
 \
-Quinlan, Ross. (1983). UCI Machine Learning Repository <a style="color: #f56a6a; !important" href="https://archive.ics.uci.edu/ml/datasets/auto+mpg">https://archive.ics.uci.edu/ml/datasets/auto+mpg</a>. Irvine, CA: University of California, School of Information and Computer Science. \
+Quinlan, R. (1983). UCI Machine Learning Repository <a style="color: #f56a6a; !important" href="https://archive.ics.uci.edu/ml/datasets/auto+mpg">https://archive.ics.uci.edu/ml/datasets/auto+mpg</a>. Irvine, CA: University of California, School of Information and Computer Science. \
 \
-Rogers, Simon and Girolami, Mark. (2017).  A First Course in Machine Learning Second Edition. Routledge.\
+Rogers, S. & Girolami, M. (2017).  A First Course in Machine Learning Second Edition. Routledge.\
 \
-Smith, J.W., Everhart, J.E., Dickson, W.C., Knowler, W.C., and Johannes, R.S. (1988). Kaggle <a style="color: #f56a6a; !important" href="https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database">https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database</a>. San Francisco, CA.
+Smith, J.W., Everhart, J.E., Dickson, W.C., Knowler, W.C., & Johannes, R.S. (1988). Kaggle <a style="color: #f56a6a; !important" href="https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database">https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database</a>. San Francisco, CA. \
+\
+Wooldridge, J. (2020). Introductory econometrics (7e). Cengage.
