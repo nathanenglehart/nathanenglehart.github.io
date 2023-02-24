@@ -532,12 +532,12 @@ Extensive OLS, ridge, and lasso code available at: <a style="color: #f56a6a; !im
 Logistic regression (also known as logit regression) and probit regression - like OLS regression - are commonly used in the social sciences. Logit and probit regression models are used to examine the extent to which various independent variables are related to a binary dependent variable. \
 \
 Probit and logit regression models take the form:
-\\[ P(t = 1 \text{ } \vert \text{ }x, \theta) = G(\theta \cdot \boldsymbol x) \\]
-$\theta = \textbf{[}\theta_1,\theta_2,...,\theta_n \textbf{]}$ represents the logit coefficients, $\boldsymbol x = \textbf{[}x_1,x_2,...,x_n \textbf{]}$ is a feature vector representing a single input observation, and $G$ is a function that takes on values between zero and one. \
+\\[ \mathbn{P}(t = 1 \text{ } \vert \text{ } \boldsymbol x, \theta) = G(\theta \cdot \boldsymbol x) \\]
+where $\theta = \textbf{[}\theta_1,\theta_2,...,\theta_n \textbf{]}$ represents the logit coefficients, $\boldsymbol x = \textbf{[}x_1,x_2,...,x_n \textbf{]}$ is a feature vector representing a single input observation, and $G$ is a function that takes on values between zero and one. \
 \
-It follows that the probability that $t=0$ is given by
+<!--It follows that the probability that $t=0$ is given by
 \\[ P(t = 0 \text{ }\vert \text{ } \boldsymbol x, \theta) = 1 - P(t = 1 \text{ } \vert \text{ } \boldsymbol x, \theta) = 1 - G(\theta \cdot \boldsymbol x) \\]
-
+-->
 <!--
 such that the probability that $t = 1$ is given by:
 \\[ P(t = 1 \text{ } \vert \text{ }x, \theta) = \sigma(\theta \cdot x) = \frac{1}{1 + e^{-(\theta \cdot x)}} = \frac{1}{1 + e^{-(\theta_1 \cdot x_1 + \theta_2 \cdot x_2 + ... + \theta_n \cdot x_n)}} \\]
@@ -552,7 +552,7 @@ As such, we can write that the predicted classification is given by:
 <script type="math/tex">
 % <![CDATA[
 \hat{t} = \begin{cases}
-         1 \text{ if } P(t = 1 \text{ } \vert \text{ }x, \theta) \geq 0.5 \\
+         1 \text{ if } \mathbb{P}(t = 1 \text{ } \vert \text{ } \boldsymbol x, \theta) \geq 0.5 \\
 	 0 \text{ otherwise }
     \end{cases}
 % ]]>
@@ -571,7 +571,7 @@ One such algorithm is batch gradient descent (also known as vanilla gradient des
 2. Initializes a learning rate $\alpha$. 
 3. For some number of iterations also known as epochs (often $\geq 1000$), update $\theta$ with:\
 \
-\\[ \theta_{i+1} = \theta_i - \frac{\alpha(X^T \cdot (P(t = 0 \text{ } | \text{ } x, \theta_i) - t))}{n} \\]
+\\[ \theta_{i+1} = \theta_i - \frac{\alpha(X^T \cdot (1 - \mathbb{P}(t = 1 \text{ } | \text{ } \boldsymbol x, \theta_i) - t))}{n} \\]
 
 \
 With each run, the algorithm updates $\theta$ to minimize prediction error. At the end of a sufficient number of iterations, $\theta$ will converge on the most optimal weights for the logit model. Note, however, that the formal derivation for this method is outside the scope of this writeup.  \
@@ -797,7 +797,9 @@ In OLS, ridge, and lasso regression, $R^2$ measures what percent of variation in
 - Cox and Snell $R^2$
 - Nagelkerke/Cragg and Uhler's $R^2$
 
-For this writeup, we will utilize Efron's $R^2$ and McFadden's $R^2$. Efron's $R^2$ is given by:\
+For this writeup, we will examine Efron's $R^2$ *and* McFadden's $R^2$. \
+\
+Efron's $R^2$ is given by:\
 \
 \\[ R_{\text{Efron}}^2 = \frac{\sum (t_i - \hat{\pi}_i)^2}{\sum (t_i - \overline{t})^2} \\]\
 where $t$ represents a vector of respsonse variables, $\hat{\pi}$ represents a vector of prediction probabilities, and $\overline{t}$ is the mean of the vector of response variables. As such, with Python we can write:
@@ -821,13 +823,16 @@ def efron_r_squared(t, t_probs):
 ```
 
 McFadden's $R^2$ is computed as follows.
-\\[R^2_{\text{McFadden}} = 1 - \frac{\mathcal{L}_{ur}}{\mathcal{L}_0} = \frac{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta)] + y_i \log[G(\boldsymbol x_i\hat\theta)]\bigg)}{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta_0)] + y_i \log[G(\boldsymbol x_i\hat\theta_0)]\bigg)} \\]
+\\[R^2_{\text{McFadden}} = 1 - \frac{\mathcal{L}_{ur}}{\mathcal{L}_{0}} \\]
+
+<!--= \frac{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta)] + y_i \log[G(\boldsymbol x_i\hat\theta)]\bigg)}{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta_0)] + y_i \log[G(\boldsymbol x_i\hat\theta_0)]\bigg)} \\]
+-->
 
 where $G$ is the sigmoid function (logit) or the cumulative distribution function of a standard normal random variable (probit) and $x_i$ are rows of the regressor matrix.\
 \
-Notice that the numerator and denominator functions are log likelihood functions. The log likelihood of function gives the likelihood of observing a sample with given function parameters. In McFadden's $R^2$, the numerator and denominator are log likelihoods with coefficients $\hat{\theta}$ and $\hat{\theta}_0$ which maximize the likelihood of observing the given data. The difference between the two is that $\hat{\theta}$ represents the full vector of coefficients while $\hat{\theta}_0$ represents only the intercept term (first coefficient) while setting the rest of the coefficients to zero. \
+Notice that the numerator and denominator functions are log likelihood functions. The log likelihood of function gives the likelihood of observing a sample with given function parameters. In McFadden's $R^2$, the numerator and denominator are log likelihoods with coefficients $\hat{\theta}$ and $\hat{\theta}_{0}$ which maximize the likelihood of observing the given data. The difference between the two is that $\hat{\theta}$ represents the full vector of coefficients while $\hat{\theta}_{0}$ represents only the intercept term (first coefficient) while setting the rest of the coefficients to zero. \
 \
-Note that since $G$ is between $0$ and $1$, and the log of a number less than $1$ is negative, that both log-likelihoods are negative. If the $x$'s  has no predictive power, then the log likelihood will be the same. So: \\[\mathcal{L}_{ur} = \mathcal{L}_0 \implies R^2_{\text{McFadden}} = 0 \\]
+Note that since $G$ is between $0$ and $1$, and the log of a number less than $1$ is negative, that both log-likelihoods are negative. If the $x$'s  has no predictive power, then the log likelihood will be the same. So: \\[\mathcal{L}_{ur} = \mathcal{L}_{0} \implies R^2_{\text{McFadden}} = 0 \\]
 We can write McFadden's $R^2$ in python as follows:
 
 ```python
