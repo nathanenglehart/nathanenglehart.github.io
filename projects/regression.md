@@ -807,7 +807,7 @@ where $t$ represents a vector of respsonse variables, $\hat{\pi}$ represents a v
 ```python
 def efron_r_squared(t, t_probs):
 
-	""" Returns Efron's psuedo R-Squared for logistic regression. 
+	""" Returns Efron's psuedo R-Squared for logistic/probit regression. 
 
 		Args:
 
@@ -838,7 +838,7 @@ We can write McFadden's $R^2$ in python as follows:
 ```python
 def mcfadden_r_squared(theta, X, t, model):
 
-	""" Returns McFadden's psuedo R-Squared for logistic regression 
+	""" Returns McFadden's psuedo R-Squared for logistic/probit regression 
 	
 		Args:
 			
