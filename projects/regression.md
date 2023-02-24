@@ -826,13 +826,13 @@ McFadden's $R^2$ is computed as follows.
 <!-- \\[R^2_{\text{McFadden}} = 1 - \frac{L_{ur}}{L_{0}} = \frac{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta)] + y_i \log[G(\boldsymbol x_i\hat\theta)]\bigg)}{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta_0)] + y_i \log[G(\boldsymbol x_i\hat{\theta}_{0})]\bigg)} \\]
 -->
 
-\\[R_{\text{McFad}}^2 = 1 - \frac{L_F}{L_0}  \\]
+\\[R_{\text{McFadden}}^2 = 1 - \frac{L_F}{L_0} = \frac{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta)] + y_i \log[G(\boldsymbol x_i\hat\theta)]\bigg)}{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat \theta_0)] + y_i \log[G(\boldsymbol x_i\hat \theta_0)]\bigg)} \\]
 
 where $G$ is the sigmoid function (logit) or the cumulative distribution function of a standard normal random variable (probit) and $\boldsymbol x_i$ are rows of the regressor matrix.\
 \
 Notice that the numerator and denominator functions are log likelihood functions. The log likelihood of function gives the likelihood of observing a sample with given function parameters. In McFadden's $R^2$, the numerator and denominator are log likelihoods with coefficients $\hat{\theta}$ and $\hat \theta_0$ which maximize the likelihood of observing the given data. The difference between the two is that $\hat{\theta}$ represents the full vector of coefficients while $\hat\theta_0$ represents only the intercept term (first coefficient) while setting the rest of the coefficients to zero. \
 \
-Note that since $G$ is between $0$ and $1$, and the log of a number less than $1$ is negative, that both log-likelihoods are negative. If the $x$'s  has no predictive power, then the log likelihood will be the same. So: \\[ L_F = L_0 \implies R^2_{\text{McFadden}} = 0 \\]
+Note that since $G$ is between $0$ and $1$, and the log of a number less than $1$ is negative, that both log-likelihoods are negative. If the $\boldsymbol x$'s  has no predictive power, then the log likelihood will be the same. So: \\[ L_F = L_0 \implies R^2_{\text{McFadden}} = 0 \\]
 We can write McFadden's $R^2$ in python as follows:
 
 ```python
