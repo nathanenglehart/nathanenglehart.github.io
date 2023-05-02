@@ -961,7 +961,7 @@ plt.show()
 ```
 
 Which displays:
-<img src="/images/multivariate_logit.png" alt="/images/multivariate_logit.png"/> \
+<img src="/images/multivariate_probit.png" alt="/images/multivariate_probit.png"/> \
 \
 with an Efron's pseudo $R^2$ of 0.2788494451173642. As such we can say that 27.8 percent of the variance in whether or not a person has diabetes or not is explained by the glucose and mass variables. Thus, a low-to moderate portion of variance is explained. Much better than our single variable model!
 
