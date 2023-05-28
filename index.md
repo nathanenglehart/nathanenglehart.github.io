@@ -14,9 +14,9 @@ image:
 <div class="bod">
 <h3 class="small_title">Introduction</h3>
 
-My name is Nathan Englehart (he/him/his). I am from Toledo, Ohio and recently graduated from Oberlin College where I completed a Bachelor of Arts degree with three majors in mathematics, history, and East Asian studies. \
-\
-Currently, I am working at the <a href="https://oakleaf.com">Oakleaf group</a> in the data analytics and modeling department. 
+My name is Nathan Englehart (he/him/his). I am from Toledo, Ohio and recently graduated from Oberlin College where I completed a Bachelor of Arts degree with three majors in mathematics, history, and East Asian studies. 
+<br>
+I am currently working at the Oakleaf group in the data analytics and modeling department. 
 
 <h3 class="small_title">Contact Me</h3>
 
