@@ -12,9 +12,10 @@ image:
 <figcaption>July 2021</figcaption>
 </figure>
 <div class="bod">
-<h3 class="small_title">Introduction</h3>
+<h3 class="small_title">About Me</h3>
 
 My name is Nathan Englehart (he/him/his). I am from Toledo, Ohio and recently graduated from Oberlin College where I completed a Bachelor of Arts degree with three majors in mathematics, history, and East Asian studies. 
+<br>
 <br>
 I am currently working at the Oakleaf group in the data analytics and modeling department. 
 
