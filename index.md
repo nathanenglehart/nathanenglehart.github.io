@@ -17,16 +17,13 @@ image:
 My name is Nathan Englehart (he/him/his). I am from Toledo, Ohio and recently graduated from Oberlin College where I completed a Bachelor of Arts degree with three majors in mathematics, history, and East Asian studies. 
 <br>
 <br>
-I am currently working at the Oakleaf group in the data analytics and modeling department. 
+Currently I am working at the Oakleaf group in the data analytics and modeling department. I am concurrently co-authoring a conference paper which uses the Alloy specification language to build a model of Michigan statutory expungement law. Such statutory laws are notoriously complex and we argue that models such as ours may alleviate inherent confusion and reveal "black swan" scenarios.
+<br>
+<br>
+Check out some other writings I recently co-authored <a style="color: #f56a6a; !important" href="https://www.bgsu.edu/arts-and-sciences/political-science/trailblazing-women-in-ohio-politics/marcy-kaptur.html">here</a> and <a style="color: #f56a6a; !important" href="https://www.bgsu.edu/arts-and-sciences/political-science/trailblazing-women-in-ohio-politics/betty-montgomery.html">here</a>. 
 
 <h3 class="small_title">Contact Me</h3>
 
 Please reach out to me via my email: <a style="color: #f56a6a; !important" href="mailto:nengleha@oberlin.edu">nengleha@oberlin.edu</a>.
-
-<!-- nengleha AT oberlin DOT edu. -->
-
-<!--<h3 class="small_title">Project Writeups</h3>-->
-
-<!--For a look at some writeups of supplementary projects I have worked on - primarily statistics and CS related - please feel free to take a look <a style="color: #f56a6a; !important" href="/projects/">here</a>. -->
 
 <br />
