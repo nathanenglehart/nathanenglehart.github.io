@@ -3,8 +3,8 @@ layout: home2
 title: Home
 description: "Nathan Englehart's website"
 tags: [Jekyll, theme, responsive, blog, template]
-image:
-  feature: tol.jpg
+#image:
+  #feature: tol.jpg
 ---
 
 <figure>
