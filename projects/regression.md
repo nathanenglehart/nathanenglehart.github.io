@@ -72,62 +72,43 @@ where $\theta$ represents the ridge estimator (also known as coefficients or wei
 \\[ \hat{t} = X\theta \\]
 Notably, ridge regression is highly useful with multicollinear, highly correlated independent variables.  \
 \
-Thus, similar to OLS, we can again write a ridge class using Python with:
+Thus, similar to OLS, we can again use the above code, but merely edit the `__init__` and `fit` functions:
 
 ```python
-import numpy as np
-import pandas as pd
-
-# Nathan Englehart (Summer, 2022)
-
-class ridge_regression():
-
-  def __init__(self, lam=1.0):
+def __init__(self, lam=1.0):
       
-      """ Ridge regression class based on sklearn functionality (for modular use)
+    """ Ridge regression class based on sklearn functionality (for modular use)
 		
-		Args:
+	Args:
 			
-			lam::[Float]
-				Weight penalty for high order polynomials
-      """
+		lam::[Float]
+			Weight penalty for high order polynomials
+    """
 
-      self.lam = lam
+    self.lam = lam
 
-  def fit(self, X, t):
+def fit(self, X, t):
 
-      """ Fits ridge regression model with given train matrix and target vector
-		Args:
+    """ Fits ridge regression model with given train matrix and target vector
+	
+	Args:
 			
-			X::[Numpy Array]
-				Train matrix (build before putting into function)
+		X::[Numpy Array]
+			Train matrix (build before putting into function)
 			
-			t::[Numpy Array]
-				Target vector
-      """
+		t::[Numpy Array]
+			Target vector
+    """
 
-      I = np.identity(X.shape[1])
-      I[0, 0] = 0
-      lam_matrix = self.lam * I
-      theta = np.linalg.inv(X.T.dot(X) + lam_matrix).dot(X.T).dot(t)
+    I = np.identity(X.shape[1])
+    I[0, 0] = 0
+    lam_matrix = self.lam * I
+    theta = np.linalg.inv(X.T.dot(X) + lam_matrix).dot(X.T).dot(t)
       
-      self.theta = theta
-      self.coef_ = theta
+    self.theta = theta
+    self.coef_ = theta
       
-      return self
-
-  def predict(self, X):
-      
-      """ Generates predictions for the given matrix based on model.
-      		Args:
-			
-			X::[Numpy Array]
-				Test matrix (build before putting into function)
-      """
-
-      self.predictions = X.dot(self.theta)
-
-      return self.predictions
+    return self
 ```
 
 In both OLS and ridge regressions, instead of using their closed form solutions, coefficients can also be computed with algorithms that seek to minimize prediction error. Such algorithms include coordinate descent and gradient descent. Some regression functions, such as logit, lasso, and elastic net, have no closed-form solution and must be calculated using such algorithms. 
@@ -682,110 +663,27 @@ class logit_regression():
 
 ```
 
-Similarly, we can write a probit class using python with:
+We can make the above a probit model by adding a `Phi` function and editing the `predict_proba` function:
 
 ```python
-import numpy as np
-from scipy.stats import norm
-
-# Nathan Englehart (Spring, 2023)
-
-class probit_regression():
-	
-	def __init__(self, alpha=0.1, epoch=1000):
+def Phi(self, z):
 		
-		""" Probit regression class based on sklearn functionality 
-			
-			Args:
-				alpha::[Float]
-					Learning rate for batch gradient descent algorithm
-
-				epoch::[Int]
-					Number of iterations for batch gradient descent algorithm
-
-		"""
-
-		self.alpha = alpha
-		self.epoch = epoch
-
-	def fit(self,X,t):
-
-		""" Fits probit regression model with given regressor/train matrix and target vector 
-
-			Args:
-				X::[Numpy Array]
-					Regressor/train matrix that already has column of ones for intercept
-
-				t::[Numpy Array]
-					Target vector
-
-		"""
-
-		self.bgd(X, t)
-		self.coef_ = self.theta
-
-		return self
-	
-	def bgd(self, X, t):
-	
-		""" Performs batch gradient descent (also known as vanilla gradient descent) to find optimal coefficients for logit model within fit function
-
-			Args:
-				X::[Numpy Array]
-					Regressor/train matrix that already has column of ones for intercept
-				
-				t::[Numpy Array]
-					Target vector
-
-		"""
+	""" Cumulative distribution function for the standard normal distribution. """
 		
-		self.theta = np.zeros(X.shape[1]) 
+	return norm.cdf(-z) 
 
-		for i in range(self.epoch):
-			
-			gradient = np.dot(X.T, (self.predict_proba(X) - t)) / t.size
-				
-			self.theta -= (self.alpha * gradient)
-		return self
-
-	def Phi(self, z):
-		
-		""" Cumulative distribution function for the standard normal distribution. """
-		
-		return norm.cdf(-z) 
-
-	def predict_proba(self, X):
+def predict_proba(self, X):
 
 
-		""" Generates probability predictions for the given matrix based on model
+	""" Generates probability predictions for the given matrix based on model
 
-			Args:
-				X::[Numpy Array]
-					Test matrix that already has column of ones for intercept
+		Args:
+			X::[Numpy Array]
+				Test matrix that already has column of ones for intercept
 
-		"""
+	"""
 
-		return 1 - self.Phi(np.dot(X,self.theta))
-
-	def predict(self, X):
-			
-		""" Generates classification predictions for the given matrix based on the model 
-
-			Args:
-				X::[Numpy Array]
-					Test matrix that already has column of ones for intercept
-
-		"""
-
-		return self.predict_proba(X).round()
-
-	def log_likelihood(self,X,t,theta):
-		
-		""" Compute log likelihood given inputs. """
-
-		y_star = np.dot(X,theta)
-		return np.sum(-np.log(1+np.exp(y_star))) + np.sum(t * y_star) 
-
+	return 1 - self.Phi(np.dot(X,self.theta))
 ```
 
 ### Computing Pseudo R-Squared
