@@ -9,11 +9,11 @@ comments: false
 
 The Naive Bayesian Classifier Algorithm is a family of probabalistic supervised machine learning algorithms that assumes each feature is independent of other features inside a feature vector. \
 \
-To compute the probability of a test vector $\boldsymbol x_i$ with features $x_1 ... x_n$ belonging to classification $y_i \in C$ where $C$ is the set containing all possible classifications, using an $m \times n$ train matrix, Naive Bayes uses the equation:
-\\[ \mathbb{P}(y_i,\boldsymbol x_i = (x_{i1} ... x_{in})) = \mathbb{P}(y_i) \prod^{n}_{j=1} \mathbb{P} (x_{ij} \mid y_i) \\]
+To compute the probability of a test vector $\boldsymbol x_i$ with features $x_{i1} ... x_{in}$ belonging to classification $y_i \in C$ where $C$ is the set containing all possible classifications, using an $m \times n$ train matrix, Naive Bayes uses the equation:
+\\[ \mathbb{P}(y_i,\boldsymbol x_i) = \mathbb{P}(y_i) \prod^{n}_{j=1} \mathbb{P} (x_{ij} \mid y_i) \\]
 
 Then, by running this equation for each possible classification of $y_i$, Naive Bayes assigns the classification with maximal probability as the predicted classification. As such, to compute the predicted classification $\hat y_i$, we can write:
-\\[ \begin{aligned} \hat y_i &= \arg \max_{y_i \in C} \mathbb{P}(y_i,\boldsymbol x_i = (x_{i1} ... x_{in})) \\\\ &= \arg \max_{y_i \in C} \mathbb{P}(y_i) \prod^{n}_{j=1} \mathbb{P} (x_{ij} \mid y_i) \end{aligned} \\]
+\\[ \begin{aligned} \hat y_i &= \arg \max_{y_i \in C} \mathbb{P}(y_i,\boldsymbol x_i) \\\\ &= \arg \max_{y_i \in C} \mathbb{P}(y_i) \prod^{n}_{j=1} \mathbb{P} (x_{ij} \mid y_i) \end{aligned} \\]
 Implementations of Naive Bayes are unique in how they compute the prior and likelihood. This writeup will explore two varieties of Naive Bayes: Categorical Naive Bayes and Gaussian Naive Bayes.
 
 ### Note
@@ -109,7 +109,7 @@ Very similar to our original graph of true predictions! Further, by running in v
 Another implementation of the Naive Bayes algorithm is Gaussian Naive Bayes. It is highly useful for classifying vector rows with continuous feature variables. As in Categorical Naive Bayes, in Gaussian Naive Bayes, the prior probability is given by:
 \\[ \mathbb{P}(y_i) = \frac{\sum^m_{k=1} I(y_k = y_i)}{m} \\]
 On the other hand, the equation for the Gaussian Naive Baye likelihood is given by:
-\\[ \mathbb{P}(x_i \mid y) = \frac{1}{\sqrt{2\pi\sigma^2_y}}exp\bigg(- \frac{(x_{ij} - \mu_y)^2}{2\sigma^2_y} \bigg) \\]
+\\[ \mathbb{P}(x_i \mid y) = \frac{1}{\sqrt{2\pi\sigma^2_y}}exp\bigg(- \frac{( x_{ij} - \mu_y)^2}{2\sigma^2_y} \bigg) \\]
 where $\sigma_y$ represents standard deviation computed using features of column $j$ with classification $y_i$ and $\mu_y$ represents mean computed using features of column $j$ with classification $y_i$.
 
 ### Gaussian Visualization
