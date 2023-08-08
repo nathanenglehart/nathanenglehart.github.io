@@ -18,10 +18,11 @@ My name is Nathan Englehart (he/him/his). I am from Toledo, Ohio and recently gr
 <br>
 <br>
 Currently I am working at the <a style="color: #f56a6a !important" href="https://oakleaf.com/">Oakleaf group</a> in the data analytics and modeling department where I am involved with several projects. 
+<br>
+<br>
+I am concurrently co-authoring a conference paper which uses the Alloy specification language to build a model of Michigan statutory expungement law. Such statutory laws are notoriously complex and we argue that models such as ours may alleviate inherent confusion and reveal "black swan" scenarios. 
 
-<!--<h3 class="small_title">Research</h3>-->
 
-I am concurrently co-authoring a conference paper which uses the Alloy specification language to build a model of Michigan statutory expungement law. Such statutory laws are notoriously complex and we argue that models such as ours may alleviate inherent confusion and reveal "black swan" scenarios.
 <!--
 <br>
 <br>
