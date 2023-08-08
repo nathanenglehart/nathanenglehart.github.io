@@ -109,7 +109,7 @@ Very similar to our original graph of true predictions! Further, by running in v
 Another implementation of the Naive Bayes algorithm is Gaussian Naive Bayes. It is highly useful for classifying vector rows with continuous feature variables. As in Categorical Naive Bayes, in Gaussian Naive Bayes, the prior probability is given by:
 \\[ \mathbb{P}(y_i) = \frac{\sum^m_{k=1} I(y_k = y_i)}{m} \\]
 On the other hand, the equation for the Gaussian Naive Baye likelihood is given by:
-\\[ \mathbb{P}(x_i \mid y) = \frac{1}{\sqrt{2\pi\sigma_y^2}}exp\bigg(- \frac{( x_{ij} - \mu_y)^2}{2\sigma_y^2} \bigg) \\]
+\\[ \mathbb{P}(x_{ij} \mid y) = \frac{1}{\sqrt{2\pi\sigma_y^2}}exp\bigg(- \frac{( x_{ij} - \mu_y)^2}{2\sigma_y^2} \bigg) \\]
 where $\sigma_y$ represents standard deviation computed using features of column $j$ with classification $y_i$ and $\mu_y$ represents mean computed using features of column $j$ with classification $y_i$.
 
 ### Gaussian Visualization

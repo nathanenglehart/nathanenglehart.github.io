@@ -28,9 +28,11 @@ Check out some other writings I recently co-authored <a style="color: #f56a6a; !
 <br>
 Additionally, some of my favorite projects are hosted on this site
 
-- KNN classification algorithm coded from scratch in c++ (<a style="color: #f56a6a !important" href="https://nathanenglehart.github.io/projects/knn">here</a>).
-- Naive bayes classification algorithm coded from scratch in c++ (<a style="color: #f56a6a !important" href="https://nathanenglehart.github.io/projects/naive-bayes">here</a>).
-- Regression methods (OLS, ridge, lasso, logit, probit) coded from scratch in python3 without sklearn (<a style="color: #f56a6a !important" href="https://nathanenglehart.github.io/projects/regression">here</a>).
+<ul>
+  <li>KNN classification algorithm coded from scratch in c++ (<a style="color: #f56a6a !important" href="https://nathanenglehart.github.io/projects/knn">here</a>).</li>
+  <li>Naive bayes classification algorithm coded from scratch in c++ (<a style="color: #f56a6a !important" href="https://nathanenglehart.github.io/projects/naive-bayes">here</a>).</li>
+  <li>Regression methods (OLS, ridge, lasso, logit, probit) coded from scratch in python3 without sklearn (<a style="color: #f56a6a !important" href="https://nathanenglehart.github.io/projects/regression">here</a>).</li>
+</ul>
 
 <br>
 <br>
