@@ -18,25 +18,27 @@ My name is Nathan Englehart (he/him/his). I am from Toledo, Ohio and recently gr
 <br>
 <br>
 Currently I am working at the <a style="color: #f56a6a !important" href="https://oakleaf.com/">Oakleaf group</a> in the data analytics and modeling department where I am involved with several projects. 
-<br>
-<br>
+
+<!--<h3 class="small_title">Research</h3>-->
+
 I am concurrently co-authoring a conference paper which uses the Alloy specification language to build a model of Michigan statutory expungement law. Such statutory laws are notoriously complex and we argue that models such as ours may alleviate inherent confusion and reveal "black swan" scenarios.
+<!--
 <br>
 <br>
 Check out some other writings I recently co-authored <a style="color: #f56a6a; !important" href="https://www.bgsu.edu/arts-and-sciences/political-science/trailblazing-women-in-ohio-politics/marcy-kaptur.html">here</a> and <a style="color: #f56a6a; !important" href="https://www.bgsu.edu/arts-and-sciences/political-science/trailblazing-women-in-ohio-politics/betty-montgomery.html">here</a>. A working paper originally developed in one of my Oberlin politics seminars is available <a style="color: #f56a6a !important" href="https://nathanenglehart.github.io/files/englehart-neo-soviet-gender.pdf">here</a>.
 <br>
 <br>
-Additionally, some of my favorite projects are hosted on this site
 
+<h3>CS/Stats-related Projects</h3>
 <ul>
-  <li>KNN classification algorithm coded from scratch in c++ (<a style="color: #f56a6a !important" href="https://nathanenglehart.github.io/projects/knn">here</a>).</li>
-  <li>Naive bayes classification algorithm coded from scratch in c++ (<a style="color: #f56a6a !important" href="https://nathanenglehart.github.io/projects/naive-bayes">here</a>).</li>
-  <li>Regression methods (OLS, ridge, lasso, logit, probit) coded from scratch in python3 without sklearn (<a style="color: #f56a6a !important" href="https://nathanenglehart.github.io/projects/regression">here</a>).</li>
+  <li>KNN classification algorithm with K-fold CV coded from scratch in c++ (see <a style="color: #f56a6a !important" href="https://nathanenglehart.github.io/projects/knn">here</a>).</li>
+  <li>Naive bayes classification algorithm coded from scratch in c++ (see <a style="color: #f56a6a !important" href="https://nathanenglehart.github.io/projects/naive-bayes">here</a>).</li>
+  <li>Regression methods (OLS, ridge, lasso, logit, probit) coded from scratch in python3 (see <a style="color: #f56a6a !important" href="https://nathanenglehart.github.io/projects/regression">here</a>).</li>
 </ul>
 
-<br>
-<br>
-I am presently reading and learning about machine learning methods for analyzing text as data in the social sciences.  
+
+In my spare time, I enjoy playing tennis, hanging out with my friends, and tinkering with my linux system. In addition, I am learning more about machine learning methods with which to use text as data in the social sciences. 
+-->
 
 <h3 class="small_title">Contact Me</h3>
 
