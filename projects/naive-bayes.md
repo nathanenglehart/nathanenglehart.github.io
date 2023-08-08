@@ -10,7 +10,7 @@ comments: false
 The Naive Bayesian Classifier Algorithm is a family of probabalistic supervised machine learning algorithms that assumes each feature is independent of other features inside a feature vector. \
 \
 To compute the probability of a test vector $\boldsymbol x_i$ with features $x_{i1} ... x_{in}$ belonging to classification $y_i \in C$ where $C$ is the set containing all possible classifications, using an $m \times n$ train matrix, Naive Bayes uses the equation:
-\\[ \mathbb{P}(y_i,\boldsymbol x_i) = \mathbb{P}(y_i) \prod^{n}_{j=1} \mathbb{P} (x_{ij} \mid y_i) \\]
+\\[ \mathbb{P}(y_i,\boldsymbol x_i) = \mathbb{P}(y_i) \prod^{n}_{j=1} \mathbb{P} (x_i_j \mid y_i) \\]
 
 Then, by running this equation for each possible classification of $y_i$, Naive Bayes assigns the classification with maximal probability as the predicted classification. As such, to compute the predicted classification $\hat y_i$, we can write:
 \\[ \begin{aligned} \hat y_i &= \arg \max_{y_i \in C} \mathbb{P}(y_i,\boldsymbol x_i) \\\\ &= \arg \max_{y_i \in C} \mathbb{P}(y_i) \prod^{n}_{j=1} \mathbb{P} (x_{ij} \mid y_i) \end{aligned} \\]
@@ -27,8 +27,8 @@ One of the most common implementations of Naive Bayes is Categorical Naive Bayes
 In plain English, Categorical Naive Bayes:
 
 1. First calculates $\mathbb{P}(y)$ by dividing the frequency of each classification in the train data by the number of vector rows in the train data $m$ with classification $y$
-2. Compute the likelihood by taking the product sum of conditional class probabilities where conditional class probabilities are calculated for each $x_i$ within feature column $i$ in the train data by:
-	- Dividing the frequency of the feature $x_i$ with classification $y$ by the total number of rows in the train data $n$ with classification $y$
+2. Let $i \in \{1,...,m\}$. Compute the likelihood by taking the product sum of conditional class probabilities where conditional class probabilities are calculated for each $x_{ij}$ within feature column $j$ in the train data by:
+	- Dividing the frequency of the feature $x_{ij}$ with classification $y$ by the total number of rows in the train data $n$ with classification $y$
 4. Multiply the result of the first and second steps
 
 By running this equation for each possible classification $y$, Categorical Naive Bayes is able to assigns the classification with maximal probability as the predicted classification.
