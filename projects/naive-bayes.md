@@ -10,10 +10,10 @@ comments: false
 The Naive Bayesian Classifier Algorithm is a family of probabalistic supervised machine learning algorithms that assumes each feature is independent of other features inside a feature vector. \
 \
 To compute the probability of a test vector $\boldsymbol x_i$ with features $x_{i1} ... x_{in}$ belonging to classification $y_i \in C$ where $C$ is the set containing all possible classifications, using an $m \times n$ train matrix, Naive Bayes uses the equation:
-\\[ \mathbb{P}(y_i,\boldsymbol x_i) = \mathbb{P}(y_i) \prod^{n}_{j=1} \mathbb{P} (x_i \mid y_i) \\]
+\\[ \mathbb{P}(y_i,\boldsymbol x_i) = \mathbb{P}(y_i) \prod \mathbb{P} (x_{ij} \mid y_i) \\]
 
 Then, by running this equation for each possible classification of $y_i$, Naive Bayes assigns the classification with maximal probability as the predicted classification. As such, to compute the predicted classification $\hat y_i$, we can write:
-\\[ \begin{aligned} \hat y_i &= \arg \max_{y_i \in C} \mathbb{P}(y_i,\boldsymbol x_i) \\\\ &= \arg \max_{y_i \in C} \mathbb{P}(y_i) \prod^{n}_{j=1} \mathbb{P} (x_{ij} \mid y_i) \end{aligned} \\]
+\\[ \begin{aligned} \hat y_i &= \arg \max_{y_i \in C} \mathbb{P}(y_i,\boldsymbol x_i) \\\\ &= \arg \max_{y_i \in C} \mathbb{P}(y_i) \prod \mathbb{P} (x_{ij} \mid y_i) \end{aligned} \\]
 Implementations of Naive Bayes are unique in how they compute the prior and likelihood. This writeup will explore two varieties of Naive Bayes: Categorical Naive Bayes and Gaussian Naive Bayes.
 
 ### Note
