@@ -17,10 +17,10 @@ tags: [Jekyll, theme, responsive, blog, template]
 My name is Nathan Englehart (he/him/his). I am from Toledo, Ohio and recently graduated from <a style="color: #f56a6a !important" href="https://www.oberlin.edu/">Oberlin College</a> in May 2023 where I completed a Bachelor of Arts degree with three majors in mathematics, history, and East Asian studies. 
 <br>
 <br>
-Currently I am working at the <a style="color: #f56a6a !important" href="https://oakleaf.com/">Oakleaf group</a> (remote) in the data analytics and modeling department where I am involved with several projects. 
+Currently I am working remotely from Santa Barbara, CA at the <a style="color: #f56a6a !important" href="https://oakleaf.com/">Oakleaf group</a> in the data analytics and modeling department where I am involved with several projects. 
 <br>
 <br>
-I am concurrently co-authoring a conference paper which uses the Alloy specification language to build a model of Michigan statutory expungement law. Such statutory laws are notoriously complex and we argue that models such as ours may alleviate inherent confusion and reveal "black swan" scenarios. 
+I am concurrently co-authoring a conference paper which uses the Alloy specification language to build a model of Michigan statutory expungement law. Such statutory laws are notoriously complex and we argue that models such as ours may alleviate inherent confusion and reveal "black swan" scenarios. A draft of the paper is available on request.  
 
 <h3 class="small_title">Contact Me</h3>
 
