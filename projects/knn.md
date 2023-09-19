@@ -83,7 +83,8 @@ Which compiles the program `knn-cli`. Then, to test run KNN on our datasets, we 
 ```
 For $K = 1$ to $K = 135$, N-fold cross validation computed the following misclassification rates with $N = 10$: 
 <div align="center">
-<img src="/images/misclassification_rate_across_folds_iris.png" alt="/images/misclassification_rate_across_folds_iris.png"/>
+<!--<img src="/images/misclassification_rate_across_folds_iris.png" alt="/images/misclassification_rate_across_folds_iris.png"/>-->
+<img src="https://github.com/nathanenglehart/knn-cpp-241/blob/ce80cf06d8f2df82b515a2d66a93eb509f10a104/figures/misclassification_rate_across_folds_iris.png" alt="/images/misclassification_rate_across_folds_iris.png"/>
 </div> \
 \
 choosing $K = 3$ with a 3% misclassification rate as the optimal value for minimizing the misclassification rate across folds. \

@@ -313,7 +313,7 @@ plt.ylabel('mpg')
 plt.show()
 ```
 As a result, this script displays:
-<img src="/images/mpg_simple.png" alt="/images/mpg_simple.png"/> \
+<img src="https://github.com/nathanenglehart/regression/blob/main/figs/simple_ols.png" alt="/images/mpg_simple.png"/> \
 \
 with an $R^2$ of 0.6917929800341573 and an adjusted $R^2$ of 0.6917929800341573. Thus, using adjusted $R^2$, we can say that 69.2 percent of the variance in MPG is explained by weight and a high portion of the variance is explained.
 
@@ -355,7 +355,7 @@ plt.ylabel('mpg')
 plt.show()
 ```
 And as a result, the script displays:
-<img src="/images/mpg_second_degree.png" alt="/images/mpg_second_degree.png"/> \
+<img src="https://github.com/nathanenglehart/regression/blob/main/figs/polynomial_ols.png" alt="/images/mpg_second_degree.png"/> \
 \
 with an $R^2$ of 0.714788125827216 and an adjusted $R^2$ of 0.7140678938217291. Now, with adjusted $R^2$, we can say that 71.4 percent of the variance in MPG is explained by weight. Compared to the previous linear model, an even high portion of variance is explained.
 
