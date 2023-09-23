@@ -11,7 +11,7 @@ comments: false
 \
 When looking to analyze relationships between independent variable(s) and a continuous dependent variable, ordered least squares (OLS) regression, ridge regression, and lasso regression are all commonly utilized. While OLS regression is most commonly used in regression analysis by social scientists, ridge regression and lasso regression are highly useful in situations where regression models need to be generalizable for future data. This is because ridge regression and lasso regression employ regularization methods to penalize overfitting with high coefficients (using l2 and l1 regularization respectively). -->
 
-Multivariate regression methods are commonly used in statistics and the social sciences for purposes ranging from econometrics to machine learning. While OLS regression is most commonly used in regression analysis by social scientists, it is also usable as a classification algorithm. \
+Multivariate regression methods are commonly used in statistics and the social sciences for purposes ranging from econometrics to machine learning. While OLS regression is most commonly used in regression analysis, it is also usable as a classification algorithm. \
 \
 Ridge regression and lasso regression are useful in situations where regression models need to be generalizable for future data. This is because ridge regression and lasso regression employ regularization methods to penalize overfitting with high coefficients (using l2 and l1 regularization respectively). \
 \
