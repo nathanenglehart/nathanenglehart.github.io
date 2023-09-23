@@ -1,15 +1,21 @@
 ---
 layout: home2
 permalink: /projects/regression/
-title: OLS, Ridge, and Lasso Regression
+title: Regression: OLS, Ridge, Lasso, Logit, Probit
 tags: [Jekyll, theme, responsive, blog, template]
 modified: 2-16-22
 comments: false
 ---
 
-Multivariate regression methods are commonly used in the social sciences to examine the extent to which various independent variable(s) are related to a dependent variable. This first section will examine OLS, ridge, and lasso regression. The following section will examine a fundamentally different form of regression, logistic regression.\
+<!--Multivariate regression methods are commonly used in the social sciences to examine the extent to which various independent variable(s) are related to a dependent variable. This first section will examine OLS, ridge, and lasso regression. The following section will examine a fundamentally different form of regression, logistic regression.\
 \
-When looking to analyze relationships between independent variable(s) and a continuous dependent variable, ordered least squares (OLS) regression, ridge regression, and lasso regression are all commonly utilized. While OLS regression is most commonly used in regression analysis by social scientists, ridge regression and lasso regression are highly useful in situations where regression models need to be generalizable for future data. This is because ridge regression and lasso regression employ regularization methods to penalize overfitting with high coefficients (using l2 and l1 regularization respectively). 
+When looking to analyze relationships between independent variable(s) and a continuous dependent variable, ordered least squares (OLS) regression, ridge regression, and lasso regression are all commonly utilized. While OLS regression is most commonly used in regression analysis by social scientists, ridge regression and lasso regression are highly useful in situations where regression models need to be generalizable for future data. This is because ridge regression and lasso regression employ regularization methods to penalize overfitting with high coefficients (using l2 and l1 regularization respectively). -->
+
+Multivariate regression methods are commonly used in statistics and the social sciences for purposes ranging from econometrics to machine learning. While OLS regression is most commonly used in regression analysis by social scientists, it is also usable as a classification algorithm. \
+\
+Ridge regression and lasso regression are useful in situations where regression models need to be generalizable for future data. This is because ridge regression and lasso regression employ regularization methods to penalize overfitting with high coefficients (using l2 and l1 regularization respectively). \
+\
+Logit and probit regression are useful for binary classification or regression analyses with a binary dependent variable. 
 
 ### OLS Regression
 
@@ -128,7 +134,7 @@ However, as lasso regression has no closed form solution to compute an optimal l
 \
 With each run, the algorithm updates $\theta$ to minimize prediction error. At the end of a sufficient number of iterations, $\theta$ will converge on the most optimal lasso estimator for the model. \
 \
-Therefore, we can write a lasso class using Python:
+Utilizing the same `predict` function as the OLS and ridge classes, we can write a lasso class using Python:
 
 ```python
 import numpy as np
@@ -199,19 +205,6 @@ class lasso_regression():
 			self.theta = self.theta - (self.alpha * gradient)
 
 		return self
-	
-	def predict(self, X):
-
-
-		""" Generates predictions for the given matrix based on lasso model
-
-			Args:
-				X::[Numpy Array]
-					Test matrix that already has column of ones for intercept
-
-		"""
-
-		return X.dot(self.theta) 
 
 ```
 
@@ -315,7 +308,7 @@ plt.show()
 As a result, this script displays:
 <img src="/images/mpg_simple.png" alt="/images/mpg_simple.png"/> \
 \
-with an $R^2$ of 0.6917929800341573 and an adjusted $R^2$ of 0.6917929800341573. Thus, using adjusted $R^2$, we can say that 69.2 percent of the variance in MPG is explained by weight and a high portion of the variance is explained.
+with an $R^2$ of $\approx 0.692$ and an adjusted $R^2$ of $\approx 0.692$. Thus, using adjusted $R^2$, we can say that $69.2$ percent of the variance in MPG is explained by weight and a high portion of the variance is explained.
 
 ### Polynomial Regression Example
 
@@ -357,7 +350,7 @@ plt.show()
 And as a result, the script displays:
 <img src="/images/mpg_second_degree.png" alt="/images/mpg_second_degree.png"/> \
 \
-with an $R^2$ of 0.714788125827216 and an adjusted $R^2$ of 0.7140678938217291. Now, with adjusted $R^2$, we can say that 71.4 percent of the variance in MPG is explained by weight. Compared to the previous linear model, an even high portion of variance is explained.
+with an $R^2$ of $\approx 0.71$ and an adjusted $R^2$ of $\approx 0.714$. Now, with adjusted $R^2$, we can say that $71.4$ percent of the variance in MPG is explained by weight. Compared to the previous linear model, an even high portion of variance is explained.
 
 ### Mulivariate Regression Example
 
@@ -420,7 +413,7 @@ plt.show()
 As such, this script displays:
 <img src="/images/mpg_multi.png" alt="/images/mpg_multi.png"/> \
 \
-with an $R^2$ of 0.6979764850769228 and an adjusted $R^2$ of 0.6972137994331776. As such, using adjusted $R^2$, we can say that 69.7 percent of the variance in MPG is explained by weight and displacement. A high portion of variance is explained (but not quite as much as in our last example). \
+with an $R^2$ of $\approx 0.698$ and an adjusted $R^2$ of $\approx 0.697$. As such, using adjusted $R^2$, we can say that $69.7$ percent of the variance in MPG is explained by weight and displacement. A high portion of variance is explained (but not quite as much as in our last example). \
 \
 Cases with more variables are similar, but not able to be visualized.
 
@@ -489,9 +482,9 @@ plt.show()
 Then, this script displays:
 <img src="/images/mpg_multi_poly.png" alt="/images/mpg_multi_poly.png"/> \
 \
-with an $R^2$ of 0.7264034513441128 with an adjusted $R^2$ of 0.7236187536478695. Now, using adjusted $R^2$, we can write that 72.4 percent of variance is explained by weight and displacement. In addition, a high portion of variance is explained. Our best model!   \
+with an $R^2$ of $\approx 0.726$ with an adjusted $R^2$ of $\approx 0.724$. Now, using adjusted $R^2$, we can write that $72.4$ percent of variance is explained by weight and displacement. In addition, a high portion of variance is explained. Our best model!   \
 \
-Again, cases with more variables are similar, but not able to be visualized. Cases with higher degrees utilize a similar regressor matrix construction. For instance, for a third degree polynomial, we should create a regressor matrix of the form
+Cases with more variables are similar, but not able to be visualized. Those cases with higher degrees utilize a similar regressor matrix construction using the multinomial theorem. For instance, for a third degree polynomial, we should create a regressor matrix of the form
 \\[ X = \pmatrix{ 1 & x_1 & y_1 & x_1^2 & x_1 \cdot y_1 & y_1^2 & x_1^3 & x_1^2 \cdot y_1 & x_1 \cdot y_1^2 & y_1^3 \cr
                   1 & x_2 & y_2 & x_2^2 & x_2 \cdot y_2 & y_2^2 & x_2^3 & x_2^2 \cdot y_2 & x_2 \cdot y_2^2 & y_2^3 \cr
 	          \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \cr
@@ -502,7 +495,7 @@ Other cases with higher degree polynomials entail the construction of similar re
 
 ### Notes 
 
-In all of the above examples, the `ols_regression()` class can be used interchangably with the `ridge_regression()` and `lasso_regression()` classes with only slightly different results. \
+In all of the above examples (i.e. simple regression, polynomial regression, multivariate regression, and multivariate polynomial regression), the `ols_regression()` class can be used interchangably with the `ridge_regression()` and `lasso_regression()` classes with only slightly different results. \
 \
 Extensive OLS, ridge, and lasso code available at: <a style="color: #f56a6a; !important" href="https://github.com/nathanenglehart/regression">https://github.com/nathanenglehart/regression</a>. The next section will detail logistic regression. 
 
@@ -510,8 +503,9 @@ Extensive OLS, ridge, and lasso code available at: <a style="color: #f56a6a; !im
 
 # Logit and Probit Regression
 
-Logistic regression (also known as logit regression) and probit regression - like OLS regression - are commonly used in the social sciences. Logit and probit regression models are used to examine the extent to which various independent variables are related to a binary dependent variable. \
+<!--Logistic regression (also known as logit regression) and probit regression - like OLS regression - are commonly used in the social sciences. Logit and probit regression models are used to examine the extent to which various independent variables are related to a binary dependent variable. \
 \
+-->
 Probit and logit regression models take the form:
 \\[ \mathbb{P}(t = 1 \text{ } \vert \text{ } \boldsymbol x, \theta) = G(\theta \cdot \boldsymbol x) \\]
 where $\theta = \textbf{[}\theta_1,\theta_2,...,\theta_n \textbf{]}$ represents the logit coefficients, $\boldsymbol x = \textbf{[}x_1,x_2,...,x_n \textbf{]}$ is a feature vector representing a single input observation, and $G$ is a function that takes on values between zero and one. \
@@ -539,10 +533,12 @@ As such, we can write that the predicted classification is given by:
 % ]]>
 </script>
 </div> \
+Let $z = \theta \cdot \boldsymbol x$.\
+\
 Logistic regression uses the sigmoid function (also known as the logistic function) to compute classification $t$ probabilities with:
 \\[ G(z) = \sigma(z) = \frac{1}{1 + e^{-z}} = \frac{e^z}{1+e^z} \\]
 Probit regression uses the standard normal cumulative distribution function to compute classification probabilities $t$ with:
-\\[ G(z) = \Phi(z) = \int^z_{-\infty} \phi (v)dz = \frac{1}{\sqrt{2\pi}} \int^z_{-\infty} e^{\frac{-z^2}{2}} dz  \\]
+\\[ G(z) = \Phi(z) = \frac{1}{\sqrt{2\pi}} \int^z_{-\infty} e^{\frac{-z^2}{2}} dz  \\]
 <!--\\[ \hat{t} = \arg \max_{t \in [0,1]} P(t) \\]--> <!-- this isnt true -->
 Like OLS and ridge regression, logistic regression seeks to find coefficients $\theta$ for the regression function which minimize prediction error. However, unlike OLS and ridge regression, logistic regression has no closed form solution. Instead, algorithms are used to compute optimal coefficients. \
 \
@@ -724,13 +720,13 @@ McFadden's $R^2$ is computed as follows.
 <!-- \\[R^2_{\text{McFadden}} = 1 - \frac{L_{ur}}{L_{0}} = \frac{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta)] + y_i \log[G(\boldsymbol x_i\hat\theta)]\bigg)}{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta_0)] + y_i \log[G(\boldsymbol x_i\hat{\theta}_{0})]\bigg)} \\]
 -->
 
-\\[R_{\text{McFadden}}^2 = 1 - \frac{L_F}{L_0} = \frac{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta)] + y_i \log[G(\boldsymbol x_i\hat\theta)]\bigg)}{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat \theta_0)] + y_i \log[G(\boldsymbol x_i\hat \theta_0)]\bigg)} \\]
+\\[ \begin{aligned} R_{\text{McFadden}}^2 &= 1 - \frac{L_F}{L_0} \\\\ &= \frac{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta)] + y_i \log[G(\boldsymbol x_i\hat\theta)]\bigg)}{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat \theta_0)] + y_i \log[G(\boldsymbol x_i\hat \theta_0)]\bigg)} \end{aligned} \\]
 
 where $G$ is the sigmoid function (logit) or the cumulative distribution function of a standard normal random variable (probit) and $\boldsymbol x_i$ are rows of the regressor matrix.\
 \
 Notice that the numerator and denominator functions are log likelihood functions. The log likelihood of function gives the likelihood of observing a sample with given function parameters. In McFadden's $R^2$, the numerator and denominator are log likelihoods with coefficients $\hat{\theta}$ and $\hat \theta_0$ which maximize the likelihood of observing the given data. The difference between the two is that $\hat{\theta}$ represents the full vector of coefficients while $\hat\theta_0$ represents only the intercept term (first coefficient) while setting the rest of the coefficients to zero. \
 \
-Note that since $G$ is between $0$ and $1$, and the log of a number less than $1$ is negative, that both log-likelihoods are negative. If the $\boldsymbol x$'s  has no predictive power, then the log likelihood will be the same. So: \\[ L_F = L_0 \implies R^2_{\text{McFadden}} = 0 \\]
+Note that since $G$ is between $0$ and $1$, and the log of a number less than $1$ is negative, that both log-likelihoods are negative. If the $\boldsymbol x$'s  have no predictive power, then the log likelihood will be the same. So: \\[ L_F = L_0 \implies R^2_{\text{McFadden}} = 0 \\]
 We can write McFadden's $R^2$ in python as follows:
 
 ```python
@@ -799,7 +795,9 @@ plt.show()
 As a result, this script displays:
 <img src="/images/simple_logit.png" alt="/images/simple_logit.png"/> \
 \
-with an Efron's pseudo $R^2$ of 0.09123912933661849. Therefore, we can say that 9.1% of variance in whether or not a person has diabetes is explained by the glucose variable. Thus, a low portion of variance is explained. Not amazing - but lets see what happens when we add more independent variable predictors to the model.
+with an Efron's pseudo $R^2$ of $0.0912$. 
+
+<!--Therefore, we can say that 9.1% of variance in whether or not a person has diabetes is explained by the glucose variable. Thus, a low portion of variance is explained. Not amazing - but lets see what happens when we add more independent variable predictors to the model. (you can't say this!) -->
 
 ### Multivarite Logistic Regression Example
 
@@ -861,11 +859,12 @@ plt.show()
 Which displays:
 <img src="/images/pima_logit.png" alt="/images/pima_logit.png"/> \
 \
-with an Efron's pseudo $R^2$ of 0.2788494451173642. As such we can say that 27.8 percent of the variance in whether or not a person has diabetes or not is explained by the glucose and mass variables. Thus, a low-to moderate portion of variance is explained. Much better than our single variable model!
+with an Efron's pseudo $R^2$ of $0.279$. Notice that adding mass as an explanatory variable triples the explanatory power of the model! 
+<!--As such we can say that 27.8 percent of the variance in whether or not a person has diabetes or not is explained by the glucose and mass variables. Thus, a low-to moderate portion of variance is explained. Much better than our single variable model!-->
 
 ### Logistic Regression as Classification
 
-Though logistic regression is commonly used by social scientists for regression analysis, logistic regression is also widely used for classification problems. In the field of machine learning, this makes logistic regression a supervised, probabalistic, classification method. \
+Though logistic regression is commonly used by social scientists for regression analysis, logistic regression is also widely used for classification problems. In the field of machine learning, this makes logistic regression a supervised probabalistic classification method. \
 \
 Suppose, for example, that we split the Pima Indians Diabetes Dataset into a train dataset and a test dataset such that we wish to use the train dataset to predict whether an individual in the test dataset has diabetes based. \
 \
@@ -943,7 +942,7 @@ This displays: \
 \
 <img src="/images/pred-pima-pairplot.png" alt="/images/pred-pima-pairplot.png"/> \
 \
-Which computes an error rate of ~0.24. Quite good for this dataset!
+Which computes an error rate of $\approx 0.24$. Quite good for this dataset!
 
 ### Notes 
 

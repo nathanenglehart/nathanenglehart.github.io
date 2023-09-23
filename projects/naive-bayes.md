@@ -13,7 +13,7 @@ To compute the probability of a test vector $\boldsymbol x_i$ with features $x_{
 \\[ \mathbb{P}(y_i,\boldsymbol x_i) = \mathbb{P}(y_i) \prod_{j=1}^n \mathbb{P} (x_{ij} \mid y_i) \\]
 
 Then, by running this equation for each possible classification of $y_i$, Naive Bayes assigns the classification with maximal probability as the predicted classification. As such, to compute the predicted classification $\hat y_i$, we can write:
-\\[ \begin{aligned} \hat y_i &= \arg \max_{y_i \in C} \mathbb{P}(y_i,\boldsymbol x_i) \\\\ &= \arg \max_{y_i \in C} \mathbb{P}(y_i) \prod_{j=1}^n \mathbb{P} (x_{ij} \mid y_i) \end{aligned} \\]
+\\[ \begin{aligned} \hat y_i &= \arg \max_{y_i \in C} \bigg( \mathbb{P}(y_i,\boldsymbol x_i) \bigg) \\\\ &= \arg \max_{y_i \in C} \bigg( \mathbb{P}(y_i) \prod_{j=1}^n \mathbb{P} (x_{ij} \mid y_i) \bigg) \end{aligned} \\]
 Implementations of Naive Bayes are unique in how they compute the prior and likelihood. This writeup will explore two varieties of Naive Bayes: Categorical Naive Bayes and Gaussian Naive Bayes.
 
 ### Note
