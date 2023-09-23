@@ -716,12 +716,9 @@ def efron_r_squared(t, t_probs):
 	return 1.0 - ( np.sum(np.power(t - t_probs, 2.0)) / np.sum(np.power((t - (np.sum(t) / float(len(t)))), 2.0)) ) 
 ```
 
-McFadden's $R^2$ is computed as follows.
-<!-- \\[R^2_{\text{McFadden}} = 1 - \frac{L_{ur}}{L_{0}} = \frac{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta)] + y_i \log[G(\boldsymbol x_i\hat\theta)]\bigg)}{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta_0)] + y_i \log[G(\boldsymbol x_i\hat{\theta}_{0})]\bigg)} \\]
--->
-
-\\[ \begin{aligned} R_{\text{McFadden}}^2 &= 1 - \frac{L_F}{L_0} \\\\ &= \frac{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta)] + y_i \log[G(\boldsymbol x_i\hat\theta)]\bigg)}{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat \theta_0)] + y_i \log[G(\boldsymbol x_i\hat \theta_0)]\bigg)} \end{aligned} \\]
-
+McFadden's $R^2$ is computed as follows.\
+\
+\\[ \begin{aligned} R_{\text{McFadden}}^2 &= 1 - \frac{L_F}{L_0} \\\\ &= \frac{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat\theta)] + y_i \log[G(\boldsymbol x_i\hat\theta)]\bigg)}{\sum^N_{i=1} \bigg((1-y_i) \log [1 - G(\boldsymbol x_i\hat \theta_0)] + y_i \log[G(\boldsymbol x_i\hat \theta_0)]\bigg)} \end{aligned} \\] \
 where $G$ is the sigmoid function (logit) or the cumulative distribution function of a standard normal random variable (probit) and $\boldsymbol x_i$ are rows of the regressor matrix.\
 \
 Notice that the numerator and denominator functions are log likelihood functions. The log likelihood of function gives the likelihood of observing a sample with given function parameters. In McFadden's $R^2$, the numerator and denominator are log likelihoods with coefficients $\hat{\theta}$ and $\hat \theta_0$ which maximize the likelihood of observing the given data. The difference between the two is that $\hat{\theta}$ represents the full vector of coefficients while $\hat\theta_0$ represents only the intercept term (first coefficient) while setting the rest of the coefficients to zero. \
