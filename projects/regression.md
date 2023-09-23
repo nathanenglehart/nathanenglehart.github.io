@@ -1,7 +1,7 @@
 ---
 layout: home2
 permalink: /projects/regression/
-title: Regression: OLS, Ridge, Lasso, Logit, Probit
+title: Regression (OLS, Ridge, Lasso, Logit, Probit)
 tags: [Jekyll, theme, responsive, blog, template]
 modified: 2-16-22
 comments: false
