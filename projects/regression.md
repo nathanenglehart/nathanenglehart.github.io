@@ -74,7 +74,7 @@ class ols_regression():
 
 As previously noted, there are situations where regression models need to be generalizable for future data (a common machine learning problem). In such situations, regressions that use regularization to penalize overfitting with high coefficients are often utilized. One such method is ridge regression which uses l2 regularization. There exists a closed-form solution of ridge regression that computes its coefficients with
 \\[ \theta = (X^T X + \lambda I)^{-1} X^T t \\] 
-where $\theta$ represents the ridge estimator (also known as coefficients or weights), $X$ is an $n \times m$ matrix containing independent variable parameters, $\lambda$ is the weight penalty, $I$ is a $m \times m$ identity matrix, and $t$ is a vector of response variables. As in OLS regression, predictions are generated with:
+where $\theta$ represents the ridge estimator (also known as coefficients or weights), $X$ is an $m \times n$ matrix containing independent variable parameters, $\lambda$ is the weight penalty, $I$ is a $m \times m$ identity matrix, and $t$ is a vector of response variables. As in OLS regression, predictions are generated with:
 \\[ \hat{t} = X\theta \\]
 Notably, ridge regression is highly useful with multicollinear, highly correlated independent variables.  \
 \
@@ -350,7 +350,7 @@ plt.show()
 And as a result, the script displays:
 <img src="/images/mpg_second_degree.png" alt="/images/mpg_second_degree.png"/> \
 \
-with an $R^2$ of $\approx 0.71$ and an adjusted $R^2$ of $\approx 0.714$. Now, with adjusted $R^2$, we can say that $71.4$ percent of the variance in MPG is explained by weight. Compared to the previous linear model, an even high portion of variance is explained.
+with an $R^2$ of $\approx 0.71$ and an adjusted $R^2$ of $\approx 0.714$. Now, with adjusted $R^2$, we can say that $71.4$ percent of the variance in MPG is explained by weight. Compared to the previous linear model, an even higher portion of variance is explained.
 
 ### Mulivariate Regression Example
 
@@ -542,7 +542,7 @@ Probit regression uses the standard normal cumulative distribution function to c
 <!--\\[ \hat{t} = \arg \max_{t \in [0,1]} P(t) \\]--> <!-- this isnt true -->
 Like OLS and ridge regression, logistic regression seeks to find coefficients $\theta$ for the regression function which minimize prediction error. However, unlike OLS and ridge regression, logistic regression has no closed form solution. Instead, algorithms are used to compute optimal coefficients. \
 \
-One such algorithm is batch gradient descent (also known as vanilla gradient descent). For some $m \times n$ train matrix $X$, batch gradient descent:
+One such algorithm is batch gradient descent (also known as vanilla gradient descent - which is also detailed above). As noted above, for some $m \times n$ train matrix $X$, batch gradient descent:
 
 1. Initiailizes $\theta$ randomly. Commonly, $\theta$ is initialized to all zeros.
 2. Initializes a learning rate $\alpha$. 
