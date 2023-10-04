@@ -39,7 +39,7 @@ Categorical Naive Bayes faces an issue if individual categorical features labels
 \
 This problem can be solved using a technique called Laplace Smoothing. Laplace Smoothing is a slight modification to the Naive Bayes algorithm which solves the zero frequency problem by modifying the conditional class probability equation with:
 \\[ \mathbb{P} (x_{ij} \mid y) = \frac{(\sum^m_{k=1} I(x_{ij} = x_{kj} \land y_i = y_k)) + \alpha}{(\sum^m_{k=1} I(y_i = y_k)) + (\alpha n)} \\]
-for some $\alpha \geq 1$. This ensures that conditional class probabilities will never become zero. Laplace smoothing can also be applied to other forms of Naive Bayes. For example, Laplace Smoothing is often applied to Multinomial Naive Bayes.
+for some $\alpha \geq 1$. This ensures that conditional class probabilities will never become zero. 
 
 ### Categorical Naive Bayes Visualization
 
