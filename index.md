@@ -20,7 +20,10 @@ My name is Nathan Englehart (he/him/his). I am from Toledo, Ohio and recently gr
 Currently I am working remotely from Santa Barbara, CA at the <a style="color: #f56a6a !important" href="https://oakleaf.com/">Oakleaf group</a> in the data analytics and modeling department where I am involved with several projects in litigation support and MBS report classification. 
 <br>
 <br>
-I am concurrently co-authoring a conference paper which uses the Alloy specification language to build a model of Michigan statutory expungement law. Such statutory laws are notoriously complex and we argue that models such as ours may alleviate inherent confusion and reveal "black swan" scenarios. A draft of the paper is available <a style="color: #f56a6a !important" href="https://nathanenglehart.github.io/files/englehart-mtu-draft.pdf">here</a>.  
+I am concurrently co-authoring a conference paper which uses the Alloy specification language to build a model of Michigan statutory expungement law. Such statutory laws are notoriously complex and we argue that models such as ours may alleviate inherent confusion and reveal "black swan" scenarios. A draft of the paper is available <a style="color: #f56a6a !important" href="https://nathanenglehart.github.io/files/ACM_CS___Law_2024-1.pdf">here</a>.  
+<br>
+<br>
+I am also collaborating on another conference paper which uses text as data methods to analyze press coverage of female candidates using the 2018 Ohio midterm elections as a case study. A draft of this paper is available on request.   
 
 <h3 class="small_title">Contact Me</h3>
 
