@@ -10,7 +10,7 @@ disqus_shortname: nathanenglehart
 # For external links add external: true
 links:
   -title: CV
-    url: /files/cv.pdf
+    url: /files/cv.pdf/
   -title: Research
     url: /research/
 #  - title: Background
