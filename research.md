@@ -1,6 +1,6 @@
 ---
 layout: publications
-permalink: /research/
+permalink:
 title: Research
 modified: 3-23-2022
 comments: false
