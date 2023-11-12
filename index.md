@@ -14,7 +14,7 @@ tags: [Jekyll, theme, responsive, blog, template]
 <div class="bod">
 <h3 class="small_title">About Me</h3>
 
-My name is Nathan Englehart (he/him/his). I am from Toledo, Ohio and recently graduated from <a style="color: #f56a6a !important" href="https://www.oberlin.edu/">Oberlin College</a> in May 2023 where I completed a Bachelor of Arts degree with three majors in mathematics, history, and East Asian studies. 
+My name is Nathan Englehart (he/him/his). I am from Perrysburg, Ohio and recently graduated from <a style="color: #f56a6a !important" href="https://www.oberlin.edu/">Oberlin College</a> in May 2023 where I completed a Bachelor of Arts degree with three majors in mathematics, history, and East Asian studies. 
 <br>
 <br>
 Currently I am working remotely from Santa Barbara, CA at the <a style="color: #f56a6a !important" href="https://oakleaf.com/">Oakleaf group</a>. As a junior financial engineer in the data analytics and modeling department, I am involved with several projects in litigation support and report classification. 
