@@ -53,11 +53,10 @@
 			    display: inline-block;
 			    cursor: pointer;
 			    padding: 1% 2%;
-			    background-color: #333; /* Button background color */
-			    color: #fff; /* Button text color */
+			    background-color: #f9f9f9; /* Button background color (was 333) */
+			    color: #333; /* Button text color */
 			    border: none; /* Remove border */
 			    border-radius: 5px; /* Rounded corners */
-			    font-size: 2em; /* Font size */
 			    text-align: center; /* Center text */
 			    text-decoration: none; /* Remove underline from text */
 			    transition: background-color 0.3s; /* Smooth transition for background color */
@@ -65,7 +64,7 @@
 			}
 
 			.menu-btn:hover {
-			    background-color: #555; /* Change background color on hover */
+			    background-color: #f1f1f1; /* Change background color on hover (was #555) */
 			}
 
 			.menu {
@@ -73,8 +72,8 @@
 			    list-style-type: none; /* Remove default list styling */
 			    padding: 0;
 			    margin: 0;
-			    min-width: 50%;
-			    max-width: 50%;
+			    min-width: 55%;
+			    max-width: 55%;
 			    border-radius: 5px; /* Rounded corners */
 			}
 
@@ -88,8 +87,8 @@
 			    padding: 10px 20px;
 			    margin-bottom: 10px; /* Space below the button */
 			    transition: background-color 0.3s;
-			    min-width: 50%;
-			    max-width: 50%;
+			    min-width: 55%;
+			    max-width: 55%;
 			    border-radius: 5px; /* Rounded corners */
 			}
 
@@ -110,7 +109,7 @@
 	<body>
 		<div class="container">
 			<div class="tan-box">
-				<label for="menu-toggle" class="menu-btn">Nathan Englehart</label>
+				<label for="menu-toggle" class="menu-btn"><h1>Nathan Englehart</h1></label>
 				<input type="checkbox" id="menu-toggle">
 				<ul class="menu"> 
 					<li><a href="index.html">About Me</a></li> 
