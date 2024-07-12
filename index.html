@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Nathan Englehart</title>
+		<style>
+			body {
+			    margin: 0;
+			    padding: 0;
+			    font-family: Arial, sans-serif;
+			    background-color: white; 
+			}
+
+			a {
+			    color: #3498db; /* Normal link color */
+			}
+			a:visited {
+			    color: #9b59b6; /* Visited link color */
+			}
+			a:hover {
+			    color: #e74c3c; /* Hover link color */
+			}
+			a:active {
+			    color: #2ecc71; /* Active link color */
+			}
+
+			.container {
+			    max-width: 800px;
+			    width: 90%; 
+			    margin: 0 auto;
+			    padding: 20px;
+			    background-color: white;
+			}
+			.tan-box {
+			    border: 2px solid #D2B48C; /* Dark tan border */
+			    background-color: #F5DEB3; /* Light tan background */
+			    width: auto;
+			    height: auto;
+			    border-radius: 15px; /* Rounded corners */
+			    padding: 2%;
+			    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+			}
+
+			img {
+			    max-width: 70%; 
+			    height: auto; 
+			    display: block; 
+			    margin: 0 auto 10px; 
+			}
+
+			.menu-btn {
+			    display: inline-block;
+			    cursor: pointer;
+			    padding: 10px 20px;
+			    background-color: #333; /* Button background color */
+			    color: #fff; /* Button text color */
+			    border: none; /* Remove border */
+			    border-radius: 5px; /* Rounded corners */
+			    font-size: 2em; /* Font size */
+			    text-align: center; /* Center text */
+			    text-decoration: none; /* Remove underline from text */
+			    transition: background-color 0.3s; /* Smooth transition for background color */
+			    margin-bottom: 10px; /* Space below the button */
+			}
+
+			.menu-btn:hover {
+			    background-color: #555; /* Change background color on hover */
+			}
+
+			.menu {
+			    display: none; /* Hide menu by default */
+			    list-style-type: none; /* Remove default list styling */
+			    padding: 0;
+			    margin: 0;
+			    min-width: 40%;
+			    max-width: 40%;
+			    border-radius: 5px; /* Rounded corners */
+			}
+
+			.menu a {
+			    display: block;
+			    padding: 10px;
+			    background-color: #f9f9f9;
+			    color: #333;
+			    text-decoration: none;
+			    border-bottom: 1px solid #ddd;
+			    padding: 10px 20px;
+			    margin-bottom: 10px; /* Space below the button */
+			    transition: background-color 0.3s;
+			    min-width: 40%;
+			    max-width: 40%;
+			    border-radius: 5px; /* Rounded corners */
+			}
+
+			.menu a:hover {
+			    background-color: #f1f1f1;
+			}
+
+			input[type="checkbox"] {
+			    display: none;
+			}
+
+			input[type="checkbox"]:checked ~ .menu {
+			    display: block; /* Show menu when checkbox is checked */
+			}	
+
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="tan-box">
+				<label for="menu-toggle" class="menu-btn">Nathan Englehart</label>
+				<input type="checkbox" id="menu-toggle">
+				<ul class="menu"> 
+					<li><a href="index.html">About Me</a></li> 
+					<li><a href="cv.pdf">Cirriculum Vitae</a></li> 
+				</ul>
+
+				<img src="nathan_.jpg" alt="Picture">
+
+				<h2>About Me</h2>
+
+				<p>Hello! My name is Nathan Englehart (he/him/his) and I am a Political Science PhD student at <a href="https://polisci.wustl.edu/">Washington University in Saint Louis</a>. 
+
+				<p>Prior to joining Washington University, I worked on the modeling and analytics team at <a href="https://oakleaf.com/">The Oakleaf Group</a>. My work supported several high profile RMBS litigation court cases. I hold a BA degree from <a href="https://oberlin.edu/">Oberlin College</a>. Go Yeo!</p>
+
+				<h2>Contact</h2>
+
+				<p>Feel free to reach out to me via my email with any inquiries: <a href="mailto:enathan@wustl.edu">enathan@wustl.edu</a>.</p>
+
+				<center><p>Last updated: July 2024</p></center>
+			</div>
+		</div>
+	</body>
+</html>
+
